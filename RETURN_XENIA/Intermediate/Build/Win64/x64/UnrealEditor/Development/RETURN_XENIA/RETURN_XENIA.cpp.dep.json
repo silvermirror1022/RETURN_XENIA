@@ -1,0 +1,14 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\user\\documents\\unreal projects\\return_xenia\\return_xenia\\source\\return_xenia\\return_xenia.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\user\\documents\\unreal projects\\return_xenia\\return_xenia\\intermediate\\build\\win64\\x64\\return_xeniaeditor\\development\\engine\\sharedpch.engine.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\user\\documents\\unreal projects\\return_xenia\\return_xenia\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\return_xenia\\definitions.return_xenia.h",
+            "c:\\users\\user\\documents\\unreal projects\\return_xenia\\return_xenia\\source\\return_xenia\\return_xenia.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "RETURN_XENIA",
+			"Path": "..\\Source\\RETURN_XENIA.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "RETURN_XENIAEditor",
+			"Path": "..\\Source\\RETURN_XENIAEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

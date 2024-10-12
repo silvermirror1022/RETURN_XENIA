@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-RETURN_XENIA.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\RETURN_XENIAEditor\Development\Engine\SharedPCH.Engine.Cpp20.h.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\RETURN_XENIA.init.gen.cpp.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\RETURN_XENIACharacter.gen.cpp.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\RETURN_XENIAGameMode.gen.cpp.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\RETURN_XENIA.cpp.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\RETURN_XENIACharacter.cpp.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\RETURN_XENIAGameMode.cpp.obj"
+"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\Default.rc2.res"
+/OUT:"C:\Users\User\Documents\Unreal Projects\RETURN_XENIA\RETURN_XENIA\Intermediate\Build\Win64\x64\UnrealEditor\Development\RETURN_XENIA\UnrealEditor-RETURN_XENIA.lib"
