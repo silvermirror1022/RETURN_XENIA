@@ -4,11 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
-#include "LXPlayerInteractionInterface.generated.h"
+#include "RXPlayerInteractionInterface.generated.h"
 
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
-class ULXPlayerInteractionInterface : public UInterface
+class URXPlayerInteractionInterface : public UInterface
 {
 	GENERATED_BODY()
 };
@@ -16,7 +16,7 @@ class ULXPlayerInteractionInterface : public UInterface
 /**
  * 
  */
-class RETURN_XENIA_API ILXPlayerInteractionInterface
+class RETURN_XENIA_API IRXPlayerInteractionInterface
 {
 	GENERATED_BODY()
 

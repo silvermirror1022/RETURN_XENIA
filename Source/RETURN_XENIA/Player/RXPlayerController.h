@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Engine/DataAsset.h"
-#include "LXAssetData.generated.h"
+#include "GameFramework/PlayerController.h"
+#include "RXPlayerController.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ULXAssetData : public UPrimaryDataAsset
+class RETURN_XENIA_API ARXPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	

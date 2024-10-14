@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/PlayerController.h"
-#include "LXPlayerController.generated.h"
+#include "Animation/AnimInstance.h"
+#include "RXAnimInstance.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ALXPlayerController : public APlayerController
+class RETURN_XENIA_API URXAnimInstance : public UAnimInstance
 {
 	GENERATED_BODY()
 	

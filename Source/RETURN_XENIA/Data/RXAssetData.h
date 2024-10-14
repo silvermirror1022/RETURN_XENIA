@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Animation/AnimInstance.h"
-#include "LXAnimInstance.generated.h"
+#include "Engine/DataAsset.h"
+#include "RXAssetData.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ULXAnimInstance : public UAnimInstance
+class RETURN_XENIA_API URXAssetData : public UPrimaryDataAsset
 {
 	GENERATED_BODY()
 	

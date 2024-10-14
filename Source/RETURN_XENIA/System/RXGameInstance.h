@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "Engine/GameInstance.h"
-#include "LXGameInstance.generated.h"
+#include "RXGameInstance.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ULXGameInstance : public UGameInstance
+class RETURN_XENIA_API URXGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
 	

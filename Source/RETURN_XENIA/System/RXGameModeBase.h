@@ -4,13 +4,13 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "LXGameModeBase.generated.h"
+#include "RXGameModeBase.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ALXGameModeBase : public AGameModeBase
+class RETURN_XENIA_API ARXGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
