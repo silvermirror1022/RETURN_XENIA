@@ -2,10 +2,26 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
+#include "GameplayTagContainer.h"
 #include "Engine/DataAsset.h"
 #include "RXInputData.generated.h"
 
+class UInputAction;
+class UInputMappingContext;
+
+USTRUCT()
+struct FRXInputAction
+{
+	GENERATED_BODY()
+
+public:
+
+	UPROPERTY(EditDefaultsOnly)
+	FGameplayTag InputTag = FGameplayTag::EmptyTag;
+
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UInputAction> InputAction = nullptr;
+};
 /**
  * 
  */
@@ -13,5 +29,13 @@ UCLASS()
 class RETURN_XENIA_API URXInputData : public UDataAsset
 {
 	GENERATED_BODY()
-	
+public:
+	const UInputAction* FindInputActionByTag(const FGameplayTag& InputTag) const;
+
+public:
+	UPROPERTY(EditDefaultsOnly)
+	TObjectPtr<UInputMappingContext> InputMappingContext;
+
+	UPROPERTY(EditDefaultsOnly)
+	TArray<FRXInputAction>InputActions;
 };

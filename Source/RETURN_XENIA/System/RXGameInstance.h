@@ -13,5 +13,10 @@ UCLASS()
 class RETURN_XENIA_API URXGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
-	
+public:
+	URXGameInstance(const FObjectInitializer& ObjectInitializer);
+
+public:
+	virtual void Init() override;
+	virtual void Shutdown() override;
 };
