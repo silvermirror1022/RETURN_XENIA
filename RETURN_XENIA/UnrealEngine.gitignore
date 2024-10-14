@@ -72,3 +72,15 @@ Plugins/**/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+# Unreal Engine Debug/Profiling Files
+*.pdb
+
+# Visual Studio Build
+*.ipch
+*.aps
+*.ncb
+*.user
+*.cache
+*.ilk
+*.log
