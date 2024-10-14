@@ -8,6 +8,23 @@ public class RETURN_XENIA : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput" });
+		PublicIncludePaths.AddRange(new string[]
+		{
+			"RETURN_XENIA",
+		});
+
+		PublicDependencyModuleNames.AddRange(new string[] { 
+			"Core", 
+			"CoreUObject", 
+			"Engine", 
+			"InputCore", 
+			"EnhancedInput" ,
+			"GameplayTags",
+			"GameplayTasks",
+			"NavigationSystem",
+			"AIModule",
+			"Niagara",
+			"UMG"
+		});
 	}
 }
