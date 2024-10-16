@@ -14,4 +14,15 @@ class RETURN_XENIA_API ARXPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
+public:
+	ARXPlayerController(const FObjectInitializer& ObjectInitializer);
+
+protected:
+	virtual void BeginPlay() override;
+	virtual void SetupInputComponent() override;
+	//virtual void PlayerTick(float DeltaTime) override;
+
+public:
+	UPROPERTY(BlueprintReadOnly)
+	TObjectPtr<class ARXPlayer> RXPlayer;
 };

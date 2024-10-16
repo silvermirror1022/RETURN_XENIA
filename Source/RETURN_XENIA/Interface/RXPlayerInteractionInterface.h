@@ -14,7 +14,7 @@ class URXPlayerInteractionInterface : public UInterface
 };
 
 /**
- * 
+ *   
  */
 class RETURN_XENIA_API IRXPlayerInteractionInterface
 {

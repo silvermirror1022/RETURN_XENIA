@@ -3,8 +3,12 @@
 
 #include "RXGameplayTags.h"
 
-namespace HSGameplayTags
+namespace RXGameplayTags
 {
-	UE_DEFINE_GAMEPLAY_TAG(Input_Action_SetDestination, "Input.Action.SetDestination");
+	//Character Move Section Tag
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Look, "Input.Action.Look");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Move, "Input.Action.Move");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Jump, "Input.Action.Jump");
+
 
 }

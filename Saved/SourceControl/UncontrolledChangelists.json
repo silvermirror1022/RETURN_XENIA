@@ -5,6 +5,25 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/RETURN_XENIA/Content/Data/PD_AssetData.uasset",
+				"D:/RETURN_XENIA/Content/Data/PDA_AssetData.uasset",
+				"D:/RETURN_XENIA/Content/Data/DA_InputData.uasset",
+				"D:/RETURN_XENIA/Content/ThirdPerson/Blueprints/BP_ThirdPersonCharacter.uasset",
+				"D:/RETURN_XENIA/Content/Input/IA_Jump.uasset",
+				"D:/RETURN_XENIA/Content/Input/IA_Look.uasset",
+				"D:/RETURN_XENIA/Content/Input/IA_Move.uasset",
+				"D:/RETURN_XENIA/Content/Input/IMC_Default.uasset",
+				"D:/RETURN_XENIA/Content/Blueprint/BP_GameMode.uasset",
+				"D:/RETURN_XENIA/Content/ThirdPerson/Maps/ThirdPersonMap.umap",
+				"D:/RETURN_XENIA/Content/Blueprint/Character/BP_RXPlayer.uasset",
+				"D:/RETURN_XENIA/Content/Blueprint/Animation/ABP_Player.uasset",
+				"D:/RETURN_XENIA/Content/Blueprint/Animation/BS_IdleWalkRun.uasset",
+				"D:/RETURN_XENIA/Content/Blueprint/Character/BP_Player.uasset",
+				"D:/RETURN_XENIA/Content/Data/PDA_AssetData1.uasset",
+				"D:/RETURN_XENIA/Content/ThirdPerson/Input/IMC_Default.uasset",
+				"D:/RETURN_XENIA/Content/ThirdPerson/Input/Actions/IA_Move.uasset",
+				"D:/RETURN_XENIA/Content/ThirdPerson/Input/Actions/IA_Look.uasset",
+				"D:/RETURN_XENIA/Content/ThirdPerson/Input/Actions/IA_Jump.uasset",
 				"C:/Users/User/Documents/Unreal Projects/RETURN_XENIA/RETURN_XENIA/Content/StarterContent/HDRI/HDRI_Epic_Courtyard_Daylight.uasset"
 			]
 		}

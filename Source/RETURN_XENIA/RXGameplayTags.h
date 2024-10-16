@@ -6,6 +6,8 @@
 #include "NativeGameplayTags.h"
 
 namespace RXGameplayTags {
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_SetDestination);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Look);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Move);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Jump);
 
 }
