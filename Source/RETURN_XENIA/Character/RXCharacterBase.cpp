@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Character/RXCharacterBase.h"
@@ -18,13 +18,13 @@ ARXCharacterBase::ARXCharacterBase()
 	GetCapsuleComponent()->SetCollisionProfileName(TEXT("Pawn"));
 
 	// Movement
-	GetCharacterMovement()->bOrientRotationToMovement = true;  // ÀÌµ¿ ¹æÇâ¿¡ ¸ÂÃç È¸Àü
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f);  // È¸Àü ¼Óµµ
-	GetCharacterMovement()->JumpZVelocity = 700.f;  // Á¡ÇÁ ¼Óµµ
-	GetCharacterMovement()->AirControl = 0.35f;  // °øÁß¿¡¼­ÀÇ Á¦¾î
-	GetCharacterMovement()->MaxWalkSpeed = 500.f;  // ÃÖ´ë °È±â ¼Óµµ
-	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;  // ÃÖ¼Ò °È±â ¼Óµµ
-	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;  // °È±â Á¦µ¿ ¼Óµµ
+	GetCharacterMovement()->bOrientRotationToMovement = true;  // ì´ë™ ë°©í–¥ì— ë§žì¶° íšŒì „
+	GetCharacterMovement()->RotationRate = FRotator(0.0f, 500.0f, 0.0f);  // íšŒì „ ì†ë„
+	GetCharacterMovement()->JumpZVelocity = 700.f;  // ì í”„ ì†ë„
+	GetCharacterMovement()->AirControl = 0.35f;  // ê³µì¤‘ì—ì„œì˜ ì œì–´
+	GetCharacterMovement()->MaxWalkSpeed = 500.f;  // ìµœëŒ€ ê±·ê¸° ì†ë„
+	GetCharacterMovement()->MinAnalogWalkSpeed = 20.f;  // ìµœì†Œ ê±·ê¸° ì†ë„
+	GetCharacterMovement()->BrakingDecelerationWalking = 2000.f;  // ê±·ê¸° ì œë™ ì†ë„
 
 	// Mesh
 	GetMesh()->SetRelativeLocationAndRotation(FVector(0.0f, 0.0f, -100.0f), FRotator(0.0f, -90.0f, 0.0f));
