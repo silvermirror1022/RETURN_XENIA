@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Character/RXCharacterBase.h"
+#include "Interface/RXPlayerHUDInterface.h"
 #include "RXPlayer.generated.h"
 
 struct FInputActionValue;
@@ -11,7 +12,7 @@ struct FInputActionValue;
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ARXPlayer : public ARXCharacterBase
+class RETURN_XENIA_API ARXPlayer : public ARXCharacterBase, public IRXPlayerHUDInterface
 {
 	GENERATED_BODY()
 	
@@ -19,29 +20,44 @@ public:
 	ARXPlayer();
 
 protected:
-	// Camera Section
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	virtual void BeginPlay();
+
+	
+protected: // Camera Section
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class USpringArmComponent> CameraBoom;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UCameraComponent> FollowCamera;
-
 	UPROPERTY()
 	TObjectPtr<class ARXPlayerController> PlayerController;
-protected:
 
-	/** Called for movement input */
+
+protected: // InputMovement Logic Section
 	void Move(const FInputActionValue& Value);
-
-	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 
 
-protected:
-	// APawn interface
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+protected: // DamagedByPawn(Harpy) Section
+	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
-	// To add mapping context
-	virtual void BeginPlay();
+
+protected: // Dead Section
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class UAnimMontage> DeadMontage;
+
+	virtual void SetDead();
+	void PlayDeadAnimation();
+
+	float DeadEventDelayTime = 5.0f;
+
+
+protected: // Stat Section -> Player Hp,Stamina
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class URXPlayerStatComponent> Stat;
+
+
+protected: 	//PlayerHUD Interface Virtual Func override Implementation
+	virtual void SetupHUDWidget(class URXHUDWidget* InHUDWidget) override;
 
 };

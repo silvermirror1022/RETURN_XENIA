@@ -20,9 +20,16 @@ public:
 protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
-	//virtual void PlayerTick(float DeltaTime) override;
 
 public:
 	UPROPERTY(BlueprintReadOnly)
 	TObjectPtr<class ARXPlayer> RXPlayer;
+
+	//HUD SECTION
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HUD)
+	TSubclassOf<class URXHUDWidget> RXHUDWidgetClass;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = HUD)
+	TObjectPtr<class URXHUDWidget> ARXHUDWidget;
 };

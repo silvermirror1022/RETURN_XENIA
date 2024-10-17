@@ -13,5 +13,17 @@ UCLASS()
 class RETURN_XENIA_API URXHUDWidget : public UUserWidget
 {
 	GENERATED_BODY()
-	
+
+public:
+	URXHUDWidget(const FObjectInitializer& ObjectInitializer);
+
+protected:
+	virtual void NativeConstruct() override;
+
+public:
+	void UpdateHpBar(float NewCurrentHp);
+
+public:
+	UPROPERTY()
+	TObjectPtr<class URXHpBarWidget> HpBar;
 };
