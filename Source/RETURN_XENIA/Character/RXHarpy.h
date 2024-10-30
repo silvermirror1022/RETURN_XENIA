@@ -3,19 +3,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Character/RXCharacterBase.h"
+#include "GameFramework/Character.h"
 #include "RXHarpy.generated.h"
 
-/**
- * 
- */
 UCLASS()
-class RETURN_XENIA_API ARXHarpy : public ARXCharacterBase
+class RETURN_XENIA_API ARXHarpy : public ACharacter
 {
 	GENERATED_BODY()
+
 public:
 	ARXHarpy();
 
 protected:
-	void BeginPlay() override;
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
 };
