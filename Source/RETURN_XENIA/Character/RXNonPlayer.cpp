@@ -3,3 +3,14 @@
 
 #include "Character/RXNonPlayer.h"
 
+void ARXNonPlayer::StartDialogue()
+{
+}
+
+void ARXNonPlayer::DisplayDialogue()
+{
+}
+
+void ARXNonPlayer::EndDialogue()
+{
+}
