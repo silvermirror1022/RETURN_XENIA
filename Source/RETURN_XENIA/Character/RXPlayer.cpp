@@ -53,7 +53,7 @@ void ARXPlayer::BeginPlay()
 		}
 	}
 
-	D(FString::Printf(TEXT("Current Health: %f, Max Health: %f"), Stat->GetCurrentHp(), Stat->GetMaxHp()));
+	//D(FString::Printf(TEXT("Current Health: %f, Max Health: %f"), Stat->GetCurrentHp(), Stat->GetMaxHp()));
 }
 
 void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)

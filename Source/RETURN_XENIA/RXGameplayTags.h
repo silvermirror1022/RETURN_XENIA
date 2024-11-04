@@ -10,5 +10,5 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Move);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Jump);
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_Character_Papamama);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Papamama);
 }

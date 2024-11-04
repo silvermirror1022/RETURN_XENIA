@@ -36,7 +36,7 @@ private:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UWidgetComponent> WidgetComponent;
 
-	UPROPERTY(EditAnywhere, Category = ParentWidgetBP)
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP")
 	TSubclassOf<UUserWidget> WidgetClass;
 		
 };
