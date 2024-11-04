@@ -11,5 +11,5 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Jump, "Input.Action.Jump");
 
 	//DialogueData Text Tag
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_Character_Papamama, "Dialogue.CharacyerType.Papamama");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_Character_Papamama, "Dialogue.CharacterType.Papamama");
 }
