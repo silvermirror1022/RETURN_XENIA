@@ -6,6 +6,8 @@
 #include "UObject/Interface.h"
 #include "RXNPCDialogueInterface.generated.h"
 
+class UTextBlock;
+
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
 class URXNPCDialogueInterface : public UInterface
@@ -24,6 +26,6 @@ class RETURN_XENIA_API IRXNPCDialogueInterface
 public:
 
 	virtual void StartDialogue() = 0;
-	virtual void DisplayDialogue() = 0;
+	virtual void DisplayDialogue(UTextBlock* DialogueTextBlock) = 0;
 	virtual void EndDialogue() = 0;
 };
