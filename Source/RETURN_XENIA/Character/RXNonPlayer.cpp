@@ -4,13 +4,17 @@
 #include "System/RXAssetManager.h"
 #include "Blueprint/UserWidget.h"
 #include "Components/TextBlock.h"
+#include "Kismet/GameplayStatics.h"
+#include "Character/RXPlayer.h"
 #include "Data/RXDialogueData.h"
 #include "Character/RXNonPlayer.h"
 
 ARXNonPlayer::ARXNonPlayer()
 {
+    DialogueWidgetInstance = nullptr;
     DialogueData = nullptr;
     DialogueIndex = 0;
+    bIsTalking = false;
 }
 
 void ARXNonPlayer::BeginPlay()
@@ -47,29 +51,60 @@ void ARXNonPlayer::BeginPlay()
 void ARXNonPlayer::StartDialogue()
 {
     DialogueIndex = 0;
+    bIsTalking = true;
 
+
+    // 플레이어를 바라보게 하기
+    ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);  // 첫 번째 플레이어를 가져옴
+    if (PlayerCharacter)
+    {
+        // ARXPlayer로 캐스팅
+        ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter);
+        if (RXPlayer)
+        {
+            // 플레이어와 NPC의 위치 계산
+            FVector PlayerLocation = RXPlayer->GetActorLocation();
+            FVector NPCLocation = GetActorLocation();
+
+            // NPC가 플레이어를 바라보도록 회전값을 계산
+            FRotator LookAtRotation = (PlayerLocation - NPCLocation).Rotation();
+
+            // NPC의 회전값을 적용 (y축만 회전)
+            SetActorRotation(FRotator(0.0f, LookAtRotation.Yaw, 0.0f));  // Pitch와 Roll은 고정, Yaw만 변경
+
+
+            // 대화 시작 시 이동 비활성화
+            if (RXPlayer->Controller)
+            {
+                // 이동 입력 무시 (PlayerController를 통해)
+                RXPlayer->Controller->SetIgnoreMoveInput(true);
+            }
+        }
+
+    }
+    
     // 위젯 인스턴스 생성
     if (WidgetClass)
     {
-        UUserWidget* WidgetInstance = CreateWidget<UUserWidget>(GetWorld(), WidgetClass);
-        if (WidgetInstance)
+        DialogueWidgetInstance = CreateWidget<UUserWidget>(GetWorld(), WidgetClass);
+        if (DialogueWidgetInstance)
         {
             // 위젯을 뷰포트에 추가
-            WidgetInstance->AddToViewport();
+            DialogueWidgetInstance->AddToViewport();
 
             // Text 위젯을 찾고, 대화 텍스트를 업데이트
-            UTextBlock* DialogueTextBlock = Cast<UTextBlock>(WidgetInstance->GetWidgetFromName("DialogueText"));
+            DialogueTextBlock = Cast<UTextBlock>(DialogueWidgetInstance->GetWidgetFromName("DialogueText"));
             if (DialogueTextBlock)
             {
-                DisplayDialogue(DialogueTextBlock);
+                DisplayDialogue();
             }
         }
     }
 }
 
-void ARXNonPlayer::DisplayDialogue(UTextBlock* DialogueTextBlock)
+void ARXNonPlayer::DisplayDialogue()
 {
-    if (DialogueData)
+    if (DialogueData && DialogueTextBlock)
     {
         const FRXDiaglogueData* DialogueEntry = DialogueData->FindDialogueCharTypeByTag(NPCType);
         if (DialogueEntry && DialogueIndex < DialogueEntry->DialogueText.Num())
@@ -90,6 +125,25 @@ void ARXNonPlayer::EndDialogue()
 {
     UE_LOG(LogTemp, Log, TEXT("Dialogue has ended."));
     DialogueIndex = 0;
+    bIsTalking = false;
+
+    // 대화 종료 시 위젯을 제거
+    if (DialogueWidgetInstance)
+    {
+        DialogueWidgetInstance->RemoveFromViewport();
+        DialogueWidgetInstance = nullptr;
+        DialogueTextBlock = nullptr;
+    }
+    // 플레이어 이동 중지 해제
+    ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);  
+    if (PlayerCharacter)
+    {
+        ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter);
+        if (RXPlayer)
+        {
+            RXPlayer->Controller->SetIgnoreMoveInput(false);  // 이동 입력 허용
+        }
+    }
 }
 
 

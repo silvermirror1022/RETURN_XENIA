@@ -16,18 +16,19 @@
 #include "System/RXAssetManager.h"
 #include "Data/RXInputData.h"
 #include "UI/RXHUDWidget.h"
+#include "Character/RXNonPlayer.h"
 #include "Player/RXPlayerStatComponent.h"
 #include "RXDebugHelper.h"
 
 ARXPlayer::ARXPlayer()
 {
-	//Camera Spring CDO
+	// Camera Spring CDO
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
 	CameraBoom->TargetArmLength = 400.0f; 
 	CameraBoom->bUsePawnControlRotation = true; 
 
-	//Camera CDO
+	// Camera CDO
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); 
 	FollowCamera->bUsePawnControlRotation = false; 
@@ -43,7 +44,7 @@ void ARXPlayer::BeginPlay()
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 	{
 
-		//Add Input Mapping Context
+		// Add Input Mapping Context
 		if (APlayerController* LocalPlayerController = Cast<APlayerController>(Controller))  
 		{
 			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(LocalPlayerController->GetLocalPlayer()))  // 변경
@@ -60,7 +61,7 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 	{
-		//에셋메니저로부터 인풋데이터를 가져와서 각각 액션에 바인딩
+		// 에셋메니저로부터 인풋데이터를 가져와서 각각 액션에 바인딩
 		UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
 
 		auto JumpAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Jump);
@@ -72,27 +73,83 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ARXPlayer::Look);
 
-		/*인터렉션 섹션 바인딩
+		// 인터렉션 섹션 바인딩
 		auto InteractAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Interact); // E 키
 		auto ProceedDialogueAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_EnterKey); // Enter 키
 
-		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ARXPlayer::StartDialogue);
-		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::ProceedDialogue);*/
+		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EKey);
+		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EnterKey);
+
 
 	}
 }
-void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget) 
+void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 {
-	//Interface Implementation func -> 플레이어 HUD 생성 인터페이스
+	// Interface Implementation func -> 플레이어 HUD 생성 인터페이스
 	if (InHUDWidget)
 	{
 		InHUDWidget->UpdateHpBar(Stat->GetCurrentHp());
 
-		//RXHUDWidget의 UpdateHpBar를 Stat->OnPlayerHpChanged 델리게이트에 등록
+		// RXHUDWidget의 UpdateHpBar를 Stat->OnPlayerHpChanged 델리게이트에 등록
 		Stat->OnPlayerHpChanged.AddUObject(InHUDWidget, &URXHUDWidget::UpdateHpBar);
 	}
 }
+void ARXPlayer::UpdateDetectedNPC()
+{
+	FHitResult Hit;
+	FVector Start = GetCapsuleComponent()->GetComponentLocation();  // 캐릭터 캡슐 위치
+	FVector End = Start + (GetActorForwardVector()* 130.0f);  // 카메라 방향으로 130만큼
 
+	float SphereRadius = 80.0f;  // 스피어의 반지름 (기본값: 80)
+	FCollisionQueryParams Params;
+	Params.AddIgnoredActor(this);  // 자신의 캐릭터는 무시
+	Params.bReturnPhysicalMaterial = false;
+
+	// 디버그용으로 스피어 범위를 시각화 (DrawDebugSphere)
+	if (GetWorld())
+	{
+		// Start 위치에서 End까지의 방향으로 스피어를 그려서 디버깅 가능
+		DrawDebugSphere(GetWorld(), End, SphereRadius, 12, FColor::Green, false, 1.0f, 0, 1.0f);
+	}
+
+	// 트레이스 시 'Pawn' 채널을 사용하여 NPC를 감지
+    FCollisionObjectQueryParams ObjectQueryParams;
+    ObjectQueryParams.AddObjectTypesToQuery(ECC_Pawn);  // NPC 감지용 채널 설정
+
+	// 스피어 트레이스를 실행하여 NPC를 감지
+	if (GetWorld()->SweepSingleByObjectType(Hit, Start, End, FQuat::Identity, ObjectQueryParams, FCollisionShape::MakeSphere(SphereRadius), Params))
+	{
+		if (ARXNonPlayer* NPC = Cast<ARXNonPlayer>(Hit.GetActor()))
+		{
+			DetectedNPC = NPC;  // 감지된 NPC로 업데이트
+		}
+		else
+		{
+			DetectedNPC = nullptr;
+		}
+	}
+	else
+	{
+		DetectedNPC = nullptr;
+	}
+}
+void ARXPlayer::Interact_IA_EKey()
+{
+	UpdateDetectedNPC();
+
+	if (DetectedNPC && !DetectedNPC->bIsTalking)  // DetectedNPC가 유효한지 확인
+	{
+		DetectedNPC->StartDialogue();
+	}
+}
+
+void ARXPlayer::Interact_IA_EnterKey()
+{
+	if (DetectedNPC && DetectedNPC->bIsTalking)
+	{
+		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드
+	}
+}
 float ARXPlayer::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
 {
 	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
@@ -134,6 +191,10 @@ void ARXPlayer::SetDead()
 	GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_None);
 	PlayDeadAnimation();
 	SetActorEnableCollision(false);
+
+	//DisableInput(PlayerController); //입력 멈추기
+	GetCharacterMovement()->DisableMovement();  // 이동 비활성화
+	PlayerController->SetIgnoreMoveInput(true);
 }
 
 void ARXPlayer::PlayDeadAnimation()

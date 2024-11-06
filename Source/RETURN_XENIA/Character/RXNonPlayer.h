@@ -17,15 +17,13 @@ public:
 	//가까이가면 상호작용 E UI띄우는 로직은 RXInteractionVisibilityComponent를 통해 구현
 	ARXNonPlayer();
 
-protected: 	//RXNPCDialogueInterface Interface Virtual Func override Implementation
-
+protected: 
 	virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintCallable, Category = "Dialogue")
+public:
+	//RXNPCDialogueInterface Interface Virtual Func override Implementation
 	virtual void StartDialogue() override;
-	UFUNCTION(BlueprintCallable, Category = "Dialogue")
-	virtual void DisplayDialogue(UTextBlock* DialogueTextBlock) override;
-	UFUNCTION(BlueprintCallable, Category = "Dialogue")
+	virtual void DisplayDialogue() override;
 	virtual void EndDialogue() override;
 
 public:	
@@ -35,7 +33,13 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "WidgetDialogueUI")
 	TSubclassOf<UUserWidget> WidgetClass; //대화텍스트 배경UI 관련 위젯
-		
+	UPROPERTY()
+	TObjectPtr<UUserWidget> DialogueWidgetInstance; //동적으로 생성할 UI대화 위젯
+	UPROPERTY()
+	TObjectPtr<UTextBlock> DialogueTextBlock; //UI대화 위젯 내 텍스트블록
+
+	uint8 bIsTalking : 1; //대화중인지변수 
+
 	UPROPERTY()
 	TObjectPtr<class URXDialogueData> DialogueData; //가져온 대화 데이터
 

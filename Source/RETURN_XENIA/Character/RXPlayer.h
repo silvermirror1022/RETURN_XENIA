@@ -1,10 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
 #include "CoreMinimal.h"
 #include "Character/RXCharacterBase.h"
 #include "Interface/RXPlayerHUDInterface.h"
+#include "Interface/RXPlayerInteractionInterface.h"
 #include "RXPlayer.generated.h"
 
 struct FInputActionValue;
@@ -12,7 +13,7 @@ struct FInputActionValue;
  * 
  */
 UCLASS()
-class RETURN_XENIA_API ARXPlayer : public ARXCharacterBase, public IRXPlayerHUDInterface
+class RETURN_XENIA_API ARXPlayer : public ARXCharacterBase, public IRXPlayerHUDInterface, public IRXPlayerInteractionInterface
 {
 	GENERATED_BODY()
 	
@@ -24,7 +25,7 @@ protected:
 	virtual void BeginPlay();
 
 	
-protected: // Camera Section
+protected: // 카메라섹션
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class USpringArmComponent> CameraBoom;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
@@ -33,16 +34,16 @@ protected: // Camera Section
 	TObjectPtr<class ARXPlayerController> PlayerController;
 
 
-protected: // InputMovement Logic Section
+protected: // 인풋 콜백 함수 섹션
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
 
-protected: // DamagedByPawn(Harpy) Section
+protected: // 데미지입는 함수
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 
-protected: // Dead Section
+protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
 
@@ -52,12 +53,24 @@ protected: // Dead Section
 	float DeadEventDelayTime = 5.0f;
 
 
-protected: // Stat Section -> Player Hp,Stamina
+protected: // 스텟 섹션 (HP,Stamina 관련)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;
 
 
-protected: 	//PlayerHUD Interface Virtual Func override Implementation
+public: 
+	//NPC 대화 관련 NPC 탐지 변수 및 함수 섹션
+	void UpdateDetectedNPC();
+	UPROPERTY()
+	TObjectPtr<class ARXNonPlayer> DetectedNPC;
+
+protected:
+	// PlayerHUD 인터페이스 가상함수 오버라이드 구현 섹션
 	virtual void SetupHUDWidget(class URXHUDWidget* InHUDWidget) override;
+
+public:
+	// Interaction  인터페이스 가상함수 오버라이드 구현 섹션
+	virtual void Interact_IA_EKey() override;
+	virtual void Interact_IA_EnterKey() override;
 
 };
