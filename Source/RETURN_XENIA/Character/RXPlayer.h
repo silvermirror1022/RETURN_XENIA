@@ -59,10 +59,15 @@ protected: // 스텟 섹션 (HP,Stamina 관련)
 
 
 public: 
-	//NPC 대화 관련 NPC 탐지 변수 및 함수 섹션
-	void UpdateDetectedNPC();
+	// 탐지 함수 섹션
+	void UpdateDetectedActor();
+
+	// NPC 대화 관련 NPC 탐지 변수 
 	UPROPERTY()
 	TObjectPtr<class ARXNonPlayer> DetectedNPC;
+
+	// 탐지 텔레포트 엑터 변수
+	TObjectPtr<class ARXLevelTeleportActor> DetectedTeleportActor;
 
 protected:
 	// PlayerHUD 인터페이스 가상함수 오버라이드 구현 섹션

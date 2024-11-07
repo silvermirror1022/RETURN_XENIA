@@ -15,6 +15,7 @@
 #include "Player/RXPlayerController.h"
 #include "System/RXAssetManager.h"
 #include "Data/RXInputData.h"
+#include "Actor/RXLevelTeleportActor.h"
 #include "UI/RXHUDWidget.h"
 #include "Character/RXNonPlayer.h"
 #include "Player/RXPlayerStatComponent.h"
@@ -94,7 +95,7 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 		Stat->OnPlayerHpChanged.AddUObject(InHUDWidget, &URXHUDWidget::UpdateHpBar);
 	}
 }
-void ARXPlayer::UpdateDetectedNPC()
+void ARXPlayer::UpdateDetectedActor()
 {
 	FHitResult Hit;
 	FVector Start = GetCapsuleComponent()->GetComponentLocation();  // 캐릭터 캡슐 위치
@@ -114,32 +115,43 @@ void ARXPlayer::UpdateDetectedNPC()
 
 	// 트레이스 시 'Pawn' 채널을 사용하여 NPC를 감지
     FCollisionObjectQueryParams ObjectQueryParams;
-    ObjectQueryParams.AddObjectTypesToQuery(ECC_Pawn);  // NPC 감지용 채널 설정
+    ObjectQueryParams.AddObjectTypesToQuery(ECC_Pawn); // NPC 감지용 채널 설정
+	ObjectQueryParams.AddObjectTypesToQuery(ECC_WorldDynamic); // 텔레포트 엑터 감지용 채널 설정
 
-	// 스피어 트레이스를 실행하여 NPC를 감지
+	// 스피어 트레이스를 실행하여 NPC 또는 텔레포트엑터를 감지
 	if (GetWorld()->SweepSingleByObjectType(Hit, Start, End, FQuat::Identity, ObjectQueryParams, FCollisionShape::MakeSphere(SphereRadius), Params))
 	{
 		if (ARXNonPlayer* NPC = Cast<ARXNonPlayer>(Hit.GetActor()))
 		{
 			DetectedNPC = NPC;  // 감지된 NPC로 업데이트
 		}
+		else if(ARXLevelTeleportActor* TPActor = Cast<ARXLevelTeleportActor>(Hit.GetActor()))
+		{
+			DetectedTeleportActor = TPActor; // 감지된 텔레포트엑터 업데이트
+		}
 		else
 		{
 			DetectedNPC = nullptr;
+			DetectedTeleportActor = nullptr;
 		}
 	}
 	else
 	{
 		DetectedNPC = nullptr;
+		DetectedTeleportActor = nullptr;
 	}
 }
 void ARXPlayer::Interact_IA_EKey()
 {
-	UpdateDetectedNPC();
+	UpdateDetectedActor();
 
 	if (DetectedNPC && !DetectedNPC->bIsTalking)  // DetectedNPC가 유효한지 확인
 	{
 		DetectedNPC->StartDialogue();
+	}
+	else if (DetectedTeleportActor)
+	{
+		D(FString::Printf(TEXT("Current")));
 	}
 }
 
