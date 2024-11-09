@@ -99,9 +99,9 @@ void ARXPlayer::UpdateDetectedActor()
 {
 	FHitResult Hit;
 	FVector Start = GetCapsuleComponent()->GetComponentLocation();  // 캐릭터 캡슐 위치
-	FVector End = Start + (GetActorForwardVector()* 130.0f);  // 카메라 방향으로 130만큼
+	FVector End = Start + (GetActorForwardVector()* 80.0f);  // 카메라 방향으로 80만큼
 
-	float SphereRadius = 80.0f;  // 스피어의 반지름 (기본값: 80)
+	float SphereRadius = 50.0f;  // 스피어의 반지름 (기본값: 50)
 	FCollisionQueryParams Params;
 	Params.AddIgnoredActor(this);  // 자신의 캐릭터는 무시
 	Params.bReturnPhysicalMaterial = false;
@@ -131,15 +131,18 @@ void ARXPlayer::UpdateDetectedActor()
 		}
 		else
 		{
-			DetectedNPC = nullptr;
-			DetectedTeleportActor = nullptr;
+			ResetDetectedActors();
 		}
 	}
 	else
 	{
-		DetectedNPC = nullptr;
-		DetectedTeleportActor = nullptr;
+		ResetDetectedActors();
 	}
+}
+void ARXPlayer::ResetDetectedActors()
+{
+	DetectedNPC = nullptr;
+	DetectedTeleportActor = nullptr;
 }
 void ARXPlayer::Interact_IA_EKey()
 {
@@ -151,7 +154,7 @@ void ARXPlayer::Interact_IA_EKey()
 	}
 	else if (DetectedTeleportActor)
 	{
-		D(FString::Printf(TEXT("Current")));
+		DetectedTeleportActor->TeleportToOtherLevel();
 	}
 }
 

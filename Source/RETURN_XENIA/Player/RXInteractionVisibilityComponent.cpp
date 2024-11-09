@@ -81,6 +81,11 @@ void URXInteractionVisibilityComponent::OnSphereEndOverlap(UPrimitiveComponent* 
             WidgetComponent->SetVisibility(false); // 위젯 숨김
             //D(FString::Printf(TEXT("done!")));
         }
+        // 플레이어의 감지된 액터 초기화
+        if (ARXPlayer* Player = Cast<ARXPlayer>(OtherActor))
+        {
+            Player->ResetDetectedActors();  // DetectedNPC 및 DetectedTeleportActor를 nullptr로 초기화
+        }
     }
 }
 

@@ -3,6 +3,7 @@
 #include "Components/SphereComponent.h"
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
+#include "System/RXGameInstance.h" 
 #include "RXDebugHelper.h"
 #include "Actor/RXLevelTeleportActor.h"
 
@@ -27,8 +28,19 @@ ARXLevelTeleportActor::ARXLevelTeleportActor()
 void ARXLevelTeleportActor::BeginPlay()
 {
 	Super::BeginPlay();
+}
 
- 
+void ARXLevelTeleportActor::TeleportToOtherLevel()
+{
+    // 게임 인스턴스에 접근하여 DestinationTag를 설정
+    if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
+    {
+        GameInstance->SetDestinationTag(DestinationTag);
+    }
+
+    // 레벨 전환
+    UGameplayStatics::OpenLevel(this, NextLevelName);
+    
 }
 
 

@@ -60,7 +60,8 @@ protected: // 스텟 섹션 (HP,Stamina 관련)
 
 public: 
 	// 탐지 함수 섹션
-	void UpdateDetectedActor();
+	void UpdateDetectedActor(); //감지
+	void ResetDetectedActors();  //리셋
 
 	// NPC 대화 관련 NPC 탐지 변수 
 	UPROPERTY()

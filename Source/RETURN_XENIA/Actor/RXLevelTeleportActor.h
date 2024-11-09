@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "GameplayTagContainer.h"
 #include "RXLevelTeleportActor.generated.h"
 
 UCLASS()
@@ -24,11 +25,11 @@ public:
 	TObjectPtr<class USphereComponent> SphereComponent;
 
 	// 카테고리 TeleportSettings 검색 후 블루프린트 에디터에서 설정해줘야함.
-	UPROPERTY(EditAnywhere, Category="TeleportSettings")
-	TObjectPtr<class APlayerStart> TargetLocation; // 같은 레벨 내에서 이동시킬 타겟 로케이션
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TeleportSettings")
+	FGameplayTag DestinationTag; //이동하려는 목적지 태그
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TeleportSettings")
 	FName NextLevelName;  // 다른레벨로의 이동
 
-	
+	void TeleportToOtherLevel(); //다른 레벨 여는 함수
 };
