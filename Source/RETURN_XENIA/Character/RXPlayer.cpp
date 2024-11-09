@@ -131,15 +131,18 @@ void ARXPlayer::UpdateDetectedActor()
 		}
 		else
 		{
-			DetectedNPC = nullptr;
-			DetectedTeleportActor = nullptr;
+			ResetDetectedActors();
 		}
 	}
 	else
 	{
-		DetectedNPC = nullptr;
-		DetectedTeleportActor = nullptr;
+		ResetDetectedActors();
 	}
+}
+void ARXPlayer::ResetDetectedActors()
+{
+	DetectedNPC = nullptr;
+	DetectedTeleportActor = nullptr;
 }
 void ARXPlayer::Interact_IA_EKey()
 {
@@ -151,7 +154,7 @@ void ARXPlayer::Interact_IA_EKey()
 	}
 	else if (DetectedTeleportActor)
 	{
-		D(FString::Printf(TEXT("Current")));
+		DetectedTeleportActor->TeleportToOtherLevel();
 	}
 }
 

@@ -17,6 +17,6 @@ class RETURN_XENIA_API ARXPlayerStart : public APlayerStart
 	
 public:
 	// 태그 속성 추가
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "GameplayTags")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DestinationTag")
 	FGameplayTag StartTag;
 };

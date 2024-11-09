@@ -25,32 +25,46 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq, "Dialogue.NPCType.Nawiniq");
 
 
-	// PlayerStart TeleportSystem Tag Section
+	// Teleport Teleport System Section 
 	// First Floor
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_GameStart, "PlayerStart.1stFloor.GameStart");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_AltarExit, "PlayerStart.1stFloor.AltarExit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_House1Exit, "PlayerStart.1stFloor.House1Exit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_House2Exit, "PlayerStart.1stFloor.House2Exit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_CaveExit, "PlayerStart.1stFloor.CaveExit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_MainMapExit, "PlayerStart.1stFloor.MainMapExit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_MainMap_Start, "Teleport.1stFloor.MainMap.Start");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Altar_Exit, "Teleport.1stFloor.Altar.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Altar_Entrance, "Teleport.1stFloor.Altar.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House1_Exit, "Teleport.1stFloor.House1.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House1_Entrance, "Teleport.1stFloor.House1.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House2_Exit, "Teleport.1stFloor.House2.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House2_Entrance, "Teleport.1stFloor.House2.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Cave_Exit, "Teleport.1stFloor.Cave.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Cave_Entrance, "Teleport.1stFloor.Cave.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_MainMap_Exit, "Teleport.1stFloor.MainMap.Exit");
 
 	// Second Floor
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_2ndFloor_MainMapStart, "PlayerStart.2ndFloor.MainMapStart");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_2ndFloor_TempleExit, "PlayerStart.2ndFloor.TempleExit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_2ndFloor_CavinExit, "PlayerStart.2ndFloor.CavinExit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_2ndFloor_MainMapExit, "PlayerStart.2ndFloor.MainMapExit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_MainMap_Start, "Teleport.2ndFloor.MainMap.Start");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Temple_Exit, "Teleport.2ndFloor.Temple.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Temple_Entrance, "Teleport.2ndFloor.Temple.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cavin_Exit, "Teleport.2ndFloor.Cavin.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cavin_Entrance, "Teleport.2ndFloor.Cavin.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_MainMap_Exit, "Teleport.2ndFloor.MainMap.Exit");
 
 	// Third Floor
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_3rdFloor_MainMapStart, "PlayerStart.3rdFloor.MainMapStart");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_3rdFloor_TreeInside, "PlayerStart.3rdFloor.TreeInside");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_3rdFloor_HarpyNest, "PlayerStart.3rdFloor.HarpyNest");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_3rdFloor_TreeTop, "PlayerStart.3rdFloor.TreeTop");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_3rdFloor_MainMapExit, "PlayerStart.3rdFloor.MainMapExit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MainMap_Start, "Teleport.3rdFloor.MainMap.Start");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeInside_Exit, "Teleport.3rdFloor.TreeInside.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeInside_Entrance, "Teleport.3rdFloor.TreeInside.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_HarpyNest_Exit, "Teleport.3rdFloor.HarpyNest.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_HarpyNest_Entrance, "Teleport.3rdFloor.HarpyNest.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeTop_Exit, "Teleport.3rdFloor.TreeTop.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeTop_Entrance, "Teleport.3rdFloor.TreeTop.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MainMap_Exit, "Teleport.3rdFloor.MainMap.Exit");
 
 	// Sub Maps
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_SubMap1Exit, "PlayerStart.1stFloor.SubMap1Exit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_SubMap2Exit, "PlayerStart.1stFloor.SubMap2Exit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_1stFloor_SubMap3Exit, "PlayerStart.1stFloor.SubMap3Exit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_2ndFloor_SubMap4Exit, "PlayerStart.2ndFloor.SubMap4Exit");
-	UE_DEFINE_GAMEPLAY_TAG(PlayerStart_2ndFloor_SubMap5Exit, "PlayerStart.2ndFloor.SubMap5Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap1_Exit, "Teleport.1stFloor.SubMap1.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap1_Entrance, "Teleport.1stFloor.SubMap1.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap2_Exit, "Teleport.1stFloor.SubMap2.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap2_Entrance, "Teleport.1stFloor.SubMap2.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap3_Exit, "Teleport.1stFloor.SubMap3.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap3_Entrance, "Teleport.1stFloor.SubMap3.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap4_Exit, "Teleport.2ndFloor.SubMap4.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap4_Entrance, "Teleport.2ndFloor.SubMap4.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap5_Exit, "Teleport.2ndFloor.SubMap5.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap5_Entrance, "Teleport.2ndFloor.SubMap5.Entrance");
 }

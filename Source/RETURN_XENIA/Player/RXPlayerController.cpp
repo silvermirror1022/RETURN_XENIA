@@ -1,9 +1,12 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Player/RXPlayerController.h"
 #include "Components/WidgetComponent.h"
 #include "Character/RXPlayer.h"
 #include "UI/RXHUDWidget.h"
+#include "System/RXGameInstance.h"
+#include "Kismet/GameplayStatics.h"
+#include "Actor/RXPlayerStart.h"
 
 ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
@@ -14,19 +17,48 @@ void ARXPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// HUD À§Á¬À» È­¸é¿¡ Ãß°¡ -> ¿¡¼ÂÁ¤º¸´Â ºí·çÇÁ¸°Æ®¿¡¼­ Ä³½Ã
-	if (RXHUDWidgetClass) // HSHUDWidgetClass°¡ À¯È¿ÇÑÁö È®ÀÎ
+	// HUD ìœ„ì ¯ì„ í™”ë©´ì— ì¶”ê°€ -> ì—ì…‹ì •ë³´ëŠ” ë¸”ë£¨í”„ë¦°íŠ¸ì—ì„œ ìºì‹œ
+	if (RXHUDWidgetClass) // HSHUDWidgetClassê°€ ìœ íš¨í•œì§€ í™•ì¸
 	{
 		ARXHUDWidget = CreateWidget<URXHUDWidget>(GetWorld(), RXHUDWidgetClass);
 		if (ARXHUDWidget)
 		{
-			// HUD¸¦ È­¸é¿¡ Ãß°¡
+			// HUDë¥¼ í™”ë©´ì— ì¶”ê°€
 			ARXHUDWidget->AddToViewport();
 		}
 	}
+
+	SpawnPlayerToDestination();
 }
 
 void ARXPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
+}
+
+void ARXPlayerController::SpawnPlayerToDestination()
+{
+	// ê²Œì„ ì¸ìŠ¤í„´ìŠ¤ì—ì„œ DestinationTag ê°€ì ¸ì˜¤ê¸°
+	if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
+	{
+		FGameplayTag DestinationTag = GameInstance->CurrentDestinationTag;
+
+		// í•´ë‹¹ DestinationTagì™€ ì¼ì¹˜í•˜ëŠ” PlayerStart ì°¾ê¸°
+		TArray<AActor*> PlayerStarts;
+		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARXPlayerStart::StaticClass(), PlayerStarts);
+
+		for (AActor* Actor : PlayerStarts)
+		{
+			ARXPlayerStart* PlayerStart = Cast<ARXPlayerStart>(Actor);
+			if (PlayerStart && PlayerStart->StartTag.MatchesTag(DestinationTag))
+			{
+				// íƒœê·¸ê°€ ì¼ì¹˜í•˜ëŠ” PlayerStart ìœ„ì¹˜ë¡œ í”Œë ˆì´ì–´ ì´ë™
+				if (APawn* ControlledPawn = GetPawn())
+				{
+					ControlledPawn->SetActorLocation(PlayerStart->GetActorLocation());
+				}
+				break;
+			}
+		}
+	}
 }

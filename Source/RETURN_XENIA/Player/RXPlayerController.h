@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -28,8 +28,12 @@ public:
 	//HUD SECTION
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = HUD)
-	TSubclassOf<class URXHUDWidget> RXHUDWidgetClass;
+	TSubclassOf<class URXHUDWidget> RXHUDWidgetClass; // 플레이어에게 보일 HUD UI 위젯 BP
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = HUD)
-	TObjectPtr<class URXHUDWidget> ARXHUDWidget;
+	TObjectPtr<class URXHUDWidget> ARXHUDWidget; // HUD UI 포인터
+
+public:
+	// 컨트롤러가 플레이어 포세스할 때 항상 저장한 위치로 스폰을 위한 함수
+	void SpawnPlayerToDestination();
 };
