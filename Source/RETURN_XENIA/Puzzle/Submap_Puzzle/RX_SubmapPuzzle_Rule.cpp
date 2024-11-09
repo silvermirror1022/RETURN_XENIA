@@ -44,14 +44,17 @@ void ARX_SubmapPuzzle_Rule::Tick(float DeltaTime)
 // Begin Overlap Action
 void ARX_SubmapPuzzle_Rule::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (isAlreadyTriggered)
+	if (Cast<ACharacter>(OtherActor) == observer->player)
 	{
-		// Return To Start Position
-		observer->WrongPath();
-	}
-	else
-	{
-		isAlreadyTriggered = true;
+		if (isAlreadyTriggered)
+		{
+			// Return To Start Position
+			observer->WrongPath();
+		}
+		else
+		{
+			isAlreadyTriggered = true;
+		}
 	}
 }
 
