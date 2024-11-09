@@ -13,13 +13,13 @@ ARX_SubmapPuzzle_EndPosition::ARX_SubmapPuzzle_EndPosition()
 		endBlock->SetStaticMesh(tempBlock.Object);
 	}
 
-	endBlock->OnComponentBeginOverlap.AddDynamic(this, &ARX_SubmapPuzzle_EndPosition::OnOverlapBegin);
+	endBlock->OnComponentBeginOverlap.AddDynamic(this, &ARX_SubmapPuzzle_EndPosition::OnOverlapBegin_EP);
 }
 
-void ARX_SubmapPuzzle_EndPosition::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
+void ARX_SubmapPuzzle_EndPosition::OnOverlapBegin_EP(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (Cast<ACharacter>(OtherActor) == observer->player)
-	{
+	//if (Cast<ACharacter>(OtherActor))
+	//{
 		observer->ClearPath();
-	}
+	//}
 }

@@ -14,6 +14,12 @@ ARX_SubmapPuzzle_Observer::ARX_SubmapPuzzle_Observer()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	
+}
+
+void ARX_SubmapPuzzle_Observer::BeginPlay()
+{
+	Super::BeginPlay();
 
 	// get start position
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARX_SubmapPuzzle_StartPosition::StaticClass(), tempArray);
@@ -56,13 +62,6 @@ ARX_SubmapPuzzle_Observer::ARX_SubmapPuzzle_Observer()
 
 	// get player
 	player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-}
-
-void ARX_SubmapPuzzle_Observer::BeginPlay()
-{
-	Super::BeginPlay();
-
-
 }
 
 void ARX_SubmapPuzzle_Observer::Tick(float DeltaTime)
