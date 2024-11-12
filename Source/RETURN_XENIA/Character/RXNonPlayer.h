@@ -28,6 +28,9 @@ public:
 
 public:	
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPCTypeName")
+	FText NPCName; //NPC마다 가지고있는 이름 (FOR 대화시 NPC이름수정)
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPCTypeTag")
 	FGameplayTag NPCType; //NPC마다 가지고있는 태그타입
 
@@ -37,6 +40,8 @@ public:
 	TObjectPtr<UUserWidget> DialogueWidgetInstance; //동적으로 생성할 UI대화 위젯
 	UPROPERTY()
 	TObjectPtr<UTextBlock> DialogueTextBlock; //UI대화 위젯 내 텍스트블록
+	UPROPERTY()
+	TObjectPtr<UTextBlock> NPCNameTextBlock; //UI대화 NPC이름 텍스트블록
 
 	uint8 bIsTalking : 1; //대화중인지변수 
 

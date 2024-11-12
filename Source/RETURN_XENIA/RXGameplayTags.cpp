@@ -11,6 +11,8 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Jump, "Input.Action.Jump");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_EnterKey, "Input.Action.EnterKey");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_ESCKey, "Input.Action.ESCKey");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_TabKey, "Input.Action.TabKey");
 
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
