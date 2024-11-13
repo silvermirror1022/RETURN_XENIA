@@ -53,10 +53,10 @@ void ARXPlayerController::SetupInputComponent()
 		if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 		{
 			auto TabKey_GameMainMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_TabKey);
-			auto ESCKey_GamePopupMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_ESCKey);
+			auto ESCKey_GamePauseMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_ESCKey);
 
 			EnhancedInputComponent->BindAction(TabKey_GameMainMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMainMenu);
-			EnhancedInputComponent->BindAction(ESCKey_GamePopupMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
+			EnhancedInputComponent->BindAction(ESCKey_GamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
 		}
 	}
 }
