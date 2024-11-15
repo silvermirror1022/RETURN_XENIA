@@ -10,6 +10,19 @@
 /**
  * 
  */
+USTRUCT(BlueprintType)
+struct FStatus
+{
+	GENERATED_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	FString Name; // 상태의 이름
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
+	bool bIsAcquired; // 상태가 획득되었는지 여부
+};
+
 UCLASS()
 class RETURN_XENIA_API URXGameInstance : public UGameInstance
 {
@@ -28,9 +41,26 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Teleport") //필요한 경우 블루프린트에서 목적지 설정
 	void SetDestinationTag(FGameplayTag NewDestinationTag) { CurrentDestinationTag = NewDestinationTag; }
 
+public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
-	TArray<bool> MemoryStatusArray; //메모리 획득 여부 설정 변수 (총 4개)
+	TArray<FStatus> MemoryStatusArray; // 메모리 획득 여부를 저장하는 배열 (총4개)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProfileStatus")
-	TArray<bool> ProfileStatusArray; //프로필 장비 획득 유무 변수 (망토 and 동생)
+	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
+public:
+	// 특정 이름을 가진 메모리 상태를 true로 설정
+	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
+	bool SetMemoryStatusAcquired(FString StatusName);
+
+	// 특정 이름을 가진 프로필 상태를 true로 설정
+	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
+	bool SetProfileStatusAcquired(FString StatusName);
+
+	// 특정 이름을 가진 메모리 상태가 true인지 확인
+	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
+	bool IsMemoryStatusAcquired(FString StatusName) const;
+
+	// 특정 이름을 가진 프로필 상태가 true인지 확인
+	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
+	bool IsProfileStatusAcquired(FString StatusName) const;
 };
