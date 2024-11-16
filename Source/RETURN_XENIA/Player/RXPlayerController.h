@@ -55,6 +55,7 @@ public:
 	inline void InActiveGameMainMenu() { bIsMainMenuUIActive = false; }
 	UFUNCTION(BlueprintCallable)
 	inline void InActiveGamePauseMenu() { bIsPauseMenuUIActive = false; }
+
 public:
 	// 컨트롤러가 플레이어 포세스할 때 항상 저장한 위치로 스폰을 위한 함수
 	void SpawnPlayerToDestination();

@@ -24,7 +24,9 @@ public class RETURN_XENIA : ModuleRules
 			"NavigationSystem",
 			"AIModule",
 			"Niagara",
-			"UMG"
+			"UMG",
+			"Slate",    
+            "SlateCore"
 		});
 	}
 }

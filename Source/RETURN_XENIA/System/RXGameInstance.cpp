@@ -25,6 +25,8 @@ void URXGameInstance::Shutdown()
 	Super::Shutdown();
 
 }
+
+// For Memory Dynamic Control Section
 bool URXGameInstance::SetMemoryStatusAcquired(FString StatusName)
 {
 	for (FStatus& Status : MemoryStatusArray)
@@ -32,23 +34,10 @@ bool URXGameInstance::SetMemoryStatusAcquired(FString StatusName)
 		if (Status.Name == StatusName)
 		{
 			Status.bIsAcquired = true;
-			return true; // 성공적으로 값을 변경한 경우
+			return true; 
 		}
 	}
-	return false; // 해당 이름의 상태를 찾지 못한 경우
-}
-
-bool URXGameInstance::SetProfileStatusAcquired(FString StatusName)
-{
-	for (FStatus& Status : ProfileStatusArray)
-	{
-		if (Status.Name == StatusName)
-		{
-			Status.bIsAcquired = true;
-			return true; // 성공적으로 값을 변경한 경우
-		}
-	}
-	return false; // 해당 이름의 상태를 찾지 못한 경우
+	return false; 
 }
 bool URXGameInstance::IsMemoryStatusAcquired(FString StatusName) const
 {
@@ -56,21 +45,59 @@ bool URXGameInstance::IsMemoryStatusAcquired(FString StatusName) const
 	{
 		if (Status.Name == StatusName)
 		{
-			UE_LOG(LogTemp, Warning, TEXT("Status Name: %s, Acquired: %s"), *Status.Name, Status.bIsAcquired ? TEXT("True") : TEXT("False"));
-			return Status.bIsAcquired; // 해당 상태의 획득 여부를 반환
+			//UE_LOG(LogTemp, Warning, TEXT("Status Name: %s, Acquired: %s"), *Status.Name, Status.bIsAcquired ? TEXT("True") : TEXT("False"));
+			return Status.bIsAcquired;
 		}
 	}
-	return false; // 해당 이름의 상태를 찾지 못한 경우 false 반환
+	return false;
 }
 
+// For Profile Dynamic Control Section
+bool URXGameInstance::SetProfileStatusAcquired(FString StatusName)
+{
+	for (FStatus& Status : ProfileStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			Status.bIsAcquired = true;
+			return true; 
+		}
+	}
+	return false; 
+}
 bool URXGameInstance::IsProfileStatusAcquired(FString StatusName) const
 {
 	for (const FStatus& Status : ProfileStatusArray)
 	{
 		if (Status.Name == StatusName)
 		{
-			return Status.bIsAcquired; // 해당 상태의 획득 여부를 반환
+			return Status.bIsAcquired; 
 		}
 	}
-	return false; // 해당 이름의 상태를 찾지 못한 경우 false 반환
+	return false; 
+}
+
+// For Item Dynamic Control Function Section
+bool URXGameInstance::SetItemStatusAcquired(FString StatusName)
+{	
+	for (FStatus& Status : ItemStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			Status.bIsAcquired = true;
+			return true;
+		}
+	}
+	return false;
+}
+bool URXGameInstance::IsItemStatusAcquired(FString StatusName) const
+{
+	for (const FStatus& Status : ItemStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			return Status.bIsAcquired;
+		}
+	}
+	return false;
 }

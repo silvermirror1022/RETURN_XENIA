@@ -77,6 +77,7 @@ void ARXPlayerController::ActiveGameMainMenu()
 		if (ARXGameMainMenuWidget)
 		{
 			ARXGameMainMenuWidget->AddToViewport();
+
 		}
 	}
 }

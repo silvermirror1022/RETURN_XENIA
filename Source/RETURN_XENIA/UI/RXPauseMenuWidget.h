@@ -13,6 +13,13 @@ UCLASS()
 class RETURN_XENIA_API URXPauseMenuWidget : public UUserWidget
 {
 	GENERATED_BODY()
+
+public:
+	URXPauseMenuWidget(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+
+protected:
+	virtual void NativeConstruct() override;
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ExitUserWidget")
 	TSubclassOf<class UUserWidget> ExitUserWidget;

@@ -17,10 +17,10 @@ struct FStatus
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	FString Name; // 상태의 이름
+	FString Name; // 상태 이름
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Status")
-	bool bIsAcquired; // 상태가 획득되었는지 여부
+	bool bIsAcquired; // 획득 여부
 };
 
 UCLASS()
@@ -47,20 +47,30 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProfileStatus")
 	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemStatus")
+	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 5개, 심장, 힌트종이)
+
 public:
-	// 특정 이름을 가진 메모리 상태를 true로 설정
+	// 메모리 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
 	bool SetMemoryStatusAcquired(FString StatusName);
-
-	// 특정 이름을 가진 프로필 상태를 true로 설정
-	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
-	bool SetProfileStatusAcquired(FString StatusName);
-
-	// 특정 이름을 가진 메모리 상태가 true인지 확인
 	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
 	bool IsMemoryStatusAcquired(FString StatusName) const;
 
-	// 특정 이름을 가진 프로필 상태가 true인지 확인
+public:
+	// 프로필 상태 설정 및 상태 확인 함수 섹션
+	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
+	bool SetProfileStatusAcquired(FString StatusName);
+
 	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
 	bool IsProfileStatusAcquired(FString StatusName) const;
+
+public:
+	// 아이템 상태 설정 및 상태 확인 함수 섹션
+	UFUNCTION(BlueprintCallable, Category = "ITemStatus")
+	bool SetItemStatusAcquired(FString StatusName);
+
+	UFUNCTION(BlueprintCallable, Category = "ITemStatus")
+	bool IsItemStatusAcquired(FString StatusName) const;
 };
