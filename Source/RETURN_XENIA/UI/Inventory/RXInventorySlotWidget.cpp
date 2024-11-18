@@ -38,6 +38,7 @@ void URXInventorySlotWidget::ReplaceParentImageWithOwn()
 		// MainMenuWidget의 ItemInfoImage에 Brush 설정
 		MainMenuWidget->ItemInfoImage->SetBrush(Brush);
 		UE_LOG(LogTemp, Warning, TEXT("Success"));
+		return;
 	}
 	UE_LOG(LogTemp, Warning, TEXT("Failed"));
 }

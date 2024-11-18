@@ -8,6 +8,7 @@
 
 class UUniformGridPanel;
 class URXInventorySlotWidget;
+class URXMainMenuWidget;
 /**
  * 
  */
@@ -26,5 +27,12 @@ protected:
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Items")
-	TArray<TObjectPtr<URXInventorySlotWidget>> Items;
+	TArray<TSubclassOf<URXInventorySlotWidget>> ItemClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Items")
+	TSubclassOf<UUserWidget> EmptySlotClass;
+
+private:
+	UPROPERTY()
+	TObjectPtr<URXMainMenuWidget> MainMenuWidget;
 };

@@ -132,7 +132,7 @@ void ARXNonPlayer::EndDialogue()
     // 대화 종료 시 위젯을 제거
     if (DialogueWidgetInstance)
     {
-        DialogueWidgetInstance->RemoveFromViewport();
+        DialogueWidgetInstance->RemoveFromParent();
         DialogueWidgetInstance = nullptr;
         DialogueTextBlock = nullptr;
     }

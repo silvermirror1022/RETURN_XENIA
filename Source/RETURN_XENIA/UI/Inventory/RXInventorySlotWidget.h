@@ -32,9 +32,11 @@ public:
 public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "OwnChangedImage")
 	TObjectPtr<UTexture2D> OwnImage;
+
 public:
 	UFUNCTION(BlueprintCallable)
 	void SetMainMenuWidget(URXMainMenuWidget* InMainMenuWidget);
+
 private:
 	UPROPERTY()
 	TObjectPtr<URXMainMenuWidget> MainMenuWidget;
