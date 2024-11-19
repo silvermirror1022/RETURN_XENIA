@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "System/RXGameInstance.h"
 #include "Components/UniformGridPanel.h"
@@ -16,7 +16,7 @@ void URXInventorySlotsWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	// °èÃş¿¡¼­ MainMenuWidget °Ë»ö
+	// ê³„ì¸µì—ì„œ MainMenuWidget ê²€ìƒ‰
 	MainMenuWidget = GetTypedOuter<URXMainMenuWidget>();
 
 	URXGameInstance* GI = GetWorld()->GetGameInstance<URXGameInstance>();
@@ -29,7 +29,7 @@ void URXInventorySlotsWidget::NativeConstruct()
 	const int Y_COUNT = 4;
 	int32 CurrentItemIndex = 0;
 
-	// È¹µæµÈ ¾ÆÀÌÅÛ ¸®½ºÆ®¸¸ ÇÊÅÍ¸µ
+	// íšë“ëœ ì•„ì´í…œ ë¦¬ìŠ¤íŠ¸ë§Œ í•„í„°ë§
 	TArray<int32> AcquiredItemIndices;
 	for (int32 i = 0; i < ItemNames.Num(); i++)
 	{
@@ -39,12 +39,12 @@ void URXInventorySlotsWidget::NativeConstruct()
 		}
 	}
 
-	// ½½·Ô¿¡ ¾ÆÀÌÅÛ Ãß°¡
+	// ìŠ¬ë¡¯ì— ì•„ì´í…œ ì¶”ê°€
 	for (int32 Y = 0; Y < Y_COUNT; Y++)
 	{
 		for (int32 X = 0; X < X_COUNT; X++)
 		{
-			// ÇöÀç È¹µæµÈ ¾ÆÀÌÅÛÀÇ ÀÎµ¦½º°¡ ¹üÀ§¸¦ ÃÊ°úÇÏ¸é ºó ½½·Ô Ãß°¡
+			// í˜„ì¬ íšë“ëœ ì•„ì´í…œì˜ ì¸ë±ìŠ¤ê°€ ë²”ìœ„ë¥¼ ì´ˆê³¼í•˜ë©´ ë¹ˆ ìŠ¬ë¡¯ ì¶”ê°€
 			if (CurrentItemIndex >= AcquiredItemIndices.Num())
 			{
 				if (EmptySlotClass)
@@ -55,7 +55,7 @@ void URXInventorySlotsWidget::NativeConstruct()
 			}
 			else
 			{
-				// È¹µæµÈ ¾ÆÀÌÅÛ Ãß°¡
+				// íšë“ëœ ì•„ì´í…œ ì¶”ê°€
 				int32 ItemIndex = AcquiredItemIndices[CurrentItemIndex];
 				if (ItemIndex < ItemClass.Num())
 				{
@@ -64,7 +64,7 @@ void URXInventorySlotsWidget::NativeConstruct()
 
 					GridPanel_Item->AddChildToUniformGrid(SlotWidget, Y, X);
 
-					CurrentItemIndex++; // ¾ÆÀÌÅÛ Ãß°¡ ½Ã ÀÎµ¦½º Áõ°¡
+					CurrentItemIndex++; // ì•„ì´í…œ ì¶”ê°€ ì‹œ ì¸ë±ìŠ¤ ì¦ê°€
 				}
 			}
 		}
