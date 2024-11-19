@@ -13,6 +13,9 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Interact);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_EnterKey);
 
+	// Player UI Input Section
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_ESCKey);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_TabKey);
 
 	// NPC Dialogue Data Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Papamama); 

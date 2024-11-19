@@ -81,7 +81,9 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EKey);
 		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EnterKey);
 
-
+		// ESC Key 게임퍼즈메뉴 바인딩
+		//auto ESCGamePauseMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_ESCKey); // ESC(Escape) 키
+		//EnhancedInputComponent->BindAction(ESCGamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayer::GameMenuPause_ESCKey);
 	}
 }
 void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)

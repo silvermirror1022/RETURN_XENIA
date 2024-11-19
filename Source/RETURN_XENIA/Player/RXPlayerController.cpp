@@ -5,13 +5,22 @@
 #include "Character/RXPlayer.h"
 #include "UI/RXHUDWidget.h"
 #include "System/RXGameInstance.h"
+#include "EnhancedInputComponent.h"
+#include "InputActionValue.h"
+#include "System/RXAssetManager.h"
+#include "Data/RXInputData.h"
+#include "RXGameplayTags.h"
+#include "RXDebugHelper.h"
+#include "EnhancedInputSubsystems.h"
 #include "Kismet/GameplayStatics.h"
 #include "Actor/RXPlayerStart.h"
 
 ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
 {
-
+	// UI 변수들 초기화
+	bIsPauseMenuUIActive = false;
+	bIsMainMenuUIActive = false;
 }
 void ARXPlayerController::BeginPlay()
 {
@@ -27,6 +36,8 @@ void ARXPlayerController::BeginPlay()
 			ARXHUDWidget->AddToViewport();
 		}
 	}
+	//SetInputMode(FInputModeGameAndUI()); // UI와 게임 모드 둘 다 활성화
+	//bShowMouseCursor = true;              // 마우스 커서 표시
 
 	SpawnPlayerToDestination();
 }
@@ -34,6 +45,58 @@ void ARXPlayerController::BeginPlay()
 void ARXPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
+
+	// UI에 대한 인풋 초기화는 플레이어 컨트롤러에서 관리 (기본적 이동과 상호작용은 Player에서 관리)
+
+	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
+	{
+		if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
+		{
+			auto TabKey_GameMainMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_TabKey);
+			auto ESCKey_GamePauseMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_ESCKey);
+
+			EnhancedInputComponent->BindAction(TabKey_GameMainMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMainMenu);
+			EnhancedInputComponent->BindAction(ESCKey_GamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
+		}
+	}
+}
+bool ARXPlayerController::CheckUIActiveState()
+{
+	return (bIsPauseMenuUIActive || bIsMainMenuUIActive);
+}
+void ARXPlayerController::ActiveGameMainMenu()
+{
+	if (CheckUIActiveState()) return;
+
+	bIsMainMenuUIActive = true;
+
+	// 게임메뉴 UI를 띄우는 함수 BY TAB KEY
+	if (RXGameMainMenuWidgetClass) 
+	{
+		ARXGameMainMenuWidget = CreateWidget<UUserWidget>(GetWorld(), RXGameMainMenuWidgetClass);
+		if (ARXGameMainMenuWidget)
+		{
+			ARXGameMainMenuWidget->AddToViewport();
+
+		}
+	}
+}
+
+void ARXPlayerController::ActiveGamePauseMenu()
+{
+	if (CheckUIActiveState()) return;
+
+	bIsPauseMenuUIActive = true;
+
+	// 게임팝업 UI를 띄우는 함수 BY ESC KEY
+	if (RXGamePauseMenuWidgetClass)
+	{
+		ARXGamePauseMenuWidget = CreateWidget<UUserWidget>(GetWorld(), RXGamePauseMenuWidgetClass);
+		if (ARXGamePauseMenuWidget)
+		{
+			ARXGamePauseMenuWidget->AddToViewport();
+		}
+	}
 }
 
 void ARXPlayerController::SpawnPlayerToDestination()
@@ -62,3 +125,5 @@ void ARXPlayerController::SpawnPlayerToDestination()
 		}
 	}
 }
+
+

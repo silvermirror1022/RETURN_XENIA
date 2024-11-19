@@ -92,10 +92,12 @@ void ARXNonPlayer::StartDialogue()
             // 위젯을 뷰포트에 추가
             DialogueWidgetInstance->AddToViewport();
 
-            // Text 위젯을 찾고, 대화 텍스트를 업데이트
+            // Text 위젯을 찾고, 대화 텍스트를 업데이트, NPC 이름 업데이트
             DialogueTextBlock = Cast<UTextBlock>(DialogueWidgetInstance->GetWidgetFromName("DialogueText"));
-            if (DialogueTextBlock)
+            NPCNameTextBlock = Cast<UTextBlock>(DialogueWidgetInstance->GetWidgetFromName("NPCName"));
+            if (DialogueTextBlock && NPCNameTextBlock)
             {
+                NPCNameTextBlock->SetText(NPCName);
                 DisplayDialogue();
             }
         }
@@ -130,7 +132,7 @@ void ARXNonPlayer::EndDialogue()
     // 대화 종료 시 위젯을 제거
     if (DialogueWidgetInstance)
     {
-        DialogueWidgetInstance->RemoveFromViewport();
+        DialogueWidgetInstance->RemoveFromParent();
         DialogueWidgetInstance = nullptr;
         DialogueTextBlock = nullptr;
     }

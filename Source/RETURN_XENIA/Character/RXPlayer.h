@@ -64,7 +64,7 @@ public:
 	void ResetDetectedActors();  //리셋
 
 	// NPC 대화 관련 NPC 탐지 변수 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TObjectPtr<class ARXNonPlayer> DetectedNPC;
 
 	// 탐지 텔레포트 엑터 변수
