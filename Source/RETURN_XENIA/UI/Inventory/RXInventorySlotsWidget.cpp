@@ -23,7 +23,7 @@ void URXInventorySlotsWidget::NativeConstruct()
 	if (!GI || !GridPanel_Item) return;
 
 	TArray<FString> ItemNames = { TEXT("KnotChar1"), TEXT("KnotChar2"), TEXT("KnotChar3"), TEXT("KnotChar4"),
-		TEXT("KnotChar5"), TEXT("Heart"), TEXT("HintPaper") };
+		TEXT("KnotChar5"), TEXT("KnotChar6"), TEXT("Heart"), TEXT("HintPaper")};
 
 	const int X_COUNT = 3;
 	const int Y_COUNT = 4;
