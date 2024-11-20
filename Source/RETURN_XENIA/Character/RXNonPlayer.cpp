@@ -1,4 +1,5 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
+#include "Character/RXNonPlayer.h"
 #include "RXGameplayTags.h"
 #include "RXDebugHelper.h"
 #include "System/RXAssetManager.h"
@@ -7,7 +8,6 @@
 #include "Kismet/GameplayStatics.h"
 #include "Character/RXPlayer.h"
 #include "Data/RXDialogueData.h"
-#include "Character/RXNonPlayer.h"
 
 ARXNonPlayer::ARXNonPlayer()
 {

@@ -4,6 +4,7 @@
 #include "Puzzle/Submap_Puzzle/RX_SubmapPuzzle_Rule.h"
 #include "Kismet/GameplayStatics.h"
 #include "RX_SubmapPuzzle_Observer.h"
+#include "Character/RXPlayer.h"
 
 // Sets default values
 ARX_SubmapPuzzle_Rule::ARX_SubmapPuzzle_Rule()
@@ -44,7 +45,7 @@ void ARX_SubmapPuzzle_Rule::Tick(float DeltaTime)
 // Begin Overlap Action
 void ARX_SubmapPuzzle_Rule::OnOverlapBegin(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (Cast<ACharacter>(OtherActor) == observer->player)
+	if (Cast<ARXPlayer>(OtherActor))
 	{
 		if (isAlreadyTriggered)
 		{

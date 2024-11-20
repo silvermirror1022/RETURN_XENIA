@@ -8,13 +8,13 @@
 #include "RX_SubmapPuzzle_Rule.h"
 #include "RX_SubmapPuzzle_Die.h"
 #include "RX_SubmapPuzzle_Coin.h"
-#include <../../../../../../../Source/Runtime/Engine/Classes/GameFramework/Character.h>
+#include <GameFramework/Character.h>
+#include "Character/RXPlayer.h"
 
 ARX_SubmapPuzzle_Observer::ARX_SubmapPuzzle_Observer()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-	
 }
 
 void ARX_SubmapPuzzle_Observer::BeginPlay()
@@ -61,7 +61,7 @@ void ARX_SubmapPuzzle_Observer::BeginPlay()
 	}
 
 	// get player
-	player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+	player = Cast<ARXPlayer>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 }
 
 void ARX_SubmapPuzzle_Observer::Tick(float DeltaTime)

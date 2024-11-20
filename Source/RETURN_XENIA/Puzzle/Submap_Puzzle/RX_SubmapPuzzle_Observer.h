@@ -50,7 +50,7 @@ public:
 	int32 triggerCoinCount = 0;
 
 	UPROPERTY()
-	ACharacter* player;
+	TObjectPtr<class ARXPlayer> player = nullptr;
 
 
 	

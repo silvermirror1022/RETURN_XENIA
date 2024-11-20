@@ -1,11 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Actor/RXLevelTeleportActor.h"
 #include "Components/SphereComponent.h"
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
 #include "System/RXGameInstance.h" 
 #include "RXDebugHelper.h"
-#include "Actor/RXLevelTeleportActor.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
