@@ -21,9 +21,9 @@ protected:
 	virtual void NativeConstruct() override;
 
 public:
-	void UpdateHpBar(float NewCurrentHp);
+	void UpdateHpSet(int32, int32);
 
 public:
-	UPROPERTY()
-	TObjectPtr<class URXHpBarWidget> HpBar;
+	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
+	TObjectPtr<class URXHpSetWidget> WBP_HpSet;
 };
