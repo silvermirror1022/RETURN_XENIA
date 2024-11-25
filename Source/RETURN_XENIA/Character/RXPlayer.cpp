@@ -79,11 +79,9 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		auto ProceedDialogueAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_EnterKey); // Enter 키
 
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EKey);
-		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EnterKey);
-
-		// ESC Key 게임퍼즈메뉴 바인딩
-		//auto ESCGamePauseMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_ESCKey); // ESC(Escape) 키
-		//EnhancedInputComponent->BindAction(ESCGamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayer::GameMenuPause_ESCKey);
+		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EnterKey);	
+		
+		/*게임 UI 관련 액션은 플레이어컨트롤러에서 개별 분리*/
 	}
 }
 void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
@@ -91,10 +89,10 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 	// Interface Implementation func -> 플레이어 HUD 생성 인터페이스
 	if (InHUDWidget)
 	{
-		InHUDWidget->UpdateHpBar(Stat->GetCurrentHp());
+		InHUDWidget->UpdateHpSet(Stat->GetCurrentHp(),Stat->GetCurrentShield());
 
-		// RXHUDWidget의 UpdateHpBar를 Stat->OnPlayerHpChanged 델리게이트에 등록
-		Stat->OnPlayerHpChanged.AddUObject(InHUDWidget, &URXHUDWidget::UpdateHpBar);
+		// Player의 체력이 0이 됬을 때 플레이어 죽음 함수 구독
+		Stat->OnPlayerHpZero.AddUObject(this, &ARXPlayer::SetDead);
 	}
 }
 void ARXPlayer::UpdateDetectedActor()

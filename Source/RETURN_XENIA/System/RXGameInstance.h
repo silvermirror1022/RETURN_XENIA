@@ -49,7 +49,7 @@ public:
 	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemStatus")
-	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 5개, 심장, 힌트종이)
+	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 6개, 심장, 힌트종이)
 
 public:
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
@@ -73,4 +73,19 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "ITemStatus")
 	bool IsItemStatusAcquired(FString StatusName) const;
+
+	// 플레이어 체력, 방패 섹션
+public:
+	UPROPERTY()
+	int32 GI_Hp;
+
+	UPROPERTY()
+	int32 GI_Shield;
+
+	// 체력 쉴드 게터, 세터
+	FORCEINLINE int32 GetGI_Hp() const { return GI_Hp; }
+	FORCEINLINE void SetGI_Hp(int32 InGI_Hp) { GI_Hp = InGI_Hp; }
+
+	FORCEINLINE int32 GetGI_Shield() const { return GI_Shield; }
+	FORCEINLINE void SetGI_Shield(int32 InGI_Shield) { GI_Shield = InGI_Shield; }
 };
