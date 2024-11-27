@@ -5,7 +5,7 @@
 #include "Components/ProgressBar.h"
 #include "Components/HorizontalBox.h"
 #include "Player/RXPlayerStatComponent.h" 
-
+#include "RXDebugHelper.h"
 
 URXHpSetWidget::URXHpSetWidget(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
@@ -17,7 +17,6 @@ void URXHpSetWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-
 	AActor* Owner = GetOwningPlayerPawn();
 	if (Owner)
 	{
@@ -28,7 +27,7 @@ void URXHpSetWidget::NativeConstruct()
 			CurrentShieldCnt = PlayerStatComp->GetCurrentShield();
 
 			// 델리게이트 연결
-            PlayerStatComp->OnPlayerHpAndShieldChanged.AddUObject(this, &URXHpSetWidget::UpdateHpAndShield);
+            //PlayerStatComp->OnPlayerHpAndShieldChanged.AddUObject(this, &URXHpSetWidget::UpdateHpAndShield);
 
 			// 초기 위젯 세팅
 			UpdateHpAndShield(CurrentHpCnt, CurrentShieldCnt);
@@ -45,6 +44,9 @@ void URXHpSetWidget::UpdateHpAndShield(int32 InCurrentHp,int32 InCurrentShield)
 
     HorizontalBox->ClearChildren(); //기존 위젯들 삭제
 
+    //D(FString::Printf(TEXT("time: %d"), CurrentHpCnt));
+    //D(FString::Printf(TEXT("time11: %d"), CurrentShieldCnt));
+    
     // HpWidgetClass 기반 위젯 생성 및 추가
     for (int32 i = 0; i < CurrentHpCnt; ++i)
     {
@@ -58,7 +60,6 @@ void URXHpSetWidget::UpdateHpAndShield(int32 InCurrentHp,int32 InCurrentShield)
             }
         }
     }
-
     // ShieldWidgetClass 기반 위젯 생성 및 추가
     for (int32 i = 0; i < CurrentShieldCnt; ++i)
     {  

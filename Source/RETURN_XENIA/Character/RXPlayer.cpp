@@ -20,6 +20,8 @@
 #include "Character/RXNonPlayer.h"
 #include "Player/RXPlayerStatComponent.h"
 #include "RXDebugHelper.h"
+#include "UI/RXHpSetWidget.h"
+#include "System/RXGameInstance.h"
 
 ARXPlayer::ARXPlayer()
 {
@@ -36,15 +38,19 @@ ARXPlayer::ARXPlayer()
 
 	// Stat Component CDO
 	Stat = CreateDefaultSubobject<URXPlayerStatComponent>(TEXT("PlayerStat"));
+
+	PrimaryActorTick.bCanEverTick = true; // 플레이어 액터 틱 활성화
 }
 
 void ARXPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// 플레이어 컨트롤러 초기화
+	PlayerController = Cast<ARXPlayerController>(GetController());
+
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 	{
-
 		// Add Input Mapping Context
 		if (APlayerController* LocalPlayerController = Cast<APlayerController>(Controller))  
 		{
@@ -54,8 +60,6 @@ void ARXPlayer::BeginPlay()
 			}
 		}
 	}
-
-	//D(FString::Printf(TEXT("Current Health: %f, Max Health: %f"), Stat->GetCurrentHp(), Stat->GetMaxHp()));
 }
 
 void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -89,7 +93,14 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 	// Interface Implementation func -> 플레이어 HUD 생성 인터페이스
 	if (InHUDWidget)
 	{
-		InHUDWidget->UpdateHpSet(Stat->GetCurrentHp(),Stat->GetCurrentShield());
+		if (URXGameInstance* GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance()))
+		{
+			InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
+			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
+		}
+
+		// 델리게이트 연결
+		Stat->OnPlayerHpAndShieldChanged.AddUObject(InHUDWidget->HpSet, &URXHpSetWidget::UpdateHpAndShield);
 
 		// Player의 체력이 0이 됬을 때 플레이어 죽음 함수 구독
 		Stat->OnPlayerHpZero.AddUObject(this, &ARXPlayer::SetDead);
@@ -164,14 +175,6 @@ void ARXPlayer::Interact_IA_EnterKey()
 	{
 		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드
 	}
-}
-float ARXPlayer::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser);
-
-	Stat->ApplyDamage(DamageAmount);
-
-	return DamageAmount;
 }
 
 void ARXPlayer::Move(const FInputActionValue& Value)

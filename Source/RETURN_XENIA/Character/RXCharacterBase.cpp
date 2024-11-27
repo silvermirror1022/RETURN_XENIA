@@ -31,6 +31,5 @@ ARXCharacterBase::ARXCharacterBase()
 	GetMesh()->SetAnimationMode(EAnimationMode::AnimationBlueprint);
 	GetMesh()->SetCollisionProfileName(TEXT("CharacterMesh"));
 
-
 }
 

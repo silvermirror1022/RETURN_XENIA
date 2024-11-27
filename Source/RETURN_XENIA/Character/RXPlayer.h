@@ -38,16 +38,11 @@ protected: // 인풋 콜백 함수 섹션
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 
-
-protected: // 데미지입는 함수
-	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
-
-
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
 
-	virtual void SetDead();
+	void SetDead();
 	void PlayDeadAnimation();
 
 	float DeadEventDelayTime = 5.0f;

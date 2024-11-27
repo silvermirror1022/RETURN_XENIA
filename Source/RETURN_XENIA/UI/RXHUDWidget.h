@@ -22,8 +22,12 @@ protected:
 
 public:
 	void UpdateHpSet(int32, int32);
+	void UpdateShieldCoolTime(bool);
 
 public:
 	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
-	TObjectPtr<class URXHpSetWidget> WBP_HpSet;
+	TObjectPtr<class URXHpSetWidget> HpSet;
+
+	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
+	TObjectPtr<class URXShieldCoolTimeWidget> ShieldCoolTime;
 };
