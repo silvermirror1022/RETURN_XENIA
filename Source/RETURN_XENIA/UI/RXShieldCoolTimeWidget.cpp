@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "UI/RXShieldCoolTimeWidget.h"
@@ -21,7 +21,7 @@ void URXShieldCoolTimeWidget::NativeConstruct()
 		PlayerStatComp = Owner->FindComponentByClass<URXPlayerStatComponent>();
 		if (PlayerStatComp)
 		{
-			// µ¨¸®°ÔÀÌÆ® ¿¬°á
+			// ë¸ë¦¬ê²Œì´íŠ¸ ì—°ê²°
 			PlayerStatComp->OnPlayerShieldSecRegenChanged.AddUObject(this, &URXShieldCoolTimeWidget::UpdateCoolTimeImage);
 			PlayerStatComp->OnPlayerShieldFull.AddUObject(this, &URXShieldCoolTimeWidget::UpdateCoolTimeFullImage);
 		}
@@ -30,12 +30,12 @@ void URXShieldCoolTimeWidget::NativeConstruct()
 
 void URXShieldCoolTimeWidget::UpdateCoolTimeImage(int32 ImageIdx)
 {
-	// ÀÌ¹ÌÁö ÀÎµ¦½º°¡ ¹üÀ§¸¦ ÃÊ°úÇÏÁö ¾Êµµ·Ï º¸È£
+	// ì´ë¯¸ì§€ ì¸ë±ìŠ¤ê°€ ë²”ìœ„ë¥¼ ì´ˆê³¼í•˜ì§€ ì•Šë„ë¡ ë³´í˜¸
 	if (CoolTimeImages.IsValidIndex(ImageIdx-1))
 	{
 		if (SecondShowImage)
 		{
-			// ÀÌ¹ÌÁö ºê·¯½Ã ¾÷µ¥ÀÌÆ®
+			// ì´ë¯¸ì§€ ë¸ŒëŸ¬ì‹œ ì—…ë°ì´íŠ¸
 			SecondShowImage->SetBrushFromTexture(CoolTimeImages[ImageIdx-1]);
 		}
 	}
@@ -45,7 +45,7 @@ void URXShieldCoolTimeWidget::UpdateCoolTimeFullImage()
 {
 	if (SecondShowImage)
 	{
-		// Èú¸µ ¾ÆÀÌÅÛ È¹µæ½Ã ºê·¯½Ã ¾÷µ¥ÀÌÆ®
+		// ížë§ ì•„ì´í…œ íšë“ì‹œ ë¸ŒëŸ¬ì‹œ ì—…ë°ì´íŠ¸
 		SecondShowImage->SetBrushFromTexture(CoolTimeImages[7]);
 	}
 }

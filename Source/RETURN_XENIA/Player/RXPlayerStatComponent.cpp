@@ -60,8 +60,8 @@ void URXPlayerStatComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	{
 		float RemainingTime = GetWorld()->GetTimerManager().GetTimerRemaining(ShieldRegenTimer);
 
-		int32 CurrentSecIndex = FMath::Clamp(static_cast<int32>(7.0f-RemainingTime), 1, 8);
-		D(FString::Printf(TEXT("Current cooltime: %d"), CurrentSecIndex));
+		int32 CurrentSecIndex = FMath::Clamp(static_cast<int32>(8.0f-RemainingTime), 1, 8);
+		//D(FString::Printf(TEXT("Current cooltime: %d"), CurrentSecIndex));
 		// 델리게이트 호출로 UI 업데이트
 		OnPlayerShieldSecRegenChanged.Broadcast(CurrentSecIndex);
 	}
