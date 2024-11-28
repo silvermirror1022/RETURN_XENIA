@@ -8,6 +8,8 @@
 #include "Interface/RXNPCDialogueInterface.h"
 #include "RXNonPlayer.generated.h"
 
+class UTextBlock;
+
 UCLASS()
 class RETURN_XENIA_API ARXNonPlayer : public ARXCharacterBase, public IRXNPCDialogueInterface
 {

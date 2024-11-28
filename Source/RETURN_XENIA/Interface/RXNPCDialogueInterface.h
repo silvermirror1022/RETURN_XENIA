@@ -6,8 +6,6 @@
 #include "UObject/Interface.h"
 #include "RXNPCDialogueInterface.generated.h"
 
-class UTextBlock;
-
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI)
 class URXNPCDialogueInterface : public UInterface
