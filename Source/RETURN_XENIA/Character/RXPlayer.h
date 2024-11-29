@@ -24,7 +24,6 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay();
 
-	
 protected: // 카메라섹션
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class USpringArmComponent> CameraBoom;
@@ -33,10 +32,11 @@ protected: // 카메라섹션
 	UPROPERTY()
 	TObjectPtr<class ARXPlayerController> PlayerController;
 
-
 protected: // 인풋 콜백 함수 섹션
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void StartSprinting();
+	void StopSprinting();
 
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
@@ -47,11 +47,9 @@ protected: // 플레이어 사망 관련 함수 및 변수
 
 	float DeadEventDelayTime = 5.0f;
 
-
 protected: // 스텟 섹션 (HP,Shield 관련)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;
-
 
 public: 
 	// 탐지 함수 섹션

@@ -72,11 +72,14 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		auto JumpAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Jump);
 		auto MoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Move);
 		auto LookAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Look);
+		auto SprintAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Sprint);
 
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ARXPlayer::Look);
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this, &ARXPlayer::StartSprinting);
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &ARXPlayer::StopSprinting);
 
 		// 인터렉션 섹션 바인딩
 		auto InteractAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Interact); // E 키
@@ -202,6 +205,22 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 		AddControllerYawInput(LookAxisVector.X);
 		AddControllerPitchInput(LookAxisVector.Y);
 	}
+}
+void ARXPlayer::StartSprinting()
+{	// 스프린트 시작(Left Shift o)
+	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
+	{
+		if(GI->IsProfileStatusAcquired("Cape"))
+		{
+			GetCharacterMovement()->MaxWalkSpeed = 650.0f;
+		}
+	}
+	return;
+}
+
+void ARXPlayer::StopSprinting()
+{	// 스프린트 해제(Left Shift x)
+	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
 }
 void ARXPlayer::SetDead()
 {
