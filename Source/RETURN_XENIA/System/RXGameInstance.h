@@ -23,10 +23,34 @@ public:
 	bool bIsAcquired; // 획득 여부
 };
 
+USTRUCT(BlueprintType)
+struct FSliderValues
+{
+	GENERATED_BODY()
+
+public:
+
+	UPROPERTY()
+	float BrightnessValue; // 게임밝기
+
+	UPROPERTY()
+	float MasterVolumeValue; // 게임 마스터볼륨
+
+	UPROPERTY()
+	float MusicVolumeValue; // 게임 배경 볼륨
+
+	UPROPERTY()
+	float SFXVolumeValue; // 게임 효과음 볼륨
+
+	FSliderValues()
+		: BrightnessValue(10.5f), MasterVolumeValue(1.0f), MusicVolumeValue(1.0f), SFXVolumeValue(1.0f) {}
+};
+
 UCLASS()
 class RETURN_XENIA_API URXGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
+
 public:
 	URXGameInstance(const FObjectInitializer& ObjectInitializer);
 
@@ -74,8 +98,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "ITemStatus")
 	bool IsItemStatusAcquired(FString StatusName) const;
 
-	// 플레이어 체력, 방패 섹션
 public:
+	// 플레이어 체력, 방패 섹션
 	UPROPERTY()
 	int32 GI_Hp;
 
@@ -88,4 +112,33 @@ public:
 
 	FORCEINLINE int32 GetGI_Shield() const { return GI_Shield; }
 	FORCEINLINE void SetGI_Shield(int32 InGI_Shield) { GI_Shield = InGI_Shield; }
+
+	// 게임 셋팅 볼륨, 밝기 저장 변수
+	UPROPERTY()
+	FSliderValues SliderValues;
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	float GetBrightnessValue() const { return SliderValues.BrightnessValue; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	void SetBrightnessValue(float Value) { SliderValues.BrightnessValue = Value; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	float GetMasterVolumeValue() const { return SliderValues.MasterVolumeValue; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	void SetMasterVolumeValue(float Value) { SliderValues.MasterVolumeValue = Value; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	float GetMusicVolumeValue() const { return SliderValues.MusicVolumeValue; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	void SetMusicVolumeValue(float Value) { SliderValues.MusicVolumeValue = Value; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	float GetSFXVolumeValue() const { return SliderValues.SFXVolumeValue; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	void SetSFXVolumeValue(float Value) { SliderValues.SFXVolumeValue = Value; }
+
 };

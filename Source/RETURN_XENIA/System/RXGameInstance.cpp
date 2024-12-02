@@ -5,6 +5,7 @@
 #include "RXGameplayTags.h"
 #include "RXDebugHelper.h"
 #include "RXAssetManager.h"
+#include "Engine/PostProcessVolume.h"
 
 URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -14,6 +15,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 
 	SetGI_Hp(3);
 	SetGI_Shield(1);
+
 }
 
 void URXGameInstance::Init()
