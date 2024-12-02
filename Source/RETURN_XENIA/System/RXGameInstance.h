@@ -43,7 +43,7 @@ public:
 	float SFXVolumeValue; // 게임 효과음 볼륨
 
 	FSliderValues()
-		: BrightnessValue(10.5f), MasterVolumeValue(1.0f), MusicVolumeValue(1.0f), SFXVolumeValue(1.0f) {}
+		: BrightnessValue(1.0f), MasterVolumeValue(1.0f), MusicVolumeValue(1.0f), SFXVolumeValue(1.0f) {}
 };
 
 UCLASS()
