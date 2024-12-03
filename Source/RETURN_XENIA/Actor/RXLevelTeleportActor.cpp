@@ -30,7 +30,7 @@ void ARXLevelTeleportActor::BeginPlay()
 	Super::BeginPlay();
 }
 
-void ARXLevelTeleportActor::TeleportToOtherLevel()
+void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
 {
     // 게임 인스턴스에 접근하여 DestinationTag를 설정
     if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))

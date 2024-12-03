@@ -31,5 +31,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TeleportSettings")
 	FName NextLevelName;  // 다른레벨로의 이동
 
-	void TeleportToOtherLevel(); //다른 레벨 여는 함수
+	UFUNCTION(BlueprintNativeEvent)
+	void TeleportToOtherLevel();
+	virtual void TeleportToOtherLevel_Implementation(); //다른 레벨 여는 함수
 };
