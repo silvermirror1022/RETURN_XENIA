@@ -4,13 +4,13 @@
 #include "Character/RXPlayer.h"
 #include "Engine/LocalPlayer.h"
 #include "Camera/CameraComponent.h"
-#include "Components/CapsuleComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "GameFramework/Controller.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Components/CapsuleComponent.h"
 #include "RXGameplayTags.h"
 #include "Player/RXPlayerController.h"
 #include "System/RXAssetManager.h"
@@ -64,10 +64,14 @@ void ARXPlayer::BeginPlay()
 
 void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
+
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 	{
 		// 에셋메니저로부터 인풋데이터를 가져와서 각각 액션에 바인딩
-		UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
+		//UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
 
 		auto JumpAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Jump);
 		auto MoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Move);
@@ -87,9 +91,15 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EKey);
 		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EnterKey);	
-		
-		/*게임 UI 관련 액션은 플레이어컨트롤러에서 개별 분리*/
 	}
+
+	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_Puzzel"))
+	{
+		auto PuzzelMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelMove);
+		EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
+	}
+
+	/*게임 UI 관련 액션 바인딩은 플레이어컨트롤러에서 개별 분리*/
 }
 void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 {
@@ -215,21 +225,47 @@ void ARXPlayer::StartSprinting()
 			GetCharacterMovement()->MaxWalkSpeed = 650.0f;
 		}
 	}
-	return;
 }
 
 void ARXPlayer::StopSprinting()
 {	// 스프린트 해제(Left Shift x)
 	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
 }
+
+void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
+{
+	// Puzzel 모드시 이동 로직 수직 옵저버 모드는 월드좌표 기준으로 이동
+	FVector2D MovementVector = Value.Get<FVector2D>();
+
+	if (Controller != nullptr)
+	{
+		// 퍼즐 모드에서는 월드 좌표계를 기반으로 이동
+		FVector ForwardDirection = FVector::ForwardVector;
+		FVector RightDirection = FVector::RightVector;
+
+		AddMovementInput(ForwardDirection, MovementVector.X);
+		AddMovementInput(RightDirection, MovementVector.Y);
+	}
+}
+
+void ARXPlayer::BindPuzzleModeInputs(UEnhancedInputComponent* EnhancedInputComponent, const URXInputData* InputData)
+{
+	auto PuzzleMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Move);
+
+	if (PuzzleMoveAction)
+	{
+		EnhancedInputComponent->BindAction(PuzzleMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
+	}
+}
+
 void ARXPlayer::SetDead()
 {
-	//플레이어 사망 함수
+	// 플레이어 사망 함수
 	GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_None);
 	PlayDeadAnimation();
 	SetActorEnableCollision(false);
 
-	//DisableInput(PlayerController); //입력 멈추기
+	// DisableInput(PlayerController); //입력 멈추기
 	GetCharacterMovement()->DisableMovement();  // 이동 비활성화
 	PlayerController->SetIgnoreMoveInput(true);
 }

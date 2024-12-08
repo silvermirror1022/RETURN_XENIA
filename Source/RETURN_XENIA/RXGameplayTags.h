@@ -14,6 +14,9 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Interact);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_EnterKey);
 
+	// Player Puzzel Move Input Section
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelMove);
+
 	// Player UI Input Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_ESCKey);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_IKey);
@@ -57,8 +60,8 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Temple_Exit);  //신전 출입구
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Temple_Entrance);
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Cavin_Exit);  //캐빈 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Cavin_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Cabin_Exit);  //캐빈 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Cabin_Entrance);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_MainMap_Exit); //2층 매인맵 출구
 

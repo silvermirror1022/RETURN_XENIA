@@ -1,10 +1,9 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
+#include "Player/RXInteractionVisibilityComponent.h"
 #include "Components/SphereComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Character/RXPlayer.h"
-#include "RXDebugHelper.h"
-#include "Player/RXInteractionVisibilityComponent.h"
 
 // Sets default values for this component's properties
 URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()

@@ -1,10 +1,10 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
+#include "UI/Inventory/RXInventorySlotsWidget.h"
 #include "System/RXGameInstance.h"
 #include "Components/UniformGridPanel.h"
 #include "UI/RXMainMenuWidget.h"
 #include "UI/Inventory/RXInventorySlotWidget.h"
-#include "UI/Inventory/RXInventorySlotsWidget.h"
 
 URXInventorySlotsWidget::URXInventorySlotsWidget(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -25,8 +25,8 @@ void URXInventorySlotsWidget::NativeConstruct()
 	TArray<FString> ItemNames = { TEXT("KnotChar1"), TEXT("KnotChar2"), TEXT("KnotChar3"), TEXT("KnotChar4"),
 		TEXT("KnotChar5"), TEXT("KnotChar6"), TEXT("Heart"), TEXT("HintPaper")};
 
-	const int X_COUNT = 3;
-	const int Y_COUNT = 4;
+	constexpr int X_COUNT = 3;
+	constexpr int Y_COUNT = 4;
 	int32 CurrentItemIndex = 0;
 
 	// 획득된 아이템 리스트만 필터링

@@ -8,6 +8,7 @@
 #include "Interface/RXPlayerInteractionInterface.h"
 #include "RXPlayer.generated.h"
 
+class URXInputData;
 struct FInputActionValue;
 /**
  * 
@@ -37,6 +38,10 @@ protected: // 인풋 콜백 함수 섹션
 	void Look(const FInputActionValue& Value);
 	void StartSprinting();
 	void StopSprinting();
+	void PuzzelMove(const FInputActionValue& Value);
+
+	// 퍼즐모드 다이나믹 바인딩 함수
+	void BindPuzzleModeInputs(UEnhancedInputComponent* EnhancedInputComponent, const URXInputData* InputData);
 
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))

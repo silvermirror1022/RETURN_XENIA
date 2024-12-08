@@ -10,6 +10,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Move, "Input.Action.Move");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Jump, "Input.Action.Jump");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Sprint, "Input.Action.Sprint");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelMove, "Input.Action.PuzzelMove"); // except : PuzzelModeMove
 
 	//Player Others Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
@@ -47,8 +48,8 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_MainMap_Start, "Teleport.2ndFloor.MainMap.Start");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Temple_Exit, "Teleport.2ndFloor.Temple.Exit");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Temple_Entrance, "Teleport.2ndFloor.Temple.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cavin_Exit, "Teleport.2ndFloor.Cavin.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cavin_Entrance, "Teleport.2ndFloor.Cavin.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cabin_Exit, "Teleport.2ndFloor.Cabin.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cabin_Entrance, "Teleport.2ndFloor.Cabin.Entrance");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_MainMap_Exit, "Teleport.2ndFloor.MainMap.Exit");
 
 	// Third Floor
