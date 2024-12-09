@@ -7,7 +7,7 @@
 #include "RXInteractionVisibilityComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom), BlueprintType, Blueprintable, meta=(BlueprintSpawnableComponent) )
 class RETURN_XENIA_API URXInteractionVisibilityComponent : public USceneComponent
 {
 	GENERATED_BODY()
@@ -38,5 +38,5 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP")
 	TSubclassOf<UUserWidget> WidgetClass;
-		
+	
 };

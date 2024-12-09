@@ -21,7 +21,7 @@ URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
     SphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 
     // Sphere Component의 반지름과 색상 설정
-    SphereComponent->SetSphereRadius(220.0f); // 반지름 설정
+    SphereComponent->SetSphereRadius(220.f); // 반지름 설정
     SphereComponent->ShapeColor = FColor::Green; // 색상 설정 (디버그용)
 
     // Widget Component 생성 및 설정
