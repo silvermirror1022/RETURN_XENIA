@@ -20,6 +20,7 @@
 #include "Character/RXNonPlayer.h"
 #include "Player/RXPlayerStatComponent.h"
 #include "RXDebugHelper.h"
+#include "Actor/RXPuzzelBase.h"
 #include "UI/RXHpSetWidget.h"
 #include "System/RXGameInstance.h"
 
@@ -153,6 +154,10 @@ void ARXPlayer::UpdateDetectedActor()
 		{
 			DetectedTeleportActor = TPActor; // 감지된 텔레포트엑터 업데이트
 		}
+		else if(ARXPuzzelBase* PuzzelActor = Cast<ARXPuzzelBase>(Hit.GetActor()))
+		{
+			DetectedPuzzelActor = PuzzelActor;
+		}
 		else
 		{
 			ResetDetectedActors();
@@ -167,18 +172,23 @@ void ARXPlayer::ResetDetectedActors()
 {
 	DetectedNPC = nullptr;
 	DetectedTeleportActor = nullptr;
+	DetectedPuzzelActor = nullptr;
 }
 void ARXPlayer::Interact_IA_EKey()
 {
 	UpdateDetectedActor();
 
-	if (DetectedNPC && !DetectedNPC->bIsTalking)  // DetectedNPC가 유효한지 확인
+	if (DetectedNPC && !DetectedNPC->bIsTalking)  // 각각 유효한지 확인
 	{
 		DetectedNPC->StartDialogue();
 	}
 	else if (DetectedTeleportActor)
 	{
 		DetectedTeleportActor->TeleportToOtherLevel();
+	}
+	else if (DetectedPuzzelActor)
+	{
+		DetectedPuzzelActor->PuzzelEventStart();
 	}
 }
 
@@ -245,16 +255,6 @@ void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
 
 		AddMovementInput(ForwardDirection, MovementVector.X);
 		AddMovementInput(RightDirection, MovementVector.Y);
-	}
-}
-
-void ARXPlayer::BindPuzzleModeInputs(UEnhancedInputComponent* EnhancedInputComponent, const URXInputData* InputData)
-{
-	auto PuzzleMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Move);
-
-	if (PuzzleMoveAction)
-	{
-		EnhancedInputComponent->BindAction(PuzzleMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
 	}
 }
 

@@ -40,9 +40,6 @@ protected: // 인풋 콜백 함수 섹션
 	void StopSprinting();
 	void PuzzelMove(const FInputActionValue& Value);
 
-	// 퍼즐모드 다이나믹 바인딩 함수
-	void BindPuzzleModeInputs(UEnhancedInputComponent* EnhancedInputComponent, const URXInputData* InputData);
-
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
@@ -62,11 +59,16 @@ public:
 	void ResetDetectedActors();  //리셋
 
 	// NPC 대화 관련 NPC 탐지 변수 
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UPROPERTY()
 	TObjectPtr<class ARXNonPlayer> DetectedNPC;
 
 	// 탐지 텔레포트 엑터 변수
+	UPROPERTY()
 	TObjectPtr<class ARXLevelTeleportActor> DetectedTeleportActor;
+
+	// 퍼즐 이벤트 엑터 변수
+	UPROPERTY()
+	TObjectPtr<class ARXPuzzelBase> DetectedPuzzelActor;
 
 protected:
 	// PlayerHUD 인터페이스 가상함수 오버라이드 구현 섹션

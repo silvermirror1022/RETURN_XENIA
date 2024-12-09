@@ -3,10 +3,10 @@
 
 #include "Component/RXPuzzelStartComponent.h"
 #include "GameFramework/PlayerController.h"
-#include "Camera/CameraComponent.h"
 #include "GameFramework/SpringArmComponent.h"
-#include "InputMappingContext.h"
 #include "Character/RXPlayer.h"
+#include "Kismet/GameplayStatics.h"
+#include "GameFramework/Actor.h"
 
 URXPuzzelStartComponent::URXPuzzelStartComponent()
 {
@@ -25,6 +25,26 @@ void URXPuzzelStartComponent::BeginPlay()
 
 void URXPuzzelStartComponent::StartPuzzelMode_Implementation()
 {
+	// StartPos 태그가 있는 액터를 검색
+	TArray<AActor*> TaggedActors;
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("PuzzelStartPos"), TaggedActors);
+
+	if (TaggedActors.Num() > 0)
+	{
+		// 첫 번째 태그 액터의 위치로 이동
+		AActor* StartPosActor = TaggedActors[0];
+		if (StartPosActor && Player)
+		{
+			Player->SetActorLocation(StartPosActor->GetActorLocation());
+		}
+	}
+
+	if(UMeshComponent* MeshComponent=Player->FindComponentByClass<UMeshComponent>())
+	{
+		// 퍼즐모드시 플레이어 그림자 비활성화
+		MeshComponent->SetCastShadow(false);
+	}
+
 	if(USpringArmComponent* SpringArmComponent = Player->FindComponentByClass<USpringArmComponent>())
 	{
 		// 플레이어 컨트롤 로테이션 비활성화
@@ -47,6 +67,26 @@ void URXPuzzelStartComponent::StartPuzzelMode_Implementation()
 
 void URXPuzzelStartComponent::EndPuzzelMode_Implementation()
 {
+	// StartPos 태그가 있는 액터를 검색
+	TArray<AActor*> TaggedActors;
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("PuzzelClearPos"), TaggedActors);
+
+	if (TaggedActors.Num() > 0)
+	{
+		// 첫 번째 태그 액터의 위치로 이동
+		AActor* StartPosActor = TaggedActors[0];
+		if (StartPosActor && Player)
+		{
+			Player->SetActorLocation(StartPosActor->GetActorLocation());
+		}
+	}
+
+	if (UMeshComponent* MeshComponent = Player->FindComponentByClass<UMeshComponent>())
+	{
+		// 퍼즐모드시 플레이어 그림자 활성화
+		MeshComponent->SetCastShadow(true);
+	}
+
 	if (USpringArmComponent* SpringArmComponent = Player->FindComponentByClass<USpringArmComponent>())
 	{
 		// 플레이어 컨트롤 로테이션 복원
