@@ -2,14 +2,13 @@
 
 
 #include "Actor/RXPuzzelBase.h"
-
-#include "Component/RXPuzzelStartComponent.h"
-
+#include "Component/RXPuzzelEventManageComponent.h"
+#include "Component/RXPuzzelSpawnManageComponent.h"
 ARXPuzzelBase::ARXPuzzelBase()
 {
  	
 	PrimaryActorTick.bCanEverTick = false;
-
+	//RootComponent = CreateDefaultSubobject<URXPuzzelSpawnManageComponent>(TEXT("SpawnManageComponent"));
 }
 
 void ARXPuzzelBase::BeginPlay()
@@ -20,9 +19,9 @@ void ARXPuzzelBase::BeginPlay()
 
 void ARXPuzzelBase::PuzzelEventStart()
 {
-	if(URXPuzzelStartComponent* PuzzelStartComponent = FindComponentByClass<URXPuzzelStartComponent>())
+	if(URXPuzzelEventManageComponent* PuzzelEventManageComponent = FindComponentByClass<URXPuzzelEventManageComponent>())
 	{
-		PuzzelStartComponent->StartPuzzelMode();
+		PuzzelEventManageComponent->StartPuzzelMode();
 	}
 }
 

@@ -97,7 +97,9 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_Puzzel"))
 	{
 		auto PuzzelMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelMove);
+		auto PuzzelResetAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelReset);
 		EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
+		//EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelReset);
 	}
 
 	/*게임 UI 관련 액션 바인딩은 플레이어컨트롤러에서 개별 분리*/

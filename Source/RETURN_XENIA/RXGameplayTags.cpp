@@ -10,14 +10,16 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Move, "Input.Action.Move");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Jump, "Input.Action.Jump");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Sprint, "Input.Action.Sprint");
-	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelMove, "Input.Action.PuzzelMove"); // except : PuzzelModeMove
+
+	// except : used for PuzzelInputMappingContext : PuzzelMode Section
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelMove, "Input.Action.PuzzelMove");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelReset, "Input.Action.PuzzelReset");
 
 	//Player Others Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_EnterKey, "Input.Action.EnterKey");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_ESCKey, "Input.Action.ESCKey");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_IKey, "Input.Action.IKey");
-
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Papamama, "Dialogue.NPCType.Papamama");

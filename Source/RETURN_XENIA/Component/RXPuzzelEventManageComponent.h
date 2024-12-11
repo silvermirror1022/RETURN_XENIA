@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "RXPuzzelStartComponent.generated.h"
+#include "RXPuzzelEventManageComponent.generated.h"
 
 
 UCLASS( ClassGroup=(Custom), BlueprintType, Blueprintable, meta=(BlueprintSpawnableComponent) )
-class RETURN_XENIA_API URXPuzzelStartComponent : public UActorComponent
+class RETURN_XENIA_API URXPuzzelEventManageComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
-	URXPuzzelStartComponent();
+	URXPuzzelEventManageComponent();
 
 protected:
 	virtual void BeginPlay() override;

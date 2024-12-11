@@ -1,19 +1,19 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Component/RXPuzzelStartComponent.h"
+#include "Component/RXPuzzelEventManageComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/Actor.h"
 
-URXPuzzelStartComponent::URXPuzzelStartComponent()
+URXPuzzelEventManageComponent::URXPuzzelEventManageComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
 }
 
-void URXPuzzelStartComponent::BeginPlay()
+void URXPuzzelEventManageComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	Player = Cast<ARXPlayer>(GetWorld()->GetFirstPlayerController()->GetPawn());
@@ -23,7 +23,7 @@ void URXPuzzelStartComponent::BeginPlay()
  * Mapping Context Change 는 블루프린트에서 구현 
  */
 
-void URXPuzzelStartComponent::StartPuzzelMode_Implementation()
+void URXPuzzelEventManageComponent::StartPuzzelMode_Implementation()
 {
 	// StartPos 태그가 있는 액터를 검색
 	TArray<AActor*> TaggedActors;
@@ -35,7 +35,9 @@ void URXPuzzelStartComponent::StartPuzzelMode_Implementation()
 		AActor* StartPosActor = TaggedActors[0];
 		if (StartPosActor && Player)
 		{
-			Player->SetActorLocation(StartPosActor->GetActorLocation());
+			FVector TargetLocation = StartPosActor->GetActorLocation();
+			TargetLocation.Z += 40.0f; 
+			Player->SetActorLocation(TargetLocation);
 		}
 	}
 
@@ -65,7 +67,7 @@ void URXPuzzelStartComponent::StartPuzzelMode_Implementation()
 	}
 }
 
-void URXPuzzelStartComponent::EndPuzzelMode_Implementation()
+void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
 {
 	// StartPos 태그가 있는 액터를 검색
 	TArray<AActor*> TaggedActors;

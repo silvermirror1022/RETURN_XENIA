@@ -19,4 +19,5 @@ protected:
 
 public:	
 	void PuzzelEventStart();
+
 };

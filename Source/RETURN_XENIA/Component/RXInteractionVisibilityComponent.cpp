@@ -1,11 +1,10 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
-#include "Player/RXInteractionVisibilityComponent.h"
+#include "Component/RXInteractionVisibilityComponent.h"
 #include "Components/SphereComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Character/RXPlayer.h"
 
-// Sets default values for this component's properties
 URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
@@ -36,7 +35,6 @@ URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
 }
 
 
-// Called when the game starts
 void URXInteractionVisibilityComponent::BeginPlay()
 {
 	Super::BeginPlay();
