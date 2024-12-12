@@ -20,10 +20,9 @@ protected:
 public:
     UPROPERTY()
     TObjectPtr<class ARXPlayer> Player;
-
     TMap<int32, TArray<AActor*>> LevelObjectsMap; // 레벨별 해당 엑터 관리
 
-    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
     int32 CurrentLevelID;  // 현재 진행 중인 레벨 ID
 
     // 퍼즐 타일 초기화
@@ -34,6 +33,9 @@ public:
     UFUNCTION(BlueprintCallable)
     void ActivateLevel(int32 LevelID);
 
+    // 퍼즐 클리어 종료
+	void ClearAllPuzzel();
+
     // 퍼즐 리셋
     UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
     void ResetCurrentLevel();
@@ -41,4 +43,5 @@ public:
 
     UPROPERTY(EditAnywhere, Category = "LevelTag")
     TArray<FName> LevelTag;
+
 };

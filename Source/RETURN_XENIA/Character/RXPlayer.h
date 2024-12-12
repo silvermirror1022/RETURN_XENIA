@@ -70,6 +70,9 @@ public:
 	UPROPERTY()
 	TObjectPtr<class ARXPuzzelBase> DetectedPuzzelActor;
 
+	// 퍼즐이벤트 플레이어 포지션 셋팅 함수
+	void MoveToTagLocation(FName TagName, float ZOffSet);
+
 protected:
 	// PlayerHUD 인터페이스 가상함수 오버라이드 구현 섹션
 	virtual void SetupHUDWidget(class URXHUDWidget* InHUDWidget) override;

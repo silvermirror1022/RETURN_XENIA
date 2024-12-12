@@ -26,7 +26,7 @@ void URXPuzzelSpawnManageComponent::InitializeTileData()
     }
     /*
      *  각각 해당하는 모든 오브젝트는 태그를 설정해줘야함. 철자는 무조건 동일해야함.
-     *  해당 컴포넌트는 블루프린트로 각각 파생해서 해당 퍼즐에 붙여줘야함. 에디터에서 설정.
+     *  해당 컴포넌트는 블루프린트로 각각 파생해서 해당 퍼즐에 붙여줘야함. 퍼즐 별 컴포넌트 추가확장은 에디터에서 설정.
      *
      *  오일러퍼즐:    EulerPuzzelLevel1, EulerPuzzelLevel2, EulerPuzzelLevel3, EulerPuzzelLevel4
      *  블라인드퍼즐:  BlindPuzzelLevel1, BlindPuzzelLevel2, BlindPuzzelLevel3, BlindPuzzelLevel4
@@ -90,6 +90,32 @@ void URXPuzzelSpawnManageComponent::ActivateLevel(int32 LevelID)
             }
         }
     }
+
+    // 플레이어 퍼즐 시작 위치로 이동
+    Player->MoveToTagLocation("PuzzelStartPos", 30.0f);
+}
+
+void URXPuzzelSpawnManageComponent::ClearAllPuzzel()
+{
+    // LevelTag에 설정된 태그를 순회
+    for (const FName& Tag : LevelTag)
+    {
+        // 해당 태그를 가진 액터 검색
+        TArray<AActor*> FoundActors;
+        UGameplayStatics::GetAllActorsWithTag(GetWorld(), Tag, FoundActors);
+
+        // 검색된 액터를 삭제
+        for (AActor* Actor : FoundActors)
+        {
+            if (Actor)
+            {
+                UE_LOG(LogTemp, Log, TEXT("Destroying Actor: %s"), *Actor->GetName());
+                Actor->Destroy(); // 액터 제거
+            }
+        }
+    }
+
+    LevelObjectsMap.Empty();
 }
 
 void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
@@ -109,19 +135,8 @@ void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
         }
     }
 
-    // StartPos 태그가 있는 액터를 검색
-    TArray<AActor*> TaggedActors;
-    UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("PuzzelStartPos"), TaggedActors);
-
-    if (TaggedActors.Num() > 0)
-    {
-        // 첫 번째 태그 액터의 위치로 이동
-        AActor* StartPosActor = TaggedActors[0];
-        if (StartPosActor && Player)
-        {
-            FVector TargetLocation = StartPosActor->GetActorLocation();
-            TargetLocation.Z += 40.0f;
-            Player->SetActorLocation(TargetLocation);
-        }
-    }
+    // 플레이어 퍼즐 시작 위치로 이동
+    Player->MoveToTagLocation("PuzzelStartPos", 30.0f);
 }
+
+

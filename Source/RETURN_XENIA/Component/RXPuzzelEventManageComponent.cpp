@@ -6,6 +6,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
+#include "Component/RXPuzzelSpawnManageComponent.h"
 #include "GameFramework/Actor.h"
 
 URXPuzzelEventManageComponent::URXPuzzelEventManageComponent()
@@ -25,21 +26,8 @@ void URXPuzzelEventManageComponent::BeginPlay()
 
 void URXPuzzelEventManageComponent::StartPuzzelMode_Implementation()
 {
-	// StartPos 태그가 있는 액터를 검색
-	TArray<AActor*> TaggedActors;
-	UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("PuzzelStartPos"), TaggedActors);
-
-	if (TaggedActors.Num() > 0)
-	{
-		// 첫 번째 태그 액터의 위치로 이동
-		AActor* StartPosActor = TaggedActors[0];
-		if (StartPosActor && Player)
-		{
-			FVector TargetLocation = StartPosActor->GetActorLocation();
-			TargetLocation.Z += 40.0f; 
-			Player->SetActorLocation(TargetLocation);
-		}
-	}
+	// 플레이어 퍼즐 시작 위치로 이동
+	Player->MoveToTagLocation("PuzzelStartPos", 30.0f);
 
 	if(UMeshComponent* MeshComponent=Player->FindComponentByClass<UMeshComponent>())
 	{
@@ -69,19 +57,8 @@ void URXPuzzelEventManageComponent::StartPuzzelMode_Implementation()
 
 void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
 {
-	// StartPos 태그가 있는 액터를 검색
-	TArray<AActor*> TaggedActors;
-	UGameplayStatics::GetAllActorsWithTag(GetWorld(), FName("PuzzelClearPos"), TaggedActors);
-
-	if (TaggedActors.Num() > 0)
-	{
-		// 첫 번째 태그 액터의 위치로 이동
-		AActor* StartPosActor = TaggedActors[0];
-		if (StartPosActor && Player)
-		{
-			Player->SetActorLocation(StartPosActor->GetActorLocation());
-		}
-	}
+	// 플레이어 퍼즐 종료 위치로 이동
+	Player->MoveToTagLocation("PuzzelClearPos", 30.0f);
 
 	if (UMeshComponent* MeshComponent = Player->FindComponentByClass<UMeshComponent>())
 	{
@@ -106,5 +83,14 @@ void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
 		FRotator DefaultRotation = FRotator::ZeroRotator;
 		SpringArmComponent->SetRelativeRotation(DefaultRotation);
 
+		// 이 컴포넌트를 소유한 소유자액터를 찾고, PuzzelSpawnManageComponent의 퍼즐클리어함수호출.
+		if(AActor* ComponentOwner = GetOwner())
+		{
+			if(URXPuzzelSpawnManageComponent* SpawnManageComponent = ComponentOwner->FindComponentByClass<URXPuzzelSpawnManageComponent>())
+			{
+				SpawnManageComponent->ClearAllPuzzel(); // 해당 퍼즐 삭제.
+			}
+			
+		}
 	}
 }

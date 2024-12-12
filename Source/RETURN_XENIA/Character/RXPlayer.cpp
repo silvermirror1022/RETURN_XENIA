@@ -21,6 +21,7 @@
 #include "Player/RXPlayerStatComponent.h"
 #include "RXDebugHelper.h"
 #include "Actor/RXPuzzelBase.h"
+#include "Kismet/GameplayStatics.h"
 #include "UI/RXHpSetWidget.h"
 #include "System/RXGameInstance.h"
 
@@ -104,6 +105,7 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 	/*게임 UI 관련 액션 바인딩은 플레이어컨트롤러에서 개별 분리*/
 }
+
 void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 {
 	// Interface Implementation func -> 플레이어 HUD 생성 인터페이스
@@ -242,6 +244,26 @@ void ARXPlayer::StartSprinting()
 void ARXPlayer::StopSprinting()
 {	// 스프린트 해제(Left Shift x)
 	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
+}
+
+void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
+{	// 퍼즐 포지션 이동함수 => 퍼즐이벤트 컴포넌트에서 사용됨.
+
+	// 태그로 지정된 액터 검색
+	TArray<AActor*> TaggedActors;
+	UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
+
+	if (TaggedActors.Num() > 0)
+	{
+		// 첫 번째 태그 액터의 위치로 이동
+		AActor* TargetActor = TaggedActors[0];
+		if (TargetActor)
+		{
+			FVector TargetLocation = TargetActor->GetActorLocation();
+			TargetLocation.Z += ZOffSet; // Z축 오프셋 추가
+			SetActorLocation(TargetLocation);
+		}
+	}
 }
 
 void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
