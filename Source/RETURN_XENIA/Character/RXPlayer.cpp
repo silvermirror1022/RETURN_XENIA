@@ -21,6 +21,7 @@
 #include "Player/RXPlayerStatComponent.h"
 #include "RXDebugHelper.h"
 #include "Actor/RXPuzzelBase.h"
+#include "Component/RXPuzzelSpawnManageComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "UI/RXHpSetWidget.h"
 #include "System/RXGameInstance.h"
@@ -103,7 +104,7 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		auto PuzzelMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelMove);
 		auto PuzzelResetAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelReset);
 		EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
-		//EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelReset);
+		EnhancedInputComponent->BindAction(PuzzelResetAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelReset);
 	}
 
 	/*게임 UI 관련 액션 바인딩은 플레이어컨트롤러에서 개별 분리*/
@@ -116,8 +117,8 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 	{
 		if (GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance()))
 		{
-		InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
-		InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
+			InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
+			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
 		}
 
 		// 델리게이트 연결
@@ -273,7 +274,7 @@ void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 
 void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
 {
-	// Puzzel 모드시 이동 로직 수직 옵저버 모드는 월드좌표 기준으로 이동
+	// 퍼즐 모드시 이동 로직 수직 옵저버 모드는 월드좌표 기준으로 이동
 	FVector2D MovementVector = Value.Get<FVector2D>();
 
 	if (Controller != nullptr)
@@ -284,6 +285,26 @@ void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
 
 		AddMovementInput(ForwardDirection, MovementVector.X);
 		AddMovementInput(RightDirection, MovementVector.Y);
+	}
+}
+
+void ARXPlayer::PuzzelReset()
+{
+	// 퍼즐베이스엑터를 가져와서 가지고 있는 스폰매니저 컴포넌트에 접근해서 함수 호출
+	TArray<AActor*> PuzzelActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARXPuzzelBase::StaticClass(), PuzzelActors);
+
+	for (AActor* Actor : PuzzelActors)
+	{
+		if (ARXPuzzelBase* PuzzelBase = Cast<ARXPuzzelBase>(Actor))
+		{
+			URXPuzzelSpawnManageComponent* PSMC = PuzzelBase->FindComponentByClass<URXPuzzelSpawnManageComponent>();
+
+			if (PSMC)
+			{
+				PSMC->ResetCurrentLevel();
+			}
+		}
 	}
 }
 

@@ -38,7 +38,10 @@ protected: // 인풋 콜백 함수 섹션
 	void Look(const FInputActionValue& Value);
 	void StartSprinting();
 	void StopSprinting();
+
+	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
+	void PuzzelReset();
 
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
