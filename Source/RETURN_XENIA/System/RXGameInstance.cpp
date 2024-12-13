@@ -50,7 +50,6 @@ bool URXGameInstance::IsMemoryStatusAcquired(FString StatusName) const
 	{
 		if (Status.Name == StatusName)
 		{
-			//UE_LOG(LogTemp, Warning, TEXT("Status Name: %s, Acquired: %s"), *Status.Name, Status.bIsAcquired ? TEXT("True") : TEXT("False"));
 			return Status.bIsAcquired;
 		}
 	}
@@ -98,6 +97,32 @@ bool URXGameInstance::SetItemStatusAcquired(FString StatusName)
 bool URXGameInstance::IsItemStatusAcquired(FString StatusName) const
 {
 	for (const FStatus& Status : ItemStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			return Status.bIsAcquired;
+		}
+	}
+	return false;
+}
+
+// For PuzzelEvent Enter Interaction Dynamic Control Function Section
+bool URXGameInstance::SetPuzzelStatusAcquired(FString StatusName)
+{
+	for (FStatus& Status : PuzzelClearStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			Status.bIsAcquired = true;
+			return true;
+		}
+	}
+	return false;
+}
+
+bool URXGameInstance::IsPuzzelStatusAcquired(FString StatusName) const
+{
+	for (const FStatus& Status : PuzzelClearStatusArray)
 	{
 		if (Status.Name == StatusName)
 		{

@@ -34,6 +34,7 @@ public:
     void ActivateLevel(int32 LevelID);
 
     // 퍼즐 클리어 종료
+    UFUNCTION(BlueprintCallable)
 	void ClearAllPuzzel();
 
     // 퍼즐 리셋
@@ -43,5 +44,7 @@ public:
 
     UPROPERTY(EditAnywhere, Category = "LevelTag")
     TArray<FName> LevelTag;
+
+    
 
 };

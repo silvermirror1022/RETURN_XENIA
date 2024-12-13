@@ -48,6 +48,10 @@ void URXPuzzelSpawnManageComponent::InitializeTileData()
             if (Actor && Actor->IsA<ARXPuzzelBaseObject>())
             {
                 ValidActors.Add(Actor);
+                // 액터를 초기 비활성화
+                Actor->Tags.Remove(FName("UnderwayPuzzel"));
+                Actor->SetActorHiddenInGame(true);
+                Actor->SetActorEnableCollision(false);
             }
         }
         // 유효하면 해당 엑터들을 LevelObjectsMap 에 레벨과 매핑하여 Map에 저장
@@ -57,8 +61,6 @@ void URXPuzzelSpawnManageComponent::InitializeTileData()
         }
     }
 
-    // 기본 활성화 레벨 (첫번째 레벨1)
-    ActivateLevel(CurrentLevelID);
 }
 void URXPuzzelSpawnManageComponent::ActivateLevel(int32 LevelID)
 {
@@ -97,6 +99,8 @@ void URXPuzzelSpawnManageComponent::ActivateLevel(int32 LevelID)
 
 void URXPuzzelSpawnManageComponent::ClearAllPuzzel()
 {
+    // 이 함수는 퍼즐이벤트매니지컴포넌트에서 모든 퍼즐을 해결했을 때 모든퍼즐 엑터삭제용으로 호출됨.
+
     // LevelTag에 설정된 태그를 순회
     for (const FName& Tag : LevelTag)
     {
@@ -114,7 +118,7 @@ void URXPuzzelSpawnManageComponent::ClearAllPuzzel()
             }
         }
     }
-
+ 
     LevelObjectsMap.Empty();
 }
 

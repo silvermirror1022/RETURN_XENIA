@@ -75,6 +75,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemStatus")
 	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 6개, 심장, 힌트종이)
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelClearStatus")
+	TArray<FStatus> PuzzelClearStatusArray; // 퍼즐 클리어 유무 배열 (서브맵1,2,3,4,5,템플 => 6개)
+
 public:
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
@@ -92,12 +95,18 @@ public:
 
 public:
 	// 아이템 상태 설정 및 상태 확인 함수 섹션
-	UFUNCTION(BlueprintCallable, Category = "ITemStatus")
+	UFUNCTION(BlueprintCallable, Category = "ItemStatus")
 	bool SetItemStatusAcquired(FString StatusName);
 
-	UFUNCTION(BlueprintCallable, Category = "ITemStatus")
+	UFUNCTION(BlueprintCallable, Category = "ItemStatus")
 	bool IsItemStatusAcquired(FString StatusName) const;
 
+	// 퍼즐 클리어 상태 설정 및 상태 확인 함수 섹션
+	UFUNCTION(BlueprintCallable, Category = "PuzzelStatus")
+	bool SetPuzzelStatusAcquired(FString StatusName);
+
+	UFUNCTION(BlueprintCallable, Category = "PuzzelStatus")
+	bool IsPuzzelStatusAcquired(FString StatusName) const;
 public:
 	// 플레이어 체력, 방패 섹션
 	UPROPERTY()

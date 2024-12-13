@@ -29,4 +29,5 @@ public:
 
 	UPROPERTY()
 	TObjectPtr<class ARXPlayer> Player;
+
 };

@@ -48,6 +48,9 @@ void ARXPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 
+	// 게임인스턴스 초기화 저장
+	GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance());
+
 	// 플레이어 컨트롤러 초기화
 	PlayerController = Cast<ARXPlayerController>(GetController());
 
@@ -111,10 +114,10 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 	// Interface Implementation func -> 플레이어 HUD 생성 인터페이스
 	if (InHUDWidget)
 	{
-		if (URXGameInstance* GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance()))
+		if (GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance()))
 		{
-			InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
-			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
+		InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
+		InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
 		}
 
 		// 델리게이트 연결
@@ -192,7 +195,10 @@ void ARXPlayer::Interact_IA_EKey()
 	}
 	else if (DetectedPuzzelActor)
 	{
-		DetectedPuzzelActor->PuzzelEventStart();
+		if(!GI->IsPuzzelStatusAcquired(DetectedPuzzelActor->GetPuzzelName().ToString()))
+		{
+			DetectedPuzzelActor->PuzzelEventStart();
+		}
 	}
 }
 
@@ -232,13 +238,12 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 }
 void ARXPlayer::StartSprinting()
 {	// 스프린트 시작(Left Shift o)
-	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
+
+	if(GI->IsProfileStatusAcquired("Cape"))
 	{
-		if(GI->IsProfileStatusAcquired("Cape"))
-		{
-			GetCharacterMovement()->MaxWalkSpeed = 650.0f;
-		}
+		GetCharacterMovement()->MaxWalkSpeed = 650.0f;
 	}
+	
 }
 
 void ARXPlayer::StopSprinting()

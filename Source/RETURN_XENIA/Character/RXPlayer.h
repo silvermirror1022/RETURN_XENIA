@@ -53,6 +53,8 @@ protected: // 스텟 섹션 (HP,Shield 관련)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;
 
+	UPROPERTY() // 참조하는 게임인스턴스 변수
+	TObjectPtr<class URXGameInstance> GI;
 public: 
 	// 탐지 함수 섹션
 	void UpdateDetectedActor(); //감지
