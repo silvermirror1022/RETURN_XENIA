@@ -16,16 +16,16 @@ void ARXPuzzelBase::BeginPlay()
 	
 }
 
-void ARXPuzzelBase::PuzzelEventStart()
+void ARXPuzzelBase::PuzzelEventStart_Implementation()
 {
-	if(URXPuzzelEventManageComponent* PuzzelEventManageComponent = FindComponentByClass<URXPuzzelEventManageComponent>())
+	if (URXPuzzelEventManageComponent* PuzzelEventManageComponent = FindComponentByClass<URXPuzzelEventManageComponent>())
 	{
-		PuzzelEventManageComponent->StartPuzzelMode(); 
+		PuzzelEventManageComponent->StartPuzzelMode();
 	}
-	if (URXPuzzelSpawnManageComponent* PuzzelSpawnManageComponent = FindComponentByClass<URXPuzzelSpawnManageComponent>())
-	{
-		PuzzelSpawnManageComponent->ActivateLevel(1);
-	}
+	//if (URXPuzzelSpawnManageComponent* PuzzelSpawnManageComponent = FindComponentByClass<URXPuzzelSpawnManageComponent>())
+	//{
+	//	PuzzelSpawnManageComponent->ActivateLevel(1);
+	//}
 }
 
 /*

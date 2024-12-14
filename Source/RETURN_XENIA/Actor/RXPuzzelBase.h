@@ -17,8 +17,10 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-public:	
+public:
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void PuzzelEventStart();
+	void PuzzelEventStart_Implementation();
 
 	UFUNCTION(BlueprintCallable,BlueprintNativeEvent)
 	void PuzzelEventFinish();
