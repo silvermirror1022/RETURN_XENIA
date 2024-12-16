@@ -28,6 +28,7 @@ public:
 
 public:
 	// 퍼즐 이름 반환 함수 => 검색용
+	UFUNCTION(BlueprintCallable)
 	FName GetPuzzelName() const { return PuzzelName; }
 
 protected:
