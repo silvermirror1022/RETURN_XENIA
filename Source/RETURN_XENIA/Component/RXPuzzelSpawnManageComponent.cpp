@@ -138,9 +138,10 @@ void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
             PuzzelObject->ResetObjectState(); // 각 오브젝트의 상태 리셋 호출
         }
     }
-
+    
     // 플레이어 퍼즐 시작 위치로 이동
     Player->MoveToTagLocation("PuzzelStartPos", 30.0f);
+    
 }
 
 
