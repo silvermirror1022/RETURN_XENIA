@@ -3,11 +3,12 @@
 
 #include "Component/RXPuzzelEventManageComponent.h"
 #include "GameFramework/PlayerController.h"
-#include "GameFramework/SpringArmComponent.h"
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
 #include "Component/RXPuzzelSpawnManageComponent.h"
 #include "GameFramework/Actor.h"
+#include "Player/RXPlayerController.h"
+#include "Camera/CameraActor.h"
 
 URXPuzzelEventManageComponent::URXPuzzelEventManageComponent()
 {
@@ -18,6 +19,8 @@ void URXPuzzelEventManageComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	Player = Cast<ARXPlayer>(GetWorld()->GetFirstPlayerController()->GetPawn());
+
+	PlayerController = Cast<ARXPlayerController>(Player->GetController());
 }
 
 /*
@@ -35,24 +38,8 @@ void URXPuzzelEventManageComponent::StartPuzzelMode_Implementation()
 		MeshComponent->SetCastShadow(false);
 	}
 
-	if(USpringArmComponent* SpringArmComponent = Player->FindComponentByClass<USpringArmComponent>())
-	{
-		// 플레이어 컨트롤 로테이션 비활성화
-		SpringArmComponent->bUsePawnControlRotation = false;
-
-		// 카메라가 회전하지 않도록 설정
-		SpringArmComponent->bInheritPitch = false;
-		SpringArmComponent->bInheritYaw = false;
-		SpringArmComponent->bInheritRoll = false;
-
-		// 스프링 암 길이 변경
-		SpringArmComponent->TargetArmLength = 900.f;
-
-		// 스프링 암의 로테이션 조정 (Y축 -90도)
-		FRotator NewRotation = SpringArmComponent->GetRelativeRotation();
-		NewRotation.Pitch = -90.f;
-		SpringArmComponent->SetRelativeRotation(NewRotation);
-	}
+	// 카메라 전환
+	SwitchToCamera(PuzzelModeCamera, 0.0f);
 }
 
 void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
@@ -66,31 +53,22 @@ void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
 		MeshComponent->SetCastShadow(true);
 	}
 
-	if (USpringArmComponent* SpringArmComponent = Player->FindComponentByClass<USpringArmComponent>())
+	// 원래 플레이어 카메라로 복귀
+	SwitchToCamera(Player, 0.0f);
+
+	// 소유자에서 URXPuzzelSpawnManageComponent 가져오기
+	if (AActor* ComponentOwner = GetOwner())
 	{
-		// 플레이어 컨트롤 로테이션 복원
-		SpringArmComponent->bUsePawnControlRotation = true;
-
-		// 카메라 회전 속성 복원
-		SpringArmComponent->bInheritPitch = true;
-		SpringArmComponent->bInheritYaw = true;
-		SpringArmComponent->bInheritRoll = true;
-
-		// 스프링 암 길이 복원 
-		SpringArmComponent->TargetArmLength = 500.f; 
-
-		// 스프링 암의 로테이션 복원
-		FRotator DefaultRotation = FRotator::ZeroRotator;
-		SpringArmComponent->SetRelativeRotation(DefaultRotation);
-
-		// 이 컴포넌트를 소유한 소유자액터를 찾고, PuzzelSpawnManageComponent의 퍼즐클리어함수호출.
-		if(AActor* ComponentOwner = GetOwner())
+		if (URXPuzzelSpawnManageComponent* SpawnManageComponent = ComponentOwner->FindComponentByClass<URXPuzzelSpawnManageComponent>())
 		{
-			if(URXPuzzelSpawnManageComponent* SpawnManageComponent = ComponentOwner->FindComponentByClass<URXPuzzelSpawnManageComponent>())
-			{
-				SpawnManageComponent->ClearAllPuzzel(); // 해당 퍼즐 삭제.
-			}
-			
+			SpawnManageComponent->ClearAllPuzzel();
 		}
+	}
+}
+void URXPuzzelEventManageComponent::SwitchToCamera(AActor* NewCamera, float BlendTime) const
+{
+	if (PlayerController && NewCamera)
+	{
+		PlayerController->SetViewTargetWithBlend(NewCamera, BlendTime);
 	}
 }

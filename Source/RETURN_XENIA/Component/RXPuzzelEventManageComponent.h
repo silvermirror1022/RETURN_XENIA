@@ -30,4 +30,12 @@ public:
 	UPROPERTY()
 	TObjectPtr<class ARXPlayer> Player;
 
+	UPROPERTY()
+	TObjectPtr<class ARXPlayerController> PlayerController;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PuzzelCamera")
+	TObjectPtr<ACameraActor> PuzzelModeCamera;
+
+private:
+	void SwitchToCamera(AActor* NewCamera, float BlendTime) const;
 };
