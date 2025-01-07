@@ -274,17 +274,30 @@ void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 
 void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
 {
-	// 퍼즐 모드시 이동 로직 수직 옵저버 모드는 월드좌표 기준으로 이동
+	// 퍼즐 모드시 이동 로직
 	FVector2D MovementVector = Value.Get<FVector2D>();
 
 	if (Controller != nullptr)
 	{
-		// 퍼즐 모드에서는 월드 좌표계를 기반으로 이동
-		FVector ForwardDirection = FVector::ForwardVector;
-		FVector RightDirection = FVector::RightVector;
+		// 대각선 입력 감지
+		if (MovementVector.X != 0.0f && MovementVector.Y != 0.0f)
+		{
+			// 대각선 입력 시 이동하지 않음
+			return;
+		}
 
-		AddMovementInput(ForwardDirection, MovementVector.X);
-		AddMovementInput(RightDirection, MovementVector.Y);
+		// 퍼즐 모드에서는 월드 좌표계를 기반으로 이동
+		if (MovementVector.X != 0.0f)
+		{
+			FVector ForwardDirection = FVector::ForwardVector;
+			AddMovementInput(ForwardDirection, MovementVector.X);
+		}
+
+		if (MovementVector.Y != 0.0f)
+		{
+			FVector RightDirection = FVector::RightVector;
+			AddMovementInput(RightDirection, MovementVector.Y);
+		}
 	}
 }
 
