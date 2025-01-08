@@ -16,6 +16,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	SetGI_Hp(3);
 	SetGI_Shield(1);
 
+	bIsKorean = true;
 }
 
 void URXGameInstance::Init()

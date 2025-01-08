@@ -37,7 +37,11 @@ public:
 	FGameplayTag NPCType; //NPC마다 가지고있는 태그타입
 
 	UPROPERTY(EditAnywhere, Category = "WidgetDialogueUI")
-	TSubclassOf<UUserWidget> WidgetClass; //대화텍스트 배경UI 관련 위젯
+	TSubclassOf<UUserWidget> KorWidgetClass; // 한글 대화텍스트 배경UI 관련 위젯
+
+	UPROPERTY(EditAnywhere, Category = "WidgetDialogueUI")
+	TSubclassOf<UUserWidget> EngWidgetClass; // 영어 대화텍스트 배경UI 관련 위젯
+
 	UPROPERTY()
 	TObjectPtr<UUserWidget> DialogueWidgetInstance; //동적으로 생성할 UI대화 위젯
 	UPROPERTY()
@@ -48,8 +52,12 @@ public:
 	uint8 bIsTalking : 1; //대화중인지변수 
 
 	UPROPERTY()
-	TObjectPtr<class URXDialogueData> DialogueData; //가져온 대화 데이터
+	TObjectPtr<class URXDialogueData> Eng_DialogueData; // 가져온 영어 대화 데이터
+	UPROPERTY()
+	TObjectPtr<class URXDialogueData> Kor_DialogueData; // 가져온 한글 대화 데이터
 
 	int32 DialogueIndex; //대화 인덱스
 
+	UPROPERTY()
+	TObjectPtr<class URXGameInstance> GI; // 게임 인스턴스 참조
 };

@@ -65,4 +65,7 @@ public:
 	uint8 bIsPauseMenuUIActive : 1; // 팝업 UI 활성화상태 BOOL 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	uint8 bIsMainMenuUIActive : 1; // 메인메뉴 UI 활성화상태 BOOL 변수
+
+	void SetDialogueState(uint8 bInDialogue) { bIsInDialgue = bInDialogue; }
+	uint8 bIsInDialgue : 1; // 대화중인지 체크 변수
 };
