@@ -113,7 +113,6 @@ void URXPuzzelSpawnManageComponent::ClearAllPuzzel()
         {
             if (Actor)
             {
-                UE_LOG(LogTemp, Log, TEXT("Destroying Actor: %s"), *Actor->GetName());
                 Actor->Destroy(); // 액터 제거
             }
         }
@@ -129,12 +128,10 @@ void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
         UE_LOG(LogTemp, Warning, TEXT("No data for Level ID: %d"), CurrentLevelID);
         return;
     }
-    D(FString::Printf(TEXT("c++ Reset 1!")));
     
     // 플레이어 퍼즐 시작 위치로 이동
     Player->MoveToTagLocation("PuzzelStartPos", 30.0f);
 
-    D(FString::Printf(TEXT("c++ Reset 2!")));
     // 현재 레벨의 타일 엑터 리셋
     for (AActor* Actor : LevelObjectsMap[CurrentLevelID])
     {
@@ -143,7 +140,6 @@ void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
             PuzzelObject->ResetObjectState(); // 각 오브젝트의 상태 리셋 호출
         }
     }
-    D(FString::Printf(TEXT("c++ Reset 3!")));
 }
 
 
