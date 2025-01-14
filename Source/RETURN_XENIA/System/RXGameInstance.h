@@ -150,4 +150,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Game Settings")
 	void SetSFXVolumeValue(float Value) { SliderValues.SFXVolumeValue = Value; }
 
+	// 게임 세팅 언어 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Language Settings")
+	uint8 bIsKorean : 1;
+	
+
 };

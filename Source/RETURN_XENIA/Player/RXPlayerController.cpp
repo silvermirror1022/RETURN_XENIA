@@ -1,16 +1,12 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Player/RXPlayerController.h"
-#include "Components/WidgetComponent.h"
-#include "Character/RXPlayer.h"
 #include "UI/RXHUDWidget.h"
 #include "System/RXGameInstance.h"
 #include "EnhancedInputComponent.h"
-#include "InputActionValue.h"
 #include "System/RXAssetManager.h"
 #include "Data/RXInputData.h"
 #include "RXGameplayTags.h"
-#include "RXDebugHelper.h"
 #include "EnhancedInputSubsystems.h"
 #include "Kismet/GameplayStatics.h"
 #include "Actor/RXPlayerStart.h"
@@ -21,6 +17,7 @@ ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitial
 	// UI 변수들 초기화
 	bIsPauseMenuUIActive = false;
 	bIsMainMenuUIActive = false;
+	bIsInDialgue = false;
 }
 void ARXPlayerController::BeginPlay()
 {
@@ -84,7 +81,7 @@ void ARXPlayerController::ActiveGameMainMenu()
 
 void ARXPlayerController::ActiveGamePauseMenu()
 {
-	if (CheckUIActiveState()) return;
+	if (CheckUIActiveState() || bIsInDialgue) return;  //대화중이라면 옵션창을 못띄우게해 언어설정을 막도록 예외처리
 
 	bIsPauseMenuUIActive = true;
 
