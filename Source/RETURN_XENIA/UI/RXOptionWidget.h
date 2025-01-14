@@ -22,16 +22,6 @@ protected:
 	virtual void NativeConstruct() override;
 
 public:
-	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
-	TObjectPtr<class USlider> BrightnessSlider; 
-
-	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
-	TObjectPtr<class USlider> MasterVolumeSlider;
-
-	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
-	TObjectPtr<class USlider> MusicVolumeSlider;
-
-	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
-	TObjectPtr<class USlider> SFXVolumeSlider;
+	
 
 };
