@@ -9,6 +9,7 @@
 #include "GameFramework/Actor.h"
 #include "Player/RXPlayerController.h"
 #include "Camera/CameraActor.h"
+#include "Components/MeshComponent.h"
 
 URXPuzzelEventManageComponent::URXPuzzelEventManageComponent()
 {

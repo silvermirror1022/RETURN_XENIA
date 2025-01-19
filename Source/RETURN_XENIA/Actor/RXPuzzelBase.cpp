@@ -3,7 +3,7 @@
 
 #include "Actor/RXPuzzelBase.h"
 #include "Component/RXPuzzelEventManageComponent.h"
-#include "Component/RXPuzzelSpawnManageComponent.h"
+#include "Component/RXCircularPuzzelManageComponent.h"
 
 ARXPuzzelBase::ARXPuzzelBase()
 {
@@ -21,6 +21,11 @@ void ARXPuzzelBase::PuzzelEventStart_Implementation()
 	if (URXPuzzelEventManageComponent* PuzzelEventManageComponent = FindComponentByClass<URXPuzzelEventManageComponent>())
 	{
 		PuzzelEventManageComponent->StartPuzzelMode();
+	}
+
+	if (URXCircularPuzzelManageComponent* CircularPuzzelManageComponent = FindComponentByClass<URXCircularPuzzelManageComponent>())
+	{
+		CircularPuzzelManageComponent->StartCircularPuzzelMode();
 	}
 	//if (URXPuzzelSpawnManageComponent* PuzzelSpawnManageComponent = FindComponentByClass<URXPuzzelSpawnManageComponent>())
 	//{

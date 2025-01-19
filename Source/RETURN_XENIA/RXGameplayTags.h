@@ -22,6 +22,12 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_ESCKey);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_IKey);
 
+	// Player Circular Puzzel UI
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_Exit);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_SwitchTab);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_ClockWiseRotate);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_CounterClockWiseRotate);
+
 	// NPC Dialogue Data Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Papamama); 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sister);
