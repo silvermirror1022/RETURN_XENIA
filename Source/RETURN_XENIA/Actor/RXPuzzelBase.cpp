@@ -3,7 +3,6 @@
 
 #include "Actor/RXPuzzelBase.h"
 #include "Component/RXPuzzelEventManageComponent.h"
-#include "Component/RXPuzzelSpawnManageComponent.h"
 
 ARXPuzzelBase::ARXPuzzelBase()
 {

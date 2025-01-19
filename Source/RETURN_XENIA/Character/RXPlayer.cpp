@@ -107,6 +107,19 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(PuzzelResetAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelReset);
 	}
 
+	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_CircularPuzzel"))
+	{
+		auto CP_ClockWiseRotateKeyAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_ClockWiseRotate);
+		auto CP_CounterClockWiseRotateAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_CounterClockWiseRotate);
+		auto CP_SwitchTabAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_SwitchTab);
+		auto CP_ExitAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_Exit);
+
+		EnhancedInputComponent->BindAction(CP_ClockWiseRotateKeyAction, ETriggerEvent::Started, this, &ARXPlayer::RotateCP_ClockWise);
+		EnhancedInputComponent->BindAction(CP_CounterClockWiseRotateAction, ETriggerEvent::Started, this, &ARXPlayer::RotateCP_CounterClockWise);
+		EnhancedInputComponent->BindAction(CP_SwitchTabAction, ETriggerEvent::Started, this, &ARXPlayer::ChangeSelectedWheel);
+		EnhancedInputComponent->BindAction(CP_ExitAction, ETriggerEvent::Started, this, &ARXPlayer::ExitCircularPuzzel);
+		
+	}
 	/*게임 UI 관련 액션 바인딩은 플레이어컨트롤러에서 개별 분리*/
 }
 
@@ -319,6 +332,22 @@ void ARXPlayer::PuzzelReset()
 			}
 		}
 	}
+}
+
+void ARXPlayer::ExitCircularPuzzel()
+{
+}
+
+void ARXPlayer::RotateCP_CounterClockWise()
+{
+}
+
+void ARXPlayer::RotateCP_ClockWise()
+{
+}
+
+void ARXPlayer::ChangeSelectedWheel()
+{
 }
 
 void ARXPlayer::SetDead()

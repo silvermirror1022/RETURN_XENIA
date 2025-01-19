@@ -44,6 +44,7 @@ void ARXPlayerController::SetupInputComponent()
 	Super::SetupInputComponent();
 
 	// UI에 대한 인풋 초기화는 플레이어 컨트롤러에서 관리 (기본적 이동과 상호작용은 Player에서 관리)
+	// 원판퍼즐 UI 인풋도 컨트롤러에서 관리
 
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 	{

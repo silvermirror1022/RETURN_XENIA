@@ -21,7 +21,4 @@ public:
 protected:
 	virtual void NativeConstruct() override;
 
-public:
-	
-
 };

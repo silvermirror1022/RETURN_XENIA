@@ -15,6 +15,18 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelMove, "Input.Action.PuzzelMove");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelReset, "Input.Action.PuzzelReset");
 
+	// except : used for PuzzelInputMappingContext : CircularPuzzelMode Section
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_Exit, "Input.Action.CircularPuzzel.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_SwitchTab, "Input.Action.CircularPuzzel.SwitchTab");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_ClockWiseRotate, "Input.Action.CircularPuzzel.ClockWiseRotate");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_CounterClockWiseRotate, "Input.Action.CircularPuzzel.CounterClockWiseRotate");
+	/*
+	 * UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_Exit);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_SwitchTab);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_ClockWiseRotate);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_CounterClockWiseRotate);
+	 */
+
 	//Player Others Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_EnterKey, "Input.Action.EnterKey");

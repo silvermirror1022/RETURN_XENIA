@@ -68,4 +68,6 @@ public:
 
 	void SetDialogueState(uint8 bInDialogue) { bIsInDialgue = bInDialogue; }
 	uint8 bIsInDialgue : 1; // 대화중인지 체크 변수
+
+
 };

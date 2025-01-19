@@ -43,6 +43,12 @@ protected: // 인풋 콜백 함수 섹션
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
 
+	// 원형 퍼즐 이벤트 관련 함수
+	void ExitCircularPuzzel();
+	void RotateCP_CounterClockWise();
+	void RotateCP_ClockWise();
+	void ChangeSelectedWheel();
+
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
