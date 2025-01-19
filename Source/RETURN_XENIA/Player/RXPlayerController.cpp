@@ -57,21 +57,6 @@ void ARXPlayerController::SetupInputComponent()
 			EnhancedInputComponent->BindAction(ESCKey_GamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
 		}
 	}
-	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
-	{
-		if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_CircularPuzzel"))
-		{
-			auto CP_ClockWiseRotateKeyAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_ClockWiseRotate);
-			auto CP_CounterClockWiseRotateAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_CounterClockWiseRotate);
-			auto CP_SwitchTabAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_SwitchTab);
-			auto CP_ExitAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_CP_Exit);
-
-			/*EnhancedInputComponent->BindAction(CP_ClockWiseRotateKeyAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMainMenu);
-			EnhancedInputComponent->BindAction(CP_CounterClockWiseRotateAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
-			EnhancedInputComponent->BindAction(CP_SwitchTabAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMainMenu);
-			EnhancedInputComponent->BindAction(CP_ExitAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);*/
-		}
-	}
 }
 bool ARXPlayerController::CheckUIActiveState()
 {

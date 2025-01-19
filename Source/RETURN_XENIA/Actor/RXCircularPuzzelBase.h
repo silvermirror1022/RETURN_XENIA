@@ -3,25 +3,26 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Components/ActorComponent.h"
-#include "RXCircularPuzzelManageComponent.generated.h"
+#include "Actor/RXPuzzelBase.h"
+#include "RXCircularPuzzelBase.generated.h"
 
-
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class RETURN_XENIA_API URXCircularPuzzelManageComponent : public UActorComponent
+/**
+ * 
+ */
+UCLASS()
+class RETURN_XENIA_API ARXCircularPuzzelBase : public ARXPuzzelBase
 {
 	GENERATED_BODY()
 
-public:	
-
-	URXCircularPuzzelManageComponent();
+public:
+	ARXCircularPuzzelBase();
 
 protected:
 
 	virtual void BeginPlay() override;
 
 public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Puzzel")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 TargetScore;
 
 	UPROPERTY()
@@ -65,9 +66,6 @@ public:
 	void SwitchSelectedWheel();
 	virtual void SwitchSelectedWheel_Implementation();
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void ExitCircularPuzzel();
-	virtual void ExitCircularPuzzel_Implementation();
 
 private:
 	void RotateWheel(int32& CurrentIndex, const TArray<int32>& Wheel, bool bClockwise);
