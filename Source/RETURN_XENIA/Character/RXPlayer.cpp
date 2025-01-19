@@ -25,6 +25,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "UI/RXHpSetWidget.h"
 #include "System/RXGameInstance.h"
+#include "Actor/RXCircularPuzzelBase.h"
 
 ARXPlayer::ARXPlayer()
 {
@@ -43,6 +44,8 @@ ARXPlayer::ARXPlayer()
 	Stat = CreateDefaultSubobject<URXPlayerStatComponent>(TEXT("PlayerStat"));
 
 	PrimaryActorTick.bCanEverTick = true; // 플레이어 액터 틱 활성화
+
+	bIsCircularPuzzelMode = false;
 }
 
 void ARXPlayer::BeginPlay()
@@ -336,18 +339,39 @@ void ARXPlayer::PuzzelReset()
 
 void ARXPlayer::ExitCircularPuzzel()
 {
+	if (!bIsCircularPuzzelMode) return;
+
+	if(ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
+	{
+		CircularPuzzel->PuzzelEventFinish();
+	}
 }
 
 void ARXPlayer::RotateCP_CounterClockWise()
 {
+	if (!bIsCircularPuzzelMode) return;
+	if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
+	{
+		CircularPuzzel->RotateToCounterClockWise();
+	}
 }
 
 void ARXPlayer::RotateCP_ClockWise()
 {
+	if (!bIsCircularPuzzelMode) return;
+	if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
+	{
+		CircularPuzzel->RotateToClockWise();
+	}
 }
 
 void ARXPlayer::ChangeSelectedWheel()
 {
+	if (!bIsCircularPuzzelMode) return;
+	if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
+	{
+		CircularPuzzel->SwitchSelectedWheel();
+	}
 }
 
 void ARXPlayer::SetDead()

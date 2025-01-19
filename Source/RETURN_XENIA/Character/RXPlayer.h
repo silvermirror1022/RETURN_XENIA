@@ -33,7 +33,7 @@ protected: // 카메라섹션
 	UPROPERTY()
 	TObjectPtr<class ARXPlayerController> PlayerController;
 
-protected: // 인풋 콜백 함수 섹션
+public: // 인풋 콜백 함수 섹션
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
 	void StartSprinting();
@@ -43,7 +43,8 @@ protected: // 인풋 콜백 함수 섹션
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
 
-	// 원형 퍼즐 이벤트 관련 함수
+	// 원형 퍼즐 이벤트 관련 함수 및 변수
+	uint8 bIsCircularPuzzelMode : 1;
 	void ExitCircularPuzzel();
 	void RotateCP_CounterClockWise();
 	void RotateCP_ClockWise();

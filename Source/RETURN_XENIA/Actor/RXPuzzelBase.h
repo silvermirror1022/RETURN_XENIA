@@ -20,11 +20,11 @@ protected:
 public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
 	void PuzzelEventStart();
-	void PuzzelEventStart_Implementation();
+	virtual void PuzzelEventStart_Implementation();
 
 	UFUNCTION(BlueprintCallable,BlueprintNativeEvent)
 	void PuzzelEventFinish();
-	void PuzzelEventFinish_Implementation();
+	virtual void PuzzelEventFinish_Implementation();
 
 public:
 	// 퍼즐 이름 반환 함수 => 검색용

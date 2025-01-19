@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "Actor/RXCircularPuzzelBase.h"
@@ -11,12 +11,12 @@ ARXCircularPuzzelBase::ARXCircularPuzzelBase()
 {
     PrimaryActorTick.bCanEverTick = false;
 
-    // ÃÊ±âÈ­
+    // ì´ˆê¸°í™”
     TargetScore = 0;
     OuterWheel = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     MiddleWheel = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
     InnerWheel = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-    CurrentSelectedWheel = 0; // ¿Ü°æ ¿øÆÇ ¼±ÅÃ
+    CurrentSelectedWheel = 0; // ì™¸ê²½ ì›íŒ ì„ íƒ
     OuterIndex = 0;
     MiddleIndex = 0;
     InnerIndex = 0;
@@ -32,45 +32,49 @@ void ARXCircularPuzzelBase::BeginPlay()
 
 int32 ARXCircularPuzzelBase::CalculateScore() const
 {
-    // °¢ ¿øÆÇÀÇ ÇöÀç ¼±ÅÃµÈ ¼ıÀÚ °ªÀ» °¡Á¤Ä¡¿Í ÇÔ²² ÇÕ»ê
+    // ê° ì›íŒì˜ í˜„ì¬ ì„ íƒëœ ìˆ«ì ê°’ì„ ê°€ì •ì¹˜ì™€ í•¨ê»˜ í•©ì‚°
     int32 Score = 0;
-    Score += OuterWheel[OuterIndex] * 100; // ¿Ü°æ ¿øÆÇ
-    Score += MiddleWheel[MiddleIndex] * 10; // Áß°£ ¿øÆÇ
-    Score += InnerWheel[InnerIndex] * 1; // ¾ÈÂÊ ¿øÆÇ
+    Score += OuterWheel[OuterIndex] * 100; // ì™¸ê²½ ì›íŒ
+    Score += MiddleWheel[MiddleIndex] * 10; // ì¤‘ê°„ ì›íŒ
+    Score += InnerWheel[InnerIndex] * 1; // ì•ˆìª½ ì›íŒ
     return Score;
 }
 
 bool ARXCircularPuzzelBase::IsCorrectAnswer() const
 {
-    // ÇöÀç Á¡¼ö°¡ Á¤´çÀÎÁö È®ÀÎ
+    // í˜„ì¬ ì ìˆ˜ê°€ ì •ë‹¹ì¸ì§€ í™•ì¸
     return CalculateScore() == TargetScore;
 }
 
-void ARXCircularPuzzelBase::StartCircularPuzzelMode_Implementation()
+void ARXCircularPuzzelBase::PuzzelEventStart_Implementation()
 {
-    // ÆÛÁñ ¸ğµå Ä«¸Ş¶ó·Î ÀüÈ¯
+	Super::PuzzelEventStart_Implementation();
+    // í¼ì¦ ëª¨ë“œ ì¹´ë©”ë¼ë¡œ ì „í™˜, ë³€ìˆ˜ í™œì„±í™”
     SwitchToCamera(PuzzelModeCamera, 0.0f);
+    Player->bIsCircularPuzzelMode = true;
 }
 
-void ARXCircularPuzzelBase::EndCircularPuzzelMode_Implementation()
+void ARXCircularPuzzelBase::PuzzelEventFinish_Implementation()
 {
-    // ¿ø·¡ ÇÃ·¹ÀÌ¾î Ä«¸Ş¸®·Î º¹±Í
+	Super::PuzzelEventFinish_Implementation();
+    // ì›ë˜ í”Œë ˆì´ì–´ ì¹´ë©”ë¦¬ë¡œ ë³µê·€, ë³€ìˆ˜ ë³µêµ¬
     SwitchToCamera(Player, 0.0f);
+    Player->bIsCircularPuzzelMode = false;
 }
 
 void ARXCircularPuzzelBase::RotateToClockWise_Implementation()
 {
     switch (CurrentSelectedWheel)
     {
-    case 0: // ¿Ü°æ ¿øÆÇ
+    case 0: // ì™¸ê²½ ì›íŒ
         RotateWheel(OuterIndex, OuterWheel, true);
         D(FString::Printf(TEXT("Outer Wheel rotated clockwise to index: %d"), OuterIndex));
         break;
-    case 1: // Áß°£ ¿øÆÇ
+    case 1: // ì¤‘ê°„ ì›íŒ
         RotateWheel(MiddleIndex, MiddleWheel, true);
         D(FString::Printf(TEXT("Middle Wheel rotated clockwise to index: %d"), MiddleIndex));
         break;
-    case 2: // ¾ÈÂÊ ¿øÆÇ
+    case 2: // ì•ˆìª½ ì›íŒ
         RotateWheel(InnerIndex, InnerWheel, true);
         D(FString::Printf(TEXT("Inner Wheel rotated clockwise to index: %d"), InnerIndex));
         break;
@@ -83,15 +87,15 @@ void ARXCircularPuzzelBase::RotateToCounterClockWise_Implementation()
 {
     switch (CurrentSelectedWheel)
     {
-    case 0: // ¿Ü°æ ¿øÆÇ
+    case 0: // ì™¸ê²½ ì›íŒ
         RotateWheel(OuterIndex, OuterWheel, false);
         D(FString::Printf(TEXT("Outer Wheel rotated counter-clockwise to index: %d"), OuterIndex));
         break;
-    case 1: // Áß°£ ¿øÆÇ
+    case 1: // ì¤‘ê°„ ì›íŒ
         RotateWheel(MiddleIndex, MiddleWheel, false);
         D(FString::Printf(TEXT("Middle Wheel rotated counter-clockwise to index: %d"), MiddleIndex));
         break;
-    case 2: // ¾ÈÂÊ ¿øÆÇ
+    case 2: // ì•ˆìª½ ì›íŒ
         RotateWheel(InnerIndex, InnerWheel, false);
         D(FString::Printf(TEXT("Inner Wheel rotated counter-clockwise to index: %d"), InnerIndex));
         break;
@@ -121,7 +125,7 @@ void ARXCircularPuzzelBase::SwitchSelectedWheel_Implementation()
 
 void ARXCircularPuzzelBase::RotateWheel(int32& CurrentIndex, const TArray<int32>& Wheel, bool bClockwise)
 {
-    // ÇöÀç ÀÎµ¦½º¸¦ ½Ã°è/¹İ½Ã°è ¹İÈ¯
+    // í˜„ì¬ ì¸ë±ìŠ¤ë¥¼ ì‹œê³„/ë°˜ì‹œê³„ ë°˜í™˜
     int32 MaxIndex = Wheel.Num();
     if (bClockwise)
     {

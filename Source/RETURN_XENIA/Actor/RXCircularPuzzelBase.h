@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -32,27 +32,32 @@ public:
 	UPROPERTY()
 	TArray<int32> InnerWheel;
 
+	UPROPERTY(BlueprintReadOnly)
 	int32 CurrentSelectedWheel;
-
+	UPROPERTY(BlueprintReadOnly)
 	int32 OuterIndex;
+	UPROPERTY(BlueprintReadOnly)
 	int32 MiddleIndex;
+	UPROPERTY(BlueprintReadOnly)
 	int32 InnerIndex;
 
-	//���� ��� �� Ȯ�� �Լ�
+	// 회전중인지 체크 변수
+	UPROPERTY(BlueprintReadWrite)
+	uint8 isRotating : 1;
+
+	// 점수 계산 및 확인 함수
 	int32 CalculateScore() const;
+	UFUNCTION(BlueprintCallable)
 	bool IsCorrectAnswer() const;
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelCamera")
 	AActor* PuzzelModeCamera;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void StartCircularPuzzelMode();
-	virtual void StartCircularPuzzelMode_Implementation();
+	// 부모의 PuzzelEventStart, PuzzelEventFinish를 오버라이드
+	virtual void PuzzelEventStart_Implementation() override;
+	virtual void PuzzelEventFinish_Implementation() override;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void EndCircularPuzzelMode();
-	virtual void EndCircularPuzzelMode_Implementation();
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void RotateToClockWise();
