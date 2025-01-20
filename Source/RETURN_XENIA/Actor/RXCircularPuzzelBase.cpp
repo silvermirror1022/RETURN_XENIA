@@ -6,10 +6,13 @@
 #include "Character/RXPlayer.h"
 #include "RXDebugHelper.h"
 #include "Engine/Engine.h"
+#include "Camera/CameraActor.h"
 
 ARXCircularPuzzelBase::ARXCircularPuzzelBase()
 {
     PrimaryActorTick.bCanEverTick = false;
+
+    isRotating = false;
 
     // 초기화
     TargetScore = 0;
@@ -51,6 +54,15 @@ void ARXCircularPuzzelBase::PuzzelEventStart_Implementation()
 	Super::PuzzelEventStart_Implementation();
     // 퍼즐 모드 카메라로 전환, 변수 활성화
     SwitchToCamera(PuzzelModeCamera, 0.0f);
+    if (PuzzelModeCamera && Player)
+    {
+        // 플래이어를 현재 통장 컨트롤 가격에 지원하는 위치로 이동
+        FVector CameraBackLocation = PuzzelModeCamera->GetActorLocation() - PuzzelModeCamera->GetActorForwardVector() * 200.0f;
+        CameraBackLocation.Z = PuzzelModeCamera->GetActorLocation().Z;
+
+        Player->SetActorLocation(CameraBackLocation);
+        PlayerController->SetViewTargetWithBlend(PuzzelModeCamera, 0.0f);
+    }
     Player->bIsCircularPuzzelMode = true;
 }
 
@@ -64,6 +76,8 @@ void ARXCircularPuzzelBase::PuzzelEventFinish_Implementation()
 
 void ARXCircularPuzzelBase::RotateToClockWise_Implementation()
 {
+    if (isRotating) return;
+
     switch (CurrentSelectedWheel)
     {
     case 0: // 외경 원판
@@ -85,6 +99,8 @@ void ARXCircularPuzzelBase::RotateToClockWise_Implementation()
 
 void ARXCircularPuzzelBase::RotateToCounterClockWise_Implementation()
 {
+    if (isRotating) return;
+
     switch (CurrentSelectedWheel)
     {
     case 0: // 외경 원판

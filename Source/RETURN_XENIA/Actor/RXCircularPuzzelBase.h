@@ -32,17 +32,17 @@ public:
 	UPROPERTY()
 	TArray<int32> InnerWheel;
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 CurrentSelectedWheel;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 OuterIndex;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 MiddleIndex;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 InnerIndex;
 
 	// 회전중인지 체크 변수
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	uint8 isRotating : 1;
 
 	// 점수 계산 및 확인 함수
@@ -52,7 +52,8 @@ public:
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelCamera")
-	AActor* PuzzelModeCamera;
+
+	TObjectPtr<ACameraActor> PuzzelModeCamera;
 
 	// 부모의 PuzzelEventStart, PuzzelEventFinish를 오버라이드
 	virtual void PuzzelEventStart_Implementation() override;
