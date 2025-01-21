@@ -32,13 +32,13 @@ public:
 	UPROPERTY()
 	TArray<int32> InnerWheel;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 CurrentSelectedWheel;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 OuterIndex;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 MiddleIndex;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Puzzel")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Puzzel")
 	int32 InnerIndex;
 
 	// 회전중인지 체크 변수
@@ -72,6 +72,9 @@ public:
 	void SwitchSelectedWheel();
 	virtual void SwitchSelectedWheel_Implementation();
 
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	void MovePlayerLocation();
+	virtual void MovePlayerLocation_Implementation();
 
 private:
 	void RotateWheel(int32& CurrentIndex, const TArray<int32>& Wheel, bool bClockwise);
