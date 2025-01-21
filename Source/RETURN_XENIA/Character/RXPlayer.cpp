@@ -86,6 +86,7 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		auto MoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Move);
 		auto LookAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Look);
 		auto SprintAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Sprint);
+		auto CrouchAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Crouch);
 
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
@@ -93,6 +94,7 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ARXPlayer::Look);
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this, &ARXPlayer::StartSprinting);
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &ARXPlayer::StopSprinting);
+		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Started, this, &ARXPlayer::ToggleCrouch);
 
 		// 인터렉션 섹션 바인딩
 		auto InteractAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Interact); // E 키
@@ -219,7 +221,6 @@ void ARXPlayer::Interact_IA_EKey()
 			// CircularPuzzelBase의 PuzzelEventStart 호출
 			if (!GI->IsPuzzelStatusAcquired(DetectedCircularPuzzelActor->GetPuzzelName().ToString()))
 			{
-				D(FString::Printf(TEXT("c1")));
 				DetectedCircularPuzzelActor->PuzzelEventStart();
 			}
 		}
@@ -228,7 +229,6 @@ void ARXPlayer::Interact_IA_EKey()
 			// 일반 PuzzelBase의 PuzzelEventStart 호출
 			if (!GI->IsPuzzelStatusAcquired(DetectedPuzzelActor->GetPuzzelName().ToString()))
 			{
-				D(FString::Printf(TEXT("c2")));
 				DetectedPuzzelActor->PuzzelEventStart();
 			}
 		}
@@ -270,18 +270,35 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 	}
 }
 void ARXPlayer::StartSprinting()
-{	// 스프린트 시작(Left Shift o)
-
+{
+	// 스프린트 시작(Left Shift o)
 	if(GI->IsProfileStatusAcquired("Cape"))
 	{
+		bIsSprinting = true;
 		GetCharacterMovement()->MaxWalkSpeed = 650.0f;
 	}
 	
 }
 
 void ARXPlayer::StopSprinting()
-{	// 스프린트 해제(Left Shift x)
+{
+	// 스프린트 해제(Left Shift x)
+	bIsSprinting = false;
 	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
+}
+
+
+void ARXPlayer::ToggleCrouch()
+{
+	if (GetCharacterMovement()->IsCrouching())
+	{
+		UnCrouch();
+		//D(FString::Printf(TEXT("UnCrouch!")));
+	}
+	else
+	{
+		Crouch();
+	}
 }
 
 void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)

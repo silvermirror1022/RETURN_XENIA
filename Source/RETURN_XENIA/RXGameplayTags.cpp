@@ -10,6 +10,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Move, "Input.Action.Move");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Jump, "Input.Action.Jump");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Sprint, "Input.Action.Sprint");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Crouch, "Input.Action.Crouch");
 
 	// except : used for PuzzelInputMappingContext : PuzzelMode Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelMove, "Input.Action.PuzzelMove");

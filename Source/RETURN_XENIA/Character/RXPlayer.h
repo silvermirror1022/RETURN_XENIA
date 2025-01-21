@@ -38,7 +38,9 @@ public: // 인풋 콜백 함수 섹션
 	void Look(const FInputActionValue& Value);
 	void StartSprinting();
 	void StopSprinting();
+	uint8 bIsSprinting : 1; // 필요하면 변수로 스프린팅상태 추적
 
+	void ToggleCrouch();
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
