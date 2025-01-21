@@ -150,7 +150,7 @@ void ARXPlayer::UpdateDetectedActor()
 	FVector Start = GetCapsuleComponent()->GetComponentLocation();  // 캐릭터 캡슐 위치
 	FVector End = Start + (GetActorForwardVector()* 80.0f);  // 카메라 방향으로 80만큼
 
-	float SphereRadius = 75.0f;  // 스피어의 반지름 (기본값: 50)
+	float SphereRadius = 45.f;  // 스피어의 반지름 (기본값: 45)
 	FCollisionQueryParams Params;
 	Params.AddIgnoredActor(this);  // 자신의 캐릭터는 무시
 	Params.bReturnPhysicalMaterial = false;
@@ -197,6 +197,7 @@ void ARXPlayer::ResetDetectedActors()
 	DetectedNPC = nullptr;
 	DetectedTeleportActor = nullptr;
 	DetectedPuzzelActor = nullptr;
+	DetectedCircularPuzzelActor = nullptr;
 }
 void ARXPlayer::Interact_IA_EKey()
 {
@@ -213,12 +214,13 @@ void ARXPlayer::Interact_IA_EKey()
 	else if (DetectedPuzzelActor)
 	{
 		// 퍼즐이 CircularPuzzel인지 확인
-		if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
+		if (DetectedCircularPuzzelActor = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
 		{
 			// CircularPuzzelBase의 PuzzelEventStart 호출
-			if (!GI->IsPuzzelStatusAcquired(CircularPuzzel->GetPuzzelName().ToString()))
+			if (!GI->IsPuzzelStatusAcquired(DetectedCircularPuzzelActor->GetPuzzelName().ToString()))
 			{
-				CircularPuzzel->PuzzelEventStart();
+				D(FString::Printf(TEXT("c1")));
+				DetectedCircularPuzzelActor->PuzzelEventStart();
 			}
 		}
 		else
@@ -226,6 +228,7 @@ void ARXPlayer::Interact_IA_EKey()
 			// 일반 PuzzelBase의 PuzzelEventStart 호출
 			if (!GI->IsPuzzelStatusAcquired(DetectedPuzzelActor->GetPuzzelName().ToString()))
 			{
+				D(FString::Printf(TEXT("c2")));
 				DetectedPuzzelActor->PuzzelEventStart();
 			}
 		}
@@ -353,46 +356,25 @@ void ARXPlayer::PuzzelReset()
 void ARXPlayer::ExitCircularPuzzel()
 {
 	if (!bIsCircularPuzzelMode) return;
-
-	if(ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
-	{
-		CircularPuzzel->PuzzelEventFinish();
-	}
-	D(FString::Printf(TEXT("oh1")));
+	DetectedCircularPuzzelActor->PuzzelEventFinish();
 }
 
 void ARXPlayer::RotateCP_CounterClockWise()
 {
 	if (!bIsCircularPuzzelMode) return;
-
-	if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
-	{
-		CircularPuzzel->RotateToCounterClockWise();
-		D(FString::Printf(TEXT("oh4")));
-	}
-	D(FString::Printf(TEXT("oh2")));
+	DetectedCircularPuzzelActor->RotateToCounterClockWise();
 }
 
 void ARXPlayer::RotateCP_ClockWise()
 {
 	if (!bIsCircularPuzzelMode) return;
-
-	if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
-	{
-		CircularPuzzel->RotateToClockWise();
-	}
-	D(FString::Printf(TEXT("oh3")));
+	DetectedCircularPuzzelActor->RotateToClockWise();
 }
 
 void ARXPlayer::ChangeSelectedWheel()
 {
 	if (!bIsCircularPuzzelMode) return;
-
-	if (ARXCircularPuzzelBase* CircularPuzzel = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
-	{
-		CircularPuzzel->SwitchSelectedWheel();
-	}
-	
+	DetectedCircularPuzzelActor->SwitchSelectedWheel();
 }
 
 void ARXPlayer::SetDead()

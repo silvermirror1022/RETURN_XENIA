@@ -81,6 +81,8 @@ public:
 	// 퍼즐 이벤트 엑터 변수
 	UPROPERTY()
 	TObjectPtr<class ARXPuzzelBase> DetectedPuzzelActor;
+	UPROPERTY()
+	TObjectPtr<class ARXCircularPuzzelBase> DetectedCircularPuzzelActor;
 
 	// 퍼즐이벤트 플레이어 포지션 셋팅 함수
 	void MoveToTagLocation(FName TagName, float ZOffSet);
