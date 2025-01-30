@@ -1,7 +1,7 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Actor/RXBossFixedFireball.h"
+#include "Actor/Boss/RXBossFixedFireball.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "TimerManager.h"
 

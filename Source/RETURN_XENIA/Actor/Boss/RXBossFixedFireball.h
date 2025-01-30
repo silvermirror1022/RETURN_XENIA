@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "RXBossFixedFireball.generated.h"
 
+
 UCLASS()
 class RETURN_XENIA_API ARXBossFixedFireball : public AActor
 {
