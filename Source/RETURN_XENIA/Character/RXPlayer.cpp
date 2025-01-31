@@ -266,7 +266,7 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 	if (Controller != nullptr)
 	{
 		AddControllerYawInput(LookAxisVector.X * 0.3f);
-		AddControllerPitchInput(LookAxisVector.Y * 0.3f);
+		AddControllerPitchInput(LookAxisVector.Y * 0.1f);
 	}
 }
 void ARXPlayer::StartSprinting()
