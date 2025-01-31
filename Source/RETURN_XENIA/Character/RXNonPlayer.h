@@ -31,7 +31,9 @@ public:
 public:	
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPCTypeName")
-	FText NPCName; //NPC마다 가지고있는 이름 (FOR 대화시 NPC이름수정)
+	FText NPCEng_Name; //NPC 영어 이름
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPCTypeName")
+	FText NPCKor_Name; // NPC 한국 이름
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPCTypeTag")
 	FGameplayTag NPCType; //NPC마다 가지고있는 태그타입

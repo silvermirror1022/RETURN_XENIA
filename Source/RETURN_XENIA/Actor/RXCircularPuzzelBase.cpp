@@ -45,7 +45,7 @@ int32 ARXCircularPuzzelBase::CalculateScore() const
 
 bool ARXCircularPuzzelBase::IsCorrectAnswer() const
 {
-    // 현재 점수가 정당인지 확인
+    // 현재 점수가 목표점수인지 확인
     return CalculateScore() == TargetScore;
 }
 
@@ -54,15 +54,10 @@ void ARXCircularPuzzelBase::PuzzelEventStart_Implementation()
 	Super::PuzzelEventStart_Implementation();
     // 퍼즐 모드 카메라로 전환, 변수 활성화
     SwitchToCamera(PuzzelModeCamera, 0.0f);
-    if (PuzzelModeCamera && Player)
-    {
-        // 플래이어를 현재 통장 컨트롤 가격에 지원하는 위치로 이동
-        FVector CameraBackLocation = PuzzelModeCamera->GetActorLocation() - PuzzelModeCamera->GetActorForwardVector() * 200.0f;
-        CameraBackLocation.Z = PuzzelModeCamera->GetActorLocation().Z;
-
-        Player->SetActorLocation(CameraBackLocation);
-        PlayerController->SetViewTargetWithBlend(PuzzelModeCamera, 0.0f);
-    }
+    
+    //PlayerController->SetViewTargetWithBlend(PuzzelModeCamera, 0.0f);
+    SwitchToCamera(PuzzelModeCamera, 0.0f);
+    MovePlayerLocation();
     Player->bIsCircularPuzzelMode = true;
 }
 
@@ -137,6 +132,11 @@ void ARXCircularPuzzelBase::SwitchSelectedWheel_Implementation()
     default:
         break;
     }
+}
+
+void ARXCircularPuzzelBase::MovePlayerLocation_Implementation()
+{
+    // BP 에서 처리
 }
 
 void ARXCircularPuzzelBase::RotateWheel(int32& CurrentIndex, const TArray<int32>& Wheel, bool bClockwise)

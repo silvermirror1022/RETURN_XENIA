@@ -86,5 +86,13 @@ void URXInteractionVisibilityComponent::OnSphereEndOverlap(UPrimitiveComponent* 
     }
 }
 
+void URXInteractionVisibilityComponent::SetVisibilityFalse()
+{
+    if (WidgetComponent)
+    {
+        WidgetComponent->SetVisibility(false); // 위젯 숨김
+    }
+}
+
 
 

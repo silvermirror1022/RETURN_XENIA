@@ -11,6 +11,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Move);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Jump);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Sprint);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Crouch);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Interact);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_EnterKey);
 
