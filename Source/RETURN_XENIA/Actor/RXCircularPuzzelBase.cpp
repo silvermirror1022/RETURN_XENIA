@@ -136,7 +136,7 @@ void ARXCircularPuzzelBase::SwitchSelectedWheel_Implementation()
 
 void ARXCircularPuzzelBase::MovePlayerLocation_Implementation()
 {
-
+    // BP 에서 처리
 }
 
 void ARXCircularPuzzelBase::RotateWheel(int32& CurrentIndex, const TArray<int32>& Wheel, bool bClockwise)

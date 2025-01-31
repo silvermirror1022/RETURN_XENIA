@@ -2,8 +2,6 @@
 
 
 #include "UI/RXOptionWidget.h"
-#include "Components/Slider.h"
-#include "System/RXGameInstance.h"
 
 URXOptionWidget::URXOptionWidget(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)

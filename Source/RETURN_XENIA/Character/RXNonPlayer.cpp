@@ -104,8 +104,16 @@ void ARXNonPlayer::StartDialogue()
                 NPCNameTextBlock = Cast<UTextBlock>(DialogueWidgetInstance->GetWidgetFromName("NPCName"));
 
                 if (DialogueTextBlock && NPCNameTextBlock)
-                {
-                    NPCNameTextBlock->SetText(NPCName);
+                {   // 한국어 영어 설정에 따른 이름 변경
+                    if (GI->bIsKorean)
+                    {
+                        NPCNameTextBlock->SetText(NPCKor_Name);
+                    }
+                    else
+                    {
+                        NPCNameTextBlock->SetText(NPCEng_Name);
+                    }
+
                     DisplayDialogue();
                 }
             }

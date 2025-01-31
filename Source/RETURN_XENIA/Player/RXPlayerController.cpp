@@ -17,7 +17,7 @@ ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitial
 	// UI 변수들 초기화
 	bIsPauseMenuUIActive = false;
 	bIsMainMenuUIActive = false;
-	bIsInDialgue = false;
+	bIsInDialogue = false;
 }
 void ARXPlayerController::BeginPlay()
 {
@@ -82,7 +82,7 @@ void ARXPlayerController::ActiveGameMainMenu()
 
 void ARXPlayerController::ActiveGamePauseMenu()
 {
-	if (CheckUIActiveState() || bIsInDialgue) return;  //대화중이라면 옵션창을 못띄우게해 언어설정을 막도록 예외처리
+	if (CheckUIActiveState() || bIsInDialogue) return;  //대화중이라면 옵션창을 못띄우게해 언어설정을 막도록 예외처리
 
 	bIsPauseMenuUIActive = true;
 
