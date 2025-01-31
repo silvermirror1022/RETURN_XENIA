@@ -6,6 +6,9 @@
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
 #include "RXDebugHelper.h"
+#include "Blueprint/UserWidget.h"
+#include "UI/RXPuzzelNotifyWidget.h"
+
 URXPuzzelSpawnManageComponent::URXPuzzelSpawnManageComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
@@ -95,6 +98,15 @@ void URXPuzzelSpawnManageComponent::ActivateLevel(int32 LevelID)
 
     // 플레이어 퍼즐 시작 위치로 이동
     Player->MoveToTagLocation("PuzzelStartPos", 30.0f);
+
+     // 위젯 생성 
+    CreatePuzzelNotifyWidget();
+
+    if (PuzzelNotifyWidget)
+    {
+        // UI 업데이트 (퍼즐 레벨 이미지 변경)
+        PuzzelNotifyWidget->UpdatePuzzelLevelImage(LevelID);
+    }
 }
 
 void URXPuzzelSpawnManageComponent::ClearAllPuzzel()
@@ -119,6 +131,9 @@ void URXPuzzelSpawnManageComponent::ClearAllPuzzel()
     }
  
     LevelObjectsMap.Empty();
+
+    // UI 위젯 삭제
+    RemovePuzzelNotifyWidget();
 }
 
 void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
@@ -139,6 +154,32 @@ void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
         {
             PuzzelObject->ResetObjectState(); // 각 오브젝트의 상태 리셋 호출
         }
+    }
+}
+
+void URXPuzzelSpawnManageComponent::CreatePuzzelNotifyWidget()
+{
+    // 퍼즐 UI 위젯을 생성하는 함수
+    if(!PuzzelNotifyWidget)
+    {
+        if (PuzzelNotifyWidgetClass)
+        {
+            PuzzelNotifyWidget = CreateWidget<URXPuzzelNotifyWidget>(GetWorld(), PuzzelNotifyWidgetClass);
+            if (PuzzelNotifyWidget)
+            {
+                PuzzelNotifyWidget->AddToViewport();
+            }
+        }
+    }
+}
+
+void URXPuzzelSpawnManageComponent::RemovePuzzelNotifyWidget()
+{
+    // 퍼즐 UI 위젯을 삭제하는 함수
+    if (PuzzelNotifyWidget)
+    {
+        PuzzelNotifyWidget->RemoveFromParent();
+        PuzzelNotifyWidget = nullptr;
     }
 }
 

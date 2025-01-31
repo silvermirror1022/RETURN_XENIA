@@ -45,6 +45,14 @@ public:
     UPROPERTY(EditAnywhere, Category = "LevelTag")
     TArray<FName> LevelTag;
 
-    
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PuzzelUI")
+    TSubclassOf<class URXPuzzelNotifyWidget> PuzzelNotifyWidgetClass; // 퍼즐 UI 위젯
 
+    UPROPERTY()
+	TObjectPtr<URXPuzzelNotifyWidget> PuzzelNotifyWidget;
+
+    // 퍼즐 UI 위젯 생성 삭제 함수
+    void CreatePuzzelNotifyWidget();
+    void RemovePuzzelNotifyWidget();
 };
+
