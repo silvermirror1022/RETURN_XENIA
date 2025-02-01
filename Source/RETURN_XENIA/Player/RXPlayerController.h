@@ -70,4 +70,5 @@ public:
 	uint8 bIsInDialogue : 1; // 대화중인지 체크 변수
 
 
+
 };

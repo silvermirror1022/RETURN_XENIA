@@ -42,8 +42,11 @@ public:
 	UPROPERTY()
 	float SFXVolumeValue; // 게임 효과음 볼륨
 
+	UPROPERTY()
+	float MouseSensitivityValue; // 마우스 민감도
+
 	FSliderValues()
-		: BrightnessValue(1.0f), MasterVolumeValue(1.0f), MusicVolumeValue(1.0f), SFXVolumeValue(1.0f) {}
+		: BrightnessValue(1.0f), MasterVolumeValue(1.0f), MusicVolumeValue(1.0f), SFXVolumeValue(1.0f), MouseSensitivityValue(1.0f) {}
 };
 
 UCLASS()
@@ -149,6 +152,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Game Settings")
 	void SetSFXVolumeValue(float Value) { SliderValues.SFXVolumeValue = Value; }
+	
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	float GetMouseSensitivityValue() const { return SliderValues.MouseSensitivityValue; }
+
+	UFUNCTION(BlueprintCallable, Category = "Game Settings")
+	void SetMouseSensitivityValue(float Value) { SliderValues.MouseSensitivityValue = Value; }
 
 	// 게임 세팅 언어 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Language Settings")

@@ -25,22 +25,24 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void BeginPlay();
 
-protected: // 카메라섹션
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
+public: // 카메라섹션 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class USpringArmComponent> CameraBoom;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, Meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UCameraComponent> FollowCamera;
 	UPROPERTY()
 	TObjectPtr<class ARXPlayerController> PlayerController;
 
-public: // 인풋 콜백 함수 섹션
+
+public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
+	void ToggleCrouch();
 	void StartSprinting();
 	void StopSprinting();
 	uint8 bIsSprinting : 1; // 필요하면 변수로 스프린팅상태 추적
 
-	void ToggleCrouch();
+
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
