@@ -20,12 +20,12 @@ protected:
 public:
 	void InitializePool(TSubclassOf<class ARXBossFixedFireball> ActorClass, int32 PoolSize);
 	ARXBossFixedFireball* GetPooledActor();
-	void FireInCircle(FVector Center, float ZHeight);
-
+	void FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target);
+	
 	UFUNCTION(BlueprintCallable)
-	void FireInCircleAt190(FVector Center);
+	void FireAtPlayerFrom120(FVector Center, AActor* Target);
 	UFUNCTION(BlueprintCallable)
-	void FireInCircleAt300(FVector Center);
+	void FireAtPlayerFrom170(FVector Center, AActor* Target);
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Pooling")
