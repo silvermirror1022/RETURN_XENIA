@@ -57,18 +57,25 @@ ARXBossFixedFireball* ARXBossFBPoolManager::GetPooledActor()
 	return NewActor;
 }
 
-void ARXBossFBPoolManager::FireInCircle(FVector Center, float ZHeight)
+void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target)
 {
-	int32 NumProjectiles = 40;
-	float AngleStep = 360.0f / NumProjectiles;
+	if (!Target) return;
 
-	// Z축 높이 설정
-	Center.Z = ZHeight;
+	Center.Z = ZHeight; // Z 높이 설정
+
+	FVector ToPlayer = (Target->GetActorLocation() - Center).GetSafeNormal();
+	FRotator BaseRotation = ToPlayer.Rotation(); // 플레이어를 향한 기본 회전
+
+	float LeftLimit = -20.0f;  // 좌측 최대 각도
+	float RightLimit = 20.0f;  // 우측 최대 각도
+	int32 NumProjectiles = 25; // 총 발사 개수
+	float AngleStep = (RightLimit - LeftLimit) / (NumProjectiles - 1);
 
 	for (int32 i = 0; i < NumProjectiles; i++)
 	{
-		float Angle = FMath::DegreesToRadians(i * AngleStep);
-		FVector Direction = FVector(FMath::Cos(Angle), FMath::Sin(Angle), 0.0f);
+		float AngleOffset = LeftLimit + (i * AngleStep);
+		FRotator RotatedDirection = BaseRotation + FRotator(0.0f, AngleOffset, 0.0f);
+		FVector Direction = RotatedDirection.Vector(); // 회전된 벡터
 
 		ARXBossFixedFireball* Fireball = GetPooledActor();
 		if (Fireball)
@@ -78,14 +85,15 @@ void ARXBossFBPoolManager::FireInCircle(FVector Center, float ZHeight)
 		}
 	}
 }
-// Z = 190에서 발사
-void ARXBossFBPoolManager::FireInCircleAt190(FVector Center)
+
+// Z = 190에서 플레이어를 향해 발사
+void ARXBossFBPoolManager::FireAtPlayerFrom120(FVector Center, AActor* Target)
 {
-	FireInCircle(Center, 190.0f);
+	FireTowardsPlayer(Center, 120.0f, Target);
 }
 
-// Z = 300에서 발사
-void ARXBossFBPoolManager::FireInCircleAt300(FVector Center)
+// Z = 300에서 플레이어를 향해 발사
+void ARXBossFBPoolManager::FireAtPlayerFrom170(FVector Center, AActor* Target)
 {
-	FireInCircle(Center, 300.0f);
+	FireTowardsPlayer(Center, 170.0f, Target);
 }

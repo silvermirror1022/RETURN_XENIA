@@ -15,9 +15,8 @@ void ARXBossProjectileSpawner::BeginPlay()
 	Super::BeginPlay();
 
 	// 각 종류의 프로젝트타일을 4개씩 풀링하여 생성
-	InitializeProjectilePool(RayPhase1Pool, RayPhase1Class);
-	InitializeProjectilePool(RayPhase2Pool, RayPhase2Class);
-	InitializeProjectilePool(RayPhase3Pool, RayPhase3Class);
+	InitializeProjectilePool(RayPool, RayClass);
+
 	InitializeProjectilePool(TargetingFireballPool, TargetingFireballClass);
 }
 
@@ -42,7 +41,7 @@ void ARXBossProjectileSpawner::InitializeProjectilePool(TArray<AActor*>& Pool, T
 	}
 	else
 	{
-		for (int i = 0; i < 6; i++)
+		for (int i = 0; i < 15; i++)
 		{
 			AActor* Projectile = GetWorld()->SpawnActor<AActor>(ProjectileClass, FVector::ZeroVector, FRotator::ZeroRotator);
 			if (Projectile)
@@ -97,9 +96,14 @@ void ARXBossProjectileSpawner::FireProjectile(TArray<AActor*>& Pool, TSubclassOf
 
 		FVector PlayerLocation = PlayerCharacter->GetActorLocation();
 
-		//  플레이어를 바라보는 방향 계산
-		FRotator LookAtRotation = (PlayerLocation - SpawnLocation).Rotation();
+		// FRotator LookAtRotation = (PlayerLocation - SpawnLocation).Rotation();
 
+		// 플레이어를 바라보는 방향 계산 (XY 평면에서만)
+		FVector Direction = (PlayerLocation - SpawnLocation).GetSafeNormal();
+		Direction.Z = 0.0f; // Z축 변화를 없애기 위해 고정
+
+		FRotator LookAtRotation = Direction.Rotation(); // Z축을 고려하지 않은 회전
+		LookAtRotation.Pitch = 0.0f; // Z축 기울기 제거
 		//  프로젝타일 활성화 및 방향 설정
 		Projectile->SetActorLocation(SpawnLocation);
 		Projectile->SetActorRotation(LookAtRotation);
