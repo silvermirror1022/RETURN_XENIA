@@ -265,9 +265,10 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 
 	if (Controller != nullptr)
 	{
-		AddControllerYawInput(LookAxisVector.X);
-		AddControllerPitchInput(LookAxisVector.Y);
+		AddControllerYawInput(LookAxisVector.X * GI->GetMouseSensitivityValue()* 0.3f);
+		AddControllerPitchInput(LookAxisVector.Y * GI->GetMouseSensitivityValue() * 0.1f);
 	}
+
 }
 void ARXPlayer::StartSprinting()
 {
@@ -320,6 +321,7 @@ void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 		}
 	}
 }
+
 
 void ARXPlayer::PuzzelMove(const FInputActionValue& Value)
 {

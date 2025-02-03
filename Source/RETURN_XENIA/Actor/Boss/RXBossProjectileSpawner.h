@@ -22,18 +22,12 @@ protected:
 public:	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile")
-	TSubclassOf<AActor> RayPhase1Class;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile")
-	TSubclassOf<AActor> RayPhase2Class;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile")
-	TSubclassOf<AActor> RayPhase3Class;
+	TSubclassOf<AActor> RayClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile")
 	TSubclassOf<AActor> TargetingFireballClass;
 
 	// 풀링된 프로젝트타일 리스트
-	TArray<AActor*> RayPhase1Pool;
-	TArray<AActor*> RayPhase2Pool;
-	TArray<AActor*> RayPhase3Pool;
+	TArray<AActor*> RayPool;
 	TArray<AActor*> TargetingFireballPool;
 
 	// 프로젝타일 풀 초기화
