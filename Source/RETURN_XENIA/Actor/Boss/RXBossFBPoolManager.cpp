@@ -93,7 +93,7 @@ void ARXBossFBPoolManager::FireAtPlayerFrom120(FVector Center, AActor* Target)
 }
 
 // Z = 300에서 플레이어를 향해 발사
-void ARXBossFBPoolManager::FireAtPlayerFrom170(FVector Center, AActor* Target)
+void ARXBossFBPoolManager::FireAtPlayerFrom150(FVector Center, AActor* Target)
 {
-	FireTowardsPlayer(Center, 170.0f, Target);
+	FireTowardsPlayer(Center, 150.0f, Target);
 }
