@@ -108,8 +108,10 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	{
 		auto PuzzelMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelMove);
 		auto PuzzelResetAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelReset);
+		auto PuzzelTabAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelTab);
 		EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
 		EnhancedInputComponent->BindAction(PuzzelResetAction, ETriggerEvent::Started, this, &ARXPlayer::PuzzelReset);
+		EnhancedInputComponent->BindAction(PuzzelTabAction, ETriggerEvent::Started, this, &ARXPlayer::PuzzelTab);
 	}
 
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_CircularPuzzel"))
@@ -367,6 +369,27 @@ void ARXPlayer::PuzzelReset()
 			if (PSMC)
 			{
 				PSMC->ResetCurrentLevel();
+			}
+		}
+	}
+}
+
+void ARXPlayer::PuzzelTab()
+{
+	// 블라인드 퍼즐에서만 사용하는 함수 (힌트를 일정시간에 보이게함)
+	// 퍼즐베이스엑터를 가져와서 가지고 있는 스폰매니저 컴포넌트에 접근해서 함수 호출
+	TArray<AActor*> PuzzelActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARXPuzzelBase::StaticClass(), PuzzelActors);
+
+	for (AActor* Actor : PuzzelActors)
+	{
+		if (ARXPuzzelBase* PuzzelBase = Cast<ARXPuzzelBase>(Actor))
+		{
+			URXPuzzelSpawnManageComponent* PSMC = PuzzelBase->FindComponentByClass<URXPuzzelSpawnManageComponent>();
+
+			if (PSMC)
+			{
+				PSMC->VisibleHintTile();
 			}
 		}
 	}

@@ -20,6 +20,7 @@ protected:
 public:
     UPROPERTY()
     TObjectPtr<class ARXPlayer> Player;
+    
     TMap<int32, TArray<AActor*>> LevelObjectsMap; // 레벨별 해당 엑터 관리
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -34,7 +35,6 @@ public:
     void ActivateLevel(int32 LevelID);
 
     // 퍼즐 클리어 종료
-    UFUNCTION(BlueprintCallable)
 	void ClearAllPuzzel();
 
     // 퍼즐 리셋
@@ -42,13 +42,22 @@ public:
     void ResetCurrentLevel();
     void ResetCurrentLevel_Implementation();
 
+    // 퍼즐 힌트 VISIBLE (Used for Only BlindPuzzel)
+    UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+    void VisibleHintTile();
+    void VisibleHintTile_Implementation();
+
+    // 퍼즐 힌트타일 VISIBLE (Used for Only BlindPuzzel)
+    UFUNCTION(BlueprintCallable)
+    void ShowHintTile();
+
     UPROPERTY(EditAnywhere, Category = "LevelTag")
     TArray<FName> LevelTag;
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="PuzzelUI")
     TSubclassOf<class URXPuzzelNotifyWidget> PuzzelNotifyWidgetClass; // 퍼즐 UI 위젯
 
-    UPROPERTY()
+    UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	TObjectPtr<URXPuzzelNotifyWidget> PuzzelNotifyWidget;
 
     // 퍼즐 UI 위젯 생성 삭제 함수

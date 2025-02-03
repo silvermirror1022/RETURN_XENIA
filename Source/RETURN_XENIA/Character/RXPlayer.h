@@ -46,6 +46,7 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
+	void PuzzelTab(); // 블라인드퍼즐에서 사용하는 함수
 
 	// 원형 퍼즐 이벤트 관련 함수 및 변수
 	uint8 bIsCircularPuzzelMode : 1;

@@ -15,6 +15,7 @@ namespace RXGameplayTags
 	// except : used for PuzzelInputMappingContext : PuzzelMode Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelMove, "Input.Action.PuzzelMove");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelReset, "Input.Action.PuzzelReset");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_PuzzelTab, "Input.Action.PuzzelTab");
 
 	// except : used for PuzzelInputMappingContext : CircularPuzzelMode Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_Exit, "Input.Action.CircularPuzzel.Exit");

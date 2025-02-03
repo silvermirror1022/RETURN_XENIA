@@ -18,6 +18,7 @@ namespace RXGameplayTags {
 	// Player Puzzel Input Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelMove);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelReset);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelTab);
 
 	// Player UI Input Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_ESCKey);
