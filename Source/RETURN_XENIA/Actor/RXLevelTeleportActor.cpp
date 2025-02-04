@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Actor/RXLevelTeleportActor.h"
 #include "Components/SphereComponent.h"
@@ -9,7 +9,7 @@
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
 
-    // Sphere Component CDO »ı¼º ¹× ¼³Á¤
+    // Sphere Component CDO ìƒì„± ë° ì„¤ì •
     SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
     SphereComponent->SetupAttachment(RootComponent);
     SphereComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -18,9 +18,9 @@ ARXLevelTeleportActor::ARXLevelTeleportActor()
     SphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 
 
-    // Sphere ComponentÀÇ ¹İÁö¸§°ú »ö»ó ¼³Á¤
-    SphereComponent->SetSphereRadius(80.0f); // ¹İÁö¸§ ¼³Á¤
-    SphereComponent->ShapeColor = FColor::Green; // »ö»ó ¼³Á¤ (µğ¹ö±×¿ë)
+    // Sphere Componentì˜ ë°˜ì§€ë¦„ê³¼ ìƒ‰ìƒ ì„¤ì •
+    SphereComponent->SetSphereRadius(80.0f); // ë°˜ì§€ë¦„ ì„¤ì •
+    SphereComponent->ShapeColor = FColor::Green; // ìƒ‰ìƒ ì„¤ì • (ë””ë²„ê·¸ìš©)
 
 }
 
@@ -31,26 +31,26 @@ void ARXLevelTeleportActor::BeginPlay()
 
 void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
 {
-    // °ÔÀÓ ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÏ¿© DestinationTag¸¦ ¼³Á¤
+    // ê²Œì„ ì¸ìŠ¤í„´ìŠ¤ì— ì ‘ê·¼í•˜ì—¬ DestinationTagë¥¼ ì„¤ì •
     if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
     {
         GameInstance->SetDestinationTag(DestinationTag);
     }
 
-    // ÇÃ·¹ÀÌ¾î ÄÁÆ®·Ñ·¯ °¡Á®¿Í¼­ ÀÔ·Â ºñÈ°¼ºÈ­
+    // í”Œë ˆì´ì–´ ì»¨íŠ¸ë¡¤ëŸ¬ ê°€ì ¸ì™€ì„œ ì…ë ¥ ë¹„í™œì„±í™”
     APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
     if (PlayerController)
     {
-        PlayerController->SetIgnoreMoveInput(true);  // ÀÌµ¿ ÀÔ·Â ¸·±â
-        //PlayerController->SetIgnoreLookInput(true);  // Ä«¸Ş¶ó È¸Àü ÀÔ·Â ¸·±â
+        PlayerController->SetIgnoreMoveInput(true);  // ì´ë™ ì…ë ¥ ë§‰ê¸°
+        //PlayerController->SetIgnoreLookInput(true);  // ì¹´ë©”ë¼ íšŒì „ ì…ë ¥ ë§‰ê¸°
     }
 
-    // µ¿±â ·¹º§ ÀüÈ¯
+    // ë™ê¸° ë ˆë²¨ ì „í™˜
     // UGameplayStatics::OpenLevel(this, NextLevelName);
 
     if (NextLevelName.IsNone())
     {
-        // ÅÂ±×°¡ ¼³Á¤µÇÁö ¾Ê´Â »óÈ² ¿¹¿ÜÃ³¸®
+        // íƒœê·¸ê°€ ì„¤ì •ë˜ì§€ ì•ŠëŠ” ìƒí™© ì˜ˆì™¸ì²˜ë¦¬
         UE_LOG(LogTemp, Warning, TEXT("NextLevelName is not set!"));
         return;
     }

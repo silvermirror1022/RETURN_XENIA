@@ -10,6 +10,7 @@
 #include "Player/RXPlayerController.h"
 #include "Camera/CameraActor.h"
 #include "Components/MeshComponent.h"
+#include "EngineUtils.h" //	for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It) 를 위해 필요
 
 URXPuzzelEventManageComponent::URXPuzzelEventManageComponent()
 {
@@ -22,6 +23,20 @@ void URXPuzzelEventManageComponent::BeginPlay()
 	Player = Cast<ARXPlayer>(GetWorld()->GetFirstPlayerController()->GetPawn());
 
 	PlayerController = Cast<ARXPlayerController>(Player->GetController());
+
+	// PuzzelCamera 태그가 있는 CameraActor 찾기
+	if (GetWorld())
+	{
+		for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It)
+		{
+			// 퍼즐 카메라 자동 탐색 with tag
+			if (It->ActorHasTag("PuzzelCamera"))
+			{
+				PuzzelModeCamera = *It;
+				break;
+			}
+		}
+	}
 }
 
 /*

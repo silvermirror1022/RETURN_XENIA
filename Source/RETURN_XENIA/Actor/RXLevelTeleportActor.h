@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -24,14 +24,17 @@ public:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class USphereComponent> SphereComponent;
 
-	// Ä«Å×°í¸® TeleportSettings °Ë»ö ÈÄ ºí·çÇÁ¸°Æ® ¿¡µğÅÍ¿¡¼­ ¼³Á¤ÇØÁà¾ßÇÔ.
+	// ì¹´í…Œê³ ë¦¬ TeleportSettings ê²€ìƒ‰ í›„ ë¸”ë£¨í”„ë¦°íŠ¸ ì—ë””í„°ì—ì„œ ì„¤ì •í•´ì¤˜ì•¼í•¨.
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="TeleportSettings")
-	FGameplayTag DestinationTag; //ÀÌµ¿ÇÏ·Á´Â ¸ñÀûÁö ÅÂ±×
+	FGameplayTag DestinationTag; //ì´ë™í•˜ë ¤ëŠ” ëª©ì ì§€ íƒœê·¸
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TeleportSettings")
-	FName NextLevelName;  // ´Ù¸¥·¹º§·ÎÀÇ ÀÌµ¿
+	FName NextLevelName;  // ë‹¤ë¥¸ë ˆë²¨ë¡œì˜ ì´ë™
 
 	UFUNCTION(BlueprintNativeEvent)
 	void TeleportToOtherLevel();
-	virtual void TeleportToOtherLevel_Implementation(); //´Ù¸¥ ·¹º§ ¿©´Â ÇÔ¼ö
+	virtual void TeleportToOtherLevel_Implementation(); //ë‹¤ë¥¸ ë ˆë²¨ ì—¬ëŠ” í•¨ìˆ˜
+
+private:
+	void OnLevelLoaded() const; // ë ˆë²¨ì´ asyncí•˜ê²Œ ì •ìƒì ìœ¼ë¡œ ë¡œë“œë˜ì—ˆëŠ”ì§€
 };
