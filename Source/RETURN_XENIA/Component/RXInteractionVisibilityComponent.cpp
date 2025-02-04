@@ -1,7 +1,7 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Component/RXInteractionVisibilityComponent.h"
-#include "Components/SphereComponent.h"
+#include "RXDebugHelper.h"
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
 #include "Character/RXPlayer.h"
@@ -58,10 +58,11 @@ void URXInteractionVisibilityComponent::OnBoxBeginOverlap(UPrimitiveComponent* O
     // 플레이어인지 확인
     if (OtherActor && OtherActor->IsA<ARXPlayer>())
     {
+        //D(FString::Printf(TEXT("done!")));
         if (WidgetComponent)
         {
             WidgetComponent->SetVisibility(true); // 위젯 표시
-            //D(FString::Printf(TEXT("done!")));
+            //D(FString::Printf(TEXT("done!!")));
         }
     }
 }
