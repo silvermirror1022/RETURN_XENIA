@@ -63,8 +63,15 @@ void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AAct
 
 	Center.Z = ZHeight; // Z 높이 설정
 
-	FVector ToPlayer = (Target->GetActorLocation() - Center).GetSafeNormal();
-	FRotator BaseRotation = ToPlayer.Rotation(); // 플레이어를 향한 기본 회전
+	//FVector ToPlayer = (Target->GetActorLocation() - Center).GetSafeNormal();
+	//FRotator BaseRotation = ToPlayer.Rotation(); // 플레이어를 향한 기본 회전
+
+	// XY 평면에서만 방향을 계산하도록 Z를 0으로 만듦
+	FVector ToPlayer = Target->GetActorLocation() - Center;
+	ToPlayer.Z = 0; // Z 성분 제거
+	ToPlayer = ToPlayer.GetSafeNormal(); // 정규화
+
+	FRotator BaseRotation = ToPlayer.Rotation(); // XY 평면에서의 회전값만 사용
 
 	float LeftLimit = -20.0f;  // 좌측 최대 각도
 	float RightLimit = 20.0f;  // 우측 최대 각도

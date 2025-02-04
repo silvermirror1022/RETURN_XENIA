@@ -293,14 +293,20 @@ void ARXPlayer::StopSprinting()
 
 void ARXPlayer::ToggleCrouch()
 {
-	if (GetCharacterMovement()->IsCrouching())
+	UCharacterMovementComponent* MovementComp = GetCharacterMovement();
+	if (!MovementComp) return;
+
+	// 땅에 있을 때만 앉을 수 있도록 체크
+	if (MovementComp->IsMovingOnGround())
 	{
-		UnCrouch();
-		//D(FString::Printf(TEXT("UnCrouch!")));
-	}
-	else
-	{
-		Crouch();
+		if (MovementComp->IsCrouching())
+		{
+			UnCrouch();
+		}
+		else
+		{
+			Crouch();
+		}
 	}
 }
 
