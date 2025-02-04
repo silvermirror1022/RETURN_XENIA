@@ -2,9 +2,8 @@
 
 #include "Actor/RXLevelTeleportActor.h"
 #include "Components/SphereComponent.h"
-#include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
-#include "System/RXGameInstance.h" 
+#include "System/RXGameInstance.h"
 #include "RXDebugHelper.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
@@ -38,9 +37,37 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
         GameInstance->SetDestinationTag(DestinationTag);
     }
 
-    // 레벨 전환
-    UGameplayStatics::OpenLevel(this, NextLevelName);
-    
+    // 플레이어 컨트롤러 가져와서 입력 비활성화
+    APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
+    if (PlayerController)
+    {
+        PlayerController->SetIgnoreMoveInput(true);  // 이동 입력 막기
+        //PlayerController->SetIgnoreLookInput(true);  // 카메라 회전 입력 막기
+    }
+
+    // 동기 레벨 전환
+    // UGameplayStatics::OpenLevel(this, NextLevelName);
+
+    if (NextLevelName.IsNone())
+    {
+        // 태그가 설정되지 않는 상황 예외처리
+        UE_LOG(LogTemp, Warning, TEXT("NextLevelName is not set!"));
+        return;
+    }
+
+    FLatentActionInfo LatentInfo;
+    LatentInfo.CallbackTarget = this;
+    LatentInfo.ExecutionFunction = FName("OnLevelLoaded");
+    LatentInfo.Linkage = 0;
+    LatentInfo.UUID = __LINE__;
+
+    UGameplayStatics::LoadStreamLevel(this, NextLevelName, true, false, LatentInfo);
+}
+
+void ARXLevelTeleportActor::OnLevelLoaded() const
+{
+    UE_LOG(LogTemp, Log, TEXT("Level %s Loaded Successfully"), *NextLevelName.ToString());
+    UGameplayStatics::UnloadStreamLevel(this, *GetWorld()->GetMapName(), FLatentActionInfo(), false);
 }
 
 
