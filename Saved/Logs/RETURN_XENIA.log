@@ -1730,3 +1730,912 @@ Script Stack (0 frames) :
 [2025.02.05-13.22.59:266][346]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 1973.506592
 [2025.02.05-13.23.00:267][349]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
 [2025.02.05-13.23.00:267][349]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 1974.173462, Update Interval: 300.140991
+[2025.02.05-13.28.46:336][387]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2320.569824
+[2025.02.05-13.28.47:335][390]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-13.28.47:335][390]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2321.236572, Update Interval: 310.809052
+[2025.02.05-13.34.37:095][439]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2671.329834
+[2025.02.05-13.34.38:093][442]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-13.34.38:093][443]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2671.995850, Update Interval: 353.144318
+[2025.02.05-13.37.33:325][927]Cmd: DELETE
+[2025.02.05-13.37.33:325][927]Cmd: ACTOR DELETE
+[2025.02.05-13.37.33:332][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:333][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:333][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:334][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:334][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:334][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:334][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:335][927]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.37.33:338][927]LogUObjectHash: Compacting FUObjectHashTables data took   0.29ms
+[2025.02.05-13.37.33:340][927]LogEditorActor: Deleted 8 Actors (0.015 secs)
+[2025.02.05-13.37.43:437][112]LogDebuggerCommands: Repeating last play command: 선택된 뷰포트
+[2025.02.05-13.37.43:450][112]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2025.02.05-13.37.43:450][112]LogPlayLevel: Creating play world package: /Game/Maps/SubMaps/UEDPIE_0_submap3
+[2025.02.05-13.37.43:472][112]LogPlayLevel: PIE: StaticDuplicateObject took: (0.021446s)
+[2025.02.05-13.37.43:472][112]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/SubMaps/submap3.submap3 to /Game/Maps/SubMaps/UEDPIE_0_submap3.submap3 (0.021474s)
+[2025.02.05-13.37.43:474][112]LogUObjectHash: Compacting FUObjectHashTables data took   0.33ms
+[2025.02.05-13.37.43:475][112]LogWorldMetrics: [UWorldMetricsSubsystem::Initialize]
+[2025.02.05-13.37.43:476][112]LogPlayLevel: PIE: World Init took: (0.000770s)
+[2025.02.05-13.37.43:490][112]LogAudio: Display: Creating Audio Device:                 Id: 3, Scope: Unique, Realtime: True
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.02.05-13.37.43:490][112]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.02.05-13.37.43:490][112]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.02.05-13.37.43:490][112]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.02.05-13.37.43:490][112]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.02.05-13.37.43:490][112]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.02.05-13.37.43:491][112]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.02.05-13.37.43:529][112]LogAudioMixer: Display: Using Audio Hardware Device 스피커(Realtek(R) Audio)
+[2025.02.05-13.37.43:529][112]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.02.05-13.37.43:529][112]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.02.05-13.37.43:529][112]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.02.05-13.37.43:530][112]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=3
+[2025.02.05-13.37.43:530][112]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=3
+[2025.02.05-13.37.43:531][112]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=3
+[2025.02.05-13.37.43:531][112]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=3
+[2025.02.05-13.37.43:531][112]LogInit: FAudioDevice initialized with ID 3.
+[2025.02.05-13.37.43:531][112]LogAudio: Display: Audio Device (ID: 3) registered with world 'submap3'.
+[2025.02.05-13.37.43:531][112]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 3
+[2025.02.05-13.37.43:533][112]LogLoad: Game class is 'BP_GameMode_C'
+[2025.02.05-13.37.43:544][112]LogWorld: Bringing World /Game/Maps/SubMaps/UEDPIE_0_submap3.submap3 up for play (max tick rate 0) at 2025.02.05-22.37.43
+[2025.02.05-13.37.43:545][112]LogWorld: Bringing up level for play took: 0.011470
+[2025.02.05-13.37.43:546][112]LogOnline: OSS: Created online subsystem instance for: :Context_10
+[2025.02.05-13.37.43:552][112]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 0
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 1
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 2
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 0
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 1
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 2
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 0
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 1
+[2025.02.05-13.37.43:553][112]LogTemp: Creating Widget 2
+[2025.02.05-13.37.43:566][112]PIE: 서버가 로그인했습니다.
+[2025.02.05-13.37.43:567][112]PIE: 에디터에서 플레이 총 시작 시간 0.12초입니다.
+[2025.02.05-13.37.43:572][112]LogAudio: Warning: Detected orphaned sound which is not a one-shot 'WAV_5__Outside'. Sounds which are not one-shots need to have audio components or they risk being orphaned.
+[2025.02.05-13.37.54:153][374]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.02.05-13.37.54:153][374]LogWorld: BeginTearingDown for /Game/Maps/SubMaps/UEDPIE_0_submap3
+[2025.02.05-13.37.54:153][374]LogWorld: UWorld::CleanupWorld for submap3, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.37.54:156][374]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.37.54:156][374]LogWorldMetrics: [UWorldMetricsSubsystem::Deinitialize]
+[2025.02.05-13.37.54:156][374]LogWorldMetrics: [UWorldMetricsSubsystem::Clear]
+[2025.02.05-13.37.54:158][374]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2025.02.05-13.37.54:160][374]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.37.54:162][374]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.02.05-13.37.54:163][374]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 3
+[2025.02.05-13.37.54:164][374]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=3
+[2025.02.05-13.37.54:165][374]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=3
+[2025.02.05-13.37.54:173][374]LogUObjectHash: Compacting FUObjectHashTables data took   0.36ms
+[2025.02.05-13.37.54:215][375]LogPlayLevel: Display: Destroying online subsystem :Context_10
+[2025.02.05-13.37.58:776][883]LogAssetEditorSubsystem: Opening Asset editor for StaticMesh /Game/Designer/Modeling/map/submap3/SM_water_A01.SM_water_A01
+[2025.02.05-13.38.02:522][208]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap3/SM_water_A01)...
+[2025.02.05-13.38.02:541][208]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap3/SM_water_A01)...
+[2025.02.05-13.38.02:560][208]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap3/SM_water_A01)...
+[2025.02.05-13.38.02:579][208]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap3/SM_water_A01)...
+[2025.02.05-13.38.05:425][495]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-13.38.05:478][495]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Designer/Modeling/map/submap3/SM_water_A01] ([1] browsable assets)...
+[2025.02.05-13.38.05:489][495]OBJ SavePackage:     Rendered thumbnail for [StaticMesh /Game/Designer/Modeling/map/submap3/SM_water_A01.SM_water_A01]
+[2025.02.05-13.38.05:489][495]OBJ SavePackage: Finished generating thumbnails for package [/Game/Designer/Modeling/map/submap3/SM_water_A01]
+[2025.02.05-13.38.05:489][495]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Designer/Modeling/map/submap3/SM_water_A01" FILE="../../../../../RETURN_XENIA/Content/Designer/Modeling/map/submap3/SM_water_A01.uasset" SILENT=true
+[2025.02.05-13.38.05:491][495]LogSavePackage: Moving output files for package: /Game/Designer/Modeling/map/submap3/SM_water_A01
+[2025.02.05-13.38.05:491][495]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/SM_water_A016EB83C194FD8422CEBC15B909D360F7A.tmp' to '../../../../../RETURN_XENIA/Content/Designer/Modeling/map/submap3/SM_water_A01.uasset'
+[2025.02.05-13.38.05:499][495]LogFileHelpers: InternalPromptForCheckoutAndSave took 73.625 ms (total: 1.35 sec)
+[2025.02.05-13.38.05:523][495]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-13.38.05:523][495]LogContentValidation: Enabled validators:
+[2025.02.05-13.38.05:523][495]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-13.38.05:523][495]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-13.38.05:523][495]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-13.38.05:523][495]LogContentValidation: Display: Validating asset /Game/Designer/Modeling/map/submap3/SM_water_A01.SM_water_A01
+[2025.02.05-13.38.05:523][495]AssetCheck: /Game/Designer/Modeling/map/submap3/SM_water_A01 에셋 유효성 검사 중
+[2025.02.05-13.38.06:347][579]LogSlate: Window 'SM_water_A01' being destroyed
+[2025.02.05-13.38.06:397][579]LogWorld: UWorld::CleanupWorld for World_8, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.38.06:397][579]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.38.06:408][579]LogUObjectHash: Compacting FUObjectHashTables data took   0.32ms
+[2025.02.05-13.38.07:773][738]LogDebuggerCommands: Repeating last play command: 선택된 뷰포트
+[2025.02.05-13.38.07:785][738]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2025.02.05-13.38.07:812][738]LogPlayLevel: Creating play world package: /Game/Maps/SubMaps/UEDPIE_0_submap3
+[2025.02.05-13.38.07:839][738]LogPlayLevel: PIE: StaticDuplicateObject took: (0.027460s)
+[2025.02.05-13.38.07:839][738]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/SubMaps/submap3.submap3 to /Game/Maps/SubMaps/UEDPIE_0_submap3.submap3 (0.027489s)
+[2025.02.05-13.38.07:843][738]LogUObjectHash: Compacting FUObjectHashTables data took   0.34ms
+[2025.02.05-13.38.07:843][738]LogWorldMetrics: [UWorldMetricsSubsystem::Initialize]
+[2025.02.05-13.38.07:844][738]LogPlayLevel: PIE: World Init took: (0.000664s)
+[2025.02.05-13.38.07:859][738]LogAudio: Display: Creating Audio Device:                 Id: 4, Scope: Unique, Realtime: True
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.02.05-13.38.07:859][738]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.02.05-13.38.07:859][738]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.02.05-13.38.07:859][738]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.02.05-13.38.07:859][738]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.02.05-13.38.07:859][738]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.02.05-13.38.07:860][738]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.02.05-13.38.07:896][738]LogAudioMixer: Display: Using Audio Hardware Device 스피커(Realtek(R) Audio)
+[2025.02.05-13.38.07:896][738]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.02.05-13.38.07:896][738]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.02.05-13.38.07:896][738]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.02.05-13.38.07:896][738]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=4
+[2025.02.05-13.38.07:896][738]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=4
+[2025.02.05-13.38.07:898][738]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=4
+[2025.02.05-13.38.07:898][738]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=4
+[2025.02.05-13.38.07:898][738]LogInit: FAudioDevice initialized with ID 4.
+[2025.02.05-13.38.07:898][738]LogAudio: Display: Audio Device (ID: 4) registered with world 'submap3'.
+[2025.02.05-13.38.07:898][738]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 4
+[2025.02.05-13.38.07:900][738]LogLoad: Game class is 'BP_GameMode_C'
+[2025.02.05-13.38.07:911][738]LogWorld: Bringing World /Game/Maps/SubMaps/UEDPIE_0_submap3.submap3 up for play (max tick rate 0) at 2025.02.05-22.38.07
+[2025.02.05-13.38.07:911][738]LogWorld: Bringing up level for play took: 0.011324
+[2025.02.05-13.38.07:912][738]LogOnline: OSS: Created online subsystem instance for: :Context_12
+[2025.02.05-13.38.07:918][738]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2025.02.05-13.38.07:918][738]LogTemp: Creating Widget 0
+[2025.02.05-13.38.07:918][738]LogTemp: Creating Widget 1
+[2025.02.05-13.38.07:918][738]LogTemp: Creating Widget 2
+[2025.02.05-13.38.07:918][738]LogTemp: Creating Widget 0
+[2025.02.05-13.38.07:918][738]LogTemp: Creating Widget 1
+[2025.02.05-13.38.07:918][738]LogTemp: Creating Widget 2
+[2025.02.05-13.38.07:919][738]LogTemp: Creating Widget 0
+[2025.02.05-13.38.07:919][738]LogTemp: Creating Widget 1
+[2025.02.05-13.38.07:919][738]LogTemp: Creating Widget 2
+[2025.02.05-13.38.07:933][738]PIE: 서버가 로그인했습니다.
+[2025.02.05-13.38.07:933][738]PIE: 에디터에서 플레이 총 시작 시간 0.151초입니다.
+[2025.02.05-13.38.07:939][738]LogAudio: Warning: Detected orphaned sound which is not a one-shot 'WAV_5__Outside'. Sounds which are not one-shots need to have audio components or they risk being orphaned.
+[2025.02.05-13.38.15:253][608]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.02.05-13.38.15:253][608]LogWorld: BeginTearingDown for /Game/Maps/SubMaps/UEDPIE_0_submap3
+[2025.02.05-13.38.15:253][608]LogWorld: UWorld::CleanupWorld for submap3, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.38.15:255][608]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.38.15:255][608]LogWorldMetrics: [UWorldMetricsSubsystem::Deinitialize]
+[2025.02.05-13.38.15:255][608]LogWorldMetrics: [UWorldMetricsSubsystem::Clear]
+[2025.02.05-13.38.15:258][608]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2025.02.05-13.38.15:259][608]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.38.15:262][608]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.02.05-13.38.15:264][608]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 4
+[2025.02.05-13.38.15:264][608]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=4
+[2025.02.05-13.38.15:265][608]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=4
+[2025.02.05-13.38.15:272][608]LogUObjectHash: Compacting FUObjectHashTables data took   0.34ms
+[2025.02.05-13.38.15:339][609]LogPlayLevel: Display: Destroying online subsystem :Context_12
+[2025.02.05-13.38.19:359][ 66]LogAssetEditorSubsystem: Opening Asset editor for StaticMesh /Game/Designer/Modeling/map/submap3/SM_water_A01.SM_water_A01
+[2025.02.05-13.38.25:794][679]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap3/SM_water_A01)...
+[2025.02.05-13.38.27:104][812]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap3/SM_water_A01)...
+[2025.02.05-13.38.29:980][108]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-13.38.30:013][108]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Designer/Modeling/map/submap3/SM_water_A01] ([1] browsable assets)...
+[2025.02.05-13.38.30:024][108]OBJ SavePackage:     Rendered thumbnail for [StaticMesh /Game/Designer/Modeling/map/submap3/SM_water_A01.SM_water_A01]
+[2025.02.05-13.38.30:024][108]OBJ SavePackage: Finished generating thumbnails for package [/Game/Designer/Modeling/map/submap3/SM_water_A01]
+[2025.02.05-13.38.30:024][108]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Designer/Modeling/map/submap3/SM_water_A01" FILE="../../../../../RETURN_XENIA/Content/Designer/Modeling/map/submap3/SM_water_A01.uasset" SILENT=true
+[2025.02.05-13.38.30:026][108]LogSavePackage: Moving output files for package: /Game/Designer/Modeling/map/submap3/SM_water_A01
+[2025.02.05-13.38.30:026][108]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/SM_water_A0124B4F7754A540C23A2F731854B565A5B.tmp' to '../../../../../RETURN_XENIA/Content/Designer/Modeling/map/submap3/SM_water_A01.uasset'
+[2025.02.05-13.38.30:031][108]LogFileHelpers: InternalPromptForCheckoutAndSave took 51.421 ms (total: 1.41 sec)
+[2025.02.05-13.38.30:079][108]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-13.38.30:079][108]LogContentValidation: Enabled validators:
+[2025.02.05-13.38.30:079][108]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-13.38.30:079][108]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-13.38.30:079][108]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-13.38.30:079][108]LogContentValidation: Display: Validating asset /Game/Designer/Modeling/map/submap3/SM_water_A01.SM_water_A01
+[2025.02.05-13.38.30:079][108]AssetCheck: /Game/Designer/Modeling/map/submap3/SM_water_A01 에셋 유효성 검사 중
+[2025.02.05-13.38.30:840][188]LogSlate: Window 'SM_water_A01' being destroyed
+[2025.02.05-13.38.30:912][188]LogWorld: UWorld::CleanupWorld for World_9, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.38.30:912][188]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.38.30:924][188]LogUObjectHash: Compacting FUObjectHashTables data took   0.31ms
+[2025.02.05-13.38.39:421][179]LogDebuggerCommands: Repeating last play command: 선택된 뷰포트
+[2025.02.05-13.38.39:433][179]LogPlayLevel: PlayLevel: No blueprints needed recompiling
+[2025.02.05-13.38.39:471][179]LogPlayLevel: Creating play world package: /Game/Maps/SubMaps/UEDPIE_0_submap3
+[2025.02.05-13.38.39:501][179]LogPlayLevel: PIE: StaticDuplicateObject took: (0.029471s)
+[2025.02.05-13.38.39:501][179]LogPlayLevel: PIE: Created PIE world by copying editor world from /Game/Maps/SubMaps/submap3.submap3 to /Game/Maps/SubMaps/UEDPIE_0_submap3.submap3 (0.029494s)
+[2025.02.05-13.38.39:505][179]LogUObjectHash: Compacting FUObjectHashTables data took   0.36ms
+[2025.02.05-13.38.39:505][179]LogWorldMetrics: [UWorldMetricsSubsystem::Initialize]
+[2025.02.05-13.38.39:506][179]LogPlayLevel: PIE: World Init took: (0.000654s)
+[2025.02.05-13.38.39:521][179]LogAudio: Display: Creating Audio Device:                 Id: 5, Scope: Unique, Realtime: True
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: Audio Mixer Platform Settings:
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: 	Sample Rate:						  48000
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: 	Callback Buffer Frame Size Requested: 1024
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: 	Callback Buffer Frame Size To Use:	  1024
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: 	Number of buffers to queue:			  1
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: 	Max Channels (voices):				  32
+[2025.02.05-13.38.39:521][179]LogAudioMixer: Display: 	Number of Async Source Workers:		  4
+[2025.02.05-13.38.39:521][179]LogAudio: Display: AudioDevice MaxSources: 32
+[2025.02.05-13.38.39:521][179]LogAudio: Display: Audio Spatialization Plugin: None (built-in).
+[2025.02.05-13.38.39:521][179]LogAudio: Display: Audio Reverb Plugin: None (built-in).
+[2025.02.05-13.38.39:521][179]LogAudio: Display: Audio Occlusion Plugin: None (built-in).
+[2025.02.05-13.38.39:522][179]LogAudioMixer: Display: Initializing audio mixer using platform API: 'XAudio2'
+[2025.02.05-13.38.39:558][179]LogAudioMixer: Display: Using Audio Hardware Device 스피커(Realtek(R) Audio)
+[2025.02.05-13.38.39:558][179]LogAudioMixer: Display: Initializing Sound Submixes...
+[2025.02.05-13.38.39:558][179]LogAudioMixer: Display: Creating Master Submix 'MasterSubmixDefault'
+[2025.02.05-13.38.39:558][179]LogAudioMixer: Display: Creating Master Submix 'MasterReverbSubmixDefault'
+[2025.02.05-13.38.39:559][179]LogAudioMixer: FMixerPlatformXAudio2::StartAudioStream() called. InstanceID=5
+[2025.02.05-13.38.39:559][179]LogAudioMixer: Display: Output buffers initialized: Frames=1024, Channels=2, Samples=2048, InstanceID=5
+[2025.02.05-13.38.39:560][179]LogAudioMixer: Display: Starting AudioMixerPlatformInterface::RunInternal(), InstanceID=5
+[2025.02.05-13.38.39:560][179]LogAudioMixer: Display: FMixerPlatformXAudio2::SubmitBuffer() called for the first time. InstanceID=5
+[2025.02.05-13.38.39:560][179]LogInit: FAudioDevice initialized with ID 5.
+[2025.02.05-13.38.39:560][179]LogAudio: Display: Audio Device (ID: 5) registered with world 'submap3'.
+[2025.02.05-13.38.39:560][179]LogAudioMixer: Initializing Audio Bus Subsystem for audio device with ID 5
+[2025.02.05-13.38.39:562][179]LogLoad: Game class is 'BP_GameMode_C'
+[2025.02.05-13.38.39:573][179]LogWorld: Bringing World /Game/Maps/SubMaps/UEDPIE_0_submap3.submap3 up for play (max tick rate 0) at 2025.02.05-22.38.39
+[2025.02.05-13.38.39:574][179]LogWorld: Bringing up level for play took: 0.011455
+[2025.02.05-13.38.39:575][179]LogOnline: OSS: Created online subsystem instance for: :Context_14
+[2025.02.05-13.38.39:581][179]LogViewport: Display: Viewport MouseCaptureMode Changed, CapturePermanently_IncludingInitialMouseDown -> CapturePermanently
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 0
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 1
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 2
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 0
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 1
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 2
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 0
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 1
+[2025.02.05-13.38.39:581][179]LogTemp: Creating Widget 2
+[2025.02.05-13.38.39:595][179]PIE: 서버가 로그인했습니다.
+[2025.02.05-13.38.39:596][179]PIE: 에디터에서 플레이 총 시작 시간 0.165초입니다.
+[2025.02.05-13.38.39:602][179]LogAudio: Warning: Detected orphaned sound which is not a one-shot 'WAV_5__Outside'. Sounds which are not one-shots need to have audio components or they risk being orphaned.
+[2025.02.05-13.39.42:742][748]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.02.05-13.39.42:742][748]LogWorld: BeginTearingDown for /Game/Maps/SubMaps/UEDPIE_0_submap3
+[2025.02.05-13.39.42:743][748]LogWorld: UWorld::CleanupWorld for submap3, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.39.42:745][748]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.39.42:745][748]LogWorldMetrics: [UWorldMetricsSubsystem::Deinitialize]
+[2025.02.05-13.39.42:745][748]LogWorldMetrics: [UWorldMetricsSubsystem::Clear]
+[2025.02.05-13.39.42:747][748]LogPlayLevel: Display: Shutting down PIE online subsystems
+[2025.02.05-13.39.42:749][748]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.39.42:751][748]LogSlate: Updating window title bar state: overlay mode, drag disabled, window buttons hidden, title bar hidden
+[2025.02.05-13.39.42:752][748]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID 5
+[2025.02.05-13.39.42:752][748]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=5
+[2025.02.05-13.39.42:753][748]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=5
+[2025.02.05-13.39.42:761][748]LogUObjectHash: Compacting FUObjectHashTables data took   0.38ms
+[2025.02.05-13.39.42:828][749]LogPlayLevel: Display: Destroying online subsystem :Context_14
+[2025.02.05-13.41.02:803][206]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3057.053955
+[2025.02.05-13.41.03:803][209]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-13.41.03:803][209]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3057.720703, Update Interval: 323.269745
+[2025.02.05-13.41.06:847][218]LogUObjectHash: Compacting FUObjectHashTables data took   0.47ms
+[2025.02.05-13.41.06:851][218]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/SubMaps/submap3" FILE="../../../../../RETURN_XENIA/Saved/Autosaves/Game/Maps/SubMaps/submap3_Auto1.umap" SILENT=true AUTOSAVING=true KEEPDIRTY=false
+[2025.02.05-13.41.06:950][218]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/Maps/SubMaps/submap3_Auto1
+[2025.02.05-13.41.06:950][218]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/submap3_Auto1F2FF42264EB85F04F02D53ACFE98D91D.tmp' to '../../../../../RETURN_XENIA/Saved/Autosaves/Game/Maps/SubMaps/submap3_Auto1.umap'
+[2025.02.05-13.41.06:951][218]LogAssetRegistry: Warning: ScanPathsSynchronous: ../../../../../RETURN_XENIA/Saved/Autosaves/Game/Maps/SubMaps/submap3_Auto1.umap is in the /Temp path, will not scan.
+[2025.02.05-13.41.06:951][218]LogAssetRegistry: Warning: ScanPathsSynchronous: /Temp/__ExternalActors__/Autosaves/Game/Maps/SubMaps/submap3_Auto1 is in the /Temp path, will not scan.
+[2025.02.05-13.41.06:951][218]LogAssetRegistry: Warning: ScanPathsSynchronous: /Temp/__ExternalObjects__/Autosaves/Game/Maps/SubMaps/submap3_Auto1 is in the /Temp path, will not scan.
+[2025.02.05-13.41.06:951][218]LogFileHelpers: Editor autosave (incl. external actors) for '/Game/Maps/SubMaps/submap3' took 0.107
+[2025.02.05-13.41.06:951][218]LogFileHelpers: Editor autosave (incl. sublevels & external actors) for all levels took 0.107
+[2025.02.05-13.46.57:229][269]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3411.476318
+[2025.02.05-13.46.58:229][272]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-13.46.58:229][272]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3412.142822, Update Interval: 325.847961
+[2025.02.05-13.48.25:951][794]LogUObjectHash: Compacting FUObjectHashTables data took   0.29ms
+[2025.02.05-13.48.26:919][794]LogSlate: Window '콘텐츠 저장' being destroyed
+[2025.02.05-13.48.26:942][794]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-13.48.26:970][794]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/SubMaps/submap3" FILE="../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap3.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-13.48.27:006][794]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.48.27:106][794]LogSavePackage: Moving output files for package: /Game/Maps/SubMaps/submap3
+[2025.02.05-13.48.27:106][794]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/submap3E018AE7341840752D8E6D1A18DA590AB.tmp' to '../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap3.umap'
+[2025.02.05-13.48.27:116][794]LogFileHelpers: Saving map 'submap3' took 0.147
+[2025.02.05-13.48.27:169][794]LogFileHelpers: InternalPromptForCheckoutAndSave took 227.545 ms (total: 1.63 sec)
+[2025.02.05-13.48.27:270][794]LogAssetEditorSubsystem: Opening Asset editor for World /Game/Maps/MainMap.MainMap
+[2025.02.05-13.48.27:270][794]Cmd: MAP LOAD FILE="../../../../../RETURN_XENIA/Content/Maps/MainMap.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=4
+[2025.02.05-13.48.27:352][794]LogWorld: UWorld::CleanupWorld for submap3, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.48.27:352][794]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.48.27:352][794]LogWorldMetrics: [UWorldMetricsSubsystem::Deinitialize]
+[2025.02.05-13.48.27:352][794]LogWorldMetrics: [UWorldMetricsSubsystem::Clear]
+[2025.02.05-13.48.27:360][794]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2025.02.05-13.48.27:369][794]LogUObjectHash: Compacting FUObjectHashTables data took   0.41ms
+[2025.02.05-13.48.27:376][794]LogWorld: UWorld::CleanupWorld for MainMap, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-13.48.27:377][794]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-13.48.27:382][794]LogUObjectHash: Compacting FUObjectHashTables data took   0.38ms
+[2025.02.05-13.48.27:385][794]LogUObjectHash: Compacting FUObjectHashTables data took   0.34ms
+[2025.02.05-13.48.27:395][794]LogAudio: Display: Audio Device (ID: 1) registered with world 'MainMap'.
+[2025.02.05-13.48.27:395][794]LogWorldMetrics: [UWorldMetricsSubsystem::Initialize]
+[2025.02.05-13.48.27:440][794]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2025.02.05-13.48.27:445][794]LogUObjectHash: Compacting FUObjectHashTables data took   0.31ms
+[2025.02.05-13.48.27:453][794]Cmd: MAP CHECKDEP NOCLEARLOG
+[2025.02.05-13.48.27:453][794]MapCheck: 맵 체크 완료: 오류 0 회, 경고 0 회, 소요 시간 0.056ms.
+[2025.02.05-13.48.27:555][794]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-13.48.27:555][794]LogContentValidation: Enabled validators:
+[2025.02.05-13.48.27:555][794]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-13.48.27:555][794]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-13.48.27:555][794]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-13.48.27:644][795]LogSlate: Took 0.000144 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2025.02.05-13.48.27:646][795]LogSlate: Took 0.002181 seconds to synchronously load lazily loaded font '../../../Engine/Content/Editor/Slate/Fonts/NanumGothic.ttf' (4243K)
+[2025.02.05-13.49.51:983][580]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.49.51:983][580]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.49.51:984][580]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_0
+[2025.02.05-13.49.53:268][733]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.49.53:272][733]LogEditorActor: Deleted 0 Actors (0.006 secs)
+[2025.02.05-13.49.53:277][733]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.49.53:277][733]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.49.53:278][733]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_56
+[2025.02.05-13.49.56:732][ 76]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_C01.SM_mushroom_C01
+[2025.02.05-13.49.56:732][ 76]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_C01.SM_mushroom_C01
+[2025.02.05-13.49.56:733][ 76]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_C01.SM_mushroom_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_64
+[2025.02.05-13.49.57:401][154]LogUObjectHash: Compacting FUObjectHashTables data took   0.17ms
+[2025.02.05-13.49.57:403][154]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.49.57:408][154]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_C01.SM_mushroom_C01
+[2025.02.05-13.49.57:408][154]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_C01.SM_mushroom_C01
+[2025.02.05-13.49.57:409][154]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_C01.SM_mushroom_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_103
+[2025.02.05-13.49.59:421][373]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_set_A01.SM_mushroom_set_A01
+[2025.02.05-13.49.59:421][373]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_set_A01.SM_mushroom_set_A01
+[2025.02.05-13.49.59:422][373]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_set_A01.SM_mushroom_set_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_105
+[2025.02.05-13.49.59:728][406]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.49.59:729][406]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.49.59:734][406]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_set_A01.SM_mushroom_set_A01
+[2025.02.05-13.49.59:734][406]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_set_A01.SM_mushroom_set_A01
+[2025.02.05-13.49.59:735][406]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_set_A01.SM_mushroom_set_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_110
+[2025.02.05-13.50.07:315][203]Cmd: DELETE
+[2025.02.05-13.50.07:315][203]Cmd: ACTOR DELETE
+[2025.02.05-13.50.07:325][203]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.50.07:328][203]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.50.07:330][203]LogEditorActor: Deleted 1 Actors (0.014 secs)
+[2025.02.05-13.50.13:334][870]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__A01.SM_Rock__A01
+[2025.02.05-13.50.13:334][870]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__A01.SM_Rock__A01
+[2025.02.05-13.50.13:335][870]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__A01.SM_Rock__A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_125
+[2025.02.05-13.50.15:135][ 81]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.50.15:137][ 81]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.50.15:141][ 81]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__A01.SM_Rock__A01
+[2025.02.05-13.50.15:141][ 81]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__A01.SM_Rock__A01
+[2025.02.05-13.50.15:142][ 81]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__A01.SM_Rock__A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_140
+[2025.02.05-13.50.16:116][174]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__B01.SM_Rock__B01
+[2025.02.05-13.50.16:116][174]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__B01.SM_Rock__B01
+[2025.02.05-13.50.16:116][174]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__B01.SM_Rock__B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_151
+[2025.02.05-13.50.16:898][265]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.50.16:900][265]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.50.16:905][265]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__B01.SM_Rock__B01
+[2025.02.05-13.50.16:905][265]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__B01.SM_Rock__B01
+[2025.02.05-13.50.16:906][265]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_Rock__B01.SM_Rock__B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_153
+[2025.02.05-13.50.21:181][722]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_B01_SM_path_B01.SM_path_B01_SM_path_B01
+[2025.02.05-13.50.21:181][722]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_B01_SM_path_B01.SM_path_B01_SM_path_B01
+[2025.02.05-13.50.21:181][722]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_B01_SM_path_B01.SM_path_B01_SM_path_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_158
+[2025.02.05-13.50.22:778][903]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.50.22:780][903]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.50.22:785][903]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_B01_SM_path_B01.SM_path_B01_SM_path_B01
+[2025.02.05-13.50.22:785][903]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_B01_SM_path_B01.SM_path_B01_SM_path_B01
+[2025.02.05-13.50.22:786][903]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_B01_SM_path_B01.SM_path_B01_SM_path_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_161
+[2025.02.05-13.51.34:522][760]Cmd: TRANSACTION UNDO
+[2025.02.05-13.51.34:522][760]LogEditorTransaction: Undo 엘리먼트 스케일조절
+[2025.02.05-13.52.08:556][450]LogDerivedDataCache: C:/Users/User/AppData/Local/UnrealEngine/Common/DerivedDataCache: Maintenance finished in +00:00:06.066 and deleted 0 files with total size 0 MiB and 0 empty folders. Scanned 3580 files in 5115 folders with total size 318 MiB.
+[2025.02.05-13.52.18:878][588]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_A01_SM_path_A01.SM_path_A01_SM_path_A01
+[2025.02.05-13.52.18:878][588]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_A01_SM_path_A01.SM_path_A01_SM_path_A01
+[2025.02.05-13.52.18:878][588]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_A01_SM_path_A01.SM_path_A01_SM_path_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_163
+[2025.02.05-13.52.20:126][736]LogUObjectHash: Compacting FUObjectHashTables data took   0.22ms
+[2025.02.05-13.52.20:129][736]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.52.20:133][736]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_A01_SM_path_A01.SM_path_A01_SM_path_A01
+[2025.02.05-13.52.20:133][736]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_A01_SM_path_A01.SM_path_A01_SM_path_A01
+[2025.02.05-13.52.20:134][736]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_path_A01_SM_path_A01.SM_path_A01_SM_path_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_166
+[2025.02.05-13.52.34:560][296]Cmd: TRANSACTION UNDO
+[2025.02.05-13.52.34:560][296]LogEditorTransaction: Undo 엘리먼트 클릭
+[2025.02.05-13.52.38:365][682]LogNavigation: Warning: FNavigationOctree::AddNode: Empty bounds, ignoring StaticMeshComponent /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_166.StaticMeshComponent0.
+[2025.02.05-13.52.38:797][733]LogNavigation: Warning: FNavigationOctree::AddNode: Empty bounds, ignoring StaticMeshComponent /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_166.StaticMeshComponent0.
+[2025.02.05-13.52.39:063][760]Cmd: TRANSACTION UNDO
+[2025.02.05-13.52.39:063][760]LogEditorTransaction: Undo 엘리먼트 스케일조절
+[2025.02.05-13.52.57:575][822]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3771.808838
+[2025.02.05-13.52.57:791][848]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-13.52.57:791][848]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3772.016357, Update Interval: 308.100830
+[2025.02.05-13.53.01:278][260]Cmd: TRANSACTION UNDO
+[2025.02.05-13.53.01:278][260]LogEditorTransaction: Undo 엘리먼트 스케일조절
+[2025.02.05-13.53.02:793][383]Cmd: MODE SCALEGRID=0
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: ================================================
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: === FShaderJobCache stats ===
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Total job queries 622, among them cache hits 170 (27.33%), DDC hits 426 (68.49%), Duplicates 9 (1.45%)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Tracking 443 distinct input hashes that result in 370 distinct outputs (83.52%)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: RAM used: 10.94 MiB of 1.60 GiB budget. Usage: 0.67%
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: === Shader Compilation stats ===
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Shaders Compiled: 17
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Jobs assigned 17, completed 17 (100%)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Average time worker was idle: 672.54 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Time job spent in pending queue: average 0.16 s, longest 1.03 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Job execution time: average 1.03 s, max 1.38 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Job life time (pending + execution): average 1.19 s, max 1.45
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Shader code size: average 44.845 KiB, min 31.387 KiB, max 56.727 KiB
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Time at least one job was in flight (either pending or executed): 4.31 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Mutex wait stall in FShaderJobCache::SubmitJobs:  0.11%
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Jobs were issued in 17 batches (only local compilation was used), average 1.00 jobs/batch
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Average processing rate: 3.95 jobs/sec
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Total thread time: 10.72 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Total thread preprocess time: 6.131 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Percentage time preprocessing: 57.19%
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Effective parallelization: 2.49 (times faster than compiling all shaders on one thread). Compare with number of workers: 12
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Top 5 most expensive shader types by average time:
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:                                             FDebugViewModePS (compiled    1 times, average 1.29 sec, max 1.29 sec, min 1.29 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:       TBasePassPSFCachedVolumeIndirectLightingPolicySkylight (compiled    1 times, average 0.71 sec, max 0.71 sec, min 0.71 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:        TBasePassPSFCachedPointIndirectLightingPolicySkylight (compiled    1 times, average 0.70 sec, max 0.70 sec, min 0.70 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:                TBasePassPSFCachedPointIndirectLightingPolicy (compiled    1 times, average 0.69 sec, max 0.69 sec, min 0.69 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:                         TBasePassPSTLightMapPolicyHQSkylight (compiled    1 times, average 0.69 sec, max 0.69 sec, min 0.69 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Top 5 shader types by total compile time:
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:                                             FDebugViewModePS - 12.06% of total time (compiled    1 times, average 1.29 sec, max 1.29 sec, min 1.29 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:      TBasePassPSFPrecomputedVolumetricLightmapLightingPolicy - 10.42% of total time (compiled    2 times, average 0.56 sec, max 0.69 sec, min 0.42 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:       TBasePassPSFCachedVolumeIndirectLightingPolicySkylight - 6.61% of total time (compiled    1 times, average 0.71 sec, max 0.71 sec, min 0.71 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:        TBasePassPSFCachedPointIndirectLightingPolicySkylight - 6.57% of total time (compiled    1 times, average 0.70 sec, max 0.70 sec, min 0.70 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display:                TBasePassPSFCachedPointIndirectLightingPolicy - 6.48% of total time (compiled    1 times, average 0.69 sec, max 0.69 sec, min 0.69 sec)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: === Material stats ===
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Materials Cooked:        0
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Materials Translated:    183
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Material Total Translate Time: 0.06 s
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Material Translation Only: 0.03 s (47%)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Material DDC Serialization Only: 0.00 s (3%)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: Material Cache Hits: 58 (32%)
+[2025.02.05-13.53.08:567][ 61]LogShaderCompilers: Display: ================================================
+[2025.02.05-13.53.40:729][409]Cmd: TRANSACTION UNDO
+[2025.02.05-13.53.40:729][409]LogEditorTransaction: Undo 회전 설정
+[2025.02.05-13.53.43:090][567]Cmd: TRANSACTION UNDO
+[2025.02.05-13.53.43:090][567]LogEditorTransaction: Undo 회전 설정
+[2025.02.05-13.53.45:960][832]Cmd: TRANSACTION UNDO
+[2025.02.05-13.53.45:961][832]LogEditorTransaction: Undo 회전 설정
+[2025.02.05-13.53.55:009][797]Cmd: TRANSACTION UNDO
+[2025.02.05-13.53.55:009][797]LogEditorTransaction: Undo 회전 설정
+[2025.02.05-13.54.14:247][681]Cmd: TRANSACTION UNDO
+[2025.02.05-13.54.14:247][681]LogEditorTransaction: Undo 강도 편집
+[2025.02.05-13.54.19:165][194]LogSlate: Window '색 선택 툴' being destroyed
+[2025.02.05-13.54.22:910][632]Cmd: TRANSACTION UNDO
+[2025.02.05-13.54.22:910][632]LogEditorTransaction: Undo 강도 편집
+[2025.02.05-13.54.27:705][141]Cmd: TRANSACTION UNDO
+[2025.02.05-13.54.27:705][141]LogEditorTransaction: Undo 온도 편집
+[2025.02.05-13.54.33:481][748]LogSlate: Window '색 선택 툴' being destroyed
+[2025.02.05-13.54.41:754][665]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.54.41:754][665]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.54.42:553][759]LogUObjectHash: Compacting FUObjectHashTables data took   0.38ms
+[2025.02.05-13.54.42:557][759]LogEditorActor: Deleted 0 Actors (0.007 secs)
+[2025.02.05-13.54.42:561][759]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.54.42:562][759]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.54.54:275][ 81]LogSlate: Window '색 선택 툴' being destroyed
+[2025.02.05-13.55.07:022][541]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-13.55.07:066][541]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/MainMap" FILE="../../../../../RETURN_XENIA/Content/Maps/MainMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-13.55.07:103][541]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.55.07:143][541]LogSavePackage: Moving output files for package: /Game/Maps/MainMap
+[2025.02.05-13.55.07:144][541]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/MainMapFB43B34243F02AF1BB4C4490E19FCE73.tmp' to '../../../../../RETURN_XENIA/Content/Maps/MainMap.umap'
+[2025.02.05-13.55.07:152][541]LogFileHelpers: 모든 파일이 이미 저장되었습니다.
+[2025.02.05-13.55.07:152][541]LogFileHelpers: Saving map 'MainMap' took 0.087
+[2025.02.05-13.55.07:159][541]LogFileHelpers: InternalPromptForCheckoutAndSave took 135.936 ms (total: 1.77 sec)
+[2025.02.05-13.55.07:217][541]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-13.55.07:217][541]LogContentValidation: Enabled validators:
+[2025.02.05-13.55.07:218][541]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-13.55.07:218][541]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-13.55.07:218][541]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-13.55.07:218][541]LogContentValidation: Display: Validating asset /Game/Maps/MainMap.MainMap
+[2025.02.05-13.55.07:218][541]AssetCheck: /Game/Maps/MainMap 에셋 유효성 검사 중
+[2025.02.05-13.55.07:564][574]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.55.07:564][574]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.55.08:208][650]LogUObjectHash: Compacting FUObjectHashTables data took   0.19ms
+[2025.02.05-13.55.08:208][650]LogEditorActor: Deleted 0 Actors (0.003 secs)
+[2025.02.05-13.55.08:213][650]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.55.08:213][650]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-13.55.24:092][474]LogSlate: Window '색 선택 툴' being destroyed
+[2025.02.05-13.56.19:741][985]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_D01.SM_mushroom_D01
+[2025.02.05-13.56.19:741][985]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_D01.SM_mushroom_D01
+[2025.02.05-13.56.19:742][985]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_D01.SM_mushroom_D01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_173
+[2025.02.05-13.56.20:323][ 45]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.56.20:326][ 45]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.56.20:331][ 45]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_D01.SM_mushroom_D01
+[2025.02.05-13.56.20:331][ 45]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_D01.SM_mushroom_D01
+[2025.02.05-13.56.20:332][ 45]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_D01.SM_mushroom_D01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_174
+[2025.02.05-13.56.41:567][385]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-13.56.41:610][385]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/MainMap" FILE="../../../../../RETURN_XENIA/Content/Maps/MainMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-13.56.41:647][385]LogUObjectHash: Compacting FUObjectHashTables data took   0.31ms
+[2025.02.05-13.56.41:688][385]LogSavePackage: Moving output files for package: /Game/Maps/MainMap
+[2025.02.05-13.56.41:688][385]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/MainMap8DA0C7E147A2B1CA33FA5B8EB51CC704.tmp' to '../../../../../RETURN_XENIA/Content/Maps/MainMap.umap'
+[2025.02.05-13.56.41:697][385]LogFileHelpers: 모든 파일이 이미 저장되었습니다.
+[2025.02.05-13.56.41:697][385]LogFileHelpers: Saving map 'MainMap' took 0.087
+[2025.02.05-13.56.41:702][385]LogFileHelpers: InternalPromptForCheckoutAndSave took 135.664 ms (total: 1.90 sec)
+[2025.02.05-13.56.41:743][385]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-13.56.41:743][385]LogContentValidation: Enabled validators:
+[2025.02.05-13.56.41:743][385]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-13.56.41:743][385]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-13.56.41:743][385]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-13.56.41:743][385]LogContentValidation: Display: Validating asset /Game/Maps/MainMap.MainMap
+[2025.02.05-13.56.41:743][385]AssetCheck: /Game/Maps/MainMap 에셋 유효성 검사 중
+[2025.02.05-13.56.43:614][568]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.56.43:614][568]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.56.43:614][568]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_178
+[2025.02.05-13.56.44:430][653]LogUObjectHash: Compacting FUObjectHashTables data took   0.17ms
+[2025.02.05-13.56.44:431][653]LogEditorActor: Deleted 0 Actors (0.003 secs)
+[2025.02.05-13.56.44:435][653]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.56.44:435][653]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01
+[2025.02.05-13.56.44:436][653]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_B01.SM_mushroom_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_180
+[2025.02.05-13.57.00:798][420]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_A01.SM_mushroom_A01
+[2025.02.05-13.57.00:798][420]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_A01.SM_mushroom_A01
+[2025.02.05-13.57.00:798][420]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_A01.SM_mushroom_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_181
+[2025.02.05-13.57.01:762][516]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.57.01:765][516]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.57.01:770][516]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_A01.SM_mushroom_A01
+[2025.02.05-13.57.01:770][516]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_A01.SM_mushroom_A01
+[2025.02.05-13.57.01:770][516]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_mushroom_A01.SM_mushroom_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_182
+[2025.02.05-13.57.21:217][666]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.21:217][666]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.21:217][666]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_183
+[2025.02.05-13.57.21:777][721]LogUObjectHash: Compacting FUObjectHashTables data took   0.20ms
+[2025.02.05-13.57.21:779][721]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.57.21:784][721]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.21:784][721]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.21:785][721]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_184
+[2025.02.05-13.57.22:782][808]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.22:782][808]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.22:782][808]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_185
+[2025.02.05-13.57.23:323][862]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.57.23:325][862]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.57.23:329][862]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.23:329][862]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01
+[2025.02.05-13.57.23:330][862]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap3/SM_LotusLeaf_A01.SM_LotusLeaf_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_186
+[2025.02.05-13.57.43:073][ 18]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap2/SM_WoodBoard_A01.SM_WoodBoard_A01
+[2025.02.05-13.57.43:073][ 18]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap2/SM_WoodBoard_A01.SM_WoodBoard_A01
+[2025.02.05-13.57.43:073][ 18]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap2/SM_WoodBoard_A01.SM_WoodBoard_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_187
+[2025.02.05-13.57.43:693][ 78]LogUObjectHash: Compacting FUObjectHashTables data took   0.19ms
+[2025.02.05-13.57.43:696][ 78]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.57.43:700][ 78]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap2/SM_WoodBoard_A01.SM_WoodBoard_A01
+[2025.02.05-13.57.43:700][ 78]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/submap2/SM_WoodBoard_A01.SM_WoodBoard_A01
+[2025.02.05-13.57.43:701][ 78]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/submap2/SM_WoodBoard_A01.SM_WoodBoard_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_188
+[2025.02.05-13.58.16:730][650]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-13.58.16:730][650]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-13.58.16:730][650]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_189
+[2025.02.05-13.58.17:869][778]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.58.17:873][778]LogEditorActor: Deleted 0 Actors (0.006 secs)
+[2025.02.05-13.58.17:877][778]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-13.58.17:877][778]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-13.58.17:878][778]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_190
+[2025.02.05-13.58.19:956][957]Cmd: DELETE
+[2025.02.05-13.58.19:956][957]Cmd: ACTOR DELETE
+[2025.02.05-13.58.19:965][957]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.58.19:969][957]LogUObjectHash: Compacting FUObjectHashTables data took   0.21ms
+[2025.02.05-13.58.19:971][957]LogEditorActor: Deleted 1 Actors (0.015 secs)
+[2025.02.05-13.58.20:491][  1]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigA.SM_RockBigA
+[2025.02.05-13.58.20:491][  1]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigA.SM_RockBigA
+[2025.02.05-13.58.20:491][  1]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigA.SM_RockBigA as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_191
+[2025.02.05-13.58.21:935][169]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.58.21:937][169]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.58.21:941][169]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigA.SM_RockBigA
+[2025.02.05-13.58.21:941][169]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigA.SM_RockBigA
+[2025.02.05-13.58.21:942][169]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigA.SM_RockBigA as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_192
+[2025.02.05-13.58.24:985][487]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.58.24:985][487]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.58.24:986][487]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_193
+[2025.02.05-13.58.26:658][678]LogUObjectHash: Compacting FUObjectHashTables data took   0.25ms
+[2025.02.05-13.58.26:660][678]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.58.26:664][678]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.58.26:664][678]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.58.26:665][678]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_194
+[2025.02.05-13.58.36:208][738]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 4110.439453
+[2025.02.05-13.58.36:448][763]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-13.58.36:448][763]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 4110.674316, Update Interval: 317.188629
+[2025.02.05-13.59.00:635][497]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_C01.SM_tree_C01
+[2025.02.05-13.59.00:635][497]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_C01.SM_tree_C01
+[2025.02.05-13.59.00:635][497]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_C01.SM_tree_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_195
+[2025.02.05-13.59.00:891][525]LogUObjectHash: Compacting FUObjectHashTables data took   0.30ms
+[2025.02.05-13.59.00:894][525]LogEditorActor: Deleted 0 Actors (0.006 secs)
+[2025.02.05-13.59.00:898][525]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_C01.SM_tree_C01
+[2025.02.05-13.59.00:898][525]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_C01.SM_tree_C01
+[2025.02.05-13.59.00:899][525]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_C01.SM_tree_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_196
+[2025.02.05-13.59.02:014][631]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_B01.SM_tree_B01
+[2025.02.05-13.59.02:014][631]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_B01.SM_tree_B01
+[2025.02.05-13.59.02:014][631]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_B01.SM_tree_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_197
+[2025.02.05-13.59.02:334][668]LogUObjectHash: Compacting FUObjectHashTables data took   0.25ms
+[2025.02.05-13.59.02:336][668]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.59.02:341][668]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_B01.SM_tree_B01
+[2025.02.05-13.59.02:341][668]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_B01.SM_tree_B01
+[2025.02.05-13.59.02:342][668]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_B01.SM_tree_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_198
+[2025.02.05-13.59.03:082][739]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_A01.SM_tree_A01
+[2025.02.05-13.59.03:082][739]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_A01.SM_tree_A01
+[2025.02.05-13.59.03:082][739]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_A01.SM_tree_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_199
+[2025.02.05-13.59.03:623][803]LogUObjectHash: Compacting FUObjectHashTables data took   0.20ms
+[2025.02.05-13.59.03:625][803]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.59.03:630][803]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_A01.SM_tree_A01
+[2025.02.05-13.59.03:630][803]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_A01.SM_tree_A01
+[2025.02.05-13.59.03:631][803]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_tree_A01.SM_tree_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_200
+[2025.02.05-13.59.14:905][ 56]Cmd: DELETE
+[2025.02.05-13.59.14:905][ 56]Cmd: ACTOR DELETE
+[2025.02.05-13.59.14:915][ 56]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.59.14:915][ 56]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.59.14:915][ 56]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-13.59.14:919][ 56]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.59.14:921][ 56]LogEditorActor: Deleted 3 Actors (0.016 secs)
+[2025.02.05-13.59.22:401][920]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.22:401][920]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.22:401][920]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_201
+[2025.02.05-13.59.24:915][186]LogUObjectHash: Compacting FUObjectHashTables data took   0.19ms
+[2025.02.05-13.59.24:917][186]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.59.24:921][186]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.24:921][186]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.24:922][186]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_202
+[2025.02.05-13.59.27:617][476]Cmd: TRANSACTION UNDO
+[2025.02.05-13.59.27:617][476]LogEditorTransaction: Undo 엘리먼트 이동
+[2025.02.05-13.59.39:130][556]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigB.SM_RockBigB
+[2025.02.05-13.59.39:130][556]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigB.SM_RockBigB
+[2025.02.05-13.59.39:130][556]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigB.SM_RockBigB as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_203
+[2025.02.05-13.59.39:976][649]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.59.39:978][649]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-13.59.39:983][649]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigB.SM_RockBigB
+[2025.02.05-13.59.39:983][649]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigB.SM_RockBigB
+[2025.02.05-13.59.39:984][649]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigB.SM_RockBigB as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_204
+[2025.02.05-13.59.46:083][293]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.46:083][293]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.46:084][293]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_205
+[2025.02.05-13.59.47:489][450]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-13.59.47:490][450]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-13.59.47:495][450]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.47:495][450]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC
+[2025.02.05-13.59.47:496][450]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_RockBigC.SM_RockBigC as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_206
+[2025.02.05-14.00.08:722][829]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.08:722][829]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.08:722][829]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_207
+[2025.02.05-14.00.09:311][887]LogUObjectHash: Compacting FUObjectHashTables data took   0.17ms
+[2025.02.05-14.00.09:314][887]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-14.00.09:318][887]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.09:319][887]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.09:319][887]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_208
+[2025.02.05-14.00.10:064][967]Cmd: TRANSACTION UNDO
+[2025.02.05-14.00.10:064][967]LogEditorTransaction: Undo 오브젝트 배치
+[2025.02.05-14.00.13:411][251]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.13:411][251]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.13:411][251]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_209
+[2025.02.05-14.00.14:751][398]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.00.14:753][398]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-14.00.14:758][398]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.14:758][398]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.14:758][398]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_210
+[2025.02.05-14.00.15:515][465]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.15:515][465]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.15:515][465]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_211
+[2025.02.05-14.00.16:229][545]LogUObjectHash: Compacting FUObjectHashTables data took   0.32ms
+[2025.02.05-14.00.16:231][545]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-14.00.16:235][545]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.16:235][545]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.16:236][545]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_212
+[2025.02.05-14.00.29:677][996]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_A01.SM_rock_A01
+[2025.02.05-14.00.29:677][996]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_A01.SM_rock_A01
+[2025.02.05-14.00.29:677][996]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_A01.SM_rock_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_213
+[2025.02.05-14.00.31:184][168]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.00.31:187][168]LogEditorActor: Deleted 0 Actors (0.006 secs)
+[2025.02.05-14.00.31:192][168]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_A01.SM_rock_A01
+[2025.02.05-14.00.31:192][168]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_A01.SM_rock_A01
+[2025.02.05-14.00.31:193][168]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_A01.SM_rock_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_214
+[2025.02.05-14.00.45:042][701]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.45:042][701]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.45:042][701]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_215
+[2025.02.05-14.00.45:771][782]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.00.45:774][782]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-14.00.45:779][782]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.45:779][782]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01
+[2025.02.05-14.00.45:780][782]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_B01.SM_rock_B01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_216
+[2025.02.05-14.00.46:162][812]Cmd: TRANSACTION UNDO
+[2025.02.05-14.00.46:162][812]LogEditorTransaction: Undo 오브젝트 배치
+[2025.02.05-14.00.46:570][818]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.46:570][818]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.46:570][818]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_217
+[2025.02.05-14.00.47:454][895]LogUObjectHash: Compacting FUObjectHashTables data took   0.20ms
+[2025.02.05-14.00.47:456][895]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-14.00.47:461][895]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.47:461][895]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.47:462][895]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_218
+[2025.02.05-14.00.50:960][236]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.50:960][236]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.50:960][236]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_219
+[2025.02.05-14.00.52:012][360]LogUObjectHash: Compacting FUObjectHashTables data took   0.31ms
+[2025.02.05-14.00.52:014][360]LogEditorActor: Deleted 0 Actors (0.005 secs)
+[2025.02.05-14.00.52:019][360]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.52:019][360]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01
+[2025.02.05-14.00.52:019][360]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_rock_C01.SM_rock_C01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_220
+[2025.02.05-14.01.06:229][928]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-14.01.06:266][928]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/MainMap" FILE="../../../../../RETURN_XENIA/Content/Maps/MainMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-14.01.06:303][928]LogUObjectHash: Compacting FUObjectHashTables data took   0.35ms
+[2025.02.05-14.01.06:346][928]LogSavePackage: Moving output files for package: /Game/Maps/MainMap
+[2025.02.05-14.01.06:346][928]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/MainMap820607C84C7D53BC0FD663A82D1D6976.tmp' to '../../../../../RETURN_XENIA/Content/Maps/MainMap.umap'
+[2025.02.05-14.01.06:355][928]LogFileHelpers: 모든 파일이 이미 저장되었습니다.
+[2025.02.05-14.01.06:355][928]LogFileHelpers: Saving map 'MainMap' took 0.089
+[2025.02.05-14.01.06:361][928]LogFileHelpers: InternalPromptForCheckoutAndSave took 131.888 ms (total: 2.04 sec)
+[2025.02.05-14.01.06:411][928]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-14.01.06:411][928]LogContentValidation: Enabled validators:
+[2025.02.05-14.01.06:411][928]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-14.01.06:411][928]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-14.01.06:411][928]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-14.01.06:411][928]LogContentValidation: Display: Validating asset /Game/Maps/MainMap.MainMap
+[2025.02.05-14.01.06:412][928]AssetCheck: /Game/Maps/MainMap 에셋 유효성 검사 중
+[2025.02.05-14.01.07:289][997]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01
+[2025.02.05-14.01.07:289][997]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01
+[2025.02.05-14.01.07:289][997]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_221
+[2025.02.05-14.01.07:578][ 29]LogUObjectHash: Compacting FUObjectHashTables data took   0.17ms
+[2025.02.05-14.01.07:579][ 29]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-14.01.07:584][ 29]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01
+[2025.02.05-14.01.07:584][ 29]LogActorFactory: Actor Factory attempting to spawn StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01
+[2025.02.05-14.01.07:585][ 29]LogActorFactory: Actor Factory spawned StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01 as actor: StaticMeshActor /Game/Maps/MainMap.MainMap:PersistentLevel.StaticMeshActor_222
+[2025.02.05-14.01.09:988][280]Cmd: DELETE
+[2025.02.05-14.01.09:988][280]Cmd: ACTOR DELETE
+[2025.02.05-14.01.09:997][280]LogEditorActor: Deleted Actor: StaticMeshActor
+[2025.02.05-14.01.10:001][280]LogUObjectHash: Compacting FUObjectHashTables data took   0.19ms
+[2025.02.05-14.01.10:003][280]LogEditorActor: Deleted 1 Actors (0.015 secs)
+[2025.02.05-14.01.28:922][438]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.01.28:922][438]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.01.29:109][459]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.01.29:110][459]LogEditorActor: Deleted 0 Actors (0.010 secs)
+[2025.02.05-14.01.29:351][487]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.01.29:351][487]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.01.29:948][557]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.01.29:949][557]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-14.01.29:953][557]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.01.29:954][557]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.01.38:883][569]Cmd: DELETE
+[2025.02.05-14.01.38:884][569]Cmd: ACTOR DELETE
+[2025.02.05-14.01.38:893][569]LogEditorActor: Deleted Actor: SpotLight
+[2025.02.05-14.01.38:897][569]LogUObjectHash: Compacting FUObjectHashTables data took   0.19ms
+[2025.02.05-14.01.38:899][569]LogEditorActor: Deleted 1 Actors (0.015 secs)
+[2025.02.05-14.01.39:877][679]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.RectLight
+[2025.02.05-14.01.39:877][679]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.RectLight
+[2025.02.05-14.01.40:995][812]LogUObjectHash: Compacting FUObjectHashTables data took   0.17ms
+[2025.02.05-14.01.40:996][812]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-14.01.41:001][812]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.RectLight
+[2025.02.05-14.01.41:001][812]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.RectLight
+[2025.02.05-14.01.58:902][940]Cmd: TRANSACTION UNDO
+[2025.02.05-14.01.58:902][940]LogEditorTransaction: Undo 엘리먼트 회전
+[2025.02.05-14.02.00:433][ 66]Cmd: TRANSACTION UNDO
+[2025.02.05-14.02.00:433][ 66]LogEditorTransaction: Undo 엘리먼트 회전
+[2025.02.05-14.04.13:131][799]Cmd: TRANSACTION UNDO
+[2025.02.05-14.04.13:131][799]LogEditorTransaction: Undo 엘리먼트 이동
+[2025.02.05-14.04.14:164][867]Cmd: DELETE
+[2025.02.05-14.04.14:164][867]Cmd: ACTOR DELETE
+[2025.02.05-14.04.14:174][867]LogEditorActor: Deleted Actor: RectLight
+[2025.02.05-14.04.14:179][867]LogUObjectHash: Compacting FUObjectHashTables data took   0.31ms
+[2025.02.05-14.04.14:182][867]LogEditorActor: Deleted 1 Actors (0.018 secs)
+[2025.02.05-14.04.17:368][237]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.04.17:368][237]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.04.18:628][387]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.04.18:629][387]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-14.04.18:634][387]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.04.18:634][387]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.SpotLight
+[2025.02.05-14.04.43:946][261]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 4478.135254
+[2025.02.05-14.04.44:165][285]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.02.05-14.04.44:165][285]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 4478.344238, Update Interval: 335.135345
+[2025.02.05-14.04.58:725][937]Cmd: TRANSACTION UNDO
+[2025.02.05-14.04.58:725][937]LogEditorTransaction: Undo 소프트 소스 반경 편집
+[2025.02.05-14.06.27:724][429]Cmd: DELETE
+[2025.02.05-14.06.27:724][429]Cmd: ACTOR DELETE
+[2025.02.05-14.06.27:734][429]LogEditorActor: Deleted Actor: SpotLight
+[2025.02.05-14.06.27:740][429]LogUObjectHash: Compacting FUObjectHashTables data took   0.23ms
+[2025.02.05-14.06.27:741][429]LogEditorActor: Deleted 1 Actors (0.016 secs)
+[2025.02.05-14.06.29:769][622]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-14.06.29:769][622]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-14.06.30:507][697]LogUObjectHash: Compacting FUObjectHashTables data took   0.19ms
+[2025.02.05-14.06.30:508][697]LogEditorActor: Deleted 0 Actors (0.004 secs)
+[2025.02.05-14.06.30:512][697]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-14.06.30:512][697]LogActorFactory: Actor Factory attempting to spawn Class /Script/Engine.PointLight
+[2025.02.05-14.06.44:351][933]LogSlate: Window '색 선택 툴' being destroyed
+[2025.02.05-14.06.47:730][992]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-14.06.47:794][992]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01] ([1] browsable assets)...
+[2025.02.05-14.06.47:809][992]OBJ SavePackage:     Rendered thumbnail for [StaticMesh /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01]
+[2025.02.05-14.06.47:809][992]OBJ SavePackage: Finished generating thumbnails for package [/Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01]
+[2025.02.05-14.06.47:809][992]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01" FILE="../../../../../RETURN_XENIA/Content/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.uasset" SILENT=true
+[2025.02.05-14.06.47:813][992]LogSavePackage: Moving output files for package: /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01
+[2025.02.05-14.06.47:813][992]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/SM_InkaRock_A01E1985A7347A8EE2531BF3AB0AB6625DF.tmp' to '../../../../../RETURN_XENIA/Content/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.uasset'
+[2025.02.05-14.06.47:820][992]LogFileHelpers: InternalPromptForCheckoutAndSave took 89.666 ms (total: 2.13 sec)
+[2025.02.05-14.06.47:879][992]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-14.06.47:879][992]LogContentValidation: Enabled validators:
+[2025.02.05-14.06.47:879][992]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-14.06.47:879][992]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-14.06.47:879][992]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-14.06.47:879][992]LogContentValidation: Display: Validating asset /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01.SM_InkaRock_A01
+[2025.02.05-14.06.47:879][992]AssetCheck: /Game/Designer/Modeling/map/mainmap/nature/SM_InkaRock_A01 에셋 유효성 검사 중
+[2025.02.05-14.06.53:844][529]LogSlate: Window '콘텐츠 저장' being destroyed
+[2025.02.05-14.06.53:852][529]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-14.06.53:897][529]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/MainMap" FILE="../../../../../RETURN_XENIA/Content/Maps/MainMap.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-14.06.53:935][529]LogUObjectHash: Compacting FUObjectHashTables data took   0.36ms
+[2025.02.05-14.06.53:978][529]LogSavePackage: Moving output files for package: /Game/Maps/MainMap
+[2025.02.05-14.06.53:978][529]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/MainMap7881CCED4156FDF16D3B7EACB7FDD4BE.tmp' to '../../../../../RETURN_XENIA/Content/Maps/MainMap.umap'
+[2025.02.05-14.06.53:987][529]LogFileHelpers: 모든 파일이 이미 저장되었습니다.
+[2025.02.05-14.06.53:987][529]LogFileHelpers: Saving map 'MainMap' took 0.090
+[2025.02.05-14.06.54:008][529]LogFileHelpers: InternalPromptForCheckoutAndSave took 156.509 ms (total: 2.28 sec)
+[2025.02.05-14.06.54:008][529]Cmd: MAP LOAD FILE="../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap5.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=4
+[2025.02.05-14.06.54:077][529]LogWorld: UWorld::CleanupWorld for MainMap, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-14.06.54:077][529]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-14.06.54:077][529]LogWorldMetrics: [UWorldMetricsSubsystem::Deinitialize]
+[2025.02.05-14.06.54:077][529]LogWorldMetrics: [UWorldMetricsSubsystem::Clear]
+[2025.02.05-14.06.54:080][529]LogAudio: Display: Audio Device unregistered from world 'None'.
+[2025.02.05-14.06.54:082][529]LogUObjectHash: Compacting FUObjectHashTables data took   0.35ms
+[2025.02.05-14.06.54:187][529]LogAudio: Display: Audio Device (ID: 1) registered with world 'submap5'.
+[2025.02.05-14.06.54:187][529]LogWorldMetrics: [UWorldMetricsSubsystem::Initialize]
+[2025.02.05-14.06.54:395][529]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2025.02.05-14.06.54:411][529]LogUObjectHash: Compacting FUObjectHashTables data took   0.34ms
+[2025.02.05-14.06.54:419][529]Cmd: MAP CHECKDEP NOCLEARLOG
+[2025.02.05-14.06.54:419][529]MapCheck: 맵 체크 완료: 오류 0 회, 경고 0 회, 소요 시간 0.07ms.
+[2025.02.05-14.06.54:483][529]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-14.06.54:483][529]LogContentValidation: Enabled validators:
+[2025.02.05-14.06.54:483][529]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-14.06.54:483][529]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-14.06.54:483][529]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-14.06.57:439][835]LogAssetEditorSubsystem: Opening Asset editor for StaticMesh /Game/Designer/Modeling/map/submap5/SM_submap5_floor_A01.SM_submap5_floor_A01
+[2025.02.05-14.07.03:970][400]LogSlate: Window 'SM_submap5_floor_A01' being destroyed
+[2025.02.05-14.07.03:993][400]LogSlate: Window 'SM_submap5_floor_A01' being destroyed
+[2025.02.05-14.07.04:022][400]LogWorld: UWorld::CleanupWorld for World_10, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-14.07.04:022][400]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-14.07.04:035][400]LogUObjectHash: Compacting FUObjectHashTables data took   0.32ms
+[2025.02.05-14.07.11:963][260]LogAssetEditorSubsystem: Opening Asset editor for StaticMesh /Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01.SM_submap5_FireProp_A01
+[2025.02.05-14.07.15:486][571]LogStaticMesh: Display: 스태틱 메시가 준비 되기를 기다리는 중 0/1 (/Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01)...
+[2025.02.05-14.07.17:311][759]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-14.07.17:370][759]OBJ SavePackage: Generating thumbnails for [1] asset(s) in package [/Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01] ([1] browsable assets)...
+[2025.02.05-14.07.17:390][759]OBJ SavePackage:     Rendered thumbnail for [StaticMesh /Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01.SM_submap5_FireProp_A01]
+[2025.02.05-14.07.17:390][759]OBJ SavePackage: Finished generating thumbnails for package [/Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01]
+[2025.02.05-14.07.17:393][759]LogSavePackage: Moving output files for package: /Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01
+[2025.02.05-14.07.17:393][759]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/SM_submap5_FireProp_A01F9CBDE934B4ED0176B3802B493CA7E89.tmp' to '../../../../../RETURN_XENIA/Content/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01.uasset'
+[2025.02.05-14.07.17:399][759]LogFileHelpers: InternalPromptForCheckoutAndSave took 86.782 ms (total: 2.37 sec)
+[2025.02.05-14.07.17:434][759]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-14.07.17:434][759]LogContentValidation: Enabled validators:
+[2025.02.05-14.07.17:434][759]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-14.07.17:434][759]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-14.07.17:434][759]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-14.07.17:434][759]LogContentValidation: Display: Validating asset /Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01.SM_submap5_FireProp_A01
+[2025.02.05-14.07.17:434][759]AssetCheck: /Game/Designer/Modeling/map/submap5/SM_submap5_FireProp_A01 에셋 유효성 검사 중
+[2025.02.05-14.07.18:204][840]LogSlate: Window 'SM_submap5_FireProp_A01' being destroyed
+[2025.02.05-14.07.18:241][840]LogWorld: UWorld::CleanupWorld for World_11, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-14.07.18:242][840]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-14.07.18:254][840]LogUObjectHash: Compacting FUObjectHashTables data took   0.32ms
+[2025.02.05-14.07.30:641][315]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-14.07.30:699][315]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/SubMaps/submap5" FILE="../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap5.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-14.07.30:743][315]LogUObjectHash: Compacting FUObjectHashTables data took   0.35ms
+[2025.02.05-14.07.30:904][315]LogSavePackage: Moving output files for package: /Game/Maps/SubMaps/submap5
+[2025.02.05-14.07.30:904][315]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/submap5AA600CE247A93B809A00B7A7190F1E44.tmp' to '../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap5.umap'
+[2025.02.05-14.07.30:915][315]LogFileHelpers: Saving map 'submap5' took 0.218
+[2025.02.05-14.07.30:925][315]LogFileHelpers: InternalPromptForCheckoutAndSave took 284.294 ms (total: 2.65 sec)
+[2025.02.05-14.07.30:981][315]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-14.07.30:981][315]LogContentValidation: Enabled validators:
+[2025.02.05-14.07.30:981][315]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-14.07.30:981][315]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-14.07.30:981][315]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-14.07.30:981][315]LogContentValidation: Display: Validating asset /Game/Maps/SubMaps/submap5.submap5
+[2025.02.05-14.07.30:981][315]AssetCheck: /Game/Maps/SubMaps/submap5 에셋 유효성 검사 중
+[2025.02.05-14.07.33:905][644]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.02.05-14.07.33:948][644]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Maps/SubMaps/submap5" FILE="../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap5.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2025.02.05-14.07.33:984][644]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.07.34:143][644]LogSavePackage: Moving output files for package: /Game/Maps/SubMaps/submap5
+[2025.02.05-14.07.34:143][644]LogSavePackage: Moving '../../../../../RETURN_XENIA/Saved/submap52F9B0C5A446C59BC6CC3A596C947C6FB.tmp' to '../../../../../RETURN_XENIA/Content/Maps/SubMaps/submap5.umap'
+[2025.02.05-14.07.34:156][644]LogFileHelpers: Saving map 'submap5' took 0.209
+[2025.02.05-14.07.34:166][644]LogFileHelpers: InternalPromptForCheckoutAndSave took 260.740 ms (total: 2.91 sec)
+[2025.02.05-14.07.34:214][644]LogContentValidation: Display: Starting to validate 1 assets
+[2025.02.05-14.07.34:214][644]LogContentValidation: Enabled validators:
+[2025.02.05-14.07.34:214][644]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.02.05-14.07.34:214][644]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.02.05-14.07.34:214][644]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.02.05-14.07.34:214][644]LogContentValidation: Display: Validating asset /Game/Maps/SubMaps/submap5.submap5
+[2025.02.05-14.07.34:214][644]AssetCheck: /Game/Maps/SubMaps/submap5 에셋 유효성 검사 중
+[2025.02.05-14.07.37:558][ 38]LogUObjectHash: Compacting FUObjectHashTables data took   0.18ms
+[2025.02.05-14.07.37:609][ 38]LogStall: Shutdown...
+[2025.02.05-14.07.37:614][ 38]LogStall: Shutdown complete.
+[2025.02.05-14.07.37:673][ 38]LogSlate: Window 'RETURN_XENIA - 언리얼 에디터' being destroyed
+[2025.02.05-14.07.37:728][ 38]Cmd: QUIT_EDITOR
+[2025.02.05-14.07.37:728][ 39]LogCore: Engine exit requested (reason: UUnrealEdEngine::CloseEditor())
+[2025.02.05-14.07.37:729][ 39]LogCore: Engine exit requested (reason: EngineExit() was called; note: exit was already requested)
+[2025.02.05-14.07.37:729][ 39]LogStaticMesh: Abandoning remaining async distance field tasks for shutdown
+[2025.02.05-14.07.37:729][ 39]LogStaticMesh: Abandoning remaining async card representation tasks for shutdown
+[2025.02.05-14.07.37:735][ 39]LogWorld: UWorld::CleanupWorld for submap5, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-14.07.37:735][ 39]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-14.07.37:736][ 39]LogWorldMetrics: [UWorldMetricsSubsystem::Deinitialize]
+[2025.02.05-14.07.37:736][ 39]LogWorldMetrics: [UWorldMetricsSubsystem::Clear]
+[2025.02.05-14.07.37:744][ 39]LogLevelSequenceEditor: LevelSequenceEditor subsystem deinitialized.
+[2025.02.05-14.07.37:767][ 39]LogWorld: UWorld::CleanupWorld for World_0, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-14.07.37:767][ 39]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-14.07.37:767][ 39]LogWorld: UWorld::CleanupWorld for World_1, bSessionEnded=true, bCleanupResources=true
+[2025.02.05-14.07.37:767][ 39]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.02.05-14.07.37:906][ 39]LogStudioTelemetry: Ended StudioTelemetry Session
+[2025.02.05-14.07.37:912][ 39]LogAnalytics: Display: [UEEditor.Rocket.Release] Destroying ET Analytics provider
+[2025.02.05-14.07.37:912][ 39]LogAnalytics: Display: [UEEditor.Rocket.Release] Ended ET Analytics provider session
+[2025.02.05-14.07.37:912][ 39]LogAnalytics: Display: [UEEditor.Rocket.Release] Destroyed ET Analytics provider
+[2025.02.05-14.07.38:358][ 39]LogAudio: Display: Beginning Audio Device Manager Shutdown (Module: AudioMixerXAudio2)...
+[2025.02.05-14.07.38:358][ 39]LogAudio: Display: Destroying 1 Remaining Audio Device(s)...
+[2025.02.05-14.07.38:358][ 39]LogAudio: Display: Audio Device unregistered from world 'submap5'.
+[2025.02.05-14.07.38:358][ 39]LogAudio: Display: Shutting down audio device while 1 references to it are still alive. For more information, compile with INSTRUMENT_AUDIODEVICE_HANDLES.
+[2025.02.05-14.07.38:358][ 39]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=1
+[2025.02.05-14.07.38:359][ 39]LogAudioMixer: FMixerPlatformXAudio2::StopAudioStream() called. InstanceID=1
+[2025.02.05-14.07.38:363][ 39]LogAudioMixer: Deinitializing Audio Bus Subsystem for audio device with ID -1
+[2025.02.05-14.07.38:363][ 39]LogAudio: Display: Audio Device Manager Shutdown
+[2025.02.05-14.07.38:365][ 39]LogWindowsTextInputMethodSystem: Activated input method: 한국어(대한민국) - Microsoft 입력기 (TSF IME).
+[2025.02.05-14.07.38:366][ 39]LogSlate: Slate User Destroyed.  User Index 0, Is Virtual User: 0
+[2025.02.05-14.07.38:367][ 39]LogExit: Preparing to exit.
+[2025.02.05-14.07.38:375][ 39]LogUObjectHash: Compacting FUObjectHashTables data took   0.32ms
+[2025.02.05-14.07.39:577][ 39]LogDemo: Cleaned up 0 splitscreen connections, owner deletion: enabled
+[2025.02.05-14.07.39:587][ 39]LogExit: Editor shut down
+[2025.02.05-14.07.39:588][ 39]LogExit: Transaction tracking system shut down
+[2025.02.05-14.07.39:655][ 39]LogExit: Object subsystem successfully closed.
+[2025.02.05-14.07.39:672][ 39]LogShaderCompilers: Display: Shaders left to compile 0
+[2025.02.05-14.07.40:599][ 39]MemoryProfiler: Shutdown
+[2025.02.05-14.07.40:599][ 39]NetworkingProfiler: Shutdown
+[2025.02.05-14.07.40:599][ 39]LoadingProfiler: Shutdown
+[2025.02.05-14.07.40:599][ 39]TimingProfiler: Shutdown
+[2025.02.05-14.07.40:607][ 39]LogOpenImageDenoise: OIDN shutting down
+[2025.02.05-14.07.40:896][ 39]LogHttp: Warning: [FHttpManager::Shutdown] Unbinding delegates for 1 outstanding Http Requests:
+[2025.02.05-14.07.40:896][ 39]LogHttp: Warning: 	verb=[POST] url=[https://datarouter.ol.epicgames.com/datarouter/api/v1/public/data?SessionID=%7BCA661E15-4764-EE88-A9F5-FAB6A1AAEC7A%7D&AppID=UEEditor.Rocket.Release&AppVersion=5.4.4-35576357%2B%2B%2BUE5%2BRelease-5.4&UserID=ba7a56b74ac7fbe2706393b61cdb0444%7Cb4fbcd79dac0472484fb8f007f0f698b%7C76ff6250-5e87-4564-94cc-a691054f2558&AppEnvironment=datacollector-binary&UploadType=eteventstream] refs=[2] status=Processing
+[2025.02.05-14.07.41:942][ 39]LogEOSSDK: FEOSSDKManager::Shutdown EOS_Shutdown Result=[EOS_Success]
+[2025.02.05-14.07.41:942][ 39]LogStudioTelemetry: Display: Shutdown StudioTelemetry Module
+[2025.02.05-14.07.41:947][ 39]RenderDocPlugin: plugin has been unloaded.
+[2025.02.05-14.07.41:947][ 39]LogXGEController: Cleaning working directory: C:/Users/User/AppData/Local/Temp/UnrealXGEWorkingDir/
+[2025.02.05-14.07.41:950][ 39]LogPakFile: Destroying PakPlatformFile
+[2025.02.05-14.07.42:071][ 39]LogD3D12RHI: ~FD3D12DynamicRHI
+[2025.02.05-14.07.42:099][ 39]LogExit: Exiting.
+[2025.02.05-14.07.42:109][ 39]Log file closed, 02/05/25 23:07:42
