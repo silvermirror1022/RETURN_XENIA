@@ -11,6 +11,7 @@ URXPlayerStatComponent::URXPlayerStatComponent()
 	MaxHp = 3;
 	bIsShieldRegenActive = false;
 	bWantsInitializeComponent = true; //InitializeComponent 함수 호출을 위해
+	bIsImmortal = false;
 
 	PrimaryComponentTick.bCanEverTick = true; // 틱 활성화
 	PrimaryComponentTick.bStartWithTickEnabled = true; 
@@ -93,6 +94,22 @@ void URXPlayerStatComponent::SetShieldToGI(int32 NewShield)
 
 void URXPlayerStatComponent::ApplyDamage(int32 InDamage)
 {
+	/*
+	 * 주의: 이 컴포넌트는 C++에서 Player에 추가하지 않았음.
+	 * 블루프린트 BP_Player에서 추가했음. 데미지사용함수를 쓸 때 BP로 캐스팅해야 무적이 정상 작동함.
+	 * 단순 트리거 태스팅은 RXPlayer로 사용해도 됨!
+	 */
+	if (bIsImmortal || InDamage <= 0)
+	{
+		D(FString::Printf(TEXT("Immortal!")));
+		return; // 무적 상태면 데미지 적용 안 함
+	}
+	D(FString::Printf(TEXT("damaged!")));
+
+	// 무적 상태 활성화
+	bIsImmortal = true;
+	GetWorld()->GetTimerManager().SetTimer(ImmortalTimer, this, &URXPlayerStatComponent::ResetImmortalState, 1.0f, false); // 0.5초 후 해제
+
 	// 플레이어가 데미지를 입었을 때 호출
 	if (bIsShieldRegenActive)
 	{
@@ -168,4 +185,10 @@ void URXPlayerStatComponent::ShieldRegenAction()
 {
 	SetShieldToGI(MaxShield); 
 	bIsShieldRegenActive = false;
+}
+
+void URXPlayerStatComponent::ResetImmortalState()
+{
+	bIsImmortal = false;
+	D(FString::Printf(TEXT("Current Health: %d !"), GetCurrentHp()));
 }

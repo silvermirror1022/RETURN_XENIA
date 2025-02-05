@@ -62,8 +62,6 @@ protected: // 플레이어 사망 관련 함수 및 변수
 	void SetDead();
 	void PlayDeadAnimation();
 
-	float DeadEventDelayTime = 5.0f;
-
 protected: // 스텟 섹션 (HP,Shield 관련)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;

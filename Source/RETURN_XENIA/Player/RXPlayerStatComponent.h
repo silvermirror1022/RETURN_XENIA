@@ -83,4 +83,9 @@ private:
 	void StartShieldRegen();
 	uint8 bIsShieldRegenActive : 1;
 	void ShieldRegenAction();
+
+	UPROPERTY()
+	uint8 bIsImmortal; // 플레이어 피격시 무적변수
+	FTimerHandle ImmortalTimer;
+	void ResetImmortalState();
 };
