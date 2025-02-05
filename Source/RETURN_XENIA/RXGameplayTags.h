@@ -31,14 +31,14 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_CounterClockWiseRotate);
 
 	// NPC Dialogue Data Section
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Papamama); 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sister);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_VillageHead); 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_TempleManager);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_YoungWoman);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_YoungMan);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Girl);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boy);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Winik);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Solka);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Dokan);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Miru);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Antuq);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq);
 
 
@@ -46,8 +46,8 @@ namespace RXGameplayTags {
 	// 1층 레벨 텔레포트 시스템 태그 정의
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_MainMap_Start); //게임시작 플레이어 스폰지점
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_Altar_Exit);   //알타 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_Altar_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SolarAltar_Exit);   //알타 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SolarAltar_Entrance);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_House1_Exit);  //마을 집1 출입구
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_House1_Entrance);
@@ -55,52 +55,48 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_House2_Exit); //마을 집2 출입구
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_House2_Entrance);
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_Cave_Exit); //동굴 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_Cave_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_LunarCave_Exit); //동굴 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_LunarCave_Entrance);
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_Altar_Exit); //알타 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_Altar_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_KinIcestorage_Exit); // 킨의 얼음창고 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_KinIcestorage_Entrance);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_KabCave_Exit); // 카바의 동굴 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_KabCave_Entrance);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_NoinikSecretarea_Exit); // 노이닉의 비밀쉼터 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_NoinikSecretarea_Entrance);
+
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_MainMap_Exit); //1층 매인맵 출구
 
 	// 2층 레벨 텔레포트 시스템 태그 정의
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_MainMap_Start);  //2층 매인맵 시작
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Temple_Exit);  //신전 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Temple_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_AbandonedTemple_Exit);  //버려진 신전 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_AbandonedTemple_Entrance);
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Cabin_Exit);  //캐빈 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_Cabin_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_OldManCabin_Exit);  // 노인 오두막 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_OldManCabin_Entrance);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_AncientVillage_Exit);  // 고대의마을 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_AncientVillage_Entrance);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_TempleofPachamama_Exit);  // 파차마마의 신전 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_TempleofPachamama_Entrance);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_MainMap_Exit); //2층 매인맵 출구
 
 	// 3층 레벨 텔레포트 시스템 태그 정의
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_MainMap_Start); //3층 매인맵 시작
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_TreeInside_Exit);  //트리 내부 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_TreeInside_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_MotherNatureTree_Exit);  //대지의 나무 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_MotherNatureTree_Entrance);
 
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_HarpyNest_Exit);  //하피 둥지 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_HarpyNest_Entrance);
-
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_TreeTop_Exit);  //트리 탑 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_TreeTop_Entrance);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_MotherNatureEssence_Exit);  //대지의 정수 출입구
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_MotherNatureEssence_Entrance);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_3rdFloor_MainMap_Exit); //3층 매인맵 출구
 
-	// 서브맵 레벨 텔레포트 시스템 태그 정의
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SubMap1_Exit); //1층 서브맵1 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SubMap1_Entrance);
-
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SubMap2_Exit); //1층 서브맵2 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SubMap2_Entrance);
-
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SubMap3_Exit); //1층 서브맵3 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_1stFloor_SubMap3_Entrance);
-
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_SubMap4_Exit); //2층 서브맵4 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_SubMap4_Entrance);
-
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_SubMap5_Exit); //2층 서브맵5 출입구
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Teleport_2ndFloor_SubMap5_Entrance);
+	
 }

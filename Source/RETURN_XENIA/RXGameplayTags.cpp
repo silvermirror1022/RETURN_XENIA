@@ -22,13 +22,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_SwitchTab, "Input.Action.CircularPuzzel.SwitchTab");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_ClockWiseRotate, "Input.Action.CircularPuzzel.ClockWiseRotate");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_CounterClockWiseRotate, "Input.Action.CircularPuzzel.CounterClockWiseRotate");
-	/*
-	 * UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_Exit);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_SwitchTab);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_ClockWiseRotate);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_CounterClockWiseRotate);
-	 */
-
+	
 	//Player Others Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_EnterKey, "Input.Action.EnterKey");
@@ -36,57 +30,53 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_IKey, "Input.Action.IKey");
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Papamama, "Dialogue.NPCType.Papamama");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Sister, "Dialogue.NPCType.Sister"); 
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_VillageHead, "Dialogue.NPCType.VillageHead");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_TempleManager, "Dialogue.NPCType.TempleManager");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_YoungWoman, "Dialogue.NPCType.YoungWoman");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_YoungMan, "Dialogue.NPCType.YoungMan");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Girl, "Dialogue.NPCType.Girl");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boy, "Dialogue.NPCType.Boy");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama, "Dialogue.NPCType.Pachamama");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira, "Dialogue.NPCType.Kaira"); 
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka, "Dialogue.NPCType.Amarka");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Winik, "Dialogue.NPCType.Winik");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Solka, "Dialogue.NPCType.Solka");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Dokan, "Dialogue.NPCType.Dokan");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Miru, "Dialogue.NPCType.Miru");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Antuq, "Dialogue.NPCType.Antuq");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq, "Dialogue.NPCType.Nawiniq");
 
 
 	// Teleport Teleport System Section 
 	// First Floor
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_MainMap_Start, "Teleport.1stFloor.MainMap.Start");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Altar_Exit, "Teleport.1stFloor.Altar.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Altar_Entrance, "Teleport.1stFloor.Altar.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SolarAltar_Exit, "Teleport.1stFloor.SolarAltar.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SolarAltar_Entrance, "Teleport.1stFloor.SolarAltar.Entrance");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House1_Exit, "Teleport.1stFloor.House1.Exit");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House1_Entrance, "Teleport.1stFloor.House1.Entrance");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House2_Exit, "Teleport.1stFloor.House2.Exit");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_House2_Entrance, "Teleport.1stFloor.House2.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Cave_Exit, "Teleport.1stFloor.Cave.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_Cave_Entrance, "Teleport.1stFloor.Cave.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_LunarCave_Exit, "Teleport.1stFloor.LunarCave.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_LunarCave_Entrance, "Teleport.1stFloor.LunarCave.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_KinIcestorage_Exit, "Teleport.1stFloor.KinIcestorage.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_KinIcestorage_Entrance, "Teleport.1stFloor.KinIcestorage.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_KabCave_Exit, "Teleport.1stFloor.KabCave.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_KabCave_Entrance, "Teleport.1stFloor.KabCave.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_NoinikSecretarea_Exit, "Teleport.1stFloor.NoinikSecretarea.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_NoinikSecretarea_Entrance, "Teleport.1stFloor.NoinikSecretarea.Entrance");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_MainMap_Exit, "Teleport.1stFloor.MainMap.Exit");
 
 	// Second Floor
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_MainMap_Start, "Teleport.2ndFloor.MainMap.Start");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Temple_Exit, "Teleport.2ndFloor.Temple.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Temple_Entrance, "Teleport.2ndFloor.Temple.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cabin_Exit, "Teleport.2ndFloor.Cabin.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_Cabin_Entrance, "Teleport.2ndFloor.Cabin.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_AbandonedTemple_Exit, "Teleport.2ndFloor.AbandonedTemple.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_AbandonedTemple_Entrance, "Teleport.2ndFloor.AbandonedTemple.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_OldManCabin_Exit, "Teleport.2ndFloor.OldManCabin.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_OldManCabin_Entrance, "Teleport.2ndFloor.OldManCabin.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_AncientVillage_Exit, "Teleport.2ndFloor.AncientVillage.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_AncientVillage_Entrance, "Teleport.2ndFloor.AncientVillage.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_TempleofPachamama_Exit, "Teleport.2ndFloor.TempleofPachamama.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_TempleofPachamama_Entrance, "Teleport.2ndFloor.TempleofPachamama.Entrance");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_MainMap_Exit, "Teleport.2ndFloor.MainMap.Exit");
 
 	// Third Floor
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MainMap_Start, "Teleport.3rdFloor.MainMap.Start");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeInside_Exit, "Teleport.3rdFloor.TreeInside.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeInside_Entrance, "Teleport.3rdFloor.TreeInside.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_HarpyNest_Exit, "Teleport.3rdFloor.HarpyNest.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_HarpyNest_Entrance, "Teleport.3rdFloor.HarpyNest.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeTop_Exit, "Teleport.3rdFloor.TreeTop.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_TreeTop_Entrance, "Teleport.3rdFloor.TreeTop.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MotherNatureTree_Exit, "Teleport.3rdFloor.MotherNatureTree.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MotherNatureTree_Entrance, "Teleport.3rdFloor.MotherNatureTree.Entrance");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MotherNatureEssence_Exit, "Teleport.3rdFloor.MotherNatureEssence.Exit");
+	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MotherNatureEssence_Entrance, "Teleport.3rdFloor.MotherNatureEssence.Entrance");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_3rdFloor_MainMap_Exit, "Teleport.3rdFloor.MainMap.Exit");
-
-	// Sub Maps
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap1_Exit, "Teleport.1stFloor.SubMap1.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap1_Entrance, "Teleport.1stFloor.SubMap1.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap2_Exit, "Teleport.1stFloor.SubMap2.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap2_Entrance, "Teleport.1stFloor.SubMap2.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap3_Exit, "Teleport.1stFloor.SubMap3.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SubMap3_Entrance, "Teleport.1stFloor.SubMap3.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap4_Exit, "Teleport.2ndFloor.SubMap4.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap4_Entrance, "Teleport.2ndFloor.SubMap4.Entrance");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap5_Exit, "Teleport.2ndFloor.SubMap5.Exit");
-	UE_DEFINE_GAMEPLAY_TAG(Teleport_2ndFloor_SubMap5_Entrance, "Teleport.2ndFloor.SubMap5.Entrance");
 }
