@@ -108,7 +108,7 @@ void URXPlayerStatComponent::ApplyDamage(int32 InDamage)
 
 	// 무적 상태 활성화
 	bIsImmortal = true;
-	GetWorld()->GetTimerManager().SetTimer(ImmortalTimer, this, &URXPlayerStatComponent::ResetImmortalState, 1.0f, false); // 0.5초 후 해제
+	GetWorld()->GetTimerManager().SetTimer(ImmortalTimer, this, &URXPlayerStatComponent::ResetImmortalState, ImmortalTime, false); // 0.5초 후 해제
 
 	// 플레이어가 데미지를 입었을 때 호출
 	if (bIsShieldRegenActive)

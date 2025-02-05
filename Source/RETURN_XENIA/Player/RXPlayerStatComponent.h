@@ -86,6 +86,7 @@ private:
 
 	UPROPERTY()
 	uint8 bIsImmortal; // 플레이어 피격시 무적변수
+	float ImmortalTime = 0.5f;
 	FTimerHandle ImmortalTimer;
 	void ResetImmortalState();
 };
