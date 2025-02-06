@@ -70,7 +70,7 @@ public:
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
-	TArray<FStatus> MemoryStatusArray; // 메모리 획득 여부를 저장하는 배열 (총4개)
+	TArray<FStatus> MemoryStatusArray; // 메모리 획득 여부를 저장하는 배열 (총5개)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProfileStatus")
 	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
@@ -163,5 +163,19 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Language Settings")
 	uint8 bIsKorean : 1;
 	
+	// 재앙이 발생한 후 스폰할 NPC들 대화 세부 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	uint8 bIsAfterDisaster : 1;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	uint8 bIsKairaDialogueEventFinished : 1; // 여동생 대화 이벤트 종료 확인 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	uint8 bIsAntuqDialogueEventFinished : 1; // 안투크 대화 이벤트 종료 확인 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	uint8 bIsAmarkaDialogueEventFinished : 1; // 아마르카 대화 이벤트 종료 확인 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	uint8 bIsAmarkaDialogueItemEventFinished : 1; // 아마르카 아이템 이벤트 종료 확인 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	uint8 bIsWinikDialogueEventFinished : 1; // 위닉 대화 이벤트 종료 확인 
 
 };

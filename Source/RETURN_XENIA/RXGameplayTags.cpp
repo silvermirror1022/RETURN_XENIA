@@ -31,15 +31,38 @@ namespace RXGameplayTags
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama, "Dialogue.NPCType.Pachamama");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira, "Dialogue.NPCType.Kaira"); 
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka, "Dialogue.NPCType.Amarka");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Winik, "Dialogue.NPCType.Winik");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Solka, "Dialogue.NPCType.Solka");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Dokan, "Dialogue.NPCType.Dokan");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Miru, "Dialogue.NPCType.Miru");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Antuq, "Dialogue.NPCType.Antuq");
-	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq, "Dialogue.NPCType.Nawiniq");
 
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_SubmapBarrier, "Dialogue.NPCType.SubmapBarrier");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira, "Dialogue.NPCType.Kaira");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira_AfterEvent, "Dialogue.NPCType.Kaira.AfterEvent");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira_Top, "Dialogue.NPCType.Kaira.Top");
+	
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka, "Dialogue.NPCType.Amarka");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka_AfterEvent, "Dialogue.NPCType.Amarka.AfterEvent");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka_AfterDisaster, "Dialogue.NPCType.Amarka.AfterDisaster");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka_AfterDisasterAndEvent, "Dialogue.NPCType.Amarka.AfterDisasterAndEvent");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Winik, "Dialogue.NPCType.Winik");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Winik_AfterDisaster, "Dialogue.NPCType.Winik.AfterDisaster");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Solka, "Dialogue.NPCType.Solka");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Solka_AfterDisaster, "Dialogue.NPCType.Solka.AfterDisaster");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Dokan, "Dialogue.NPCType.Dokan");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Dokan_AfterDisaster, "Dialogue.NPCType.Dokan.AfterDisaster");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Miru, "Dialogue.NPCType.Miru");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Miru_AfterDisaster, "Dialogue.NPCType.Miru.AfterDisaster");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Antuq, "Dialogue.NPCType.Antuq");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Antuq_AfterDisaster, "Dialogue.NPCType.Antuq.AfterDisaster");
+
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap1, "Dialogue.NPCType.Nawiniq.Submap1");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap2, "Dialogue.NPCType.Nawiniq.Submap2");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap3, "Dialogue.NPCType.Nawiniq.Submap3");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap4, "Dialogue.NPCType.Nawiniq.Submap4");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap5, "Dialogue.NPCType.Nawiniq.Submap5");
 
 	// Teleport Teleport System Section 
 	// First Floor

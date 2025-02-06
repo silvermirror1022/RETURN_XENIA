@@ -17,6 +17,11 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	SetGI_Shield(1);
 
 	bIsKorean = true;
+	bIsAfterDisaster = false;
+	bIsAntuqDialogueEventFinished = false; 
+	bIsAmarkaDialogueEventFinished = false; 
+	bIsWinikDialogueEventFinished = false;
+	bIsAmarkaDialogueItemEventFinished = false;
 }
 
 void URXGameInstance::Init()

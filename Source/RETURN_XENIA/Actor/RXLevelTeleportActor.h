@@ -35,6 +35,4 @@ public:
 	void TeleportToOtherLevel();
 	virtual void TeleportToOtherLevel_Implementation(); //다른 레벨 여는 함수
 
-private:
-	void OnLevelLoaded() const; // 레벨이 async하게 정상적으로 로드되었는지
 };

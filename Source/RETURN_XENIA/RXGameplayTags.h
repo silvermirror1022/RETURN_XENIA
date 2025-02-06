@@ -32,14 +32,37 @@ namespace RXGameplayTags {
 
 	// NPC Dialogue Data Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_SubmapBarrier);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_AfterEvent);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_Top);
+
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka_AfterEvent);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka_AfterDisaster);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka_AfterDisasterAndEvent);
+
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Winik);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Winik_AfterDisaster);
+
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Solka);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Solka_AfterDisaster);
+
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Dokan);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Dokan_AfterDisaster);
+
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Miru);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Miru_AfterDisaster);
+
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Antuq);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Antuq_AfterEvent);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap1);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap2);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap3);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap4);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap5);
 
 
 	// TeleportSystem Tag Section

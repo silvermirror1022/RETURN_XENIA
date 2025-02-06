@@ -31,7 +31,13 @@ void ARXLevelTeleportActor::BeginPlay()
 
 void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
 {
-    // 게임 인스턴스에 접근하여 DestinationTag를 설정
+    if (NextLevelName.IsNone())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("NextLevelName is not set!"));
+        return;
+    }
+
+    // 게임 인스턴스에 DestinationTag 설정
     if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
     {
         GameInstance->SetDestinationTag(DestinationTag);
@@ -41,33 +47,12 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
     APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
     if (PlayerController)
     {
-        PlayerController->SetIgnoreMoveInput(true);  // 이동 입력 막기
-        //PlayerController->SetIgnoreLookInput(true);  // 카메라 회전 입력 막기
+        PlayerController->SetIgnoreMoveInput(true);
     }
 
-    // 동기 레벨 전환
-    // UGameplayStatics::OpenLevel(this, NextLevelName);
-
-    if (NextLevelName.IsNone())
-    {
-        // 태그가 설정되지 않는 상황 예외처리
-        UE_LOG(LogTemp, Warning, TEXT("NextLevelName is not set!"));
-        return;
-    }
-
-    FLatentActionInfo LatentInfo;
-    LatentInfo.CallbackTarget = this;
-    LatentInfo.ExecutionFunction = FName("OnLevelLoaded");
-    LatentInfo.Linkage = 0;
-    LatentInfo.UUID = __LINE__;
-
-    UGameplayStatics::LoadStreamLevel(this, NextLevelName, true, false, LatentInfo);
-}
-
-void ARXLevelTeleportActor::OnLevelLoaded() const
-{
-    UE_LOG(LogTemp, Log, TEXT("Level %s Loaded Successfully"), *NextLevelName.ToString());
-    UGameplayStatics::UnloadStreamLevel(this, *GetWorld()->GetMapName(), FLatentActionInfo(), false);
+    //  OpenLevel을 사용하여 완전히 새로운 맵으로 이동
+    UGameplayStatics::OpenLevel(this, NextLevelName);
+   
 }
 
 

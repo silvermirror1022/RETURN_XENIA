@@ -11,6 +11,7 @@
 
 ARXNonPlayer::ARXNonPlayer()
 {
+    PrimaryActorTick.bCanEverTick = false;
     DialogueWidgetInstance = nullptr;
     Kor_DialogueData = nullptr;
     Eng_DialogueData = nullptr;
@@ -56,12 +57,11 @@ void ARXNonPlayer::StartDialogue()
     }
 
     // 플레이어를 바라보게 하기
-    ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);  // 첫 번째 플레이어를 가져옴
-    if (PlayerCharacter)
+	// 첫 번째 플레이어를 가져옴
+    if (ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
     {
         // ARXPlayer로 캐스팅
-        ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter);
-        if (RXPlayer)
+        if (ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter))
         {
             // 플레이어와 NPC의 위치 계산
             FVector PlayerLocation = RXPlayer->GetActorLocation();
@@ -163,12 +163,11 @@ void ARXNonPlayer::EndDialogue()
         DialogueWidgetInstance = nullptr;
         DialogueTextBlock = nullptr;
     }
+
     // 플레이어 이동 중지 해제
-    ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);  
-    if (PlayerCharacter)
+    if (ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
     {
-        ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter);
-        if (RXPlayer)
+        if (ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter))
         {
             RXPlayer->Controller->SetIgnoreMoveInput(false);  // 이동 입력 허용
         }
@@ -178,6 +177,14 @@ void ARXNonPlayer::EndDialogue()
     {
         PlayerController->SetDialogueState(false); 
     }
+
+    DialoguePopupEvent(); // 블루프린트에서 커스텀화한 함수가 있다면 대화종료후 호출
+}
+
+void ARXNonPlayer::DialoguePopupEvent_Implementation()
+{
+    // 대화종료후 처리해야할 커스텀 이벤트들 블루프린트에서 처리
+    // 이벤트 관련은 게임인스턴스 bool변수 true로 아마르카, 안투크, 위닉
 }
 
 
