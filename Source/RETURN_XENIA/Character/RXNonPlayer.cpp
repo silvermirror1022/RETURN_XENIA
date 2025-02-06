@@ -141,7 +141,13 @@ void ARXNonPlayer::DisplayDialogue()
     {
         // 대화 텍스트 업데이트
         DialogueTextBlock->SetText(FText::FromName(DialogueEntry->DialogueText[DialogueIndex]));
-        UE_LOG(LogTemp, Log, TEXT("Current Dialogue: %s"), *DialogueEntry->DialogueText[DialogueIndex].ToString());
+        //UE_LOG(LogTemp, Log, TEXT("Current Dialogue: %s"), *DialogueEntry->DialogueText[DialogueIndex].ToString());
+
+        // 사운드 출력 (NPCType에 맞는 하나의 사운드만 재생)
+        if (DialogueEntry->DialogueSound)
+        {
+            UGameplayStatics::PlaySound2D(GetWorld(), DialogueEntry->DialogueSound);
+        }
         DialogueIndex++;
     }
     else
