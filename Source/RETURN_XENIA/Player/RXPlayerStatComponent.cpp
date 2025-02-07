@@ -20,17 +20,19 @@ URXPlayerStatComponent::URXPlayerStatComponent()
 void URXPlayerStatComponent::InitializeComponent()
 {
 	Super::InitializeComponent();
-	if (GetGameInstance())
-	{
-		CurrentHp = GI->GetGI_Hp();
-		CurrentShield = GI->GetGI_Shield();
-	}
+	
 }
 
 void URXPlayerStatComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	SetComponentTickEnabled(false); 
+
+	if (GetGameInstance())
+	{
+		CurrentHp = GI->GetGI_Hp();
+		CurrentShield = GI->GetGI_Shield();
+	}
 
 	if (GetGameInstance())
 	{
