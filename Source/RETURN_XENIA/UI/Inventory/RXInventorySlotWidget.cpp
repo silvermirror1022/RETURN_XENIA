@@ -5,6 +5,7 @@
 #include "UI/RXMainMenuWidget.h"
 #include "Components/Image.h"
 #include "Components/Button.h" 
+#include "Components/SizeBox.h"
 #include "Engine/Texture2D.h"
 
 URXInventorySlotWidget::URXInventorySlotWidget(const FObjectInitializer& ObjectInitializer)
@@ -15,6 +16,9 @@ URXInventorySlotWidget::URXInventorySlotWidget(const FObjectInitializer& ObjectI
 void URXInventorySlotWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	SizeBox->SetWidthOverride(148.0f);
+	SizeBox->SetHeightOverride(148.0f);
 
 	//버튼 클릭시 다이나믹 ReplaceParentImageWithOwn() 연결 함수
 	if (Button) 

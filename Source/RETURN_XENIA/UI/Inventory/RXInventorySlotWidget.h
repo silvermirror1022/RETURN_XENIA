@@ -37,8 +37,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetMainMenuWidget(URXMainMenuWidget* InMainMenuWidget);
 
+	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
+	TObjectPtr<class USizeBox> SizeBox;
 private:
 	UPROPERTY()
 	TObjectPtr<URXMainMenuWidget> MainMenuWidget;
+
 	
 };
