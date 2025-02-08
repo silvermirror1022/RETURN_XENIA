@@ -467,5 +467,6 @@ void ARXPlayer::PlayDeadAnimation()
 	// 추가 페이드 로직 블루프린트에서 확장 처리
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	AnimInstance->StopAllMontages(0.0f);
-	AnimInstance->Montage_Play(DeadMontage, 1.0f);
+	IsBossStage ? AnimInstance->Montage_Play(DeadMontageInBossMap, 1.0f) : AnimInstance->Montage_Play(DeadMontage, 1.0f);
+	//AnimInstance->Montage_Play(DeadMontage, 1.0f);
 }

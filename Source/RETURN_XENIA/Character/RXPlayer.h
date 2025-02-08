@@ -56,15 +56,21 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void ChangeSelectedWheel();
 
 protected: // 플레이어 사망 관련 함수 및 변수
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
 
+	// 보스맵에서 플레이어 사망시 플레이할 몽타주
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class UAnimMontage> DeadMontageInBossMap;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	bool IsBossStage = false;
 	void SetDead();
 	void PlayDeadAnimation();
 	void DeadRespawn();
 
 protected: // 스텟 섹션 (HP,Shield 관련)
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stat", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;
 
 	UPROPERTY() // 참조하는 게임인스턴스 변수
