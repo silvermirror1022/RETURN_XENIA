@@ -43,13 +43,6 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
         GameInstance->SetDestinationTag(DestinationTag);
     }
 
-    // 플레이어 컨트롤러 가져와서 입력 비활성화
-    APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
-    if (PlayerController)
-    {
-        PlayerController->SetIgnoreMoveInput(true);
-    }
-
     //  OpenLevel을 사용하여 완전히 새로운 맵으로 이동
     UGameplayStatics::OpenLevel(this, NextLevelName);
    

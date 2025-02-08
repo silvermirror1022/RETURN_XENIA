@@ -22,11 +22,8 @@ void URXPlayerStatComponent::InitializeComponent()
 	Super::InitializeComponent();
 	
 }
-
-void URXPlayerStatComponent::BeginPlay()
+void URXPlayerStatComponent::InitializeStatComponent()
 {
-	Super::BeginPlay();
-	SetComponentTickEnabled(false); 
 
 	if (GetGameInstance())
 	{
@@ -41,7 +38,7 @@ void URXPlayerStatComponent::BeginPlay()
 			bHasShield = true;
 			SetComponentTickEnabled(true); // 틱 활성화
 
-			if(CurrentShield == 0) StartShieldRegen();
+			if (CurrentShield == 0) StartShieldRegen();
 		}
 		else
 		{
@@ -54,6 +51,14 @@ void URXPlayerStatComponent::BeginPlay()
 			OnPlayerHpAndShieldChanged.Broadcast(CurrentHp, CurrentShield);
 		}
 	}
+}
+
+void URXPlayerStatComponent::BeginPlay()
+{
+	Super::BeginPlay();
+	SetComponentTickEnabled(false); 
+
+	InitializeStatComponent();
 }
 void URXPlayerStatComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {

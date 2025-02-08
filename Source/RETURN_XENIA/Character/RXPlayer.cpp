@@ -25,6 +25,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "UI/RXHpSetWidget.h"
 #include "System/RXGameInstance.h"
+#include "Animation/AnimInstance.h" 
 #include "Actor/RXCircularPuzzelBase.h"
 
 ARXPlayer::ARXPlayer()
@@ -435,12 +436,36 @@ void ARXPlayer::SetDead()
 	// DisableInput(PlayerController); //입력 멈추기
 	GetCharacterMovement()->DisableMovement();  // 이동 비활성화
 	PlayerController->SetIgnoreMoveInput(true);
-}
 
+	// 일정 시간 후에 리스폰하도록 타이머 설정 (3초 후)
+	FTimerHandle RespawnTimerHandle;
+	GetWorldTimerManager().SetTimer(RespawnTimerHandle, this, &ARXPlayer::DeadRespawn, 3.0f, false);
+}
+void ARXPlayer::DeadRespawn()
+{
+	if (PlayerController)
+	{
+		// 플레이어 컨트롤러에서 리스폰 로직 호출
+		PlayerController->RespawnPlayerAtCheckPoint();
+
+		// 리스폰 후 플레이어 Pawn의 입력 및 충돌 등을 복구하는 로직 추가
+		SetActorEnableCollision(true);
+		GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Walking);
+		PlayerController->SetIgnoreMoveInput(false);
+
+		// 애니메이션 상태 초기화 
+		if (UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance())
+		{
+			// 애니메이션 몽타주나 상태를 재시작할 필요 없이 상태 머신에서 IDLE로 돌아가도록 처리
+			AnimInstance->Montage_Stop(0.2f);  // 현재 애니메이션을 빠르게 종료시키기
+			//AnimInstance->SetPlayRate(1.0f);   // 애니메이션 속도 복구
+		}
+	}
+}
 void ARXPlayer::PlayDeadAnimation()
 {
+	// 추가 페이드 로직 블루프린트에서 확장 처리
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	AnimInstance->StopAllMontages(0.0f);
 	AnimInstance->Montage_Play(DeadMontage, 1.0f);
-
 }

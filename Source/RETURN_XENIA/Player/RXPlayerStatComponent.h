@@ -53,6 +53,8 @@ public:
 	FORCEINLINE int32 GetMaxShield() const { return MaxShield; }
 	FORCEINLINE int32 GetCurrentShield() const { return CurrentShield; }
 
+	void InitializeStatComponent();
+
 	// 데미지 적용 함수 & 회복 함수
 	UFUNCTION(BlueprintCallable)
 	void ApplyDamage(int32 InDamage);

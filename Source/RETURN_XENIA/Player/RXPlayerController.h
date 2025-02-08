@@ -58,7 +58,10 @@ public:
 
 public:
 	// 컨트롤러가 플레이어 포세스할 때 항상 저장한 위치로 스폰을 위한 함수
-	void SpawnPlayerToDestination();
+	void SpawnPlayerToDestination() const;
+
+	// 플레이어 hp 0 이되어 사망시 처리해야할 함수
+	void RespawnPlayerAtCheckPoint() const;
 
 	bool CheckUIActiveState(); // UI 활성화 추적 함수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);

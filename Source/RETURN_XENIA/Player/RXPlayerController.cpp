@@ -7,6 +7,8 @@
 #include "System/RXAssetManager.h"
 #include "Data/RXInputData.h"
 #include "RXGameplayTags.h"
+#include "Character/RXPlayer.h"
+#include "Player/RXPlayerStatComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "Kismet/GameplayStatics.h"
 #include "Actor/RXPlayerStart.h"
@@ -97,14 +99,12 @@ void ARXPlayerController::ActiveGamePauseMenu()
 	}
 }
 
-void ARXPlayerController::SpawnPlayerToDestination()
+void ARXPlayerController::SpawnPlayerToDestination() const
 {
-	// 게임 인스턴스에서 DestinationTag 가져오기
-	if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
+	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
 	{
-		FGameplayTag DestinationTag = GameInstance->CurrentDestinationTag;
-
-		// 해당 DestinationTag와 일치하는 PlayerStart 찾기
+		// 체크포인트가 없다면 기존 DestinationTag 로직 실행
+		FGameplayTag DestinationTag = GI->CurrentDestinationTag;
 		TArray<AActor*> PlayerStarts;
 		UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARXPlayerStart::StaticClass(), PlayerStarts);
 
@@ -113,12 +113,36 @@ void ARXPlayerController::SpawnPlayerToDestination()
 			ARXPlayerStart* PlayerStart = Cast<ARXPlayerStart>(Actor);
 			if (PlayerStart && PlayerStart->StartTag.MatchesTag(DestinationTag))
 			{
-				// 태그가 일치하는 PlayerStart 위치로 플레이어 이동
 				if (APawn* ControlledPawn = GetPawn())
 				{
 					ControlledPawn->SetActorLocation(PlayerStart->GetActorLocation());
+					ControlledPawn->SetActorRotation(PlayerStart->GetActorRotation());
 				}
 				break;
+			}
+		}
+	}
+}
+
+void ARXPlayerController::RespawnPlayerAtCheckPoint() const
+{
+	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
+	{
+		GI->SetGI_Hp(3);
+		GI->SetGI_Shield(3);
+
+		// 컨트롤러가 소유한 Pawn(플레이어 캐릭터) 가져오기
+		ARXPlayer* PlayerCharacter = Cast<ARXPlayer>(GetPawn());
+		if (PlayerCharacter)
+		{
+			// Player 이동
+			PlayerCharacter->SetActorLocationAndRotation(GI->CheckpointTransform.GetLocation(), GI->CheckpointTransform.GetRotation());
+			// ARXPlayer 내에 있는 RXPlayerStateComponent를 가져옴
+
+			URXPlayerStatComponent* PlayerStateComp = PlayerCharacter->FindComponentByClass<URXPlayerStatComponent>();
+			if (PlayerStateComp)
+			{
+				PlayerStateComp->InitializeStatComponent();
 			}
 		}
 	}
