@@ -4,6 +4,7 @@
 #include "UI/RXShieldCoolTimeWidget.h"
 #include "Components/Image.h"
 #include "Player/RXPlayerStatComponent.h"
+#include "RXDebugHelper.h"
 
 URXShieldCoolTimeWidget::URXShieldCoolTimeWidget(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)

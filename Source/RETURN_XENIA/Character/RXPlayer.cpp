@@ -139,7 +139,7 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 		if (GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance()))
 		{
 			InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
-			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
+			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Kaira_necklace"));
 		}
 
 		// 델리게이트 연결
@@ -276,7 +276,7 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 void ARXPlayer::StartSprinting()
 {
 	// 스프린트 시작(Left Shift o)
-	if(GI->IsProfileStatusAcquired("Cape"))
+	if(GI->IsProfileStatusAcquired("RedCloak"))
 	{
 		bIsSprinting = true;
 		GetCharacterMovement()->MaxWalkSpeed = 650.0f;

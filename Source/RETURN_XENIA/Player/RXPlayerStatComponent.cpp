@@ -33,7 +33,7 @@ void URXPlayerStatComponent::InitializeStatComponent()
 
 	if (GetGameInstance())
 	{
-		if (GI->IsProfileStatusAcquired("Sister"))
+		if (GI->IsProfileStatusAcquired("Kaira_necklace"))
 		{
 			bHasShield = true;
 			SetComponentTickEnabled(true); // 틱 활성화
