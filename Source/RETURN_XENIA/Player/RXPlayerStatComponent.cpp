@@ -3,6 +3,7 @@
 
 #include "Player/RXPlayerStatComponent.h"
 #include "System/RXGameInstance.h"
+#include "Character/RXPlayer.h"
 #include "RXDebugHelper.h"
 
 URXPlayerStatComponent::URXPlayerStatComponent()
@@ -117,6 +118,9 @@ void URXPlayerStatComponent::ApplyDamage(int32 InDamage)
 	bIsImmortal = true;
 	GetWorld()->GetTimerManager().SetTimer(ImmortalTimer, this, &URXPlayerStatComponent::ResetImmortalState, ImmortalTime, false); // 0.5초 후 해제
 
+	// 무적 시 머터리얼 깜빡임 시작
+	StartMaterialFlash();
+
 	// 플레이어가 데미지를 입었을 때 호출
 	if (bIsShieldRegenActive)
 	{
@@ -197,5 +201,72 @@ void URXPlayerStatComponent::ShieldRegenAction()
 void URXPlayerStatComponent::ResetImmortalState()
 {
 	bIsImmortal = false;
+
+	// 타이머가 아직 남아있다면 깜빡임 타이머를 종료
+	if (GetWorld()->GetTimerManager().IsTimerActive(MaterialFlashTimer))
+	{
+		GetWorld()->GetTimerManager().ClearTimer(MaterialFlashTimer);
+	}
+	// 기본 머터리얼로 복원
+	if (AActor* OwnerActor = GetOwner())
+	{
+		ARXPlayer* Player = Cast<ARXPlayer>(OwnerActor);
+		if (Player && DefaultMaterial)
+		{
+			Player->GetMesh()->SetMaterial(0, DefaultMaterial);
+		}
+	}
 	D(FString::Printf(TEXT("Current Health: %d !"), GetCurrentHp()));
+}
+
+void URXPlayerStatComponent::StartMaterialFlash()
+{
+	// 깜빡임 카운트를 0으로 초기화
+	FlashToggleCount = 0;
+
+	// 0.5초 동안 5번 깜빡이려면 총 10번 토글, 간격은 0.5초 / 10 = 0.05초
+	GetWorld()->GetTimerManager().SetTimer(MaterialFlashTimer, this, &URXPlayerStatComponent::ToggleMaterialFlash, 0.1f, true);
+}
+
+void URXPlayerStatComponent::ToggleMaterialFlash()
+{
+	// GetOwner()를 통해 ARXPlayer에 접근
+	if (AActor* OwnerActor = GetOwner())
+	{
+		ARXPlayer* Player = Cast<ARXPlayer>(OwnerActor);
+		if (Player)
+		{
+			// 짝수이면 빨간색, 홀수이면 기본 머터리얼로 교체
+			if (FlashToggleCount % 2 == 0)
+			{
+				if (RedMaterial)
+				{
+					Player->GetMesh()->SetMaterial(0, RedMaterial);
+				}
+			}
+			else
+			{
+				// 기본 머터리얼 복원
+				if (DefaultMaterial)
+				{
+					Player->GetMesh()->SetMaterial(0, DefaultMaterial);
+				}
+			}
+		}
+	}
+	FlashToggleCount++;
+
+	// 총 10번 토글 후 타이머 종료 및 기본 머터리얼 확실히 복원
+	if (FlashToggleCount >= 5)
+	{
+		GetWorld()->GetTimerManager().ClearTimer(MaterialFlashTimer);
+		if (AActor* OwnerActor = GetOwner())
+		{
+			ARXPlayer* Player = Cast<ARXPlayer>(OwnerActor);
+			if (Player && DefaultMaterial)
+			{
+				Player->GetMesh()->SetMaterial(0, DefaultMaterial);
+			}
+		}
+	}
 }
