@@ -99,9 +99,9 @@ private:
 	FTimerHandle ImmortalTimer;
 	void ResetImmortalState();
 
-	int32 FlashToggleCount;  // 피격 머터리얼변화 관련 변수
+	/*int32 FlashToggleCount;  // 피격 머터리얼변화 관련 변수
 	FTimerHandle MaterialFlashTimer;
 	void StartMaterialFlash(); // 피격 머터리얼변화 관련 함수
-	void ToggleMaterialFlash();
+	void ToggleMaterialFlash();*/
 
 };

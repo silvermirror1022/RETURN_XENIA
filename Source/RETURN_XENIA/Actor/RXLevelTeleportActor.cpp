@@ -41,6 +41,7 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
     if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
     {
         GameInstance->SetDestinationTag(DestinationTag);
+        GameInstance->CurrentLevelName = NextLevelName;
     }
 
     //  OpenLevel을 사용하여 완전히 새로운 맵으로 이동

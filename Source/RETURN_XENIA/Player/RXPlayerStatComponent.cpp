@@ -119,8 +119,18 @@ void URXPlayerStatComponent::ApplyDamage(int32 InDamage)
 	GetWorld()->GetTimerManager().SetTimer(ImmortalTimer, this, &URXPlayerStatComponent::ResetImmortalState, ImmortalTime, false); // 0.5초 후 해제
 
 	// 무적 시 머터리얼 깜빡임 시작
-	StartMaterialFlash();
+	//StartMaterialFlash();
 
+	// 무적 상태 진입 시 플레이어 머터리얼 변경 (빨간색)
+	if (AActor* OwnerActor = GetOwner())
+	{
+		ARXPlayer* Player = Cast<ARXPlayer>(OwnerActor);
+		if (Player && RedMaterial)
+		{
+			// 메시의 첫 번째 머터리얼 슬롯(인덱스 0)을 빨간색 머터리얼로 교체
+			Player->GetMesh()->SetMaterial(0, RedMaterial);
+		}
+	}
 	// 플레이어가 데미지를 입었을 때 호출
 	if (bIsShieldRegenActive)
 	{
@@ -198,15 +208,15 @@ void URXPlayerStatComponent::ShieldRegenAction()
 	bIsShieldRegenActive = false;
 }
 
-void URXPlayerStatComponent::ResetImmortalState()
+/**/void URXPlayerStatComponent::ResetImmortalState()
 {
 	bIsImmortal = false;
 
-	// 타이머가 아직 남아있다면 깜빡임 타이머를 종료
+	/*// 타이머가 아직 남아있다면 깜빡임 타이머를 종료
 	if (GetWorld()->GetTimerManager().IsTimerActive(MaterialFlashTimer))
 	{
 		GetWorld()->GetTimerManager().ClearTimer(MaterialFlashTimer);
-	}
+	}*/
 	// 기본 머터리얼로 복원
 	if (AActor* OwnerActor = GetOwner())
 	{
@@ -219,7 +229,7 @@ void URXPlayerStatComponent::ResetImmortalState()
 	D(FString::Printf(TEXT("Current Health: %d !"), GetCurrentHp()));
 }
 
-void URXPlayerStatComponent::StartMaterialFlash()
+/*void URXPlayerStatComponent::StartMaterialFlash()
 {
 	// 깜빡임 카운트를 0으로 초기화
 	FlashToggleCount = 0;
@@ -270,3 +280,4 @@ void URXPlayerStatComponent::ToggleMaterialFlash()
 		}
 	}
 }
+*/

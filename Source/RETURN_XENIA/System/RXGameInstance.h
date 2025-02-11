@@ -64,7 +64,7 @@ public:
 public:
 
 	// 체크포인트 정보 (Transform으로 위치와 회전 한번에 관리)
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Checkpoint")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CheckPoint")
 	FTransform CheckpointTransform;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DestinationTag")
@@ -72,6 +72,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Teleport") //필요한 경우 블루프린트에서 목적지 설정
 	void SetDestinationTag(FGameplayTag NewDestinationTag) { CurrentDestinationTag = NewDestinationTag; }
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="CheckPoint")
+	FName CurrentLevelName;  //플레이어가 있던 곳의 레벨이름
 
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
