@@ -21,10 +21,6 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void SetupInputComponent() override;
 
-public:
-	UPROPERTY(BlueprintReadOnly)
-	TObjectPtr<class ARXPlayer> RXPlayer;
-
 	//HUD SECTION
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD")

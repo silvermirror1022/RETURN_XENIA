@@ -9,6 +9,7 @@ URXSaveGame::URXSaveGame()
 	// 기본값 설정
 	CheckpointTransform = FTransform::Identity;
 	CurrentDestinationTag = FGameplayTag(); // 기본 태그
+	CurrentLevelName = "NoahHouse";
 	GI_Hp = 0;
 	GI_Shield = 0;
 	SliderValues = FSliderValues(); // 기본 생성자 호출

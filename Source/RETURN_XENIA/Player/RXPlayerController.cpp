@@ -147,5 +147,3 @@ void ARXPlayerController::RespawnPlayerAtCheckPoint() const
 		}
 	}
 }
-
-
