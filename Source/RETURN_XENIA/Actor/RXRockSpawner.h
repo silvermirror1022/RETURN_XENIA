@@ -32,7 +32,7 @@ public:
 
 	// 최대 보유할 Rock 개수(기본 4)
 	UPROPERTY(EditAnywhere, Category = "RockSetting")
-	int32 MaxRockCount = 4;
+	int32 MaxRockCount = 8;
 
 	// 바위 클래스 (스폰할 클래스설정)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "RockSetting")
