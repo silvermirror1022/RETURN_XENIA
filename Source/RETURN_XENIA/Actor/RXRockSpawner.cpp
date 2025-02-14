@@ -4,7 +4,7 @@
 #include "Actor/RXRockSpawner.h"
 #include "Components/ArrowComponent.h"
 #include "GameFramework/Actor.h"
-
+#include "RXRockBase.h"
 ARXRockSpawner::ARXRockSpawner()
 {
 	PrimaryActorTick.bCanEverTick = false;
@@ -24,7 +24,7 @@ void ARXRockSpawner::BeginPlay()
 	// 초기 Rock Pool 세팅
 	for (int32 i = 0; i < MaxRockCount; i++)
 	{
-		AActor* NewRock = GetWorld()->SpawnActor<AActor>(RockClass, ArrowComponent->GetComponentLocation(), 
+		ARXRockBase* NewRock = GetWorld()->SpawnActor<ARXRockBase>(RockClass, ArrowComponent->GetComponentLocation(),
 			ArrowComponent->GetComponentRotation());
 		if (NewRock)
 		{
@@ -40,7 +40,7 @@ void ARXRockSpawner::SpawnRock()
 	if (RockPool.Num() == 0) return;
 
 	// 풀에서 Rock 가져오기
-	AActor* Rock = RockPool.Pop();
+	ARXRockBase* Rock = RockPool.Pop();
 	if (!Rock) return;
 
 	// Rock을 현재 Spawner 위치로 이동
@@ -65,7 +65,7 @@ void ARXRockSpawner::SpawnRock()
 }
 
 // 바위를 다시 풀로 반환
-void ARXRockSpawner::ReturnRockToPool(AActor* Rock)
+void ARXRockSpawner::ReturnRockToPool(ARXRockBase* Rock)
 {	
 	if (!Rock) return;
 
