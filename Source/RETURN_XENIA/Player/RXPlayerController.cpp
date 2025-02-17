@@ -129,7 +129,7 @@ void ARXPlayerController::RespawnPlayerAtCheckPoint() const
 	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
 	{
 		GI->SetGI_Hp(3);
-		GI->SetGI_Shield(3);
+		GI->SetGI_Shield(1);
 
 		// 컨트롤러가 소유한 Pawn(플레이어 캐릭터) 가져오기
 		ARXPlayer* PlayerCharacter = Cast<ARXPlayer>(GetPawn());
