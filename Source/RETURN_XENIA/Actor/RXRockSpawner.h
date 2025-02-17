@@ -25,6 +25,10 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SpawnRock();
 
+	// 바위를 모두 비활성화하는 함수
+	UFUNCTION(BlueprintCallable)
+	void DeactivateAllRocks();
+
 	// 바위를 다시 풀로 반환하는 함수
 	void ReturnRockToPool(ARXRockBase* Rock);
 

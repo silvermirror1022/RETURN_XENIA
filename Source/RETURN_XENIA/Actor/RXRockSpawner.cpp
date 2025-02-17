@@ -64,6 +64,26 @@ void ARXRockSpawner::SpawnRock()
 	GetWorld()->GetTimerManager().SetTimer(TimerHandle, TimerDelegate, 6.f, false);
 }
 
+void ARXRockSpawner::DeactivateAllRocks()
+{
+	TArray<ARXRockBase*> ActiveRocks;
+
+	// 현재 씬에 존재하는 락 중에서 활성화된 락 찾기
+	for (ARXRockBase* Rock : RockPool)
+	{
+		if (Rock && !Rock->IsHidden())
+		{
+			ActiveRocks.Add(Rock);
+		}
+	}
+
+	// 모든 활성화된 락을 비활성화하고 풀에 다시 추가
+	for (ARXRockBase* Rock : ActiveRocks)
+	{
+		ReturnRockToPool(Rock);
+	}
+}
+
 // 바위를 다시 풀로 반환
 void ARXRockSpawner::ReturnRockToPool(ARXRockBase* Rock)
 {	
