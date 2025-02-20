@@ -40,9 +40,16 @@ public:
 
 	UPROPERTY(meta = (BindWidget), BlueprintReadWrite)
 	TObjectPtr<UImage> PressedImage;
+
 public:
 	UPROPERTY(EditAnywhere,BlueprintReadWrite, Category = "ItemSlotSetting")
 	TObjectPtr<UTexture2D> OwnImage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSlotSetting")
+	TObjectPtr<UTexture2D> OwnDescKRImage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSlotSetting")
+	TObjectPtr<UTexture2D> OwnDescENImage;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemSlotSetting")
 	FName ItemType;

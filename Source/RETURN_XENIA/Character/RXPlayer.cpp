@@ -327,6 +327,10 @@ void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 			FVector TargetLocation = TargetActor->GetActorLocation();
 			TargetLocation.Z += ZOffSet; // Z축 오프셋 추가
 			SetActorLocation(TargetLocation);
+
+			// 타겟 액터의 회전을 가져와 플레이어에 적용
+			FRotator TargetRotation = TargetActor->GetActorRotation();
+			SetActorRotation(TargetRotation);
 		}
 	}
 }

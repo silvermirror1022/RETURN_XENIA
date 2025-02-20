@@ -45,40 +45,42 @@ void URXInventorySlotWidget::UpdateDescriptionImages(bool bIsKorean)
 	{
 		return;
 	}
-	// 타입에 따라 설명 이미지의 가시성을 설정
+
+	// 언어에 따라 적절한 설명 이미지에 브러시를 적용
+	FSlateBrush Brush;
+	if (bIsKorean)
+	{
+		if (OwnDescKRImage)
+		{
+			Brush.SetResourceObject(OwnDescKRImage);
+			MainMenuWidget->Img_ItemDesc_KR->SetBrush(Brush);
+			MainMenuWidget->Img_ItemDesc_KR->SetVisibility(ESlateVisibility::Visible);
+		}
+		// 영어 설명 이미지는 히든 처리
+		MainMenuWidget->Img_ItemDesc_EN->SetVisibility(ESlateVisibility::Hidden);
+	}
+	else
+	{
+		if (OwnDescENImage)
+		{
+			Brush.SetResourceObject(OwnDescENImage);
+			MainMenuWidget->Img_ItemDesc_EN->SetBrush(Brush);
+			MainMenuWidget->Img_ItemDesc_EN->SetVisibility(ESlateVisibility::Visible);
+		}
+		// 한국어 설명 이미지는 히튼 처리
+		MainMenuWidget->Img_ItemDesc_KR->SetVisibility(ESlateVisibility::Hidden);
+	}
+
+	// 아이템 타입이 HintPaper인 경우 버튼을 보이고 활성화
 	if (ItemType == FName("HintPaper"))
 	{
-		if (bIsKorean)
-		{
-			MainMenuWidget->Img_Note_DescKR->SetVisibility(ESlateVisibility::Visible);
-			MainMenuWidget->Img_Note_DescEN->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Knotletter_DescKR->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Knotletter_DescEN->SetVisibility(ESlateVisibility::Hidden);
-		}
-		else
-		{
-			MainMenuWidget->Img_Note_DescEN->SetVisibility(ESlateVisibility::Visible);
-			MainMenuWidget->Img_Note_DescKR->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Knotletter_DescKR->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Knotletter_DescEN->SetVisibility(ESlateVisibility::Hidden);
-		}
+		MainMenuWidget->Btn_NoteDesc->SetVisibility(ESlateVisibility::Visible);
+		MainMenuWidget->Btn_NoteDesc->SetIsEnabled(true);
 	}
-	else if (ItemType == FName("KnotChar"))
+	else
 	{
-		if (bIsKorean)
-		{
-			MainMenuWidget->Img_Knotletter_DescKR->SetVisibility(ESlateVisibility::Visible);
-			MainMenuWidget->Img_Knotletter_DescEN->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Note_DescEN->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Note_DescKR->SetVisibility(ESlateVisibility::Hidden);
-		}
-		else
-		{
-			MainMenuWidget->Img_Knotletter_DescEN->SetVisibility(ESlateVisibility::Visible);
-			MainMenuWidget->Img_Knotletter_DescKR->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Note_DescEN->SetVisibility(ESlateVisibility::Hidden);
-			MainMenuWidget->Img_Note_DescKR->SetVisibility(ESlateVisibility::Hidden);
-		}
+		MainMenuWidget->Btn_NoteDesc->SetVisibility(ESlateVisibility::Hidden);
+		MainMenuWidget->Btn_NoteDesc->SetIsEnabled(false);
 	}
 }
 
