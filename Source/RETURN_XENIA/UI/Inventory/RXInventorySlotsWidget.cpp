@@ -5,6 +5,7 @@
 #include "Components/UniformGridPanel.h"
 #include "UI/RXMainMenuWidget.h"
 #include "UI/Inventory/RXInventorySlotWidget.h"
+#include "Components/Image.h"
 
 URXInventorySlotsWidget::URXInventorySlotsWidget(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -22,8 +23,8 @@ void URXInventorySlotsWidget::NativeConstruct()
 	URXGameInstance* GI = GetWorld()->GetGameInstance<URXGameInstance>();
 	if (!GI || !GridPanel_Item) return;
 
-	TArray<FString> ItemNames = { TEXT("KnotChar1"), TEXT("KnotChar2"), TEXT("KnotChar3"), TEXT("KnotChar4"),
-		TEXT("KnotChar5"), TEXT("KnotChar6"), TEXT("Heart"), TEXT("HintPaper")};
+	TArray<FString> ItemNames = { TEXT("KnotChar_Tutorial"), TEXT("KnotChar1F_1"), TEXT("KnotChar1F_2"), TEXT("KnotChar1F_3"),
+		TEXT("KnotChar2F_1"), TEXT("KnotChar2F_2"),TEXT("KnotChar2F_3"), TEXT("HintPaper")};
 
 	constexpr int X_COUNT = 3;
 	constexpr int Y_COUNT = 4;
@@ -64,9 +65,41 @@ void URXInventorySlotsWidget::NativeConstruct()
 
 					GridPanel_Item->AddChildToUniformGrid(SlotWidget, Y, X);
 
+					// 각 슬롯 위젯의 델리게이트에 자신의 핸들러를 바인딩
+					SlotWidget->OnSlotSelected.AddDynamic(this, &URXInventorySlotsWidget::HandleSlotSelected);
+
 					CurrentItemIndex++; // 아이템 추가 시 인덱스 증가
 				}
 			}
+		}
+	}
+
+	// 만약 GridPanel에 슬롯이 존재하고, 첫 슬롯에 아이템이 있다면
+	if (GridPanel_Item->GetChildrenCount() > 0)
+	{
+		URXInventorySlotWidget* FirstSlot = Cast<URXInventorySlotWidget>(GridPanel_Item->GetChildAt(0));
+		if (FirstSlot && FirstSlot->OwnImage) // 아이템이 존재하면
+		{
+			// 첫 번째 슬롯을 강제로 pressed 상태로 만듦 (이미지 업데이트 및 PressedImage Visible)
+			FirstSlot->ReplaceParentImageWithOwn();
+		}
+	}
+}
+
+void URXInventorySlotsWidget::HandleSlotSelected(URXInventorySlotWidget* SelectedSlot)
+{
+	// GridPanel에 포함된 모든 슬롯 위젯을 순회하면서,
+	// 선택되지 않은 슬롯의 PressedImage를 Hidden으로 설정
+	if (!GridPanel_Item) return;
+
+	const int32 NumChildren = GridPanel_Item->GetChildrenCount();
+	for (int32 i = 0; i < NumChildren; i++)
+	{
+		UWidget* ChildWidget = GridPanel_Item->GetChildAt(i);
+		URXInventorySlotWidget* InventorySlot = Cast<URXInventorySlotWidget>(ChildWidget);
+		if (InventorySlot && InventorySlot != SelectedSlot && InventorySlot->PressedImage)
+		{
+			InventorySlot->PressedImage->SetVisibility(ESlateVisibility::Hidden);
 		}
 	}
 }

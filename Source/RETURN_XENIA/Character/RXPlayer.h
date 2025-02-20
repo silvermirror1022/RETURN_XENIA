@@ -46,6 +46,7 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
+	void PuzzelTab(); // 블라인드퍼즐에서 사용하는 함수
 
 	// 원형 퍼즐 이벤트 관련 함수 및 변수
 	uint8 bIsCircularPuzzelMode : 1;
@@ -55,16 +56,21 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void ChangeSelectedWheel();
 
 protected: // 플레이어 사망 관련 함수 및 변수
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
 
+	// 보스맵에서 플레이어 사망시 플레이할 몽타주
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class UAnimMontage> DeadMontageInBossMap;
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
+	bool IsBossStage = false;
 	void SetDead();
 	void PlayDeadAnimation();
-
-	float DeadEventDelayTime = 5.0f;
+	void DeadRespawn();
 
 protected: // 스텟 섹션 (HP,Shield 관련)
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Stat, Meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stat", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;
 
 	UPROPERTY() // 참조하는 게임인스턴스 변수

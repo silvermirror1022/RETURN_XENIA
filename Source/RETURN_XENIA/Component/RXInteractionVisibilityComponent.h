@@ -20,12 +20,12 @@ protected:
 	virtual void BeginPlay() override;
 
 	UFUNCTION()
-	void OnSphereBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	void OnBoxBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep,
 		const FHitResult& SweepResult);
 
 	UFUNCTION()
-	void OnSphereEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
+	void OnBoxEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintCallable)
@@ -33,7 +33,7 @@ protected:
 public:	
 private:
 	UPROPERTY(EditAnywhere)
-	TObjectPtr<class USphereComponent> SphereComponent;
+	TObjectPtr<class UBoxComponent> BoxComponent;
 
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UWidgetComponent> WidgetComponent;

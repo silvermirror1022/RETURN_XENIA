@@ -25,6 +25,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "UI/RXHpSetWidget.h"
 #include "System/RXGameInstance.h"
+#include "Animation/AnimInstance.h" 
 #include "Actor/RXCircularPuzzelBase.h"
 
 ARXPlayer::ARXPlayer()
@@ -108,8 +109,10 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	{
 		auto PuzzelMoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelMove);
 		auto PuzzelResetAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelReset);
+		auto PuzzelTabAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_PuzzelTab);
 		EnhancedInputComponent->BindAction(PuzzelMoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::PuzzelMove);
 		EnhancedInputComponent->BindAction(PuzzelResetAction, ETriggerEvent::Started, this, &ARXPlayer::PuzzelReset);
+		EnhancedInputComponent->BindAction(PuzzelTabAction, ETriggerEvent::Started, this, &ARXPlayer::PuzzelTab);
 	}
 
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_CircularPuzzel"))
@@ -136,7 +139,7 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 		if (GI = Cast<URXGameInstance>(GetWorld()->GetGameInstance()))
 		{
 			InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
-			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Sister"));
+			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Kaira_necklace"));
 		}
 
 		// 델리게이트 연결
@@ -273,7 +276,7 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 void ARXPlayer::StartSprinting()
 {
 	// 스프린트 시작(Left Shift o)
-	if(GI->IsProfileStatusAcquired("Cape"))
+	if(GI->IsProfileStatusAcquired("RedCloak"))
 	{
 		bIsSprinting = true;
 		GetCharacterMovement()->MaxWalkSpeed = 650.0f;
@@ -291,14 +294,20 @@ void ARXPlayer::StopSprinting()
 
 void ARXPlayer::ToggleCrouch()
 {
-	if (GetCharacterMovement()->IsCrouching())
+	UCharacterMovementComponent* MovementComp = GetCharacterMovement();
+	if (!MovementComp) return;
+
+	// 땅에 있을 때만 앉을 수 있도록 체크
+	if (MovementComp->IsMovingOnGround())
 	{
-		UnCrouch();
-		//D(FString::Printf(TEXT("UnCrouch!")));
-	}
-	else
-	{
-		Crouch();
+		if (MovementComp->IsCrouching())
+		{
+			UnCrouch();
+		}
+		else
+		{
+			Crouch();
+		}
 	}
 }
 
@@ -318,6 +327,10 @@ void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 			FVector TargetLocation = TargetActor->GetActorLocation();
 			TargetLocation.Z += ZOffSet; // Z축 오프셋 추가
 			SetActorLocation(TargetLocation);
+
+			// 타겟 액터의 회전을 가져와 플레이어에 적용
+			FRotator TargetRotation = TargetActor->GetActorRotation();
+			SetActorRotation(TargetRotation);
 		}
 	}
 }
@@ -372,6 +385,27 @@ void ARXPlayer::PuzzelReset()
 	}
 }
 
+void ARXPlayer::PuzzelTab()
+{
+	// 블라인드 퍼즐에서만 사용하는 함수 (힌트를 일정시간에 보이게함)
+	// 퍼즐베이스엑터를 가져와서 가지고 있는 스폰매니저 컴포넌트에 접근해서 함수 호출
+	TArray<AActor*> PuzzelActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ARXPuzzelBase::StaticClass(), PuzzelActors);
+
+	for (AActor* Actor : PuzzelActors)
+	{
+		if (ARXPuzzelBase* PuzzelBase = Cast<ARXPuzzelBase>(Actor))
+		{
+			URXPuzzelSpawnManageComponent* PSMC = PuzzelBase->FindComponentByClass<URXPuzzelSpawnManageComponent>();
+
+			if (PSMC)
+			{
+				PSMC->VisibleHintTile();
+			}
+		}
+	}
+}
+
 void ARXPlayer::ExitCircularPuzzel()
 {
 	if (!bIsCircularPuzzelMode) return;
@@ -406,11 +440,37 @@ void ARXPlayer::SetDead()
 	// DisableInput(PlayerController); //입력 멈추기
 	GetCharacterMovement()->DisableMovement();  // 이동 비활성화
 	PlayerController->SetIgnoreMoveInput(true);
-}
 
+	// 일정 시간 후에 리스폰하도록 타이머 설정 (3초 후)
+	FTimerHandle RespawnTimerHandle;
+	GetWorldTimerManager().SetTimer(RespawnTimerHandle, this, &ARXPlayer::DeadRespawn, 3.0f, false);
+}
+void ARXPlayer::DeadRespawn()
+{
+	if (PlayerController)
+	{
+		// 플레이어 컨트롤러에서 리스폰 로직 호출
+		PlayerController->RespawnPlayerAtCheckPoint();
+
+		// 리스폰 후 플레이어 Pawn의 입력 및 충돌 등을 복구하는 로직 추가
+		SetActorEnableCollision(true);
+		GetCharacterMovement()->SetMovementMode(EMovementMode::MOVE_Walking);
+		PlayerController->SetIgnoreMoveInput(false);
+
+		// 애니메이션 상태 초기화 
+		if (UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance())
+		{
+			// 애니메이션 몽타주나 상태를 재시작할 필요 없이 상태 머신에서 IDLE로 돌아가도록 처리
+			AnimInstance->Montage_Stop(0.2f);  // 현재 애니메이션을 빠르게 종료시키기
+			//AnimInstance->SetPlayRate(1.0f);   // 애니메이션 속도 복구
+		}
+	}
+}
 void ARXPlayer::PlayDeadAnimation()
 {
+	// 추가 페이드 로직 블루프린트에서 확장 처리
 	UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
 	AnimInstance->StopAllMontages(0.0f);
-	AnimInstance->Montage_Play(DeadMontage, 1.0f);
+	IsBossStage ? AnimInstance->Montage_Play(DeadMontageInBossMap, 1.0f) : AnimInstance->Montage_Play(DeadMontage, 1.0f);
+	//AnimInstance->Montage_Play(DeadMontage, 1.0f);
 }

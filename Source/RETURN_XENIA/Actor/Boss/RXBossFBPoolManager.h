@@ -25,7 +25,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void FireAtPlayerFrom120(FVector Center, AActor* Target);
 	UFUNCTION(BlueprintCallable)
-	void FireAtPlayerFrom170(FVector Center, AActor* Target);
+	void FireAtPlayerFrom150(FVector Center, AActor* Target);
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Pooling")

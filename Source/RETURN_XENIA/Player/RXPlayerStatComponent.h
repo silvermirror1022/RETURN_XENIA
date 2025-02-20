@@ -53,6 +53,8 @@ public:
 	FORCEINLINE int32 GetMaxShield() const { return MaxShield; }
 	FORCEINLINE int32 GetCurrentShield() const { return CurrentShield; }
 
+	void InitializeStatComponent();
+
 	// 데미지 적용 함수 & 회복 함수
 	UFUNCTION(BlueprintCallable)
 	void ApplyDamage(int32 InDamage);
@@ -75,12 +77,31 @@ protected:
 	
 public:
 	// 쉴드 보유 여부
-	UPROPERTY(Transient, VisibleAnywhere, BlueprintReadOnly, Category = "Stat")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Stat")
 	uint8 bHasShield : 1; 
-	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stat")
+	uint8 bIsImmortal : 1; // 플레이어 피격시 무적변수
+
+	// 캐릭터 피격/정상 머터리얼 변수
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Material")
+	UMaterialInterface* RedMaterial;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Material")
+	UMaterialInterface* DefaultMaterial;
+
 private:
 	FTimerHandle ShieldRegenTimer; // 쉴드 회복 타이머
 	void StartShieldRegen();
 	uint8 bIsShieldRegenActive : 1;
 	void ShieldRegenAction();
+
+	float ImmortalTime = 0.5f; // 무적 시간 및 타이머
+	FTimerHandle ImmortalTimer;
+	void ResetImmortalState();
+
+	/*int32 FlashToggleCount;  // 피격 머터리얼변화 관련 변수
+	FTimerHandle MaterialFlashTimer;
+	void StartMaterialFlash(); // 피격 머터리얼변화 관련 함수
+	void ToggleMaterialFlash();*/
+
 };

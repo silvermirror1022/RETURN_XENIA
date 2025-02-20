@@ -62,15 +62,23 @@ public:
 	virtual void Shutdown() override;
 
 public:
+
+	// 체크포인트 정보 (Transform으로 위치와 회전 한번에 관리)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CheckPoint")
+	FTransform CheckpointTransform;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DestinationTag")
 	FGameplayTag CurrentDestinationTag; //레벨 전환시 저장해 놓을 태그타입
 
 	UFUNCTION(BlueprintCallable, Category = "Teleport") //필요한 경우 블루프린트에서 목적지 설정
 	void SetDestinationTag(FGameplayTag NewDestinationTag) { CurrentDestinationTag = NewDestinationTag; }
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="CheckPoint")
+	FName CurrentLevelName;  //플레이어가 있던 곳의 레벨이름
+
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
-	TArray<FStatus> MemoryStatusArray; // 메모리 획득 여부를 저장하는 배열 (총4개)
+	TArray<FStatus> MemoryStatusArray; // 메모리 획득 여부를 저장하는 배열 (총5개)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProfileStatus")
 	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
@@ -161,7 +169,21 @@ public:
 
 	// 게임 세팅 언어 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Language Settings")
-	uint8 bIsKorean : 1;
+	bool bIsKorean;
 	
+	// 재앙이 발생한 후 스폰할 NPC들 대화 세부 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	bool bIsAfterDisaster;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	bool bIsKairaDialogueEventFinished; // 여동생 대화 이벤트 종료 확인 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	bool bIsAntuqDialogueEventFinished; // 안투크 대화 이벤트 종료 확인 변수
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	bool bIsAmarkaDialogueEventFinished; // 아마르카 대화 이벤트 종료 확인 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	bool bIsAmarkaDialogueItemEventFinished; // 아마르카 아이템 이벤트 종료 확인 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
+	bool bIsWinikDialogueEventFinished; // 위닉 대화 이벤트 종료 확인 
 
 };

@@ -157,6 +157,30 @@ void URXPuzzelSpawnManageComponent::ResetCurrentLevel_Implementation()
     }
 }
 
+void URXPuzzelSpawnManageComponent::VisibleHintTile_Implementation()
+{
+    // 블루프린트에서 구현
+}
+
+void URXPuzzelSpawnManageComponent::ShowHintTile()
+{
+    // 해당 함수는 블라인드 퍼즐에서만 사용되는 함수임.
+    if (!LevelObjectsMap.Contains(CurrentLevelID))
+    {
+        UE_LOG(LogTemp, Warning, TEXT("No data for Level ID: %d"), CurrentLevelID);
+        return;
+    }
+
+    // 현재 레벨의 타일 엑터 리셋
+    for (AActor* Actor : LevelObjectsMap[CurrentLevelID])
+    {
+        if (ARXPuzzelBaseObject* PuzzelObject = Cast<ARXPuzzelBaseObject>(Actor))
+        {
+            PuzzelObject->ResetObjectState(); // 각 오브젝트의 상태 리셋 호출
+        }
+    }
+}
+
 void URXPuzzelSpawnManageComponent::CreatePuzzelNotifyWidget()
 {
     // 퍼즐 UI 위젯을 생성하는 함수

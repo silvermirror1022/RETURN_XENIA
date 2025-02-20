@@ -1,16 +1,15 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Actor/RXLevelTeleportActor.h"
 #include "Components/SphereComponent.h"
-#include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
-#include "System/RXGameInstance.h" 
+#include "System/RXGameInstance.h"
 #include "RXDebugHelper.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
 
-    // Sphere Component CDO »ı¼º ¹× ¼³Á¤
+    // Sphere Component CDO ìƒì„± ë° ì„¤ì •
     SphereComponent = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComponent"));
     SphereComponent->SetupAttachment(RootComponent);
     SphereComponent->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -19,9 +18,9 @@ ARXLevelTeleportActor::ARXLevelTeleportActor()
     SphereComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 
 
-    // Sphere ComponentÀÇ ¹İÁö¸§°ú »ö»ó ¼³Á¤
-    SphereComponent->SetSphereRadius(80.0f); // ¹İÁö¸§ ¼³Á¤
-    SphereComponent->ShapeColor = FColor::Green; // »ö»ó ¼³Á¤ (µğ¹ö±×¿ë)
+    // Sphere Componentì˜ ë°˜ì§€ë¦„ê³¼ ìƒ‰ìƒ ì„¤ì •
+    SphereComponent->SetSphereRadius(80.0f); // ë°˜ì§€ë¦„ ì„¤ì •
+    SphereComponent->ShapeColor = FColor::Green; // ìƒ‰ìƒ ì„¤ì • (ë””ë²„ê·¸ìš©)
 
 }
 
@@ -32,15 +31,22 @@ void ARXLevelTeleportActor::BeginPlay()
 
 void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
 {
-    // °ÔÀÓ ÀÎ½ºÅÏ½º¿¡ Á¢±ÙÇÏ¿© DestinationTag¸¦ ¼³Á¤
+    if (NextLevelName.IsNone())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("NextLevelName is not set!"));
+        return;
+    }
+
+    // ê²Œì„ ì¸ìŠ¤í„´ìŠ¤ì— DestinationTag ì„¤ì •
     if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
     {
         GameInstance->SetDestinationTag(DestinationTag);
+        GameInstance->CurrentLevelName = NextLevelName;
     }
 
-    // ·¹º§ ÀüÈ¯
+    //  OpenLevelì„ ì‚¬ìš©í•˜ì—¬ ì™„ì „íˆ ìƒˆë¡œìš´ ë§µìœ¼ë¡œ ì´ë™
     UGameplayStatics::OpenLevel(this, NextLevelName);
-    
+   
 }
 
 
