@@ -7,6 +7,7 @@
 #include "RXMainMenuWidget.generated.h"
 
 class UImage;
+class UButton;
 /**
  * 
  */
@@ -26,16 +27,15 @@ public:
 	TObjectPtr<UImage> ItemInfoImage; // 아이템정보에서 참조할 이미지
 
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
-	TObjectPtr<UImage> Img_Knotletter_DescKR; // 아이템 설명(매듭문자한국어)
+	TObjectPtr<UImage> Img_ItemDesc_KR; // 아이템 설명(한국어 544*197)
 
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
-	TObjectPtr<UImage> Img_Knotletter_DescEN; // 아이템 설명(매듭문자영어)
+	TObjectPtr<UImage> Img_ItemDesc_EN; // 아이템 설명(영어 544*189)
 
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
-	TObjectPtr<UImage> Img_Note_DescKR; // 아이템 설명(힌트노트한국어)
+	TObjectPtr<UButton> Btn_NoteDesc; // 노트 아이템 설명창 버튼
 
-	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
-	TObjectPtr<UImage> Img_Note_DescEN; // 아이템 설명(힌트노트영어)
+	
 
 	
 };
