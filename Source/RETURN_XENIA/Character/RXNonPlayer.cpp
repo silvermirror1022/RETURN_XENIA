@@ -84,6 +84,10 @@ void ARXNonPlayer::StartDialogue()
 
     }
 
+    // NPC에 해당 캐싱된 대화 시작 애님몽타주 플레이
+    PlayDialogueMontage();
+
+
     // 기존 위젯 제거
     if (DialogueWidgetInstance)
     {
@@ -185,6 +189,17 @@ void ARXNonPlayer::EndDialogue()
     }
 
     DialoguePopupEvent(); // 블루프린트에서 커스텀화한 함수가 있다면 대화종료후 호출
+}
+
+
+void ARXNonPlayer::PlayDialogueMontage() const
+{
+    // 애니메이션 몽타주 재생 (동시에 대화 시작)
+    if (DialogueMontage && GetMesh() && GetMesh()->GetAnimInstance())
+    {
+        UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance();
+        AnimInstance->Montage_Play(DialogueMontage);
+    }
 }
 
 void ARXNonPlayer::DialoguePopupEvent_Implementation()
