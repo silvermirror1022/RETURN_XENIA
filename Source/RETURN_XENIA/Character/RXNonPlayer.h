@@ -60,6 +60,11 @@ public:
 
 	int32 DialogueIndex; //대화 인덱스
 
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Dialogue Anim Montage")
+	TObjectPtr<UAnimMontage> DialogueMontage; // 대화시플레이할 몽타주
+
+	void PlayDialogueMontage() const;
+
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DialoguePopupEvent();
 	void DialoguePopupEvent_Implementation(); // 추가 블루프린트에서 필요한 대화 커스텀 이벤트 추가 구현 함수
