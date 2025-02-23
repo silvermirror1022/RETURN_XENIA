@@ -2,11 +2,7 @@
 
 #include "Actor/RXLevelTeleportActor.h"
 #include "Components/SphereComponent.h"
-#include "Kismet/GameplayStatics.h"
 #include "System/RXGameInstance.h"
-#include "RXDebugHelper.h"
-#include "Data/RXAssetData.h"
-#include "System/RXAssetManager.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
