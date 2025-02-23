@@ -5,6 +5,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "System/RXGameInstance.h"
 #include "RXDebugHelper.h"
+#include "Data/RXAssetData.h"
+#include "System/RXAssetManager.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
@@ -44,9 +46,10 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
         GameInstance->CurrentLevelName = NextLevelName;
     }
 
-    //  OpenLevel을 사용하여 완전히 새로운 맵으로 이동
-    UGameplayStatics::OpenLevel(this, NextLevelName);
-   
+
+	// 자산 로드 완료 후 레벨 전환
+	//UGameplayStatics::OpenLevel(this, NextLevelName);
+
 }
 
 
