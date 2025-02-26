@@ -37,6 +37,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_AfterEvent);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_Top);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_TopBoss);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka_AfterEvent);

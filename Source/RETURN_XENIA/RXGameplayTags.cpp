@@ -37,6 +37,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira, "Dialogue.NPCType.Kaira");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira_AfterEvent, "Dialogue.NPCType.Kaira.AfterEvent");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira_Top, "Dialogue.NPCType.Kaira.Top");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Kaira_TopBoss, "Dialogue.NPCType.Kaira.TopBoss");
 	
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka, "Dialogue.NPCType.Amarka");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Amarka_AfterEvent, "Dialogue.NPCType.Amarka.AfterEvent");
