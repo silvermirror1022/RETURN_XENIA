@@ -37,6 +37,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_AfterEvent);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_Top);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Kaira_TopBoss);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Amarka_AfterEvent);
@@ -64,6 +65,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap4);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap5);
 
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss);
 
 	// TeleportSystem Tag Section
 	// 1층 레벨 텔레포트 시스템 태그 정의

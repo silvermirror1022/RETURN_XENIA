@@ -4,7 +4,6 @@
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "System/RXGameInstance.h"
-#include "RXDebugHelper.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
@@ -44,10 +43,15 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
         GameInstance->CurrentLevelName = NextLevelName;
     }
 
-    //  OpenLevel을 사용하여 완전히 새로운 맵으로 이동
-    UGameplayStatics::OpenLevel(this, NextLevelName);
-   
-}
+    GetWorld()->GetTimerManager().SetTimer(TimerHandle_Teleport, this, &ARXLevelTeleportActor::PerformTeleport, 2.5f, false);
+	// 자산 로드 완료 후 레벨 전환
 
+}
+void ARXLevelTeleportActor::PerformTeleport()
+{
+    // 2.5초 후에 OpenLevel 실행
+    UE_LOG(LogTemp, Log, TEXT("Teleporting to level: %s"), *NextLevelName.ToString());
+    UGameplayStatics::OpenLevel(this, NextLevelName);
+}
 
 

@@ -24,6 +24,7 @@ protected:
 
 public:
 	//RXNPCDialogueInterface Interface Virtual Func override Implementation
+	UFUNCTION(BlueprintCallable)
 	virtual void StartDialogue() override;
 	virtual void DisplayDialogue() override;
 	virtual void EndDialogue() override;
