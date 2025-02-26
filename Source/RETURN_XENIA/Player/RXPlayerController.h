@@ -42,9 +42,8 @@ protected:
 	TObjectPtr<UUserWidget> ARXGamePauseMenuWidget; // HUD UI 포인터
 
 public:
-	UFUNCTION(BlueprintCallable)
+
 	void ActiveGameMainMenu();
-	UFUNCTION(BlueprintCallable)
 	void ActiveGamePauseMenu();
 
 	UFUNCTION(BlueprintCallable)
@@ -57,6 +56,7 @@ public:
 	void SpawnPlayerToDestination() const;
 
 	// 플레이어 hp 0 이되어 사망시 처리해야할 함수
+	UFUNCTION(BlueprintCallable)
 	void RespawnPlayerAtCheckPoint() const;
 
 	bool CheckUIActiveState(); // UI 활성화 추적 함수

@@ -84,10 +84,10 @@ public:
 
 	// 캐릭터 피격/정상 머터리얼 변수
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Material")
-	UMaterialInterface* RedMaterial;
+	TObjectPtr<UMaterialInterface> RedMaterial;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Material")
-	UMaterialInterface* DefaultMaterial;
+	TObjectPtr<UMaterialInterface> DefaultMaterial;
 
 private:
 	FTimerHandle ShieldRegenTimer; // 쉴드 회복 타이머

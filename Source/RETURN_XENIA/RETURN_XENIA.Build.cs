@@ -26,7 +26,8 @@ public class RETURN_XENIA : ModuleRules
 			"Niagara",
 			"UMG",
 			"Slate",    
-            "SlateCore"
+            "SlateCore",
+            "ChaosClothAssetEngine"
 		});
 	}
 }

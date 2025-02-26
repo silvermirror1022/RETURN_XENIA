@@ -35,4 +35,6 @@ public:
 	void TeleportToOtherLevel();
 	virtual void TeleportToOtherLevel_Implementation(); //다른 레벨 여는 함수
 
+	FTimerHandle TimerHandle_Teleport;
+	void PerformTeleport();
 };

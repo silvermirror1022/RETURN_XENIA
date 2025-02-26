@@ -42,7 +42,6 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void StopSprinting();
 	uint8 bIsSprinting : 1; // 필요하면 변수로 스프린팅상태 추적
 
-
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
 	void PuzzelReset();
@@ -81,7 +80,7 @@ public:
 	void ResetDetectedActors();  //리셋
 
 	// NPC 대화 관련 NPC 탐지 변수 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite)
 	TObjectPtr<class ARXNonPlayer> DetectedNPC;
 
 	// 탐지 텔레포트 엑터 변수

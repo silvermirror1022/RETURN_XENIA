@@ -24,6 +24,7 @@ protected:
 
 public:
 	//RXNPCDialogueInterface Interface Virtual Func override Implementation
+	UFUNCTION(BlueprintCallable)
 	virtual void StartDialogue() override;
 	virtual void DisplayDialogue() override;
 	virtual void EndDialogue() override;
@@ -59,6 +60,11 @@ public:
 	TObjectPtr<class URXDialogueData> Kor_DialogueData; // 가져온 한글 대화 데이터
 
 	int32 DialogueIndex; //대화 인덱스
+
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Dialogue Anim Montage")
+	TObjectPtr<UAnimMontage> DialogueMontage; // 대화시플레이할 몽타주
+
+	void PlayDialogueMontage() const;
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DialoguePopupEvent();
