@@ -27,6 +27,7 @@
 #include "System/RXGameInstance.h"
 #include "Animation/AnimInstance.h" 
 #include "Actor/RXCircularPuzzelBase.h"
+#include "Actor/RXKnotHanger.h"
 
 ARXPlayer::ARXPlayer()
 {
@@ -187,6 +188,10 @@ void ARXPlayer::UpdateDetectedActor()
 		{
 			DetectedPuzzelActor = PuzzelActor;
 		}
+		else if (ARXKnotHanger* KnotHangerActor = Cast<ARXKnotHanger>(Hit.GetActor()))
+		{
+			DetectedKnotHangerActor = KnotHangerActor;
+		}
 		else
 		{
 			ResetDetectedActors();
@@ -203,6 +208,7 @@ void ARXPlayer::ResetDetectedActors()
 	DetectedTeleportActor = nullptr;
 	DetectedPuzzelActor = nullptr;
 	DetectedCircularPuzzelActor = nullptr;
+	DetectedKnotHangerActor = nullptr;
 }
 void ARXPlayer::Interact_IA_EKey()
 {
@@ -215,6 +221,10 @@ void ARXPlayer::Interact_IA_EKey()
 	else if (DetectedTeleportActor)
 	{
 		DetectedTeleportActor->TeleportToOtherLevel();
+	}
+	else if(DetectedKnotHangerActor)
+	{
+		DetectedKnotHangerActor->ShowKnotWithCam();
 	}
 	else if (DetectedPuzzelActor)
 	{
