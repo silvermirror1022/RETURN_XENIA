@@ -129,6 +129,16 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(CP_ExitAction, ETriggerEvent::Started, this, &ARXPlayer::ExitCircularPuzzel);
 		
 	}
+
+	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_KnotHang"))
+	{
+		auto QKey_HangKnotAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_KnotHang_Hang);
+		auto BKey_ExitHangingKnotAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_KnotHang_Exit);
+
+		EnhancedInputComponent->BindAction(QKey_HangKnotAction, ETriggerEvent::Started, this, &ARXPlayer::HangKnotChar);
+		EnhancedInputComponent->BindAction(BKey_ExitHangingKnotAction, ETriggerEvent::Started, this, &ARXPlayer::ExitHangingKnot);
+	}
+	
 	/*게임 UI 관련 액션 바인딩은 플레이어컨트롤러에서 개별 분리*/
 }
 
@@ -234,6 +244,7 @@ void ARXPlayer::Interact_IA_EKey()
 			// CircularPuzzelBase의 PuzzelEventStart 호출
 			if (!GI->IsPuzzelStatusAcquired(DetectedCircularPuzzelActor->GetPuzzelName().ToString()))
 			{
+				DetectedCircularPuzzelActor = Cast<ARXCircularPuzzelBase>(DetectedCircularPuzzelActor);
 				DetectedCircularPuzzelActor->PuzzelEventStart();
 			}
 		}
@@ -427,7 +438,7 @@ void ARXPlayer::RotateCP_CounterClockWise()
 	DetectedCircularPuzzelActor->RotateToCounterClockWise();
 }
 
-void ARXPlayer::RotateCP_ClockWise()
+void ARXPlayer::RotateCP_ClockWise() 
 {
 	if (!bIsCircularPuzzelMode) return;
 	DetectedCircularPuzzelActor->RotateToClockWise();
@@ -437,6 +448,19 @@ void ARXPlayer::ChangeSelectedWheel()
 {
 	if (!bIsCircularPuzzelMode) return;
 	DetectedCircularPuzzelActor->SwitchSelectedWheel();
+}
+
+void ARXPlayer::HangKnotChar()
+{
+	if(DetectedKnotHangerActor->isCamView)
+	{
+		DetectedKnotHangerActor->HangKnotAction();
+	}
+}
+
+void ARXPlayer::ExitHangingKnot() 
+{
+	DetectedKnotHangerActor->ReturnToPlayerView();
 }
 
 void ARXPlayer::SetDead()

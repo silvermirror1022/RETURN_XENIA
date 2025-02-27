@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -28,8 +28,12 @@ public:
 	void ReturnToPlayerView();
 	virtual void ReturnToPlayerView_Implementation();
 
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void HangKnotAction();
+	virtual void HangKnotAction_Implementation();
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraSetting")
-	TObjectPtr<ACameraActor> KnowShowCamera;
+	TObjectPtr<ACameraActor> KnotShowCamera;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	uint8 isCamView : 1;
