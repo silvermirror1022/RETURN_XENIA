@@ -54,6 +54,10 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void RotateCP_ClockWise();
 	void ChangeSelectedWheel();
 
+	// 매듭문자 달기 이벤트 관련 함수 및 변수
+	void HangKnotChar();
+	void ExitHangingKnot();
+
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
@@ -92,6 +96,10 @@ public:
 	TObjectPtr<class ARXPuzzelBase> DetectedPuzzelActor;
 	UPROPERTY()
 	TObjectPtr<class ARXCircularPuzzelBase> DetectedCircularPuzzelActor;
+
+	// 매듭 행거
+	UPROPERTY()
+	TObjectPtr<class ARXKnotHanger> DetectedKnotHangerActor;
 
 	// 퍼즐이벤트 플레이어 포지션 셋팅 함수
 	void MoveToTagLocation(FName TagName, float ZOffSet);

@@ -22,7 +22,11 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_SwitchTab, "Input.Action.CircularPuzzel.SwitchTab");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_ClockWiseRotate, "Input.Action.CircularPuzzel.ClockWiseRotate");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_CP_CounterClockWiseRotate, "Input.Action.CircularPuzzel.CounterClockWiseRotate");
-	
+
+	// except : used for KnotHangMappingContext : HangingKnotMode Section
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_KnotHang_Hang, "Input.Action.KnotHang.Hang");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_KnotHang_Exit, "Input.Action.KnotHang.Exit");
+
 	//Player Others Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_EnterKey, "Input.Action.EnterKey");

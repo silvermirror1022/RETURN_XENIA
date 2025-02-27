@@ -29,7 +29,7 @@ protected:
 		UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintCallable)
-	void SetVisibilityFalse();
+	void SetInteractionVisibility(bool bIsVisible);
 public:	
 private:
 	UPROPERTY(EditAnywhere)

@@ -85,11 +85,18 @@ void URXInteractionVisibilityComponent::OnBoxEndOverlap(UPrimitiveComponent* Ove
     }
 }
 
-void URXInteractionVisibilityComponent::SetVisibilityFalse()
+void URXInteractionVisibilityComponent::SetInteractionVisibility(bool bIsVisible)
 {
     if (WidgetComponent)
     {
-        WidgetComponent->SetVisibility(false); // 위젯 숨김
+        if(bIsVisible)
+        {
+            WidgetComponent->SetVisibility(true); // 위젯 보이게
+        }
+        else
+        {
+            WidgetComponent->SetVisibility(false); // 위젯 숨김
+        }
     }
 }
 
