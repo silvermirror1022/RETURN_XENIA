@@ -66,9 +66,10 @@ public:
 
 	void PlayDialogueMontage() const;
 
+	// 추가 대화 종료시 BP에서 대화 커스텀 이벤트 추가 구현 함수
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	void DialoguePopupEvent();
-	void DialoguePopupEvent_Implementation(); // 추가 블루프린트에서 필요한 대화 커스텀 이벤트 추가 구현 함수
+	void DialoguePopupEvent_Implementation(); 
 	
 
 	UPROPERTY()
