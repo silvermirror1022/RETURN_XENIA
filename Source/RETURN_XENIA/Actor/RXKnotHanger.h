@@ -38,6 +38,21 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	uint8 isCamView : 1;
 
+	// 1층 듀토리얼 퍼즐 매듭 획득 체크 함수
+	UFUNCTION(BlueprintCallable)
+	bool IsAcquiredKnot_Tutorial();
+
+	// 2층 듀토리얼 퍼즐 매듭 획득 체크 함수
+	UFUNCTION(BlueprintCallable)
+	bool IsAcquiredKnot_1F();
+
+	// 3층 듀토리얼 퍼즐 매듭 획득 체크 함수
+	UFUNCTION(BlueprintCallable)
+	bool IsAcquiredKnot_2F();
+
+	// 넘길 타입 변수들 Tutorial, 1F, 2F
+	UFUNCTION(BlueprintCallable)
+	void UseKnotItem(FString KnotHangerType);
 	UPROPERTY()
 	TObjectPtr<class ARXPlayer> Player;
 
