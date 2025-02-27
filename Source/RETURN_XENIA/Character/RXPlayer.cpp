@@ -224,7 +224,7 @@ void ARXPlayer::Interact_IA_EKey()
 	}
 	else if(DetectedKnotHangerActor)
 	{
-		DetectedKnotHangerActor->ShowKnotWithCam();
+		DetectedKnotHangerActor->ChangeToCamView();
 	}
 	else if (DetectedPuzzelActor)
 	{

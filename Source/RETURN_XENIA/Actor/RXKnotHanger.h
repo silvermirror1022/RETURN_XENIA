@@ -20,13 +20,25 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	UFUNCTION(BlueprintCallable,BlueprintNativeEvent)
-	void ShowKnotWithCam();
-	virtual void ShowKnotWithCam_Implementation();
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void ChangeToCamView();
+	virtual void ChangeToCamView_Implementation();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraView")
-	TObjectPtr<ACameraActor> PuzzelModeCamera;
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void ReturnToPlayerView();
+	virtual void ReturnToPlayerView_Implementation();
 
-	//UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera")
-	//TObjectPtr<UCameraComponent> HangerCamera;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CameraSetting")
+	TObjectPtr<ACameraActor> KnowShowCamera;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	uint8 isCamView : 1;
+
+	UPROPERTY()
+	TObjectPtr<class ARXPlayer> Player;
+
+	UPROPERTY()
+	TObjectPtr<class ARXPlayerController> PlayerController;
+
+	void SwitchToCamera(AActor* NewCamera, float BlendTime) const;
 };
