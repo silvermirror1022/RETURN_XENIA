@@ -5,7 +5,6 @@
 #include "RXGameplayTags.h"
 #include "RXDebugHelper.h"
 #include "RXAssetManager.h"
-#include "Engine/PostProcessVolume.h"
 
 URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
