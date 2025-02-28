@@ -7,6 +7,7 @@
 #include "RXPlayerStatComponent.generated.h"
 
 class URXGameInstance;
+class USoundBase;
 
 // 플레이어가 Hp가 0이 될 때 호출 델리게이트 
 DECLARE_MULTICAST_DELEGATE(FOnPlayerHpZeroDelegate); 
@@ -88,6 +89,10 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Material")
 	TObjectPtr<UMaterialInterface> DefaultMaterial;
+
+	// 피격 시 재생할 2D 사운드
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sound")
+	TObjectPtr<USoundBase> HitSound;
 
 private:
 	FTimerHandle ShieldRegenTimer; // 쉴드 회복 타이머

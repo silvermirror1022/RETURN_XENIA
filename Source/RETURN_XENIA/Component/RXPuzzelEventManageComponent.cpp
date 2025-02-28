@@ -4,7 +4,6 @@
 #include "Component/RXPuzzelEventManageComponent.h"
 #include "GameFramework/PlayerController.h"
 #include "Character/RXPlayer.h"
-#include "Kismet/GameplayStatics.h"
 #include "Component/RXPuzzelSpawnManageComponent.h"
 #include "GameFramework/Actor.h"
 #include "Player/RXPlayerController.h"

@@ -5,6 +5,7 @@
 #include "System/RXGameInstance.h"
 #include "Character/RXPlayer.h"
 #include "RXDebugHelper.h"
+#include "Kismet/GameplayStatics.h"
 
 URXPlayerStatComponent::URXPlayerStatComponent()
 {
@@ -112,7 +113,13 @@ void URXPlayerStatComponent::ApplyDamage(int32 InDamage)
 		D(FString::Printf(TEXT("Immortal!")));
 		return; // 무적 상태면 데미지 적용 안 함
 	}
+
 	D(FString::Printf(TEXT("damaged!")));
+
+	if (HitSound)
+	{
+		UGameplayStatics::PlaySound2D(this, HitSound);
+	}
 
 	// 무적 상태 활성화
 	bIsImmortal = true;

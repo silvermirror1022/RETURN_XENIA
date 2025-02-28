@@ -20,6 +20,10 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelReset);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelTab);
 
+	// Player KnotHang Input Section
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_KnotHang_Hang);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_KnotHang_Exit);
+
 	// Player UI Input Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_ESCKey);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_IKey);
