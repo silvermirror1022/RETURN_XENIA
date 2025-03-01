@@ -180,6 +180,7 @@ void ARXNonPlayer::EndDialogue()
         if (ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter))
         {
             RXPlayer->Controller->SetIgnoreMoveInput(false);  // 이동 입력 허용
+            RXPlayer->ResetDetectedActors();
         }
     }
     // 예외처리 변수 해제
