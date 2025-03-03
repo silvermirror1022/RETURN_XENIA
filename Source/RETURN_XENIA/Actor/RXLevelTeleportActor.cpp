@@ -6,6 +6,7 @@
 #include "System/RXGameInstance.h"
 #include "Character/RXPlayer.h"
 #include "Player/RXPlayerStatComponent.h"
+#include "RXDebugHelper.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
@@ -38,19 +39,6 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
         return;
     }
 
-    // 게임 인스턴스에 DestinationTag 설정
-    if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
-    {
-        GameInstance->SetDestinationTag(DestinationTag);
-        GameInstance->CurrentLevelName = NextLevelName;
-    }
-
-    GetWorld()->GetTimerManager().SetTimer(TimerHandle_Teleport, this, &ARXLevelTeleportActor::PerformTeleport, 2.5f, false);
-	// 자산 로드 완료 후 레벨 전환
-
-}
-void ARXLevelTeleportActor::PerformTeleport()
-{
     // 플레이어 액터 가져와 무적 상태로 (텔포시 데미지 받는 버그 방지용)
     ARXPlayer* Player = Cast<ARXPlayer>(UGameplayStatics::GetPlayerPawn(this, 0));
     if (Player)
@@ -64,6 +52,19 @@ void ARXLevelTeleportActor::PerformTeleport()
         }
     }
 
+    // 게임 인스턴스에 DestinationTag 설정
+    if (URXGameInstance* GameInstance = Cast<URXGameInstance>(GetGameInstance()))
+    {
+        GameInstance->SetDestinationTag(DestinationTag);
+        GameInstance->CurrentLevelName = NextLevelName;
+    }
+
+    GetWorld()->GetTimerManager().SetTimer(TimerHandle_Teleport, this, &ARXLevelTeleportActor::PerformTeleport, 2.5f, false);
+	// 자산 로드 완료 후 레벨 전환
+
+}
+void ARXLevelTeleportActor::PerformTeleport()
+{
     // 2.5초 후에 OpenLevel 실행
     UE_LOG(LogTemp, Log, TEXT("Teleporting to level: %s"), *NextLevelName.ToString());
     UGameplayStatics::OpenLevel(this, NextLevelName);
