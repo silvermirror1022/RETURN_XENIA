@@ -35,6 +35,10 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_CounterClockWiseRotate);
 
 	// NPC Dialogue Data Section
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_ClosedDoor);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sign);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama_Temple);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_SubmapBarrier);

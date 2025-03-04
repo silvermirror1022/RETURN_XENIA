@@ -34,7 +34,11 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_IKey, "Input.Action.IKey");
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_ClosedDoor, "Dialogue.NPCType.ClosedDoor");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Sign, "Dialogue.NPCType.Sign");
+
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama, "Dialogue.NPCType.Pachamama");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama_Temple, "Dialogue.NPCType.Pachamama.Temple");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_SubmapBarrier, "Dialogue.NPCType.SubmapBarrier");
 
