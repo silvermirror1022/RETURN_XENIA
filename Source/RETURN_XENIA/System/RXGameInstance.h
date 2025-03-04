@@ -89,6 +89,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelClearStatus")
 	TArray<FStatus> PuzzelClearStatusArray; // 퍼즐 클리어 유무 배열 (서브맵1,2,3,4,5,템플 => 6개)
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ObservedMapStatus")
+	int32 ObservedMapStatus; // 맵 탐험 클리어 유무 배열 (Level : 총 8개)
+
 public:
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
@@ -118,6 +121,13 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "PuzzelStatus")
 	bool IsPuzzelStatusAcquired(FString StatusName) const;
+
+	// 맵 탐험 클리어 상태 설정 및 상태 확인 함수 섹션
+	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
+	void SetObservedMapStatus(int32 Level);
+
+	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
+	int ReturnObservedMapStatus();
 public:
 	// 플레이어 체력, 방패 섹션
 	UPROPERTY()
