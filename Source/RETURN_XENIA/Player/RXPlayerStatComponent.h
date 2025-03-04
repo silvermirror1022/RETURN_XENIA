@@ -100,7 +100,7 @@ private:
 	uint8 bIsShieldRegenActive : 1;
 	void ShieldRegenAction();
 
-	float ImmortalTime = 0.5f; // 무적 시간 및 타이머
+	float ImmortalTime = 1.0f; // 무적 시간 및 타이머
 	FTimerHandle ImmortalTimer;
 	void ResetImmortalState();
 
