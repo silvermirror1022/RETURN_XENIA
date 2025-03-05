@@ -196,4 +196,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
 	bool bIsWinikDialogueEventFinished; // 위닉 대화 이벤트 종료 확인 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
+	bool bIsNoahGetup; // 노아 눈꺼풀 이벤트 변수
 };

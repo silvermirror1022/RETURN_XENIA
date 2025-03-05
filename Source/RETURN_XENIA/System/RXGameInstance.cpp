@@ -18,6 +18,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 
 	ObservedMapStatus = 1;
 	bIsKorean = true;
+	bIsNoahGetup = false;
 	bIsAfterDisaster = false;
 	bIsAntuqDialogueEventFinished = false; 
 	bIsAmarkaDialogueEventFinished = false; 
