@@ -84,6 +84,16 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
 	bool bIsWinikDialogueEventFinished;
 
+	/** 기타 변수들 */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SaveData")
+	int32 ObservedMapStatus; 
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
+	int32 AcquiredPapyrusNum; 
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
+	bool bIsNoahGetup; 
+
 public:
 
 	 // 게임 인스턴스의 현재 데이터를 이 SaveGame 객체로 복사
