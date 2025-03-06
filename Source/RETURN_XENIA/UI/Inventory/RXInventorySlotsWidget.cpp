@@ -25,10 +25,10 @@ void URXInventorySlotsWidget::NativeConstruct()
 
 	TArray<FString> ItemNames = { TEXT("KnotChar_Tutorial"), TEXT("KnotChar1F_1"), TEXT("KnotChar1F_2"), TEXT("KnotChar1F_3"),
 		TEXT("KnotChar2F_1"), TEXT("KnotChar2F_2"),TEXT("KnotChar2F_3"),
-		TEXT("HintPaper"), TEXT("Papyrus1"), TEXT("Papyrus2"), TEXT("Papyrus3") };
+		TEXT("HintPaper") };
 
 	constexpr int X_COUNT = 3;
-	constexpr int Y_COUNT = 4;
+	constexpr int Y_COUNT = 3;
 	int32 CurrentItemIndex = 0;
 
 	// 획득된 아이템 리스트만 필터링
@@ -87,6 +87,21 @@ void URXInventorySlotsWidget::NativeConstruct()
 	}
 }
 
+void URXInventorySlotsWidget::ClearSelection()
+{
+	if (!GridPanel_Item) return;
+
+	const int32 NumChildren = GridPanel_Item->GetChildrenCount();
+	for (int32 i = 0; i < NumChildren; i++)
+	{
+		URXInventorySlotWidget* InventorySlot = Cast<URXInventorySlotWidget>(GridPanel_Item->GetChildAt(i));
+		if (InventorySlot && InventorySlot->PressedImage)
+		{
+			InventorySlot->PressedImage->SetVisibility(ESlateVisibility::Hidden);
+		}
+	}
+}
+
 void URXInventorySlotsWidget::HandleSlotSelected(URXInventorySlotWidget* SelectedSlot)
 {
 	// GridPanel에 포함된 모든 슬롯 위젯을 순회하면서,
@@ -102,5 +117,10 @@ void URXInventorySlotsWidget::HandleSlotSelected(URXInventorySlotWidget* Selecte
 		{
 			InventorySlot->PressedImage->SetVisibility(ESlateVisibility::Hidden);
 		}
+	}
+	// 중재자(메인 메뉴 위젯)를 통해 파피루스 그룹의 선택도 해제
+	if (MainMenuWidget)
+	{
+		MainMenuWidget->ClearPapyrusSelection();
 	}
 }

@@ -51,7 +51,20 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnCh5BtnPressed(bool bIsKorean);
 
+	/*
+	 * 아이템과 파피루스 아이템 슬롯에 대한 중재자 함수
+	 */
+
+	void ClearPapyrusSelection();
+	void ClearInventorySelection();
+
 private:
+	// 아이템 파피루스 아이템 위젯 참조 변수
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class URXPapyrusSlotsWidget> WBP_PapyrusSlotsWidget;
+	UPROPERTY(meta = (BindWidget), BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class URXInventorySlotsWidget> WBP_InventorySlotsWidget;
+
 	// 모든 버튼의 PressedImage를 리셋하는 함수
 	void ResetAllPressedImages() const;
 

@@ -2,6 +2,8 @@
 
 #include "UI/RXMainMenuWidget.h"
 #include "Components/Image.h"
+#include "UI/Inventory/RXInventorySlotsWidget.h"
+#include "UI/Inventory/RXPapyrusSlotsWidget.h"
 
 URXMainMenuWidget::URXMainMenuWidget(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -95,5 +97,21 @@ void URXMainMenuWidget::OnCh5BtnPressed(bool bIsKorean)
     else if (!bIsKorean && Ch5_PressedImg_EN)
     {
         Ch5_PressedImg_EN->SetVisibility(ESlateVisibility::Visible);
+    }
+}
+
+void URXMainMenuWidget::ClearPapyrusSelection()
+{
+    if (WBP_PapyrusSlotsWidget) // URXPapyrusSlotsWidget의 참조
+    {
+        WBP_PapyrusSlotsWidget->ClearSelection();
+    }
+}
+
+void URXMainMenuWidget::ClearInventorySelection()
+{
+    if (WBP_InventorySlotsWidget) // URXInventorySlotsWidget의 참조
+    {
+        WBP_InventorySlotsWidget->ClearSelection();
     }
 }
