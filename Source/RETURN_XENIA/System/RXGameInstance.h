@@ -84,7 +84,7 @@ public:
 	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemStatus")
-	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 6개, 심장, 힌트종이)
+	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 7개, 파피루스3개, 힌트종이 => 11개)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelClearStatus")
 	TArray<FStatus> PuzzelClearStatusArray; // 퍼즐 클리어 유무 배열 (서브맵1,2,3,4,5,템플 => 6개)
