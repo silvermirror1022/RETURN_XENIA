@@ -97,7 +97,6 @@ void ARXPlayerController::ActiveGamePauseMenu()
 		}
 	}
 }
-
 void ARXPlayerController::SpawnPlayerToDestination() const
 {
 	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
