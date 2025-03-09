@@ -74,6 +74,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap5, "Dialogue.NPCType.Nawiniq.Submap5");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss, "Dialogue.NPCType.Boss");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss_Dead, "Dialogue.NPCType.Boss.Dead");
 
 	// Teleport Teleport System Section 
 	// First Floor
