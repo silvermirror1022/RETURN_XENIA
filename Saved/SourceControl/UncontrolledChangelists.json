@@ -7,7 +7,20 @@
 			"files": [
 				"D:/RETURN_XENIA/Content/Designer/Materials/M_AirStep.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Sign.uasset",
-				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F.umap"
+				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F.umap",
+				"D:/RETURN_XENIA/Content/Movies/Sequence1.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence2.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence3_EN.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence3_KR.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence4_EN.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence4_KR.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence5_EN.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Sequence5_KR.uasset",
+				"D:/RETURN_XENIA/Content/Movies/Ending_Credits.uasset",
+				"D:/RETURN_XENIA/Content/Data/DA_Kor_DialogueData.uasset",
+				"D:/RETURN_XENIA/Content/Data/DA_Eng_DialogueData.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_RockChar.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_Sign.uasset"
 			]
 		}
 	]
