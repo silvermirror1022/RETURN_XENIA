@@ -74,6 +74,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap5);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss_Dead);
 
 	// TeleportSystem Tag Section
 	// 1층 레벨 텔레포트 시스템 태그 정의
