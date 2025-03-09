@@ -39,6 +39,7 @@ namespace RXGameplayTags
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama, "Dialogue.NPCType.Pachamama");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama_Temple, "Dialogue.NPCType.Pachamama.Temple");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama_InBossBattle, "Dialogue.NPCType.Pachamama.InBossBattle");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_SubmapBarrier, "Dialogue.NPCType.SubmapBarrier");
 
