@@ -1968,3 +1968,5 @@ _MatTransl_3B7A55D3409170328211A060FC2E3BB1E263C720_BBD650804D314CE7A44ADF9BB4F3
 [2025.03.09-22.13.37:726][ 81]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/Blueprints/System/BP_GameInstance.BP_GameInstance
 [2025.03.09-22.30.28:678][586]LogSlate: External Image Picker: DecompressImage failed
 [2025.03.09-22.34.49:364][137]LogSlate: Window 'Project Settings' being destroyed
+[2025.03.09-22.37.13:981][692]LogConfig: Display: Read in platform Windows ini files took 0.03 seconds
+[2025.03.09-22.37.17:027][860]LogAssetEditorSubsystem: Opening Asset editor for FileMediaSource /Game/Movies/Sequence4_EN.Sequence4_EN
