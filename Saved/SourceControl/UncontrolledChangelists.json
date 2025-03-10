@@ -34,7 +34,11 @@
 				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F_AfterDisaster.umap",
 				"D:/RETURN_XENIA/Content/Blueprints/System/BP_GameInstance.uasset",
 				"D:/RETURN_XENIA/Content/Designer/UI/ICN_MouseCursor_A01.uasset",
-				"D:/RETURN_XENIA/Content/UI/WBP_MouseCursor.uasset"
+				"D:/RETURN_XENIA/Content/UI/WBP_MouseCursor.uasset",
+				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/Cabin_Map.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Pachamama_Altar.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Kaira/BP_NPC_Kaira_Top.uasset",
+				"D:/RETURN_XENIA/Content/UI/MainMenu/WBP_MainMenuWidget.uasset"
 			]
 		}
 	]
