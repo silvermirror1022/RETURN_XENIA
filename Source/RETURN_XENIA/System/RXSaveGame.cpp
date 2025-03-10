@@ -2,16 +2,18 @@
 
 
 #include "System/RXSaveGame.h"
+
+#include "RXGameplayTags.h"
 #include "System/RXGameInstance.h"
 
 URXSaveGame::URXSaveGame()
 {
 	// 기본값 설정
 	CheckpointTransform = FTransform::Identity;
-	CurrentDestinationTag = FGameplayTag(); // 기본 태그
+	CurrentDestinationTag = RXGameplayTags::Teleport_1stFloor_MainMap_Start; // 기본 태그
 	CurrentLevelName = "NoahHouse";
-	GI_Hp = 0;
-	GI_Shield = 0;
+	GI_Hp = 3;
+	GI_Shield = 1;
 	SliderValues = FSliderValues(); // 기본 생성자 호출
 	bIsKorean = true;
 	bIsAfterDisaster = false;
@@ -20,7 +22,7 @@ URXSaveGame::URXSaveGame()
 	bIsAmarkaDialogueEventFinished = false;
 	bIsAmarkaDialogueItemEventFinished = false;
 	bIsWinikDialogueEventFinished = false;
-	ObservedMapStatus = 0;
+	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
 	bIsNoahGetup = false;
 }
