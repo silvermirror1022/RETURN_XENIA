@@ -20,7 +20,10 @@
 				"D:/RETURN_XENIA/Content/Data/DA_Kor_DialogueData.uasset",
 				"D:/RETURN_XENIA/Content/Data/DA_Eng_DialogueData.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_RockChar.uasset",
-				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_Sign.uasset"
+				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_Sign.uasset",
+				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/NoahHouse.umap",
+				"D:/RETURN_XENIA/Content/UI/WBP_MediaPlayer_NonStop.uasset",
+				"D:/RETURN_XENIA/Content/Audio/SFX/SFX_Bird.uasset"
 			]
 		}
 	]
