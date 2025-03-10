@@ -5,6 +5,7 @@
 #include "RXGameplayTags.h"
 #include "RXDebugHelper.h"
 #include "RXAssetManager.h"
+#include "RXSaveGame.h"
 
 URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -149,6 +150,23 @@ void URXGameInstance::SetObservedMapStatus(int32 Level)
 int URXGameInstance::ReturnObservedMapStatus() 
 {
 	return ObservedMapStatus;
+}
+
+void URXGameInstance::InitializeAllVariable()
+{
+	CurrentDestinationTag = RXGameplayTags::Teleport_1stFloor_MainMap_Start;
+	CurrentLevelName = "NoahHouse";
+	SetGI_Hp(3);
+	SetGI_Shield(1);
+	ObservedMapStatus = 1;
+	AcquiredPapyrusNum = 0;
+	bIsKorean = true;
+	bIsNoahGetup = false;
+	bIsAfterDisaster = false;
+	bIsAntuqDialogueEventFinished = false;
+	bIsAmarkaDialogueEventFinished = false;
+	bIsWinikDialogueEventFinished = false;
+	bIsAmarkaDialogueItemEventFinished = false;
 }
 
 
