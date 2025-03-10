@@ -5,6 +5,7 @@
 #include "RXGameplayTags.h"
 #include "RXDebugHelper.h"
 #include "RXAssetManager.h"
+#include "RXSaveGame.h"
 
 URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -149,6 +150,51 @@ void URXGameInstance::SetObservedMapStatus(int32 Level)
 int URXGameInstance::ReturnObservedMapStatus() 
 {
 	return ObservedMapStatus;
+}
+
+void URXGameInstance::InitializeAllVariable()
+{
+	CurrentDestinationTag = RXGameplayTags::Teleport_1stFloor_MainMap_Start;
+	CurrentLevelName = "NoahHouse";
+	SetGI_Hp(3);
+	SetGI_Shield(1);
+	ObservedMapStatus = 1;
+	AcquiredPapyrusNum = 0;
+	bIsKorean = true;
+	bIsNoahGetup = false;
+	bIsAfterDisaster = false;
+	bIsAntuqDialogueEventFinished = false;
+	bIsAmarkaDialogueEventFinished = false;
+	bIsWinikDialogueEventFinished = false;
+	bIsAmarkaDialogueItemEventFinished = false;
+
+	// MemoryStatusArray: 첫번째 요소만 true, 나머지는 false
+	if (MemoryStatusArray.Num() > 0)
+	{
+		MemoryStatusArray[0].bIsAcquired = true; // 예외: 첫번째만 true로 유지
+		for (int32 i = 1; i < MemoryStatusArray.Num(); i++)
+		{
+			MemoryStatusArray[i].bIsAcquired = false;
+		}
+	}
+
+	// ProfileStatusArray: 모두 false로 초기화
+	for (int32 i = 0; i < ProfileStatusArray.Num(); i++)
+	{
+		ProfileStatusArray[i].bIsAcquired = false;
+	}
+
+	// ItemStatusArray: 모두 false로 초기화
+	for (int32 i = 0; i < ItemStatusArray.Num(); i++)
+	{
+		ItemStatusArray[i].bIsAcquired = false;
+	}
+
+	// PuzzelClearStatusArray: 모두 false로 초기화
+	for (int32 i = 0; i < PuzzelClearStatusArray.Num(); i++)
+	{
+		PuzzelClearStatusArray[i].bIsAcquired = false;
+	}
 }
 
 

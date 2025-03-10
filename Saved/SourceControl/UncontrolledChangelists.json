@@ -23,7 +23,23 @@
 				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_Sign.uasset",
 				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/NoahHouse.umap",
 				"D:/RETURN_XENIA/Content/UI/WBP_MediaPlayer_NonStop.uasset",
-				"D:/RETURN_XENIA/Content/Audio/SFX/SFX_Bird.uasset"
+				"D:/RETURN_XENIA/Content/Audio/SFX/SFX_Bird.uasset",
+				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap4.umap",
+				"D:/RETURN_XENIA/Content/Movies/E_MovieList.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Pachamama_InBossBattle.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/System/BP_MediaPlayer.uasset",
+				"D:/RETURN_XENIA/Content/Cinematics/LS_AfterDiaster.uasset",
+				"D:/RETURN_XENIA/Content/Cinematics/LS_GameStart.uasset",
+				"D:/RETURN_XENIA/Content/UI/WBP_MediaPlayer.uasset",
+				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F_AfterDisaster.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/System/BP_GameInstance.uasset",
+				"D:/RETURN_XENIA/Content/Designer/UI/ICN_MouseCursor_A01.uasset",
+				"D:/RETURN_XENIA/Content/UI/WBP_MouseCursor.uasset",
+				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/Cabin_Map.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Pachamama_Altar.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Kaira/BP_NPC_Kaira_Top.uasset",
+				"D:/RETURN_XENIA/Content/UI/MainMenu/WBP_MainMenuWidget.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/System/BP_SaveGame.uasset"
 			]
 		}
 	]
