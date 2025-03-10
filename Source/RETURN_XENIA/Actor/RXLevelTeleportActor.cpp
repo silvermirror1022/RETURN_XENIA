@@ -4,6 +4,9 @@
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "System/RXGameInstance.h"
+#include "Character/RXPlayer.h"
+#include "Player/RXPlayerStatComponent.h"
+#include "RXDebugHelper.h"
 
 ARXLevelTeleportActor::ARXLevelTeleportActor()
 {
@@ -34,6 +37,19 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
     {
         UE_LOG(LogTemp, Warning, TEXT("NextLevelName is not set!"));
         return;
+    }
+
+    // 플레이어 액터 가져와 무적 상태로 (텔포시 데미지 받는 버그 방지용)
+    ARXPlayer* Player = Cast<ARXPlayer>(UGameplayStatics::GetPlayerPawn(this, 0));
+    if (Player)
+    {
+        // 플레이어의 스탯 컴포넌트 가져오기
+        URXPlayerStatComponent* StatComp = Player->FindComponentByClass<URXPlayerStatComponent>();
+        if (StatComp)
+        {
+            // 무적 상태 활성화
+            StatComp->bIsImmortal = true;
+        }
     }
 
     // 게임 인스턴스에 DestinationTag 설정

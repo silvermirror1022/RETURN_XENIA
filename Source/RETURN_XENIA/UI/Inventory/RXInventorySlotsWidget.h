@@ -35,6 +35,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Items")
 	TSubclassOf<UUserWidget> EmptySlotClass;
 
+	// 선택 해제 함수
+	void ClearSelection();
 private:
 	// 부모 MainMenuWidget
 	UPROPERTY()

@@ -16,7 +16,10 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	SetGI_Hp(3);
 	SetGI_Shield(1);
 
+	ObservedMapStatus = 1;
+	AcquiredPapyrusNum = 0;
 	bIsKorean = true;
+	bIsNoahGetup = false;
 	bIsAfterDisaster = false;
 	bIsAntuqDialogueEventFinished = false; 
 	bIsAmarkaDialogueEventFinished = false; 
@@ -112,7 +115,7 @@ bool URXGameInstance::IsItemStatusAcquired(FString StatusName) const
 	return false;
 }
 
-// For PuzzelEvent Enter Interaction Dynamic Control Function Section
+// For PuzzelEvent Start Interaction Dynamic Control Function Section
 bool URXGameInstance::SetPuzzelStatusAcquired(FString StatusName)
 {
 	for (FStatus& Status : PuzzelClearStatusArray)
@@ -137,4 +140,15 @@ bool URXGameInstance::IsPuzzelStatusAcquired(FString StatusName) const
 	}
 	return false;
 }
+// For ObservedMap User Experience Dynamic Control Function Section
+void URXGameInstance::SetObservedMapStatus(int32 Level)
+{
+	ObservedMapStatus = Level;
+}
+
+int URXGameInstance::ReturnObservedMapStatus() 
+{
+	return ObservedMapStatus;
+}
+
 

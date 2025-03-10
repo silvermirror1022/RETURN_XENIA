@@ -61,7 +61,7 @@ void ARXRockSpawner::SpawnRock()
 	// 6초 후 Rock 반환
 	FTimerHandle TimerHandle;
 	FTimerDelegate TimerDelegate = FTimerDelegate::CreateUObject(this, &ARXRockSpawner::ReturnRockToPool, Rock);
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle, TimerDelegate, 6.f, false);
+	GetWorld()->GetTimerManager().SetTimer(TimerHandle, TimerDelegate, 7.f, false);
 }
 
 void ARXRockSpawner::DeactivateAllRocks()

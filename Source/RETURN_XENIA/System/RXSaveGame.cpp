@@ -20,6 +20,9 @@ URXSaveGame::URXSaveGame()
 	bIsAmarkaDialogueEventFinished = false;
 	bIsAmarkaDialogueItemEventFinished = false;
 	bIsWinikDialogueEventFinished = false;
+	ObservedMapStatus = 0;
+	AcquiredPapyrusNum = 0;
+	bIsNoahGetup = false;
 }
 
 void URXSaveGame::CaptureDataFromGameInstance(URXGameInstance* GameInstance)
@@ -47,6 +50,9 @@ void URXSaveGame::CaptureDataFromGameInstance(URXGameInstance* GameInstance)
 	bIsAmarkaDialogueEventFinished = GameInstance->bIsAmarkaDialogueEventFinished;
 	bIsAmarkaDialogueItemEventFinished = GameInstance->bIsAmarkaDialogueItemEventFinished;
 	bIsWinikDialogueEventFinished = GameInstance->bIsWinikDialogueEventFinished;
+	AcquiredPapyrusNum = GameInstance->AcquiredPapyrusNum;
+	bIsNoahGetup = GameInstance->bIsNoahGetup;
+	ObservedMapStatus = GameInstance->ObservedMapStatus;
 }
 
 void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
@@ -74,4 +80,7 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->bIsAmarkaDialogueEventFinished = bIsAmarkaDialogueEventFinished;
 	GameInstance->bIsAmarkaDialogueItemEventFinished = bIsAmarkaDialogueItemEventFinished;
 	GameInstance->bIsWinikDialogueEventFinished = bIsWinikDialogueEventFinished;
+	GameInstance->AcquiredPapyrusNum;
+	GameInstance->bIsNoahGetup;
+	GameInstance->ObservedMapStatus;
 }

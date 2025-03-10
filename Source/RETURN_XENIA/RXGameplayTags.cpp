@@ -34,7 +34,13 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_IKey, "Input.Action.IKey");
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_ClosedDoor, "Dialogue.NPCType.ClosedDoor");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Sign, "Dialogue.NPCType.Sign");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_RockChar, "Dialogue.NPCType.RockChar");
+
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama, "Dialogue.NPCType.Pachamama");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama_Temple, "Dialogue.NPCType.Pachamama.Temple");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama_InBossBattle, "Dialogue.NPCType.Pachamama.InBossBattle");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_SubmapBarrier, "Dialogue.NPCType.SubmapBarrier");
 
@@ -70,6 +76,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap5, "Dialogue.NPCType.Nawiniq.Submap5");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss, "Dialogue.NPCType.Boss");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss_Dead, "Dialogue.NPCType.Boss.Dead");
 
 	// Teleport Teleport System Section 
 	// First Floor

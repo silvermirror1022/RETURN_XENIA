@@ -26,7 +26,7 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD")
 	TSubclassOf<class URXHUDWidget> RXHUDWidgetClass; // 플레이어에게 보일 HUD UI 위젯 BP
 
-	UPROPERTY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD")
 	TObjectPtr<URXHUDWidget> ARXHUDWidget; // HUD UI 포인터
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MainMenu")

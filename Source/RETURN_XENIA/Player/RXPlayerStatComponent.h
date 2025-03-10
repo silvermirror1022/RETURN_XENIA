@@ -80,7 +80,7 @@ public:
 	// 쉴드 보유 여부
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Stat")
 	uint8 bHasShield : 1; 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stat")
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Stat")
 	uint8 bIsImmortal : 1; // 플레이어 피격시 무적변수
 
 	// 캐릭터 피격/정상 머터리얼 변수
@@ -100,7 +100,7 @@ private:
 	uint8 bIsShieldRegenActive : 1;
 	void ShieldRegenAction();
 
-	float ImmortalTime = 0.5f; // 무적 시간 및 타이머
+	float ImmortalTime = 1.0f; // 무적 시간 및 타이머
 	FTimerHandle ImmortalTimer;
 	void ResetImmortalState();
 

@@ -35,6 +35,12 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_CounterClockWiseRotate);
 
 	// NPC Dialogue Data Section
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_ClosedDoor);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sign);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_RockChar);
+
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama_InBossBattle);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama_Temple);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_SubmapBarrier);
@@ -70,6 +76,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap5);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss_Dead);
 
 	// TeleportSystem Tag Section
 	// 1층 레벨 텔레포트 시스템 태그 정의

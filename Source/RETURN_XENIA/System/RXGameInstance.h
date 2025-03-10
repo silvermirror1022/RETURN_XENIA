@@ -84,10 +84,13 @@ public:
 	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemStatus")
-	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 6개, 심장, 힌트종이)
+	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 7개, 파피루스3개, 힌트종이 => 11개)
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelClearStatus")
 	TArray<FStatus> PuzzelClearStatusArray; // 퍼즐 클리어 유무 배열 (서브맵1,2,3,4,5,템플 => 6개)
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ObservedMapStatus")
+	int32 ObservedMapStatus; // 맵 탐험 클리어 유무 배열 (Level : 총 8개)
 
 public:
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
@@ -118,6 +121,13 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "PuzzelStatus")
 	bool IsPuzzelStatusAcquired(FString StatusName) const;
+
+	// 맵 탐험 클리어 상태 설정 및 상태 확인 함수 섹션
+	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
+	void SetObservedMapStatus(int32 Level);
+
+	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
+	int ReturnObservedMapStatus();
 public:
 	// 플레이어 체력, 방패 섹션
 	UPROPERTY()
@@ -186,4 +196,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
 	bool bIsWinikDialogueEventFinished; // 위닉 대화 이벤트 종료 확인 
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
+	int32 AcquiredPapyrusNum; // 플레이어가 얻은 파피루스 개수
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
+	bool bIsNoahGetup; // 노아 눈꺼풀 이벤트 변수
 };

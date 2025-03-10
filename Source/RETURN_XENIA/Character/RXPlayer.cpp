@@ -222,6 +222,11 @@ void ARXPlayer::ResetDetectedActors()
 }
 void ARXPlayer::Interact_IA_EKey()
 {
+	if (DetectedNPC)  // 대화중이라면 빠저나가기
+	{   //if (DetectedNPC && DetectedNPC->bIsTalking) 
+		return;
+	}
+
 	UpdateDetectedActor();
 
 	if (DetectedNPC && !DetectedNPC->bIsTalking)  // 각각 유효한지 확인
