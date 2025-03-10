@@ -39,7 +39,15 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Pachamama_Altar.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/Kaira/BP_NPC_Kaira_Top.uasset",
 				"D:/RETURN_XENIA/Content/UI/MainMenu/WBP_MainMenuWidget.uasset",
-				"D:/RETURN_XENIA/Content/Blueprints/System/BP_SaveGame.uasset"
+				"D:/RETURN_XENIA/Content/Blueprints/System/BP_SaveGame.uasset",
+				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F_DisasterVillage.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Miru/BP_NPC_Miru.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/TimingPuzzel/BP_TimingPuzzel.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/PushablePuzzel/BP_PushablePuzzel.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/BlindPuzzel/BP_BlindPuzzel.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/PatternPuzzel/BP_PatternPuzzel.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/EulerPuzzel/BP_EulerPuzzel.uasset",
+				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap5.umap"
 			]
 		}
 	]
