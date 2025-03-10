@@ -47,7 +47,10 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/BlindPuzzel/BP_BlindPuzzel.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/PatternPuzzel/BP_PatternPuzzel.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/EulerPuzzel/BP_EulerPuzzel.uasset",
-				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap5.umap"
+				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap5.umap",
+				"D:/RETURN_XENIA/Content/Maps/BossMaps/BossBeforeBattle.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_Boss.uasset",
+				"D:/RETURN_XENIA/Content/Maps/BossMaps/BossStartBattle.umap"
 			]
 		}
 	]
