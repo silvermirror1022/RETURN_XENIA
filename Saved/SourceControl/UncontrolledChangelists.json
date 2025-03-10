@@ -38,7 +38,8 @@
 				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/Cabin_Map.umap",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Pachamama_Altar.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/Kaira/BP_NPC_Kaira_Top.uasset",
-				"D:/RETURN_XENIA/Content/UI/MainMenu/WBP_MainMenuWidget.uasset"
+				"D:/RETURN_XENIA/Content/UI/MainMenu/WBP_MainMenuWidget.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/System/BP_SaveGame.uasset"
 			]
 		}
 	]

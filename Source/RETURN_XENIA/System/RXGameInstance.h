@@ -180,7 +180,10 @@ public:
 	// 게임 세팅 언어 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Language Settings")
 	bool bIsKorean;
-	
+
+	UFUNCTION(BlueprintCallable)
+	void InitializeAllVariable();
+
 	// 재앙이 발생한 후 스폰할 NPC들 대화 세부 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
 	bool bIsAfterDisaster;
