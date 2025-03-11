@@ -295,7 +295,9 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 	if (Controller != nullptr)
 	{
 		AddControllerYawInput(LookAxisVector.X * GI->GetMouseSensitivityValue()* 0.3f);
-		AddControllerPitchInput(LookAxisVector.Y * GI->GetMouseSensitivityValue() * 0.1f);
+
+		// 마우스 비반전 컨트롤 마우스를 위로 움직이면 위를 보게
+		AddControllerPitchInput(-LookAxisVector.Y * GI->GetMouseSensitivityValue() * 0.1f);
 	}
 
 }
