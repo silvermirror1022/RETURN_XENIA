@@ -62,7 +62,15 @@
 				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_LeafPlate_2F.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_MapTransPortal_2F.uasset",
 				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_2F.umap",
-				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/Cave_map.umap"
+				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/Cave_map.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka_AfterEvent.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka_AfterDisasterAndEvent.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka_AfterDisaster.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Item/BP_Papyrus.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Item/BP_Papyrus2.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Item/BP_Papyrus3.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_BossDeadTalk.uasset"
 			]
 		}
 	]
