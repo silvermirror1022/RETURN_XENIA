@@ -73,7 +73,9 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_BossDeadTalk.uasset",
 				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/NoahHouse_AfterDisaster.umap",
 				"D:/RETURN_XENIA/Content/AI/Boss/BT_Boss.uasset",
-				"D:/RETURN_XENIA/Content/MapRef/Cave/blueprint/BP_cave_rock.uasset"
+				"D:/RETURN_XENIA/Content/MapRef/Cave/blueprint/BP_cave_rock.uasset",
+				"D:/RETURN_XENIA/Content/Audio/Music/Mainmap/BGM_GameLobby.uasset",
+				"D:/RETURN_XENIA/Content/Audio/Music/Mainmap/BGM_Temple.uasset"
 			]
 		}
 	]
