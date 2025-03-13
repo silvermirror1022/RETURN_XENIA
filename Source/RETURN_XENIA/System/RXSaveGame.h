@@ -92,7 +92,7 @@ public:
 	int32 AcquiredPapyrusNum; 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
-	bool bIsNoahGetup; 
+	bool bIsNoahGetup;
 
 public:
 

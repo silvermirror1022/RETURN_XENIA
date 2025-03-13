@@ -51,7 +51,31 @@
 				"D:/RETURN_XENIA/Content/Maps/BossMaps/BossBeforeBattle.umap",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_Boss.uasset",
 				"D:/RETURN_XENIA/Content/Maps/BossMaps/BossStartBattle.umap",
-				"D:/RETURN_XENIA/Content/Animation/Astuka/ABP_Astuka.uasset"
+				"D:/RETURN_XENIA/Content/Animation/Astuka/ABP_Astuka.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_InsideTreeSequenceTrigger.uasset",
+				"D:/RETURN_XENIA/Content/Maps/MainMaps/InsideTree.umap",
+				"D:/RETURN_XENIA/Content/Cinematics/LS_EnterTreeInside.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_AltarEnterance.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/CircularPuzzel/BP_FirstKnotHanger.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_PlayerTeleport1F.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_MapTransPortal_1F.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/ETC/BP_LeafPlate_2F.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_MapTransPortal_2F.uasset",
+				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_2F.umap",
+				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/Cave_map.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka_AfterEvent.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka_AfterDisasterAndEvent.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka_AfterDisaster.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Amarka/BP_NPC_Amarka.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Item/BP_Papyrus.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Item/BP_Papyrus2.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Item/BP_Papyrus3.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_BossDeadTalk.uasset",
+				"D:/RETURN_XENIA/Content/Maps/BeforeMaps/NoahHouse_AfterDisaster.umap",
+				"D:/RETURN_XENIA/Content/AI/Boss/BT_Boss.uasset",
+				"D:/RETURN_XENIA/Content/MapRef/Cave/blueprint/BP_cave_rock.uasset",
+				"D:/RETURN_XENIA/Content/Audio/Music/Mainmap/BGM_GameLobby.uasset",
+				"D:/RETURN_XENIA/Content/Audio/Music/Mainmap/BGM_Temple.uasset"
 			]
 		}
 	]

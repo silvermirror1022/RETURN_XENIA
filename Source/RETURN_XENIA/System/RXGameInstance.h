@@ -204,4 +204,5 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
 	bool bIsNoahGetup; // 노아 눈꺼풀 이벤트 변수
+
 };

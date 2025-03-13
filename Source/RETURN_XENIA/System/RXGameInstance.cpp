@@ -22,6 +22,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	bIsKorean = true;
 	bIsNoahGetup = false;
 	bIsAfterDisaster = false;
+	bIsKairaDialogueEventFinished = false;
 	bIsAntuqDialogueEventFinished = false; 
 	bIsAmarkaDialogueEventFinished = false; 
 	bIsWinikDialogueEventFinished = false;
@@ -165,6 +166,7 @@ void URXGameInstance::InitializeAllVariable()
 	bIsAfterDisaster = false;
 	bIsAntuqDialogueEventFinished = false;
 	bIsAmarkaDialogueEventFinished = false;
+	bIsKairaDialogueEventFinished = false;
 	bIsWinikDialogueEventFinished = false;
 	bIsAmarkaDialogueItemEventFinished = false;
 

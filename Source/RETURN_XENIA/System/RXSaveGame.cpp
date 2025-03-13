@@ -82,7 +82,7 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->bIsAmarkaDialogueEventFinished = bIsAmarkaDialogueEventFinished;
 	GameInstance->bIsAmarkaDialogueItemEventFinished = bIsAmarkaDialogueItemEventFinished;
 	GameInstance->bIsWinikDialogueEventFinished = bIsWinikDialogueEventFinished;
-	GameInstance->AcquiredPapyrusNum;
-	GameInstance->bIsNoahGetup;
-	GameInstance->ObservedMapStatus;
+	GameInstance->AcquiredPapyrusNum = AcquiredPapyrusNum;
+	GameInstance->bIsNoahGetup = bIsNoahGetup;
+	GameInstance->ObservedMapStatus = ObservedMapStatus;
 }
