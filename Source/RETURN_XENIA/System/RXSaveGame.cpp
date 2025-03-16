@@ -12,8 +12,8 @@ URXSaveGame::URXSaveGame()
 	CheckpointTransform = FTransform::Identity;
 	CurrentDestinationTag = RXGameplayTags::Teleport_1stFloor_MainMap_Start; // 기본 태그
 	CurrentLevelName = "NoahHouse";
-	GI_Hp = 3;
-	GI_Shield = 1;
+	//GI_Hp = 3;
+	//GI_Shield = 1;
 	SliderValues = FSliderValues(); // 기본 생성자 호출
 	bIsKorean = true;
 	bIsAfterDisaster = false;

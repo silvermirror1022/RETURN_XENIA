@@ -7,6 +7,7 @@
 #include "Character/RXPlayer.h"
 #include "Data/RXDialogueData.h"
 #include "System/RXGameInstance.h"
+#include "GameFramework/CharacterMovementComponent.h"
 #include "Player/RXPlayerController.h"
 
 ARXNonPlayer::ARXNonPlayer()
@@ -79,6 +80,7 @@ void ARXNonPlayer::StartDialogue()
             {
                 // 이동 입력 무시 (PlayerController를 통해)
                 RXPlayer->Controller->SetIgnoreMoveInput(true);
+                RXPlayer->GetCharacterMovement()->SetMovementMode(MOVE_None); // 이동 및 점프 모두 차단
             }
         }
 
@@ -180,6 +182,7 @@ void ARXNonPlayer::EndDialogue()
         if (ARXPlayer* RXPlayer = Cast<ARXPlayer>(PlayerCharacter))
         {
             RXPlayer->Controller->SetIgnoreMoveInput(false);  // 이동 입력 허용
+            RXPlayer->GetCharacterMovement()->SetMovementMode(MOVE_Walking); // 이동 + 점프 가능
             RXPlayer->ResetDetectedActors();
         }
     }
