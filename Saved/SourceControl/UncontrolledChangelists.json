@@ -79,12 +79,13 @@
 				"D:/RETURN_XENIA/Content/Blueprints/CircularPuzzel/BP_ThirdKnotHanger.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/CircularPuzzel/BP_SecondKnotHanger.uasset",
 				"D:/RETURN_XENIA/Content/UI/Boss/WBP_SealedStoneGauge.uasset",
-				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset",
 				"D:/RETURN_XENIA/Content/Maps/TestMaps.umap",
 				"D:/RETURN_XENIA/Content/Designer/UI/Boss/ICN_BossMapGauge_C01.uasset",
 				"D:/RETURN_XENIA/Content/Designer/UI/Boss/ICN_UnsealedStone.uasset",
 				"D:/RETURN_XENIA/Content/Designer/UI/Boss/ICN_BossMapGauge_C012.uasset",
-				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_SealedStone.uasset"
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_SealedStone.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Player/BP_PlayerController.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
 			]
 		}
 	]

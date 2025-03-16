@@ -107,6 +107,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
 	bool IsProfileStatusAcquired(FString StatusName) const;
 
+	//Exception
+	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
+	void SetBossStageProfileStatusInit();
 public:
 	// 아이템 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "ItemStatus")
