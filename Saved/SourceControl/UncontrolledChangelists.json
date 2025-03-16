@@ -85,6 +85,8 @@
 				"D:/RETURN_XENIA/Content/Designer/UI/Boss/ICN_BossMapGauge_C012.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/BP_SealedStone.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Player/BP_PlayerController.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Kaira/BP_NPC_Kaira.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Kaira/BP_NPC_Kaira_AfterEvent.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
 			]
 		}
