@@ -94,6 +94,8 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossEarthquake.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/BP_PlayerFallingDeadVolume.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/BP_PlayerWaterDeadVolume.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/EulerPuzzel/BP_EulerPuzzelCoin.uasset",
+				"D:/RETURN_XENIA/Content/Designer/Modeling/map/submap5/SM_submap5_carpet_A01.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
 			]
 		}

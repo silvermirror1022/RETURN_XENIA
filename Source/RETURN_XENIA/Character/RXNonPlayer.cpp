@@ -129,7 +129,7 @@ void ARXNonPlayer::StartDialogue()
             }
         }
     }
-    
+
 }
 
 void ARXNonPlayer::DisplayDialogue()
