@@ -14,18 +14,20 @@ void ARXBossFBPoolManager::BeginPlay()
 
 	if (PooledActorClass)
 	{
-		InitializePool(PooledActorClass, PoolSize);
+		InitializePool(PooledActorClass, PooledActorClass2, PoolSize);
 	}
 }
 
-void ARXBossFBPoolManager::InitializePool(TSubclassOf<ARXBossFixedFireball> ActorClass, int32 Size)
+void ARXBossFBPoolManager::InitializePool(TSubclassOf<ARXBossFixedFireball> ActorClass1, TSubclassOf<ARXBossFixedFireball> ActorClass2, int32 Size)
 {
-	if (!ActorClass) return;
+	if (!ActorClass1 || !ActorClass2) return;
 
-	PooledActorClass = ActorClass;
+	PooledActorClass = ActorClass1;
+	PooledActorClass2 = ActorClass2;
 	PoolSize = Size;
 
-	for (int32 i = 0; i < PoolSize; i++)
+	// 첫 번째 풀 초기화
+	for (int32 i = 0; i < PoolSize / 2; i++)
 	{
 		ARXBossFixedFireball* NewActor = GetWorld()->SpawnActor<ARXBossFixedFireball>(PooledActorClass);
 		if (NewActor)
@@ -33,14 +35,28 @@ void ARXBossFBPoolManager::InitializePool(TSubclassOf<ARXBossFixedFireball> Acto
 			NewActor->SetActorHiddenInGame(true);
 			NewActor->SetActorEnableCollision(false);
 			NewActor->SetActorTickEnabled(false);
-			ObjectPool.Add(NewActor);
+			ObjectPool1.Add(NewActor);
+		}
+	}
+
+	// 두 번째 풀 초기화
+	for (int32 i = 0; i < PoolSize / 2; i++)
+	{
+		ARXBossFixedFireball* NewActor = GetWorld()->SpawnActor<ARXBossFixedFireball>(PooledActorClass2);
+		if (NewActor)
+		{
+			NewActor->SetActorHiddenInGame(true);
+			NewActor->SetActorEnableCollision(false);
+			NewActor->SetActorTickEnabled(false);
+			ObjectPool2.Add(NewActor);
 		}
 	}
 }
-
-ARXBossFixedFireball* ARXBossFBPoolManager::GetPooledActor()
+ARXBossFixedFireball* ARXBossFBPoolManager::GetPooledActor(bool bUseFirstPool)
 {
-	for (ARXBossFixedFireball* Actor : ObjectPool)
+	TArray<ARXBossFixedFireball*>& SelectedPool = bUseFirstPool ? ObjectPool1 : ObjectPool2;
+
+	for (ARXBossFixedFireball* Actor : SelectedPool)
 	{
 		if (Actor && Actor->IsHidden())  // 사용 가능한 경우 반환
 		{
@@ -49,10 +65,11 @@ ARXBossFixedFireball* ARXBossFBPoolManager::GetPooledActor()
 	}
 
 	// 풀에 남아있는 객체가 없을 경우 새로운 액터 생성
-	ARXBossFixedFireball* NewActor = GetWorld()->SpawnActor<ARXBossFixedFireball>(PooledActorClass);
+	TSubclassOf<ARXBossFixedFireball> ActorClass = bUseFirstPool ? PooledActorClass : PooledActorClass2;
+	ARXBossFixedFireball* NewActor = GetWorld()->SpawnActor<ARXBossFixedFireball>(ActorClass);
 	if (NewActor)
 	{
-		ObjectPool.Add(NewActor);
+		SelectedPool.Add(NewActor);
 	}
 	return NewActor;
 }
@@ -61,30 +78,29 @@ void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AAct
 {
 	if (!Target) return;
 
-	Center.Z = ZHeight; // Z 높이 설정
+	Center.Z = ZHeight;
 
-	//FVector ToPlayer = (Target->GetActorLocation() - Center).GetSafeNormal();
-	//FRotator BaseRotation = ToPlayer.Rotation(); // 플레이어를 향한 기본 회전
-
-	// XY 평면에서만 방향을 계산하도록 Z를 0으로 만듦
 	FVector ToPlayer = Target->GetActorLocation() - Center;
-	ToPlayer.Z = 0; // Z 성분 제거
-	ToPlayer = ToPlayer.GetSafeNormal(); // 정규화
+	ToPlayer.Z = 0;
+	ToPlayer = ToPlayer.GetSafeNormal();
 
-	FRotator BaseRotation = ToPlayer.Rotation(); // XY 평면에서의 회전값만 사용
+	FRotator BaseRotation = ToPlayer.Rotation();
 
-	float LeftLimit = -20.0f;  // 좌측 최대 각도
-	float RightLimit = 20.0f;  // 우측 최대 각도
-	int32 NumProjectiles = 25; // 총 발사 개수
+	float LeftLimit = -20.0f;
+	float RightLimit = 20.0f;
+	int32 NumProjectiles = 25;
 	float AngleStep = (RightLimit - LeftLimit) / (NumProjectiles - 1);
 
 	for (int32 i = 0; i < NumProjectiles; i++)
 	{
 		float AngleOffset = LeftLimit + (i * AngleStep);
 		FRotator RotatedDirection = BaseRotation + FRotator(0.0f, AngleOffset, 0.0f);
-		FVector Direction = RotatedDirection.Vector(); // 회전된 벡터
+		FVector Direction = RotatedDirection.Vector();
 
-		ARXBossFixedFireball* Fireball = GetPooledActor();
+		//  홀수는 첫 번째 풀, 짝수는 두 번째 풀에서 가져오기 
+		bool bUseFirstPool = (i % 2 == 0);
+		ARXBossFixedFireball* Fireball = GetPooledActor(bUseFirstPool);
+
 		if (Fireball)
 		{
 			Fireball->SetActorLocation(Center);
