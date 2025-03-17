@@ -109,6 +109,7 @@
 				"D:/RETURN_XENIA/Content/UI/MainMenu/Maps/WBP_Map_3F.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossFixedFB2.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossFBSpawnManager.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossRay.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
