@@ -43,7 +43,7 @@ private:
 	void LoadPreloadAssets();
 	void AddLoadedAsset(const FName& AssetName, const UObject* Asset);
 
-private:
+public:
 	UPROPERTY()
 	TObjectPtr<URXAssetData> LoadedAssetData;
 

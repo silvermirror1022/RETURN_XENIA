@@ -96,6 +96,15 @@
 				"D:/RETURN_XENIA/Content/Blueprints/BP_PlayerWaterDeadVolume.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/EulerPuzzel/BP_EulerPuzzelCoin.uasset",
 				"D:/RETURN_XENIA/Content/Designer/Modeling/map/submap5/SM_submap5_carpet_A01.uasset",
+				"D:/RETURN_XENIA/Content/Designer/UI/HUD/ICN_HPBG_A01.uasset",
+				"D:/RETURN_XENIA/Content/UI/HUD/WBP_HpSet.uasset",
+				"D:/RETURN_XENIA/Content/UI/HUD/WBP_HUD.uasset",
+				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
+				"D:/UE/UE_5.4/Engine/Content/EditorMeshes/ColorCalibrator/M_ClearCoatBlack.uasset",
+				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap1.umap",
+				"D:/RETURN_XENIA/Content/Data/PDA_AssetData.uasset",
+				"D:/RETURN_XENIA/Content/Data/DA_MapData.uasset",
+				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
 			]
 		}
