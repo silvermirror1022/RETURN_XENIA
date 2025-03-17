@@ -18,10 +18,11 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-	void InitializePool(TSubclassOf<class ARXBossFixedFireball> ActorClass, int32 PoolSize);
-	ARXBossFixedFireball* GetPooledActor();
-	void FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target);
-	
+	void InitializePool(TSubclassOf<class ARXBossFixedFireball> ActorClass1, TSubclassOf<class ARXBossFixedFireball> ActorClass2, int32 PoolSize);
+	ARXBossFixedFireball* GetPooledActor(bool bUseFirstPool); // 특정 풀에서 가져오기
+	void FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target, bool bUseFirstPool);
+
+
 	UFUNCTION(BlueprintCallable)
 	void FireAtPlayerFrom120(FVector Center, AActor* Target);
 	UFUNCTION(BlueprintCallable)
@@ -29,10 +30,16 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere, Category = "Pooling")
-	TSubclassOf<ARXBossFixedFireball> PooledActorClass;
+	TSubclassOf<ARXBossFixedFireball> PooledActorClass;   // 첫 번째 타입(빨강)
+
+	UPROPERTY(EditAnywhere, Category = "Pooling")
+	TSubclassOf<ARXBossFixedFireball> PooledActorClass2;  // 두 번째 타입(보라)
 
 	UPROPERTY()
-	TArray<ARXBossFixedFireball*> ObjectPool;
+	TArray<ARXBossFixedFireball*> ObjectPool1; // 첫 번째 풀
+
+	UPROPERTY()
+	TArray<ARXBossFixedFireball*> ObjectPool2; // 두 번째 풀
 
 	UPROPERTY(EditAnywhere, Category = "Pooling")
 	int32 PoolSize = 200;

@@ -484,6 +484,7 @@ void ARXPlayer::SetDead()
 	// 일정 시간 후에 리스폰하도록 타이머 설정 (3초 후)
 	FTimerHandle RespawnTimerHandle;
 	GetWorldTimerManager().SetTimer(RespawnTimerHandle, this, &ARXPlayer::DeadRespawn, 3.0f, false);
+
 }
 void ARXPlayer::DeadRespawn()
 {

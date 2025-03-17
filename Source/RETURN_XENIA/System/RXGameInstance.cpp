@@ -92,6 +92,12 @@ bool URXGameInstance::IsProfileStatusAcquired(FString StatusName) const
 	return false; 
 }
 
+void URXGameInstance::SetBossStageProfileStatusInit()
+{
+	ProfileStatusArray[0].bIsAcquired = true;
+	ProfileStatusArray[1].bIsAcquired = false;
+}
+
 // For Item Dynamic Control Function Section
 bool URXGameInstance::SetItemStatusAcquired(FString StatusName)
 {	

@@ -59,6 +59,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RespawnPlayerAtCheckPoint() const;
 
+	// 플레이어 낙사시 처리해야할 함수
+	UFUNCTION(BlueprintCallable)
+	void RespawnFallingPlayerAtCheckPoint() const;
+
+
 	bool CheckUIActiveState(); // UI 활성화 추적 함수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	uint8 bIsPauseMenuUIActive : 1; // 팝업 UI 활성화상태 BOOL 변수

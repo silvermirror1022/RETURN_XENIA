@@ -35,6 +35,8 @@ public:
 	void TeleportToOtherLevel();
 	virtual void TeleportToOtherLevel_Implementation(); //다른 레벨 여는 함수
 
-	FTimerHandle TimerHandle_Teleport;
-	void PerformTeleport();
+	void LoadLevelUsingMapData(); //맵 데이터 접근하는 함수
+	void OnLevelLoadCompleted(FSoftObjectPath LoadedMapPath) const; // 로드가 다되고 호출할 함수
+	void DelayedOpenLevel(FSoftObjectPath LoadedMapPath) const; // 1.5지연후 호출함수
+	
 };
