@@ -91,6 +91,7 @@
 				"D:/RETURN_XENIA/Content/Animation/Player/AN_BossStageDeadFade.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/BP_PuzzelNowiniqSpawnManager.uasset",
 				"D:/RETURN_XENIA/Content/Designer/Modeling/map/submap4/SM_PrisonLamp_A01.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossEarthquake.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
 			]
 		}
