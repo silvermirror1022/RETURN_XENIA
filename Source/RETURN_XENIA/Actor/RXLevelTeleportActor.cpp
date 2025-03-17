@@ -105,11 +105,24 @@ void ARXLevelTeleportActor::OnLevelLoadCompleted(FSoftObjectPath LoadedMapPath) 
 {
     UE_LOG(LogTemp, Log, TEXT("Level Load Completed! Opening Level: %s"), *LoadedMapPath.ToString());
 
+    // 1.5초 후에 DelayedOpenLevel() 실행
+    FTimerHandle TimerHandle;
+    GetWorld()->GetTimerManager().SetTimer(
+        TimerHandle,
+        FTimerDelegate::CreateUObject(this, &ARXLevelTeleportActor::DelayedOpenLevel, LoadedMapPath),
+        1.5f, // 1.5초 대기
+        false
+    );
+}
+
+void ARXLevelTeleportActor::DelayedOpenLevel(FSoftObjectPath LoadedMapPath) const
+{
     // FSoftObjectPath에서 FName으로 변환 후 OpenLevel 호출
     FName LevelName = FName(*LoadedMapPath.GetAssetName());
 
     if (!LevelName.IsNone())
     {
+        UE_LOG(LogTemp, Log, TEXT("Opening Level after delay: %s"), *LevelName.ToString());
         UGameplayStatics::OpenLevel(this, LevelName);
     }
     else

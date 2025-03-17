@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -12,11 +12,11 @@ struct FRXMapDataInfo
 	GENERATED_BODY()
 
 public:
-	// ¸ÊÀÇ ½Äº° ÅÂ±×
+	// ë§µì˜ ì‹ë³„ íƒœê·¸
 	UPROPERTY(EditDefaultsOnly)
 	FName MapName;
 
-	// ½ÇÁ¦ ¸Ê °æ·Î
+	// ì‹¤ì œ ë§µ ê²½ë¡œ
 	UPROPERTY(EditDefaultsOnly)
 	FSoftObjectPath MapAssetPath;
 };
