@@ -130,18 +130,30 @@ void ARXPlayerController::RespawnPlayerAtCheckPoint() const
 		GI->SetGI_Shield(1);
 
 		// 컨트롤러가 소유한 Pawn(플레이어 캐릭터) 가져오기
-		ARXPlayer* PlayerCharacter = Cast<ARXPlayer>(GetPawn());
-		if (PlayerCharacter)
+		if (ARXPlayer* PlayerCharacter = Cast<ARXPlayer>(GetPawn()))
 		{
 			// Player 이동
 			PlayerCharacter->SetActorLocationAndRotation(GI->CheckpointTransform.GetLocation(), GI->CheckpointTransform.GetRotation());
 			// ARXPlayer 내에 있는 RXPlayerStateComponent를 가져옴
 
-			URXPlayerStatComponent* PlayerStateComp = PlayerCharacter->FindComponentByClass<URXPlayerStatComponent>();
-			if (PlayerStateComp)
+			URXPlayerStatComponent* PlayerStatComp = PlayerCharacter->FindComponentByClass<URXPlayerStatComponent>();
+			if (PlayerStatComp)
 			{
-				PlayerStateComp->InitializeStatComponent();
+				PlayerStatComp->InitializeStatComponent();
 			}
+		}
+	}
+}
+
+void ARXPlayerController::RespawnFallingPlayerAtCheckPoint() const
+{
+	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
+	{
+		// 컨트롤러가 소유한 Pawn(플레이어 캐릭터) 가져오기
+		if (ARXPlayer* PlayerCharacter = Cast<ARXPlayer>(GetPawn()))
+		{
+			// Player 이동
+			PlayerCharacter->SetActorLocationAndRotation(GI->CheckpointTransform.GetLocation(), GI->CheckpointTransform.GetRotation());
 		}
 	}
 }
