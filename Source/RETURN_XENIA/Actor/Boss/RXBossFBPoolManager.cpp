@@ -74,7 +74,7 @@ ARXBossFixedFireball* ARXBossFBPoolManager::GetPooledActor(bool bUseFirstPool)
 	return NewActor;
 }
 
-void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target)
+void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target, bool bUseFirstPool)
 {
 	if (!Target) return;
 
@@ -97,8 +97,7 @@ void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AAct
 		FRotator RotatedDirection = BaseRotation + FRotator(0.0f, AngleOffset, 0.0f);
 		FVector Direction = RotatedDirection.Vector();
 
-		//  홀수는 첫 번째 풀, 짝수는 두 번째 풀에서 가져오기 
-		bool bUseFirstPool = (i % 2 == 0);
+		//  120에서는 첫 번째 풀, 150에서는 두 번째 풀에서 가져오기 
 		ARXBossFixedFireball* Fireball = GetPooledActor(bUseFirstPool);
 
 		if (Fireball)
@@ -112,11 +111,11 @@ void ARXBossFBPoolManager::FireTowardsPlayer(FVector Center, float ZHeight, AAct
 // Z = 190에서 플레이어를 향해 발사
 void ARXBossFBPoolManager::FireAtPlayerFrom120(FVector Center, AActor* Target)
 {
-	FireTowardsPlayer(Center, 120.0f, Target);
+	FireTowardsPlayer(Center, 120.0f, Target, true);
 }
 
 // Z = 300에서 플레이어를 향해 발사
 void ARXBossFBPoolManager::FireAtPlayerFrom150(FVector Center, AActor* Target)
 {
-	FireTowardsPlayer(Center, 190.0f, Target); // 수치 임의 변경
+	FireTowardsPlayer(Center, 150.0f, Target, false);
 }

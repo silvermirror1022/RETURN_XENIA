@@ -20,7 +20,7 @@ protected:
 public:
 	void InitializePool(TSubclassOf<class ARXBossFixedFireball> ActorClass1, TSubclassOf<class ARXBossFixedFireball> ActorClass2, int32 PoolSize);
 	ARXBossFixedFireball* GetPooledActor(bool bUseFirstPool); // 특정 풀에서 가져오기
-	void FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target);
+	void FireTowardsPlayer(FVector Center, float ZHeight, AActor* Target, bool bUseFirstPool);
 
 
 	UFUNCTION(BlueprintCallable)
