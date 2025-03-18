@@ -111,6 +111,11 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossFBSpawnManager.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossRay.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Puzzel/PushablePuzzel/BP_PushableWall.uasset",
+				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_3F.umap",
+				"D:/RETURN_XENIA/Content/Blueprints/System/BP_MediaPlayer_Credit.uasset",
+				"D:/RETURN_XENIA/Content/Maps/MainMenu.umap",
+				"D:/RETURN_XENIA/Content/Designer/UI/ICN_Interact_B01.uasset",
+				"D:/RETURN_XENIA/Content/UI/WBP_InteractionPrompt2.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
