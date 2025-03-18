@@ -9,6 +9,7 @@
 URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+    bIsBlackInteractionPrompt = false;
 
     //사용할려면 만들어놓은 WBP를 ParentWidgetBP 검색후 캐싱해야함.
 
@@ -39,14 +40,18 @@ void URXInteractionVisibilityComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-    // WidgetClass가 설정되어 있는 경우에만 적용
+    // WidgetClass가 설정되어 있는 경우에만 적용 -> 흰색
     if (WidgetClass)
     {
         WidgetComponent->SetWidgetClass(WidgetClass);
     }
 
-    // Overlap 이벤트 연결
-    if (BoxComponent)
+    else if(bIsBlackInteractionPrompt && WidgetClass2) // -> 검정색
+    {
+        WidgetComponent->SetWidgetClass(WidgetClass2);
+    }
+
+    if (BoxComponent) // Overlap 이벤트 연결
     {
         BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &URXInteractionVisibilityComponent::OnBoxBeginOverlap);
         BoxComponent->OnComponentEndOverlap.AddDynamic(this, &URXInteractionVisibilityComponent::OnBoxEndOverlap);

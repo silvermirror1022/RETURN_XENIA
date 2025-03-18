@@ -30,7 +30,7 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void SetInteractionVisibility(bool bIsVisible);
-public:	
+
 private:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UBoxComponent> BoxComponent;
@@ -38,7 +38,12 @@ private:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UWidgetComponent> WidgetComponent;
 
-	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP")
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP") // 흰색 인터렉션 프롬프트
 	TSubclassOf<UUserWidget> WidgetClass;
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP2") // 검정색 인터렉션 프롬프트
+	TSubclassOf<UUserWidget> WidgetClass2;
+
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP2") // 검정색 인터렉션 프롬프트
+	bool bIsBlackInteractionPrompt;
 	
 };

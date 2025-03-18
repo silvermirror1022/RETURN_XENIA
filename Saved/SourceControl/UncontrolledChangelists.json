@@ -116,6 +116,7 @@
 				"D:/RETURN_XENIA/Content/Maps/MainMenu.umap",
 				"D:/RETURN_XENIA/Content/Designer/UI/ICN_Interact_B01.uasset",
 				"D:/RETURN_XENIA/Content/UI/WBP_InteractionPrompt2.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_PlayerTeleport.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
