@@ -124,6 +124,13 @@ void ARXLevelTeleportActor::DelayedOpenLevel(FSoftObjectPath LoadedMapPath) cons
     {
         UE_LOG(LogTemp, Log, TEXT("Opening Level after delay: %s"), *LevelName.ToString());
         UGameplayStatics::OpenLevel(this, LevelName);
+
+        // 강제로 전 맵 메모리 해제
+        GetWorld()->GetTimerManager().SetTimerForNextTick([]()
+            {
+                UE_LOG(LogTemp, Log, TEXT("Forcing Garbage Collection after level transition."));
+                GEngine->ForceGarbageCollection(true);
+            });
     }
     else
     {
