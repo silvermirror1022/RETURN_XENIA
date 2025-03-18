@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -38,12 +38,12 @@ private:
 	UPROPERTY(EditAnywhere)
 	TObjectPtr<class UWidgetComponent> WidgetComponent;
 
-	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP") // Èò»ö ÀÎÅÍ·º¼Ç ÇÁ·ÒÇÁÆ®
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP") // í°ìƒ‰ ì¸í„°ë ‰ì…˜ í”„ë¡¬í”„íŠ¸
 	TSubclassOf<UUserWidget> WidgetClass;
-	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP2") // °ËÁ¤»ö ÀÎÅÍ·º¼Ç ÇÁ·ÒÇÁÆ®
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP2") // ê²€ì •ìƒ‰ ì¸í„°ë ‰ì…˜ í”„ë¡¬í”„íŠ¸
 	TSubclassOf<UUserWidget> WidgetClass2;
 
-	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP2") // °ËÁ¤»ö ÀÎÅÍ·º¼Ç ÇÁ·ÒÇÁÆ®
+	UPROPERTY(EditAnywhere, Category = "ParentWidgetBP2") // ê²€ì •ìƒ‰ ì¸í„°ë ‰ì…˜ í”„ë¡¬í”„íŠ¸
 	bool bIsBlackInteractionPrompt;
 	
 };

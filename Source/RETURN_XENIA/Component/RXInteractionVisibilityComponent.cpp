@@ -41,14 +41,13 @@ void URXInteractionVisibilityComponent::BeginPlay()
 	Super::BeginPlay();
 
     // WidgetClass가 설정되어 있는 경우에만 적용 -> 흰색
-    if (WidgetClass)
+    if (bIsBlackInteractionPrompt && WidgetClass2)
     {
-        WidgetComponent->SetWidgetClass(WidgetClass);
+        WidgetComponent->SetWidgetClass(WidgetClass2); // 검정색 프롬프트 적용
     }
-
-    else if(bIsBlackInteractionPrompt && WidgetClass2) // -> 검정색
+    else if (WidgetClass)
     {
-        WidgetComponent->SetWidgetClass(WidgetClass2);
+        WidgetComponent->SetWidgetClass(WidgetClass);  // 흰색 프롬프트 적용
     }
 
     if (BoxComponent) // Overlap 이벤트 연결

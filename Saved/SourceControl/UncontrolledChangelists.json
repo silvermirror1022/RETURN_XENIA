@@ -117,6 +117,9 @@
 				"D:/RETURN_XENIA/Content/Designer/UI/ICN_Interact_B01.uasset",
 				"D:/RETURN_XENIA/Content/UI/WBP_InteractionPrompt2.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_PlayerTeleport.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap1.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap3.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap5.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
