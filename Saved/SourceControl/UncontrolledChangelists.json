@@ -130,6 +130,10 @@
 				"D:/RETURN_XENIA/Content/Designer/UI/Boss/ICN_Boss_HP_A04.uasset",
 				"D:/RETURN_XENIA/Content/Designer/UI/Boss/ICN_Boss_HP_A05.uasset",
 				"D:/RETURN_XENIA/Content/UI/Boss/WBP_BossHealth.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap2.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap4.uasset",
+				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap2.umap",
+				"D:/RETURN_XENIA/Content/Designer/Modeling/map/submap5/SM_submap5_RelicBox_A01.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"

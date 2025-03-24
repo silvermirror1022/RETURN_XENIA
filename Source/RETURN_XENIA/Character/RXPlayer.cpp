@@ -266,6 +266,7 @@ void ARXPlayer::Interact_IA_EKey()
 
 void ARXPlayer::Interact_IA_EnterKey()
 {
+	
 	if (DetectedNPC && DetectedNPC->bIsTalking)
 	{
 		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드

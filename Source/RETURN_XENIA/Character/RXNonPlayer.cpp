@@ -9,7 +9,7 @@
 #include "System/RXGameInstance.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Player/RXPlayerController.h"
-
+#include "RXDebugHelper.h"
 ARXNonPlayer::ARXNonPlayer()
 {
     PrimaryActorTick.bCanEverTick = false;
@@ -38,7 +38,7 @@ void ARXNonPlayer::BeginPlay()
     {
         UE_LOG(LogTemp, Warning, TEXT("Cannot Load DialogueData."));
     }
-        
+	
 }
 
 void ARXNonPlayer::StartDialogue()
@@ -75,12 +75,19 @@ void ARXNonPlayer::StartDialogue()
             SetActorRotation(FRotator(0.0f, LookAtRotation.Yaw, 0.0f));  // Pitch와 Roll은 고정, Yaw만 변경
 
 
-            // 대화 시작 시 이동 비활성화
+            // 점프 중이라면 강제 착지 처리
+            if (RXPlayer->GetCharacterMovement()->IsFalling())
+            {
+                GetCharacterMovement()->StopMovementImmediately();  // 즉시 착지
+                RXPlayer->Landed(FHitResult()); // 강제 착지 이벤트 호출
+                RXPlayer->GetCharacterMovement()->SetMovementMode(MOVE_Walking); // 걷기 모드 복귀
+            }
+
+            // 이동 및 점프 차단
             if (RXPlayer->Controller)
             {
-                // 이동 입력 무시 (PlayerController를 통해)
                 RXPlayer->Controller->SetIgnoreMoveInput(true);
-                RXPlayer->GetCharacterMovement()->SetMovementMode(MOVE_None); // 이동 및 점프 모두 차단
+                RXPlayer->GetCharacterMovement()->SetMovementMode(MOVE_None);
             }
         }
 
@@ -136,6 +143,7 @@ void ARXNonPlayer::DisplayDialogue()
 {
    
     if (!GI || !DialogueTextBlock) return;
+    //D(FString::Printf(TEXT("bIsTalking: %d, DialIndex: %d"), bIsTalking, DialogueIndex));
 
     // 한국어/영어에 따라 적절한 DialogueData 선택
     const URXDialogueData* SelectedDialogueData = GI->bIsKorean ? Kor_DialogueData : Eng_DialogueData;
@@ -165,8 +173,6 @@ void ARXNonPlayer::DisplayDialogue()
 void ARXNonPlayer::EndDialogue()
 {
     UE_LOG(LogTemp, Log, TEXT("Dialogue has ended."));
-    DialogueIndex = 0;
-    bIsTalking = false;
 
     // 대화 종료 시 위젯을 제거
     if (DialogueWidgetInstance)
@@ -176,6 +182,9 @@ void ARXNonPlayer::EndDialogue()
         DialogueTextBlock = nullptr;
     }
 
+    DialogueIndex = 0;
+    bIsTalking = false;
+
     // 플레이어 이동 중지 해제
     if (ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
     {
@@ -183,7 +192,11 @@ void ARXNonPlayer::EndDialogue()
         {
             RXPlayer->Controller->SetIgnoreMoveInput(false);  // 이동 입력 허용
             RXPlayer->GetCharacterMovement()->SetMovementMode(MOVE_Walking); // 이동 + 점프 가능
-            RXPlayer->ResetDetectedActors();
+
+            // 즉시 ResetDetectedActors() 호출하는 대신, 0.1초 후 실행
+            GetWorld()->GetTimerManager().SetTimerForNextTick([RXPlayer]() {
+                RXPlayer->ResetDetectedActors();
+                });
         }
     }
     // 예외처리 변수 해제
@@ -194,7 +207,6 @@ void ARXNonPlayer::EndDialogue()
 
     DialoguePopupEvent(); // 블루프린트에서 커스텀화한 함수가 있다면 대화종료후 호출
 }
-
 
 void ARXNonPlayer::PlayDialogueMontage() const
 {
