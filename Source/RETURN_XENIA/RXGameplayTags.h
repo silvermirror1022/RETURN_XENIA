@@ -37,6 +37,7 @@ namespace RXGameplayTags {
 
 	// NPC Dialogue Data Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_ClosedDoor);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_WinikClosedDoor);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sign);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_RockChar);
 

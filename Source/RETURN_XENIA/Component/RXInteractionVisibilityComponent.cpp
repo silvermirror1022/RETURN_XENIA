@@ -32,7 +32,7 @@ URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
     // 크기와 회전 설정
     WidgetComponent->SetWidgetSpace(EWidgetSpace::Screen); // 화면에 고정
     WidgetComponent->SetDrawSize(FVector2D(200.0f, 50.0f)); // 위젯 크기 설정
-    WidgetComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 100.0f)); // 적절히 조정
+    WidgetComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 50.0f)); // 적절히 조정
 }
 
 
