@@ -12,6 +12,7 @@
 #include "EnhancedInputSubsystems.h"
 #include "Kismet/GameplayStatics.h"
 #include "Actor/RXPlayerStart.h"
+#include "UI/RXMainMenuWidget.h"
 
 ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
@@ -26,7 +27,7 @@ void ARXPlayerController::BeginPlay()
 	Super::BeginPlay();
 
 	// HUD 위젯을 화면에 추가 -> 에셋정보는 블루프린트에서 캐시
-	if (RXHUDWidgetClass) // HSHUDWidgetClass가 유효한지 확인
+	if (RXHUDWidgetClass) // RXHUDWidgetClass가 유효한지 확인
 	{
 		ARXHUDWidget = CreateWidget<URXHUDWidget>(GetWorld(), RXHUDWidgetClass);
 		if (ARXHUDWidget)
@@ -52,9 +53,11 @@ void ARXPlayerController::SetupInputComponent()
 		if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 		{
 			auto IKey_GameMainMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_IKey);
+			auto MapKey_GameMapMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_MapKey);
 			auto ESCKey_GamePauseMenuAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_ESCKey);
 
 			EnhancedInputComponent->BindAction(IKey_GameMainMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMainMenu);
+			EnhancedInputComponent->BindAction(MapKey_GameMapMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMapMenu);
 			EnhancedInputComponent->BindAction(ESCKey_GamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
 		}
 	}
@@ -69,14 +72,31 @@ void ARXPlayerController::ActiveGameMainMenu()
 
 	bIsMainMenuUIActive = true;
 
-	// 게임메뉴 UI를 띄우는 함수 BY TAB KEY
+	// 게임메뉴 UI Item를 띄우는 함수 BY I KEY
 	if (RXGameMainMenuWidgetClass) 
 	{
-		ARXGameMainMenuWidget = CreateWidget<UUserWidget>(GetWorld(), RXGameMainMenuWidgetClass);
+		ARXGameMainMenuWidget = CreateWidget<URXMainMenuWidget>(GetWorld(), RXGameMainMenuWidgetClass);
 		if (ARXGameMainMenuWidget)
 		{
 			ARXGameMainMenuWidget->AddToViewport();
+		}
+	}
+}
 
+void ARXPlayerController::ActiveGameMapMenu()
+{
+	if (CheckUIActiveState()) return;
+
+	bIsMainMenuUIActive = true;
+
+	// 게임메뉴 UI MAP를 띄우는 함수 BY M KEY
+	if (RXGameMainMenuWidgetClass)
+	{
+		ARXGameMainMenuWidget = CreateWidget<URXMainMenuWidget>(GetWorld(), RXGameMainMenuWidgetClass);
+		if (ARXGameMainMenuWidget)
+		{
+			ARXGameMainMenuWidget->AddToViewport();
+			ARXGameMainMenuWidget->InitToGameMapMenu();
 		}
 	}
 }

@@ -35,6 +35,14 @@ void URXMainMenuWidget::ResetAllPressedImages() const
 		}
 	}
 }
+
+void URXMainMenuWidget::InitToGameMapMenu_Implementation()
+{
+    // Implementation in Blueprint
+    // 해당 함수는 M Key를 통해 맵메인메뉴를 킬 때 맵 매뉴로 초기화해주는 함수
+    // 블루프린트에서 Map버튼클릭했을 경우 로직 사용
+}
+
 void URXMainMenuWidget::OnCh1BtnPressed(bool bIsKorean)
 {
     ResetAllPressedImages();
