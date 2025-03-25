@@ -111,6 +111,6 @@ protected:
 public:
 	// Interaction  인터페이스 가상함수 오버라이드 구현 섹션
 	virtual void Interact_IA_EKey() override;
-	virtual void Interact_IA_EnterKey() override;
+	virtual void Interact_IA_TabKey() override;
 
 };

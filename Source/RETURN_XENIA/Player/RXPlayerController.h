@@ -26,26 +26,27 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD")
 	TSubclassOf<class URXHUDWidget> RXHUDWidgetClass; // 플레이어에게 보일 HUD UI 위젯 BP
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD")
+	UPROPERTY(BlueprintReadWrite)
 	TObjectPtr<URXHUDWidget> ARXHUDWidget; // HUD UI 포인터
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MainMenu")
-	TSubclassOf<UUserWidget> RXGameMainMenuWidgetClass; // 플레이어에게 보일 게임메인메뉴 UI 위젯 BP
+	TSubclassOf<class URXMainMenuWidget> RXGameMainMenuWidgetClass; // 플레이어에게 보일 게임메인메뉴 UI 위젯 BP
 
 	UPROPERTY()
-	TObjectPtr<UUserWidget> ARXGameMainMenuWidget; // HUD UI 포인터
+	TObjectPtr<URXMainMenuWidget> ARXGameMainMenuWidget; // 메인메뉴 UI 포인터
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PauseMenu")
 	TSubclassOf<UUserWidget> RXGamePauseMenuWidgetClass; // 플레이어에게 보일 게임팝업메뉴 UI 위젯 BP
 
 	UPROPERTY()
-	TObjectPtr<UUserWidget> ARXGamePauseMenuWidget; // HUD UI 포인터
+	TObjectPtr<UUserWidget> ARXGamePauseMenuWidget; // 퍼즈매뉴 UI 포인터
 
 public:
 
 	void ActiveGameMainMenu();
+	void ActiveGameMapMenu();
 	void ActiveGamePauseMenu();
-
+	
 	UFUNCTION(BlueprintCallable)
 	inline void InActiveGameMainMenu() { bIsMainMenuUIActive = false; }
 	UFUNCTION(BlueprintCallable)

@@ -35,11 +35,15 @@ public:
 	UPROPERTY(meta = (BindWidget), BlueprintReadOnly)
 	TObjectPtr<UButton> Btn_NoteDesc; // 노트 아이템 설명창 버튼
 
+	// 해당 함수는 M Key를 통해 맵메인메뉴를 킬 때 맵 매뉴로 초기화해주는 함수
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent)
+	void InitToGameMapMenu();
+	virtual void InitToGameMapMenu_Implementation();
+
 	/*
 	 * 메모리 섹션 변수 및 함수
 	 * 버튼 활성화 / 비활성화 이미지
 	 */
-
 	UFUNCTION(BlueprintCallable)
 	void OnCh1BtnPressed(bool bIsKorean);
 	UFUNCTION(BlueprintCallable)
