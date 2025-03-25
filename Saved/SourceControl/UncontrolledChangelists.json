@@ -134,6 +134,10 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap4.uasset",
 				"D:/RETURN_XENIA/Content/Maps/SubMaps/submap2.umap",
 				"D:/RETURN_XENIA/Content/Designer/Modeling/map/submap5/SM_submap5_RelicBox_A01.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/RockEvent/BP_Rock_Small.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/RockEvent/BP_Rock_Small1.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/RockEvent/BP_RockTrailSpline.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/RockEvent/BP_RockEventManager_B.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_MapData.uasset",
 				"D:/RETURN_XENIA/Content/Data/PDA_Maps.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossSplineFire_Phase1.uasset"
