@@ -203,7 +203,10 @@ public:
 	bool bIsWinikDialogueEventFinished; // 위닉 대화 이벤트 종료 확인 
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
-	int32 AcquiredPapyrusNum; // 플레이어가 얻은 파피루스 개수
+	int32 AcquiredPapyrusNum; // 플레이어가 얻은 파피루스 갯수
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
+	int32 AcquiredBossHintNum; // 플레이어가 받은 보스 힌트 갯수
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
 	bool bIsNoahGetup; // 노아 눈꺼풀 이벤트 변수

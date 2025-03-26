@@ -89,7 +89,10 @@ public:
 	int32 ObservedMapStatus; 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
-	int32 AcquiredPapyrusNum; 
+	int32 AcquiredPapyrusNum;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
+	int32 AcquiredBossHintNum;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
 	bool bIsNoahGetup;

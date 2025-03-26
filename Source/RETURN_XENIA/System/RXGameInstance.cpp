@@ -19,6 +19,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 
 	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
+	AcquiredBossHintNum = 0;
 	bIsKorean = true;
 	bIsNoahGetup = false;
 	bIsAfterDisaster = false;
@@ -167,6 +168,7 @@ void URXGameInstance::InitializeAllVariable()
 	SetGI_Shield(1);
 	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
+	AcquiredBossHintNum = 0;
 	bIsKorean = true;
 	bIsNoahGetup = false;
 	bIsAfterDisaster = false;

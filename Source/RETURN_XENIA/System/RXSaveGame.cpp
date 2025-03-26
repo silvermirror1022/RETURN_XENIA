@@ -24,6 +24,7 @@ URXSaveGame::URXSaveGame()
 	bIsWinikDialogueEventFinished = false;
 	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
+	AcquiredBossHintNum = 0;
 	bIsNoahGetup = false;
 }
 
@@ -55,6 +56,7 @@ void URXSaveGame::CaptureDataFromGameInstance(URXGameInstance* GameInstance)
 	AcquiredPapyrusNum = GameInstance->AcquiredPapyrusNum;
 	bIsNoahGetup = GameInstance->bIsNoahGetup;
 	ObservedMapStatus = GameInstance->ObservedMapStatus;
+	AcquiredBossHintNum = GameInstance->AcquiredBossHintNum;
 }
 
 void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
@@ -85,4 +87,5 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->AcquiredPapyrusNum = AcquiredPapyrusNum;
 	GameInstance->bIsNoahGetup = bIsNoahGetup;
 	GameInstance->ObservedMapStatus = ObservedMapStatus;
+	GameInstance->AcquiredBossHintNum = AcquiredBossHintNum;
 }
