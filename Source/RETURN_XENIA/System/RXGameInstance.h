@@ -66,31 +66,35 @@ public:
 	// 체크포인트 정보 (Transform으로 위치와 회전 한번에 관리)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CheckPoint")
 	FTransform CheckpointTransform;
-
+	//레벨 전환시 저장해 놓을 태그타입
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DestinationTag")
-	FGameplayTag CurrentDestinationTag; //레벨 전환시 저장해 놓을 태그타입
-
-	UFUNCTION(BlueprintCallable, Category = "Teleport") //필요한 경우 블루프린트에서 목적지 설정
+	FGameplayTag CurrentDestinationTag; 
+	//필요한 경우 블루프린트에서 목적지 설정
+	UFUNCTION(BlueprintCallable, Category = "Teleport")
 	void SetDestinationTag(FGameplayTag NewDestinationTag) { CurrentDestinationTag = NewDestinationTag; }
-
+	//플레이어가 있던 곳의 레벨이름
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="CheckPoint")
-	FName CurrentLevelName;  //플레이어가 있던 곳의 레벨이름
+	FName CurrentLevelName;  
 
 public:
+	// 메모리 획득 여부를 저장하는 배열 (총5개)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
-	TArray<FStatus> MemoryStatusArray; // 메모리 획득 여부를 저장하는 배열 (총5개)
-
+	TArray<FStatus> MemoryStatusArray; 
+	// 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ProfileStatus")
-	TArray<FStatus> ProfileStatusArray; // 프로필 장비 획득 여부를 저장하는 배열 (망토, 동생)
-
+	TArray<FStatus> ProfileStatusArray; 
+	// 아이템 획득 여부를 저장하는 배열 (매듭문자 7개, 파피루스3개, 힌트종이 => 11개)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ItemStatus")
-	TArray<FStatus> ItemStatusArray; // 아이템 획득 여부를 저장하는 배열 (매듭문자 7개, 파피루스3개, 힌트종이 => 11개)
-
+	TArray<FStatus> ItemStatusArray; 
+	// 퍼즐 클리어 유무 배열 (서브맵1,2,3,4,5,템플 => 6개)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PuzzelClearStatus")
-	TArray<FStatus> PuzzelClearStatusArray; // 퍼즐 클리어 유무 배열 (서브맵1,2,3,4,5,템플 => 6개)
-
+	TArray<FStatus> PuzzelClearStatusArray;
+	// 듀토리얼 알림 유무 배열 (6개)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "TutorialNotifyStatus")
+	TArray<FStatus> TutorialNotifyStatusArray;
+	// 맵 탐험 클리어 체크 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ObservedMapStatus")
-	int32 ObservedMapStatus; // 맵 탐험 클리어 유무 배열 (Level : 총 8개)
+	int32 ObservedMapStatus; 
 
 public:
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
@@ -107,7 +111,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
 	bool IsProfileStatusAcquired(FString StatusName) const;
 
-	//Exception
+	// 보스전 실패시 노아 프로필 초기화 함수
 	UFUNCTION(BlueprintCallable, Category = "ProfileStatus")
 	void SetBossStageProfileStatusInit();
 public:
@@ -124,6 +128,15 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "PuzzelStatus")
 	bool IsPuzzelStatusAcquired(FString StatusName) const;
+
+	// 듀토리얼 알림 유무 상태 확인 함수 섹션
+	UFUNCTION(BlueprintCallable, Category = "TutorialNotifyStatus")
+	bool SetTutorialNotifyStatusAcquired(FString StatusName);
+
+	UFUNCTION(BlueprintCallable, Category = "TutorialNotifyStatus")
+	bool IsTutorialNotifyStatusAcquired(FString StatusName) const;
+
+
 
 	// 맵 탐험 클리어 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
@@ -190,25 +203,29 @@ public:
 	// 재앙이 발생한 후 스폰할 NPC들 대화 세부 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
 	bool bIsAfterDisaster;
-
+	// 여동생 대화 이벤트 종료 확인 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
-	bool bIsKairaDialogueEventFinished; // 여동생 대화 이벤트 종료 확인 변수
+	bool bIsKairaDialogueEventFinished;
+	// 안투크 대화 이벤트 종료 확인 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
-	bool bIsAntuqDialogueEventFinished; // 안투크 대화 이벤트 종료 확인 변수
+	bool bIsAntuqDialogueEventFinished;
+	// 아마르카 대화 이벤트 종료 확인 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
-	bool bIsAmarkaDialogueEventFinished; // 아마르카 대화 이벤트 종료 확인 
+	bool bIsAmarkaDialogueEventFinished; 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
-	bool bIsAmarkaDialogueItemEventFinished; // 아마르카 아이템 이벤트 종료 확인 
+	// 아마르카 아이템 이벤트 종료 확인
+	bool bIsAmarkaDialogueItemEventFinished;
+	// 위닉 대화 이벤트 종료 확인
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Settings")
-	bool bIsWinikDialogueEventFinished; // 위닉 대화 이벤트 종료 확인 
-
+	bool bIsWinikDialogueEventFinished;  
+	// 플레이어가 얻은 파피루스 갯수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
-	int32 AcquiredPapyrusNum; // 플레이어가 얻은 파피루스 갯수
-
+	int32 AcquiredPapyrusNum; 
+	// 플레이어가 받은 보스 힌트 갯수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
-	int32 AcquiredBossHintNum; // 플레이어가 받은 보스 힌트 갯수
-
+	int32 AcquiredBossHintNum; 
+	// 노아 눈꺼풀 이벤트 변수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Sub Settings")
-	bool bIsNoahGetup; // 노아 눈꺼풀 이벤트 변수
+	bool bIsNoahGetup; 
 
 };

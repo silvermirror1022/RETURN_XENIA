@@ -2,7 +2,6 @@
 
 
 #include "System/RXSaveGame.h"
-
 #include "RXGameplayTags.h"
 #include "System/RXGameInstance.h"
 
@@ -43,6 +42,7 @@ void URXSaveGame::CaptureDataFromGameInstance(URXGameInstance* GameInstance)
 	ProfileStatusArray = GameInstance->ProfileStatusArray;
 	ItemStatusArray = GameInstance->ItemStatusArray;
 	PuzzelClearStatusArray = GameInstance->PuzzelClearStatusArray;
+	TutorialNotifyStatusArray = GameInstance->TutorialNotifyStatusArray;
 	GI_Hp = GameInstance->GetGI_Hp();
 	GI_Shield = GameInstance->GetGI_Shield();
 	SliderValues = GameInstance->SliderValues;
@@ -74,6 +74,7 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->ProfileStatusArray = ProfileStatusArray;
 	GameInstance->ItemStatusArray = ItemStatusArray;
 	GameInstance->PuzzelClearStatusArray = PuzzelClearStatusArray;
+	GameInstance->TutorialNotifyStatusArray = TutorialNotifyStatusArray;
 	GameInstance->SetGI_Hp(GI_Hp);
 	GameInstance->SetGI_Shield(GI_Shield);
 	GameInstance->SliderValues = SliderValues;
