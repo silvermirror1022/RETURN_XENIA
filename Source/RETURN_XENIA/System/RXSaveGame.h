@@ -17,6 +17,7 @@ UCLASS()
 class RETURN_XENIA_API URXSaveGame : public USaveGame
 {
 	GENERATED_BODY()
+
 public:
 	URXSaveGame();
 
@@ -47,6 +48,10 @@ public:
 	/** 퍼즐 클리어 상태 배열 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
 	TArray<FStatus> PuzzelClearStatusArray;
+
+	/** 듀토리얼 알림 상태 배열 */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
+	TArray<FStatus> TutorialNotifyStatusArray;
 
 	/** 플레이어 체력 */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
@@ -89,13 +94,15 @@ public:
 	int32 ObservedMapStatus; 
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
-	int32 AcquiredPapyrusNum; 
+	int32 AcquiredPapyrusNum;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
+	int32 AcquiredBossHintNum;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "SaveData")
 	bool bIsNoahGetup;
 
 public:
-
 	 // 게임 인스턴스의 현재 데이터를 이 SaveGame 객체로 복사
 	UFUNCTION(BlueprintCallable, Category = "SaveGame")
 	void CaptureDataFromGameInstance(URXGameInstance* GameInstance);

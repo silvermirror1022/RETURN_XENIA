@@ -12,6 +12,7 @@
 ARXRockBase::ARXRockBase()
 {
 	PrimaryActorTick.bCanEverTick = false;
+	bIsSmallRock = false;
 
 	// UStaticMeshComponent를 루트 컴포넌트로 설정
 	StaticMeshComponent = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMeshComponent"));
@@ -57,6 +58,7 @@ void ARXRockBase::NotifyHit(
 	{
 		if(URXPlayerStatComponent* PlayerStat = Player->FindComponentByClass<URXPlayerStatComponent>())
 		{
+			if (bIsSmallRock) return;
 			PlayerStat->ApplyDamage(1); // 데미지 적용
 		}
 

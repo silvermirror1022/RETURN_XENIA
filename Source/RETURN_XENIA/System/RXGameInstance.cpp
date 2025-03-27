@@ -19,6 +19,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 
 	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
+	AcquiredBossHintNum = 0;
 	bIsKorean = true;
 	bIsNoahGetup = false;
 	bIsAfterDisaster = false;
@@ -148,6 +149,33 @@ bool URXGameInstance::IsPuzzelStatusAcquired(FString StatusName) const
 	}
 	return false;
 }
+
+// For PlayerTutorial Notify Dynamic Control Function Section
+bool URXGameInstance::SetTutorialNotifyStatusAcquired(FString StatusName)
+{
+	for (FStatus& Status : TutorialNotifyStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			Status.bIsAcquired = true;
+			return true;
+		}
+	}
+	return false;
+}
+
+bool URXGameInstance::IsTutorialNotifyStatusAcquired(FString StatusName) const
+{
+	for (const FStatus& Status : TutorialNotifyStatusArray)
+	{
+		if (Status.Name == StatusName)
+		{
+			return Status.bIsAcquired;
+		}
+	}
+	return false;
+}
+
 // For ObservedMap User Experience Dynamic Control Function Section
 void URXGameInstance::SetObservedMapStatus(int32 Level)
 {
@@ -167,6 +195,7 @@ void URXGameInstance::InitializeAllVariable()
 	SetGI_Shield(1);
 	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
+	AcquiredBossHintNum = 0;
 	bIsKorean = true;
 	bIsNoahGetup = false;
 	bIsAfterDisaster = false;
@@ -202,6 +231,12 @@ void URXGameInstance::InitializeAllVariable()
 	for (int32 i = 0; i < PuzzelClearStatusArray.Num(); i++)
 	{
 		PuzzelClearStatusArray[i].bIsAcquired = false;
+	}
+
+	// TutorialNotifyStatusArray: 모두 false로 초기화
+	for (int32 i = 0; i < TutorialNotifyStatusArray.Num(); i++)
+	{
+		TutorialNotifyStatusArray[i].bIsAcquired = false;
 	}
 }
 

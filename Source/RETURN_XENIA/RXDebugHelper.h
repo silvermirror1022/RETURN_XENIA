@@ -2,7 +2,7 @@
 
 #pragma once
 
-#define D(x) if(GEngine){ GEngine->AddOnScreenDebugMessage(-1, 1.0f, FColor::Cyan, x); }
+#define D(x) if(GEngine){ GEngine->AddOnScreenDebugMessage(-1, 6.0f, FColor::Cyan, x); }
 /*
 *	<Debug용 스크립트>
 *	사용할 CPP파일에 RXDebugHelper.h 추가한 후

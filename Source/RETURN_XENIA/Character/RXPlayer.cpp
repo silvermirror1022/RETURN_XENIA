@@ -100,10 +100,10 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 		// 인터렉션 섹션 바인딩
 		auto InteractAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Interact); // E 키
-		auto ProceedDialogueAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_EnterKey); // Enter 키
+		auto ProceedDialogueAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_TabKey); // Enter 키
 
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EKey);
-		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_EnterKey);	
+		EnhancedInputComponent->BindAction(ProceedDialogueAction, ETriggerEvent::Started, this, &ARXPlayer::Interact_IA_TabKey);	
 	}
 
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData_Puzzel"))
@@ -264,8 +264,9 @@ void ARXPlayer::Interact_IA_EKey()
 	}
 }
 
-void ARXPlayer::Interact_IA_EnterKey()
+void ARXPlayer::Interact_IA_TabKey()
 {
+	
 	if (DetectedNPC && DetectedNPC->bIsTalking)
 	{
 		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드

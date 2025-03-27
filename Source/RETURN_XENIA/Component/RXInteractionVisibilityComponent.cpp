@@ -9,6 +9,7 @@
 URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
 {
 	PrimaryComponentTick.bCanEverTick = false;
+    bIsBlackInteractionPrompt = false;
 
     //사용할려면 만들어놓은 WBP를 ParentWidgetBP 검색후 캐싱해야함.
 
@@ -31,7 +32,7 @@ URXInteractionVisibilityComponent::URXInteractionVisibilityComponent()
     // 크기와 회전 설정
     WidgetComponent->SetWidgetSpace(EWidgetSpace::Screen); // 화면에 고정
     WidgetComponent->SetDrawSize(FVector2D(200.0f, 50.0f)); // 위젯 크기 설정
-    WidgetComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 100.0f)); // 적절히 조정
+    WidgetComponent->SetRelativeLocation(FVector(0.0f, 0.0f, 50.0f)); // 적절히 조정
 }
 
 
@@ -39,14 +40,17 @@ void URXInteractionVisibilityComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
-    // WidgetClass가 설정되어 있는 경우에만 적용
-    if (WidgetClass)
+    // WidgetClass가 설정되어 있는 경우에만 적용 -> 흰색
+    if (bIsBlackInteractionPrompt && WidgetClass2)
     {
-        WidgetComponent->SetWidgetClass(WidgetClass);
+        WidgetComponent->SetWidgetClass(WidgetClass2); // 검정색 프롬프트 적용
+    }
+    else if (WidgetClass)
+    {
+        WidgetComponent->SetWidgetClass(WidgetClass);  // 흰색 프롬프트 적용
     }
 
-    // Overlap 이벤트 연결
-    if (BoxComponent)
+    if (BoxComponent) // Overlap 이벤트 연결
     {
         BoxComponent->OnComponentBeginOverlap.AddDynamic(this, &URXInteractionVisibilityComponent::OnBoxBeginOverlap);
         BoxComponent->OnComponentEndOverlap.AddDynamic(this, &URXInteractionVisibilityComponent::OnBoxEndOverlap);

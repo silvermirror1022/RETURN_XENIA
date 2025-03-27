@@ -13,7 +13,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Sprint);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Crouch);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_Interact);
-	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_EnterKey);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_TabKey);
 
 	// Player Puzzel Input Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_PuzzelMove);
@@ -27,6 +27,7 @@ namespace RXGameplayTags {
 	// Player UI Input Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_ESCKey);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_IKey);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_MapKey);
 
 	// Player Circular Puzzel UI
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(Input_Action_CP_Exit);
@@ -36,6 +37,7 @@ namespace RXGameplayTags {
 
 	// NPC Dialogue Data Section
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_ClosedDoor);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_WinikClosedDoor);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sign);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_RockChar);
 

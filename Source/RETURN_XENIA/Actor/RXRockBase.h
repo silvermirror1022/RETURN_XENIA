@@ -37,6 +37,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "RockSetting")
 	float ImpulseForce;
 
+	UPROPERTY(EditAnywhere, Category = "RockSetting")
+	bool bIsSmallRock;
+
 	// static Component
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Components")
 	TObjectPtr<class UStaticMeshComponent> StaticMeshComponent;

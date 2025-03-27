@@ -29,12 +29,14 @@ namespace RXGameplayTags
 
 	//Player Others Section
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_Interact, "Input.Action.Interact");
-	UE_DEFINE_GAMEPLAY_TAG(Input_Action_EnterKey, "Input.Action.EnterKey");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_TabKey, "Input.Action.TabKey");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_ESCKey, "Input.Action.ESCKey");
 	UE_DEFINE_GAMEPLAY_TAG(Input_Action_IKey, "Input.Action.IKey");
+	UE_DEFINE_GAMEPLAY_TAG(Input_Action_MapKey, "Input.Action.MapKey");
 
 	//DialogueData Text Tag , NPC Dialogue Data Section
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_ClosedDoor, "Dialogue.NPCType.ClosedDoor");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_WinikClosedDoor, "Dialogue.NPCType.WinikClosedDoor");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Sign, "Dialogue.NPCType.Sign");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_RockChar, "Dialogue.NPCType.RockChar");
 

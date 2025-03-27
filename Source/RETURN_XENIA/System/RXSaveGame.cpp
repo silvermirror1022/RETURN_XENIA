@@ -2,7 +2,6 @@
 
 
 #include "System/RXSaveGame.h"
-
 #include "RXGameplayTags.h"
 #include "System/RXGameInstance.h"
 
@@ -24,6 +23,7 @@ URXSaveGame::URXSaveGame()
 	bIsWinikDialogueEventFinished = false;
 	ObservedMapStatus = 1;
 	AcquiredPapyrusNum = 0;
+	AcquiredBossHintNum = 0;
 	bIsNoahGetup = false;
 }
 
@@ -42,6 +42,7 @@ void URXSaveGame::CaptureDataFromGameInstance(URXGameInstance* GameInstance)
 	ProfileStatusArray = GameInstance->ProfileStatusArray;
 	ItemStatusArray = GameInstance->ItemStatusArray;
 	PuzzelClearStatusArray = GameInstance->PuzzelClearStatusArray;
+	TutorialNotifyStatusArray = GameInstance->TutorialNotifyStatusArray;
 	GI_Hp = GameInstance->GetGI_Hp();
 	GI_Shield = GameInstance->GetGI_Shield();
 	SliderValues = GameInstance->SliderValues;
@@ -55,6 +56,7 @@ void URXSaveGame::CaptureDataFromGameInstance(URXGameInstance* GameInstance)
 	AcquiredPapyrusNum = GameInstance->AcquiredPapyrusNum;
 	bIsNoahGetup = GameInstance->bIsNoahGetup;
 	ObservedMapStatus = GameInstance->ObservedMapStatus;
+	AcquiredBossHintNum = GameInstance->AcquiredBossHintNum;
 }
 
 void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
@@ -72,6 +74,7 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->ProfileStatusArray = ProfileStatusArray;
 	GameInstance->ItemStatusArray = ItemStatusArray;
 	GameInstance->PuzzelClearStatusArray = PuzzelClearStatusArray;
+	GameInstance->TutorialNotifyStatusArray = TutorialNotifyStatusArray;
 	GameInstance->SetGI_Hp(GI_Hp);
 	GameInstance->SetGI_Shield(GI_Shield);
 	GameInstance->SliderValues = SliderValues;
@@ -85,4 +88,5 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->AcquiredPapyrusNum = AcquiredPapyrusNum;
 	GameInstance->bIsNoahGetup = bIsNoahGetup;
 	GameInstance->ObservedMapStatus = ObservedMapStatus;
+	GameInstance->AcquiredBossHintNum = AcquiredBossHintNum;
 }
