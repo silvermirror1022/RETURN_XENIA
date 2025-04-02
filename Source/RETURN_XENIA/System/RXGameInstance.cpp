@@ -12,7 +12,7 @@ URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 {
 	CurrentDestinationTag = RXGameplayTags::Teleport_1stFloor_MainMap_Start;
 	//D(FString::Printf(TEXT("CurrentDestinationTag initialized to: %s"), *CurrentDestinationTag.ToString()));
-
+	bIsContinueGame = false;
 	CurrentLevelName = "NoahHouse";
 	SetGI_Hp(3);
 	SetGI_Shield(1);

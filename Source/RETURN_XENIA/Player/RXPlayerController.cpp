@@ -139,6 +139,15 @@ void ARXPlayerController::SpawnPlayerToDestination() const
 				break;
 			}
 		}
+
+		if(GI->bIsContinueGame)
+		{   // 컨티뉴게임으로 로드할 경우에는 플레이어스타트가 아닌 커스텀 트랜스폼으로 이동하여 스폰
+			if (ARXPlayer* PlayerCharacter = Cast<ARXPlayer>(GetPawn()))
+			{
+				PlayerCharacter->SetActorLocation(GI->CheckpointTransform.GetLocation());
+			}
+			GI->bIsContinueGame = false;
+		}
 	}
 }
 
