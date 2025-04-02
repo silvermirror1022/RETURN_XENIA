@@ -110,7 +110,7 @@ void ARXLevelTeleportActor::OnLevelLoadCompleted(FSoftObjectPath LoadedMapPath) 
     GetWorld()->GetTimerManager().SetTimer(
         TimerHandle,
         FTimerDelegate::CreateUObject(this, &ARXLevelTeleportActor::DelayedOpenLevel, LoadedMapPath),
-        1.5f, // 1.5초 대기
+        2.5f, // 2.5초 대기
         false
     );
 }
