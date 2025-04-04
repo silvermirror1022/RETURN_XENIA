@@ -5,6 +5,12 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/Return_Xenia/RETURN_XENIA/Content/Designer/Textures/T_PuzzelArrow_A01.uasset",
+				"D:/Return_Xenia/RETURN_XENIA/Content/Designer/Textures/T_carpet_D_A02.uasset",
+				"D:/Return_Xenia/RETURN_XENIA/Content/Designer/BeforeMaterial/Decal/M_Decal_Inst.uasset",
+				"D:/Return_Xenia/RETURN_XENIA/Content/Designer/BeforeMaterial/Decal/M_puzzelArrow.uasset",
+				"D:/Return_Xenia/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F_AfterDisaster.umap",
+				"D:/Return_Xenia/RETURN_XENIA/Content/Maps/MainMaps/MainMap_2F.umap",
 				"D:/RETURN_XENIA/Content/Designer/Materials/M_AirStep.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Sign.uasset",
 				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F.umap",
