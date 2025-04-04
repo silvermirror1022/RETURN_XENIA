@@ -146,7 +146,12 @@ void ARXPlayerController::SpawnPlayerToDestination() const
 			{
 				PlayerCharacter->SetActorLocation(GI->CheckpointTransform.GetLocation());
 			}
-			GI->bIsContinueGame = false;
+			// 1.5초 후 bIsContinueGame = false 처리
+			FTimerHandle TimerHandle;
+			GetWorld()->GetTimerManager().SetTimer(TimerHandle, [GI]()
+				{
+					GI->bIsContinueGame = false;
+				}, 1.5f, false);
 		}
 	}
 }
