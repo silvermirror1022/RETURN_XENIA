@@ -3,9 +3,11 @@
 
 #include "System/RXGameInstance.h"
 #include "RXGameplayTags.h"
-#include "RXDebugHelper.h"
 #include "RXAssetManager.h"
 #include "RXSaveGame.h"
+#include "Engine/PostProcessVolume.h"
+#include "EngineUtils.h"
+#include "Kismet/GameplayStatics.h"
 
 URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -41,6 +43,56 @@ void URXGameInstance::Shutdown()
 {
 	Super::Shutdown();
 
+}
+// SaveFiles Init FSliderValue
+void URXGameInstance::ApplyBrightness(float Brightness) const
+{
+	for (TActorIterator<APostProcessVolume> It(GetWorld()); It; ++It)
+	{
+		APostProcessVolume* PPVolume = *It;
+		if (PPVolume && PPVolume->bUnbound)
+		{
+			FPostProcessSettings& Settings = PPVolume->Settings;
+			Settings.bOverride_AutoExposureBias = true;
+			Settings.AutoExposureBias = Brightness;
+			break;
+		}
+	}
+}
+
+void URXGameInstance::ApplyMasterVolume(float Volume) const
+{
+	if (MasterMix && MasterClass)
+	{
+		UGameplayStatics::SetSoundMixClassOverride(this, MasterMix, MasterClass, Volume, 1.0f, 0.0f);
+		UGameplayStatics::PushSoundMixModifier(this, MasterMix);
+	}
+}
+
+void URXGameInstance::ApplyMusicVolume(float Volume) const
+{
+	if (MusicMix && MusicClass)
+	{
+		UGameplayStatics::SetSoundMixClassOverride(this, MusicMix, MusicClass, Volume, 1.0f, 0.0f);
+		UGameplayStatics::PushSoundMixModifier(this, MusicMix);
+	}
+}
+
+void URXGameInstance::ApplySFXVolume(float Volume) const
+{
+	if (SFXMix && SFXClass)
+	{
+		UGameplayStatics::SetSoundMixClassOverride(this, SFXMix, SFXClass, Volume, 1.0f, 0.0f);
+		UGameplayStatics::PushSoundMixModifier(this, SFXMix);
+	}
+}
+
+void URXGameInstance::ApplyAllSliderValues(const FSliderValues& InSliderValues) const
+{
+	ApplyBrightness(InSliderValues.BrightnessValue);
+	ApplyMasterVolume(InSliderValues.MasterVolumeValue);
+	ApplyMusicVolume(InSliderValues.MusicVolumeValue);
+	ApplySFXVolume(InSliderValues.SFXVolumeValue);
 }
 
 // For Memory Dynamic Control Section

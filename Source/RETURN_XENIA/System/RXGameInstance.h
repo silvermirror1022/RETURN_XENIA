@@ -79,7 +79,36 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "CheckPoint")
 	bool bIsContinueGame;;
 
+protected:
+	void ApplyBrightness(float Brightness) const;
+
+	void ApplyMasterVolume(float Volume) const;
+
+	void ApplyMusicVolume(float Volume) const;
+
+	void ApplySFXVolume(float Volume) const;
+
+protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundMix> MasterMix;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundClass> MasterClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundMix> MusicMix;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundClass> MusicClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundMix> SFXMix;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundClass> SFXClass;
+	
 public:
+	
 	// 메모리 획득 여부를 저장하는 배열 (총5개)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
 	TArray<FStatus> MemoryStatusArray; 
@@ -100,6 +129,10 @@ public:
 	int32 ObservedMapStatus; 
 
 public:
+	// 모든 슬라이더 벨류를 세이브파일로 켰을 경우 적용하는 함수
+	UFUNCTION(BlueprintCallable)
+	void ApplyAllSliderValues(const FSliderValues& InSliderValues) const;
+
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
 	bool SetMemoryStatusAcquired(FString StatusName);
@@ -139,14 +172,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "TutorialNotifyStatus")
 	bool IsTutorialNotifyStatusAcquired(FString StatusName) const;
 
-
-
 	// 맵 탐험 클리어 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
 	void SetObservedMapStatus(int32 Level);
 
 	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
 	int ReturnObservedMapStatus();
+
+
+
 public:
 	// 플레이어 체력, 방패 섹션
 	UPROPERTY()
