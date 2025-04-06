@@ -6,6 +6,7 @@
 #include "RXAssetManager.h"
 #include "RXSaveGame.h"
 #include "Engine/PostProcessVolume.h"
+#include "Camera/CameraTypes.h"
 #include "EngineUtils.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -53,8 +54,11 @@ void URXGameInstance::ApplyBrightness(float Brightness) const
 		if (PPVolume && PPVolume->bUnbound)
 		{
 			FPostProcessSettings& Settings = PPVolume->Settings;
+
+			// 노출 설정
 			Settings.bOverride_AutoExposureBias = true;
 			Settings.AutoExposureBias = Brightness;
+
 			break;
 		}
 	}
@@ -256,6 +260,8 @@ void URXGameInstance::InitializeAllVariable()
 	bIsKairaDialogueEventFinished = false;
 	bIsWinikDialogueEventFinished = false;
 	bIsAmarkaDialogueItemEventFinished = false;
+
+	SliderValues = FSliderValues();
 
 	// MemoryStatusArray: 첫번째 요소만 true, 나머지는 false
 	if (MemoryStatusArray.Num() > 0)
