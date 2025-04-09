@@ -105,12 +105,12 @@ void ARXLevelTeleportActor::OnLevelLoadCompleted(FSoftObjectPath LoadedMapPath) 
 {
     UE_LOG(LogTemp, Log, TEXT("Level Load Completed! Opening Level: %s"), *LoadedMapPath.ToString());
 
-    // 1.5초 후에 DelayedOpenLevel() 실행
+    // 1.75초 후에 DelayedOpenLevel() 실행
     FTimerHandle TimerHandle;
     GetWorld()->GetTimerManager().SetTimer(
         TimerHandle,
         FTimerDelegate::CreateUObject(this, &ARXLevelTeleportActor::DelayedOpenLevel, LoadedMapPath),
-        2.5f, // 2.5초 대기
+        1.75f, // 1.75초 대기
         false
     );
 }
