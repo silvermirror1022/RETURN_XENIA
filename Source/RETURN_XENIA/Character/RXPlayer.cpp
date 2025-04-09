@@ -267,9 +267,19 @@ void ARXPlayer::Interact_IA_EKey()
 void ARXPlayer::Interact_IA_TabKey()
 {
 	
-	if (DetectedNPC && DetectedNPC->bIsTalking)
+	/*if (DetectedNPC && DetectedNPC->bIsTalking)
 	{
 		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드
+	}*/
+
+	if (!DetectedNPC)
+	{
+		return;
+	}
+
+	if (DetectedNPC->bIsTalking)
+	{
+		DetectedNPC->DisplayDialogue();
 	}
 }
 
