@@ -3,16 +3,19 @@
 
 #include "System/RXGameInstance.h"
 #include "RXGameplayTags.h"
-#include "RXDebugHelper.h"
 #include "RXAssetManager.h"
 #include "RXSaveGame.h"
+#include "Engine/PostProcessVolume.h"
+#include "Camera/CameraTypes.h"
+#include "EngineUtils.h"
+#include "Kismet/GameplayStatics.h"
 
 URXGameInstance::URXGameInstance(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 	CurrentDestinationTag = RXGameplayTags::Teleport_1stFloor_MainMap_Start;
 	//D(FString::Printf(TEXT("CurrentDestinationTag initialized to: %s"), *CurrentDestinationTag.ToString()));
-
+	bIsContinueGame = false;
 	CurrentLevelName = "NoahHouse";
 	SetGI_Hp(3);
 	SetGI_Shield(1);
@@ -41,6 +44,59 @@ void URXGameInstance::Shutdown()
 {
 	Super::Shutdown();
 
+}
+// SaveFiles Init FSliderValue
+void URXGameInstance::ApplyBrightness(float Brightness) const
+{
+	for (TActorIterator<APostProcessVolume> It(GetWorld()); It; ++It)
+	{
+		APostProcessVolume* PPVolume = *It;
+		if (PPVolume && PPVolume->bUnbound)
+		{
+			FPostProcessSettings& Settings = PPVolume->Settings;
+
+			// 노출 설정
+			Settings.bOverride_AutoExposureBias = true;
+			Settings.AutoExposureBias = Brightness;
+
+			break;
+		}
+	}
+}
+
+void URXGameInstance::ApplyMasterVolume(float Volume) const
+{
+	if (MasterMix && MasterClass)
+	{
+		UGameplayStatics::SetSoundMixClassOverride(this, MasterMix, MasterClass, Volume, 1.0f, 0.0f);
+		UGameplayStatics::PushSoundMixModifier(this, MasterMix);
+	}
+}
+
+void URXGameInstance::ApplyMusicVolume(float Volume) const
+{
+	if (MusicMix && MusicClass)
+	{
+		UGameplayStatics::SetSoundMixClassOverride(this, MusicMix, MusicClass, Volume, 1.0f, 0.0f);
+		UGameplayStatics::PushSoundMixModifier(this, MusicMix);
+	}
+}
+
+void URXGameInstance::ApplySFXVolume(float Volume) const
+{
+	if (SFXMix && SFXClass)
+	{
+		UGameplayStatics::SetSoundMixClassOverride(this, SFXMix, SFXClass, Volume, 1.0f, 0.0f);
+		UGameplayStatics::PushSoundMixModifier(this, SFXMix);
+	}
+}
+
+void URXGameInstance::ApplyAllSliderValues(const FSliderValues& InSliderValues) const
+{
+	ApplyBrightness(InSliderValues.BrightnessValue);
+	ApplyMasterVolume(InSliderValues.MasterVolumeValue);
+	ApplyMusicVolume(InSliderValues.MusicVolumeValue);
+	ApplySFXVolume(InSliderValues.SFXVolumeValue);
 }
 
 // For Memory Dynamic Control Section
@@ -204,6 +260,8 @@ void URXGameInstance::InitializeAllVariable()
 	bIsKairaDialogueEventFinished = false;
 	bIsWinikDialogueEventFinished = false;
 	bIsAmarkaDialogueItemEventFinished = false;
+
+	SliderValues = FSliderValues();
 
 	// MemoryStatusArray: 첫번째 요소만 true, 나머지는 false
 	if (MemoryStatusArray.Num() > 0)

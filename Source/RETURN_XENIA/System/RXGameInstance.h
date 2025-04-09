@@ -66,17 +66,49 @@ public:
 	// 체크포인트 정보 (Transform으로 위치와 회전 한번에 관리)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "CheckPoint")
 	FTransform CheckpointTransform;
-	//레벨 전환시 저장해 놓을 태그타입
+	// 레벨 전환시 저장해 놓을 태그타입
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DestinationTag")
 	FGameplayTag CurrentDestinationTag; 
-	//필요한 경우 블루프린트에서 목적지 설정
+	// 필요한 경우 블루프린트에서 목적지 설정
 	UFUNCTION(BlueprintCallable, Category = "Teleport")
 	void SetDestinationTag(FGameplayTag NewDestinationTag) { CurrentDestinationTag = NewDestinationTag; }
-	//플레이어가 있던 곳의 레벨이름
+	// 플레이어가 있던 곳의 레벨이름
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="CheckPoint")
-	FName CurrentLevelName;  
+	FName CurrentLevelName;
+	// 플레이어가 컨티뉴를 했는지
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "CheckPoint")
+	bool bIsContinueGame;;
 
+protected:
+	void ApplyBrightness(float Brightness) const;
+
+	void ApplyMasterVolume(float Volume) const;
+
+	void ApplyMusicVolume(float Volume) const;
+
+	void ApplySFXVolume(float Volume) const;
+
+protected:
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundMix> MasterMix;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundClass> MasterClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundMix> MusicMix;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundClass> MusicClass;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundMix> SFXMix;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Audio")
+	TObjectPtr<class USoundClass> SFXClass;
+	
 public:
+	
 	// 메모리 획득 여부를 저장하는 배열 (총5개)
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MemoryStatus")
 	TArray<FStatus> MemoryStatusArray; 
@@ -97,6 +129,10 @@ public:
 	int32 ObservedMapStatus; 
 
 public:
+	// 모든 슬라이더 벨류를 세이브파일로 켰을 경우 적용하는 함수
+	UFUNCTION(BlueprintCallable)
+	void ApplyAllSliderValues(const FSliderValues& InSliderValues) const;
+
 	// 메모리 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "MemoryStatus")
 	bool SetMemoryStatusAcquired(FString StatusName);
@@ -136,14 +172,15 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "TutorialNotifyStatus")
 	bool IsTutorialNotifyStatusAcquired(FString StatusName) const;
 
-
-
 	// 맵 탐험 클리어 상태 설정 및 상태 확인 함수 섹션
 	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
 	void SetObservedMapStatus(int32 Level);
 
 	UFUNCTION(BlueprintCallable, Category = "ObservedMapStatus")
 	int ReturnObservedMapStatus();
+
+
+
 public:
 	// 플레이어 체력, 방패 섹션
 	UPROPERTY()

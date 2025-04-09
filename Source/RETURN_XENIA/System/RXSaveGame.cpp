@@ -89,4 +89,5 @@ void URXSaveGame::ApplyDataToGameInstance(URXGameInstance* GameInstance)
 	GameInstance->bIsNoahGetup = bIsNoahGetup;
 	GameInstance->ObservedMapStatus = ObservedMapStatus;
 	GameInstance->AcquiredBossHintNum = AcquiredBossHintNum;
+	GameInstance->ApplyAllSliderValues(SliderValues);
 }

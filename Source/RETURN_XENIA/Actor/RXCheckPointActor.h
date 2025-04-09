@@ -19,6 +19,10 @@ class RETURN_XENIA_API ARXCheckPointActor : public AActor
 public:	
 	ARXCheckPointActor();
 
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "LevelName")
+	FName ThisActorLevelName;
+
 protected:
 	virtual void BeginPlay() override;
 

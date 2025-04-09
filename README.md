@@ -37,15 +37,14 @@
 #### 2025.03.14 ~ ING (HOT FIX)
 
 ## 역할 분담 🧑‍💻
-### 개발 인원 : 9명 [언리얼엔진 3D 오픈월드 게임 팀프로젝트] 🕹️
-| 이름 | 개인 역할 | 담당 역할 및 기능 |
+### 개발 인원 : 8명 [언리얼엔진 3D 오픈월드 게임 팀프로젝트] 🕹️
+| 이름 | 개인 역할 | 담당 역할 및 개발기능 |
 | ------ | ---------- | ------ |
 | 정은경 | ProjectManager | PM |
-| 오승환 | GamePlanner | 기획자 |
 | 박수민 | GamePlanner | 기획자 |
-| 원동훈 | Developer | 게임프로그래밍 |
-| 김솔 | Designer | 캐릭터모델링, 서브배경모델링 |
-| 이도연 | Designer | 메인배경모델링, 라이팅 |
+| 원동훈 | Programmer | 게임프로그래밍 |
+| 김솔 | Designer | 캐릭터모델링, 서브레벨모델링 |
+| 이도연 | Designer | 메인레벨모델링, 라이팅 |
 | 김유리 | Designer | UI, UX 디자인 |
 | 류지원 | Designer | UI, UX 디자인 |
 | 장동혁 | Composer | 게임사운드 |
@@ -54,7 +53,7 @@
 ... 준비중 ~ing
 
 ## 유튜브 시연 영상 ▶️
-[![유튜브 풀 게임 플레이시연 영상](https://img.shields.io/badge/Youtube-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=aHv9y5JFi1E&feature=youtu.be)
+[![유튜브 풀 게임 플레이시연 영상](https://img.shields.io/badge/Youtube-ff0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/kfC3YvSk6WI)
 ## 기술 스택 💻
 <img src="https://img.shields.io/badge/unrealengine-%23313131.svg?style=for-the-badge&logo=unrealengine&logoColor=white&color=blue">  
 <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white&color=red">  

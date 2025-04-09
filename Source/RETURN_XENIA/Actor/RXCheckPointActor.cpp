@@ -7,6 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "Character/RXPlayer.h"
 #include "Kismet/GameplayStatics.h"
+#include "Microsoft/AllowMicrosoftPlatformTypes.h"
 
 ARXCheckPointActor::ARXCheckPointActor()
 {
@@ -44,7 +45,8 @@ void ARXCheckPointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent
 		{
 			// 체크포인트 정보를 저장 
 			GI->CheckpointTransform = GetActorTransform();
-
+			GI->CurrentLevelName = ThisActorLevelName;
+			// 나머지로직은 블루프린트에서 처리
 			//UE_LOG(LogTemp, Log, TEXT("Checkpoint updated at location: %s"), *GetActorLocation().ToString());
 		}
 	}
