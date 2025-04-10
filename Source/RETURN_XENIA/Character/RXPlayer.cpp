@@ -230,7 +230,27 @@ void ARXPlayer::Interact_IA_EKey()
 		return;
 
 	UpdateDetectedActor();
+	// 이전 NPC가 남아있고 대화는 끝났지만, 여전히 감지됐다고 생각해서 대화를 재시작하는 경우 방지
+	if (DetectedNPC && !DetectedNPC->bIsTalking)
+	{
+		// 만약 현재 NPC가 이전 감지 NPC인데, 지금 Sweep에 안 걸렸다면 Reset 처리
+		FHitResult TempHit;
+		FVector Start = GetCapsuleComponent()->GetComponentLocation();
+		FVector End = Start + (GetActorForwardVector() * 80.0f);
+		float Radius = 45.0f;
+		FCollisionObjectQueryParams ObjectParams;
+		ObjectParams.AddObjectTypesToQuery(ECC_Pawn);
+		FCollisionQueryParams QueryParams;
+		QueryParams.AddIgnoredActor(this);
 
+		if (!GetWorld()->SweepSingleByObjectType(TempHit, Start, End, FQuat::Identity, ObjectParams, FCollisionShape::MakeSphere(Radius), QueryParams)
+			|| Cast<ARXNonPlayer>(TempHit.GetActor()) != DetectedNPC)
+		{
+			// 감지가 실제로 안 된 경우
+			UE_LOG(LogTemp, Warning, TEXT("EKey: DetectedNPC is stale. Resetting."));
+			DetectedNPC = nullptr;
+		}
+	}
 	if (DetectedNPC && !DetectedNPC->bIsTalking)  // 각각 유효한지 확인
 	{
 		DetectedNPC->StartDialogue();
