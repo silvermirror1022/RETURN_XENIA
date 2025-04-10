@@ -189,6 +189,7 @@ void ARXPlayer::UpdateDetectedActor()
 		if (ARXNonPlayer* NPC = Cast<ARXNonPlayer>(Hit.GetActor()))
 		{
 			DetectedNPC = NPC;  // 감지된 NPC로 업데이트
+			UE_LOG(LogTemp, Warning, TEXT("Tab5"));
 		}
 		else if(ARXLevelTeleportActor* TPActor = Cast<ARXLevelTeleportActor>(Hit.GetActor()))
 		{
@@ -205,11 +206,13 @@ void ARXPlayer::UpdateDetectedActor()
 		else
 		{
 			ResetDetectedActors();
+			UE_LOG(LogTemp, Warning, TEXT("Tab6"));
 		}
 	}
 	else
 	{
 		ResetDetectedActors();
+		UE_LOG(LogTemp, Warning, TEXT("Tab7"));
 	}
 }
 void ARXPlayer::ResetDetectedActors()
@@ -265,23 +268,30 @@ void ARXPlayer::Interact_IA_EKey()
 
 void ARXPlayer::Interact_IA_TabKey()
 {
-	// 감지된 NPC가 있고, 대화 중이면 그대로 진행
 	if (DetectedNPC && DetectedNPC->bIsTalking)
 	{
 		DetectedNPC->DisplayDialogue();
+		UE_LOG(LogTemp, Warning, TEXT("Tab1"));
 	}
-	// 감지된 NPC가 없는데 실제론 대화 중이면 예외 복구
+	else if (DetectedNPC && !DetectedNPC->bIsTalking)
+	{
+		// 대화 끝났는데 여전히 DetectedNPC가 남아있다면 초기화
+		DetectedNPC = nullptr;
+		UE_LOG(LogTemp, Warning, TEXT("Tab DetectedNPC reset due to dialogue end."));
+	}
 	else if (!DetectedNPC)
 	{
-		// 예외적 상황: 대화 중인데 감지 정보만 끊긴 경우 → 다시 감지 시도
 		UpdateDetectedActor();
-
-		// 감지 이후에도 대화 중이면 다시 출력
+		UE_LOG(LogTemp, Warning, TEXT("Tab2"));
 		if (DetectedNPC && DetectedNPC->bIsTalking)
 		{
 			DetectedNPC->DisplayDialogue();
+			UE_LOG(LogTemp, Warning, TEXT("Tab3"));
 		}
 	}
+
+	UE_LOG(LogTemp, Warning, TEXT("Tab Pressed. DetectedNPC: %s, bIsTalking: %d"),
+		*GetNameSafe(DetectedNPC), DetectedNPC ? DetectedNPC->bIsTalking : -1);
 }
 
 void ARXPlayer::Move(const FInputActionValue& Value)
