@@ -23,7 +23,7 @@ public:
 
 protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-	virtual void BeginPlay();
+	virtual void BeginPlay() override;
 
 public: // 카메라섹션 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", Meta = (AllowPrivateAccess = "true"))
@@ -80,7 +80,7 @@ protected: // 스텟 섹션 (HP,Shield 관련)
 	TObjectPtr<class URXGameInstance> GI;
 public: 
 	// 탐지 함수 섹션
-	void UpdateDetectedActor(); //감지
+	bool UpdateDetectedActor(); //감지
 	void ResetDetectedActors();  //리셋
 
 	// NPC 대화 관련 NPC 탐지 변수 
