@@ -222,10 +222,9 @@ void ARXPlayer::ResetDetectedActors()
 }
 void ARXPlayer::Interact_IA_EKey()
 {
-	if (DetectedNPC)  // 대화중이라면 빠저나가기
-	{   //if (DetectedNPC && DetectedNPC->bIsTalking) 
+	// 대화중이라면 빠저나가기
+	if (DetectedNPC && DetectedNPC->bIsTalking) 
 		return;
-	}
 
 	UpdateDetectedActor();
 
@@ -266,20 +265,22 @@ void ARXPlayer::Interact_IA_EKey()
 
 void ARXPlayer::Interact_IA_TabKey()
 {
-	
-	/*if (DetectedNPC && DetectedNPC->bIsTalking)
-	{
-		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드
-	}*/
-
-	if (!DetectedNPC)
-	{
-		return;
-	}
-
-	if (DetectedNPC->bIsTalking)
+	// 감지된 NPC가 있고, 대화 중이면 그대로 진행
+	if (DetectedNPC && DetectedNPC->bIsTalking)
 	{
 		DetectedNPC->DisplayDialogue();
+	}
+	// 감지된 NPC가 없는데 실제론 대화 중이면 예외 복구
+	else if (!DetectedNPC)
+	{
+		// 예외적 상황: 대화 중인데 감지 정보만 끊긴 경우 → 다시 감지 시도
+		UpdateDetectedActor();
+
+		// 감지 이후에도 대화 중이면 다시 출력
+		if (DetectedNPC && DetectedNPC->bIsTalking)
+		{
+			DetectedNPC->DisplayDialogue();
+		}
 	}
 }
 
