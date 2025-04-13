@@ -1,32 +1,41 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Actor/Boss/RXBossProjectileSpawner.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "TimerManager.h"
 #include "GameFramework/Character.h"
 
 ARXBossProjectileSpawner::ARXBossProjectileSpawner()
 {
 	PrimaryActorTick.bCanEverTick = false;
 }
+
 void ARXBossProjectileSpawner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// 각 종류의 프로젝트타일을 4개씩 풀링하여 생성
 	InitializeProjectilePool(RayPool, RayClass);
-
 	InitializeProjectilePool(TargetingFireballPool, TargetingFireballClass);
 }
 
+void ARXBossProjectileSpawner::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
 
-//  프로젝트타일 풀을 초기화
+	// 레벨 언로드 시 모든 타이머 정리
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().ClearAllTimersForObject(this);
+	}
+}
+
 void ARXBossProjectileSpawner::InitializeProjectilePool(TArray<AActor*>& Pool, TSubclassOf<AActor> ProjectileClass)
 {
 	if (!ProjectileClass) return;
 
-	int32 Count = (ProjectileClass == TargetingFireballClass) ? 25 : 15;
+	const int32 Count = (ProjectileClass == TargetingFireballClass) ? 25 : 15;
+
 	for (int32 i = 0; i < Count; i++)
 	{
 		if (UWorld* World = GetWorld())
@@ -43,7 +52,6 @@ void ARXBossProjectileSpawner::InitializeProjectilePool(TArray<AActor*>& Pool, T
 	}
 }
 
-//  풀에서 프로젝트타일 가져오기 (없으면 새로 생성)
 AActor* ARXBossProjectileSpawner::GetProjectileFromPool(TArray<AActor*>& Pool, TSubclassOf<AActor> ProjectileClass)
 {
 	for (AActor* Projectile : Pool)
@@ -66,7 +74,6 @@ AActor* ARXBossProjectileSpawner::GetProjectileFromPool(TArray<AActor*>& Pool, T
 	return nullptr;
 }
 
-//  프로젝트타일을 풀로 반환
 void ARXBossProjectileSpawner::ReturnProjectileToPool(AActor* Projectile, TArray<AActor*>& Pool)
 {
 	if (IsValid(Projectile) && !Projectile->IsHidden())
@@ -76,6 +83,7 @@ void ARXBossProjectileSpawner::ReturnProjectileToPool(AActor* Projectile, TArray
 		Projectile->SetActorTickEnabled(false);
 	}
 }
+
 void ARXBossProjectileSpawner::FireProjectile(TArray<AActor*>& Pool, TSubclassOf<AActor> ProjectileClass, FVector SpawnLocation)
 {
 	AActor* Projectile = GetProjectileFromPool(Pool, ProjectileClass);
@@ -104,21 +112,27 @@ void ARXBossProjectileSpawner::FireProjectile(TArray<AActor*>& Pool, TSubclassOf
 	TWeakObjectPtr<AActor> WeakProjectile = Projectile;
 	TWeakObjectPtr<ARXBossProjectileSpawner> WeakThis = this;
 
-	FTimerHandle TimerHandle;
-	GetWorld()->GetTimerManager().SetTimer(TimerHandle, FTimerDelegate::CreateLambda([WeakThis, WeakProjectile]() {
-		if (WeakThis.IsValid() && WeakProjectile.IsValid())
-		{
-			ARXBossProjectileSpawner* Owner = WeakThis.Get();
-			if (!Owner) return;
+	if (UWorld* World = GetWorld())
+	{
+		FTimerHandle TimerHandle;
+		World->GetTimerManager().SetTimer(TimerHandle, FTimerDelegate::CreateLambda([WeakThis, WeakProjectile]() {
+			if (WeakThis.IsValid() && WeakProjectile.IsValid())
+			{
+				ARXBossProjectileSpawner* Owner = WeakThis.Get();
+				if (!Owner) return;
 
-			if (Owner->RayPool.Contains(WeakProjectile.Get()))
-			{
-				Owner->ReturnProjectileToPool(WeakProjectile.Get(), Owner->RayPool);
+				AActor* ActualProjectile = WeakProjectile.Get();
+				if (!ActualProjectile) return;
+
+				if (Owner->RayPool.Contains(ActualProjectile))
+				{
+					Owner->ReturnProjectileToPool(ActualProjectile, Owner->RayPool);
+				}
+				else if (Owner->TargetingFireballPool.Contains(ActualProjectile))
+				{
+					Owner->ReturnProjectileToPool(ActualProjectile, Owner->TargetingFireballPool);
+				}
 			}
-			else if (Owner->TargetingFireballPool.Contains(WeakProjectile.Get()))
-			{
-				Owner->ReturnProjectileToPool(WeakProjectile.Get(), Owner->TargetingFireballPool);
-			}
-		}
-		}), 6.0f, false);
+			}), 6.0f, false);
+	}
 }

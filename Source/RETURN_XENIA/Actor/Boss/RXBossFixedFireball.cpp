@@ -23,6 +23,17 @@ void ARXBossFixedFireball::BeginPlay()
 	SetActorLocation(InitialLocation);
 }
 
+void ARXBossFixedFireball::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	// 혹시라도 남아있을 수 있는 타이머 정리
+	if (GetWorld())
+	{
+		GetWorld()->GetTimerManager().ClearTimer(DeactivationTimer);
+	}
+}
+
 void ARXBossFixedFireball::LaunchProjectile(FVector Direction)
 {
 	SetActorHiddenInGame(false);

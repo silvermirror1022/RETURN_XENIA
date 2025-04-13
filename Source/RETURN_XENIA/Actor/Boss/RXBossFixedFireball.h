@@ -19,9 +19,9 @@ public:
 protected:
 
 	virtual void BeginPlay() override;
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 
 public:	
-
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Speed")
 	float Speed;
