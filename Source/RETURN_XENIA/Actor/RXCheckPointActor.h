@@ -23,6 +23,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "LevelName")
 	FName ThisActorLevelName;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "PlayerStartPos")
+	bool bIsPlayerStartPos;
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -38,6 +41,5 @@ protected:
 		int32 OtherBodyIndex,
 		bool bFromSweep,
 		const FHitResult& SweepResult);
-
-
+	
 };
