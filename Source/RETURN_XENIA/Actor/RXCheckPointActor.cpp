@@ -37,17 +37,23 @@ void ARXCheckPointActor::BeginPlay()
 void ARXCheckPointActor::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	// OtherActor가 유효한지 체크
-	if ((OtherActor && OtherActor->IsA<ARXPlayer>()))
+	if (OtherActor && OtherActor->IsA<ARXPlayer>())
 	{
-		// 게임 인스턴스 가져오기
 		if (URXGameInstance* GI = Cast<URXGameInstance>(UGameplayStatics::GetGameInstance(this)))
 		{
-			// 체크포인트 정보를 저장 
-			GI->CheckpointTransform = GetActorTransform();
+			FTransform NewTransform = GetActorTransform();
+
+			if (bIsPlayerStartPos)
+			{
+				FVector Location = NewTransform.GetLocation();
+				Location.Z += 85.0f; // Z값을 85만큼 위로 올림
+				NewTransform.SetLocation(Location);
+			}
+
+			GI->CheckpointTransform = NewTransform;
 			GI->CurrentLevelName = ThisActorLevelName;
-			// 나머지로직은 블루프린트에서 처리
-			//UE_LOG(LogTemp, Log, TEXT("Checkpoint updated at location: %s"), *GetActorLocation().ToString());
+
+			// 나머지 로직은 블루프린트에서 처리
 		}
 	}
 }

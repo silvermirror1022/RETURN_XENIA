@@ -20,6 +20,18 @@ ARXBossFixedFireball::ARXBossFixedFireball()
 void ARXBossFixedFireball::BeginPlay()
 {
 	Super::BeginPlay();
+	SetActorLocation(InitialLocation);
+}
+
+void ARXBossFixedFireball::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+
+	// 혹시라도 남아있을 수 있는 타이머 정리
+	if (GetWorld())
+	{
+		GetWorld()->GetTimerManager().ClearTimer(DeactivationTimer);
+	}
 }
 
 void ARXBossFixedFireball::LaunchProjectile(FVector Direction)
@@ -29,7 +41,16 @@ void ARXBossFixedFireball::LaunchProjectile(FVector Direction)
 	ProjectileMovement->Velocity = Direction * Speed;
 
 	// 6초 후 초기 위치로 리셋
-	GetWorldTimerManager().SetTimer(DeactivationTimer, this, &ARXBossFixedFireball::ResetFireball, 6.0f, false);
+	//GetWorldTimerManager().SetTimer(DeactivationTimer, this, &ARXBossFixedFireball::ResetFireball, 6.0f, false);
+	TWeakObjectPtr<ARXBossFixedFireball> WeakThis = this;
+
+	GetWorldTimerManager().SetTimer(DeactivationTimer, FTimerDelegate::CreateLambda([WeakThis]()
+		{
+			if (WeakThis.IsValid())
+			{
+				WeakThis->ResetFireball();
+			}
+		}), 6.0f, false);
 }
 
 void ARXBossFixedFireball::ResetFireball()

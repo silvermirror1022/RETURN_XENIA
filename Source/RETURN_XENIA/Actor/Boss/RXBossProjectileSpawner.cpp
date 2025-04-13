@@ -1,129 +1,138 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
-
 #include "Actor/Boss/RXBossProjectileSpawner.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "TimerManager.h"
 #include "GameFramework/Character.h"
 
 ARXBossProjectileSpawner::ARXBossProjectileSpawner()
 {
 	PrimaryActorTick.bCanEverTick = false;
 }
+
 void ARXBossProjectileSpawner::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// 각 종류의 프로젝트타일을 4개씩 풀링하여 생성
 	InitializeProjectilePool(RayPool, RayClass);
-
 	InitializeProjectilePool(TargetingFireballPool, TargetingFireballClass);
 }
 
+void ARXBossProjectileSpawner::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
 
-//  프로젝트타일 풀을 초기화
+	// 레벨 언로드 시 모든 타이머 정리
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().ClearAllTimersForObject(this);
+	}
+}
+
 void ARXBossProjectileSpawner::InitializeProjectilePool(TArray<AActor*>& Pool, TSubclassOf<AActor> ProjectileClass)
 {
 	if (!ProjectileClass) return;
 
-	if(ProjectileClass == TargetingFireballClass)
+	const int32 Count = (ProjectileClass == TargetingFireballClass) ? 25 : 15;
+
+	for (int32 i = 0; i < Count; i++)
 	{
-		for (int i = 0; i < 25; i++)
+		if (UWorld* World = GetWorld())
 		{
-			AActor* Projectile = GetWorld()->SpawnActor<AActor>(ProjectileClass, FVector::ZeroVector, FRotator::ZeroRotator);
+			AActor* Projectile = World->SpawnActor<AActor>(ProjectileClass, FVector::ZeroVector, FRotator::ZeroRotator);
 			if (Projectile)
 			{
 				Projectile->SetActorHiddenInGame(true);
 				Projectile->SetActorEnableCollision(false);
-				Pool.Add(Projectile);
-			}
-		}
-	}
-	else
-	{
-		for (int i = 0; i < 15; i++)
-		{
-			AActor* Projectile = GetWorld()->SpawnActor<AActor>(ProjectileClass, FVector::ZeroVector, FRotator::ZeroRotator);
-			if (Projectile)
-			{
-				Projectile->SetActorHiddenInGame(true);
-				Projectile->SetActorEnableCollision(false);
+				Projectile->SetActorTickEnabled(false);
 				Pool.Add(Projectile);
 			}
 		}
 	}
 }
 
-//  풀에서 프로젝트타일 가져오기 (없으면 새로 생성)
 AActor* ARXBossProjectileSpawner::GetProjectileFromPool(TArray<AActor*>& Pool, TSubclassOf<AActor> ProjectileClass)
 {
-	// 비활성화된 프로젝트타일 찾기
 	for (AActor* Projectile : Pool)
 	{
-		if (Projectile->IsHidden()) // 비활성화 상태
+		if (IsValid(Projectile) && Projectile->IsHidden())
 		{
 			return Projectile;
 		}
 	}
 
-	// 없으면 새로 생성 후 추가
-	AActor* NewProjectile = GetWorld()->SpawnActor<AActor>(ProjectileClass, FVector::ZeroVector, FRotator::ZeroRotator);
-	if (NewProjectile)
+	if (UWorld* World = GetWorld())
 	{
-		Pool.Add(NewProjectile);
+		AActor* NewProjectile = World->SpawnActor<AActor>(ProjectileClass, FVector::ZeroVector, FRotator::ZeroRotator);
+		if (NewProjectile)
+		{
+			Pool.Add(NewProjectile);
+			return NewProjectile;
+		}
 	}
-	return NewProjectile;
+	return nullptr;
 }
 
-//  프로젝트타일을 풀로 반환
 void ARXBossProjectileSpawner::ReturnProjectileToPool(AActor* Projectile, TArray<AActor*>& Pool)
 {
-	if (Projectile && !Projectile->IsHidden())
+	if (IsValid(Projectile) && !Projectile->IsHidden())
 	{
 		Projectile->SetActorHiddenInGame(true);
 		Projectile->SetActorEnableCollision(false);
 		Projectile->SetActorTickEnabled(false);
 	}
 }
+
 void ARXBossProjectileSpawner::FireProjectile(TArray<AActor*>& Pool, TSubclassOf<AActor> ProjectileClass, FVector SpawnLocation)
 {
 	AActor* Projectile = GetProjectileFromPool(Pool, ProjectileClass);
-	if (Projectile)
+	if (!IsValid(Projectile)) return;
+
+	ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
+	if (!IsValid(PlayerCharacter)) return;
+
+	FVector Direction = PlayerCharacter->GetActorLocation() - SpawnLocation;
+	Direction.Z = 0.0f;
+	Direction.Normalize();
+
+	FRotator LookAtRotation = Direction.Rotation();
+	LookAtRotation.Pitch = 0.0f;
+
+	Projectile->SetActorLocation(SpawnLocation);
+	Projectile->SetActorRotation(LookAtRotation);
+	Projectile->SetActorHiddenInGame(false);
+	Projectile->SetActorEnableCollision(true);
+
+	if (UProjectileMovementComponent* ProjectileMovement = Projectile->FindComponentByClass<UProjectileMovementComponent>())
 	{
-		//  플레이어 찾기
-		ACharacter* PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-		if (!PlayerCharacter) return;
+		ProjectileMovement->Velocity = LookAtRotation.Vector() * ProjectileMovement->InitialSpeed;
+	}
 
-		FVector PlayerLocation = PlayerCharacter->GetActorLocation();
+	TWeakObjectPtr<AActor> WeakProjectile = Projectile;
+	TWeakObjectPtr<ARXBossProjectileSpawner> WeakThis = this;
 
-		// FRotator LookAtRotation = (PlayerLocation - SpawnLocation).Rotation();
+	if (UWorld* World = GetWorld())
+	{
+		FTimerHandle TimerHandle;
+		World->GetTimerManager().SetTimer(TimerHandle, FTimerDelegate::CreateLambda([WeakThis, WeakProjectile]() {
+			if (WeakThis.IsValid() && WeakProjectile.IsValid())
+			{
+				ARXBossProjectileSpawner* Owner = WeakThis.Get();
+				if (!Owner) return;
 
-		// 플레이어를 바라보는 방향 계산 (XY 평면에서만)
-		FVector Direction = (PlayerLocation - SpawnLocation).GetSafeNormal();
-		Direction.Z = 0.0f; // Z축 변화를 없애기 위해 고정
+				AActor* ActualProjectile = WeakProjectile.Get();
+				if (!ActualProjectile) return;
 
-		FRotator LookAtRotation = Direction.Rotation(); // Z축을 고려하지 않은 회전
-		LookAtRotation.Pitch = 0.0f; // Z축 기울기 제거
-		//  프로젝타일 활성화 및 방향 설정
-		Projectile->SetActorLocation(SpawnLocation);
-		Projectile->SetActorRotation(LookAtRotation);
-		Projectile->SetActorHiddenInGame(false);
-		Projectile->SetActorEnableCollision(true);
-
-		//  프로젝타일이 이동할 방향 설정 ProjectileMovementComponent 
-		UProjectileMovementComponent* ProjectileMovement = Projectile->FindComponentByClass<UProjectileMovementComponent>();
-		if (ProjectileMovement)
-		{
-			ProjectileMovement->Velocity = LookAtRotation.Vector() * ProjectileMovement->InitialSpeed;
-		}
-
-		//  일정 시간 후 회수
-		if (GetWorld())
-		{
-			FTimerHandle TimerHandle;
-			GetWorld()->GetTimerManager().SetTimer(TimerHandle, FTimerDelegate::CreateLambda([this, Projectile, &Pool]() {
-				ReturnProjectileToPool(Projectile, Pool);
-				}), 6.0f, false);
-		}
+				if (Owner->RayPool.Contains(ActualProjectile))
+				{
+					Owner->ReturnProjectileToPool(ActualProjectile, Owner->RayPool);
+				}
+				else if (Owner->TargetingFireballPool.Contains(ActualProjectile))
+				{
+					Owner->ReturnProjectileToPool(ActualProjectile, Owner->TargetingFireballPool);
+				}
+			}
+			}), 6.0f, false);
 	}
 }

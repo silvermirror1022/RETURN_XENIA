@@ -46,7 +46,6 @@ ARXPlayer::ARXPlayer()
 	Stat = CreateDefaultSubobject<URXPlayerStatComponent>(TEXT("PlayerStat"));
 
 	PrimaryActorTick.bCanEverTick = true; // 플레이어 액터 틱 활성화
-
 	bIsCircularPuzzelMode = false;
 }
 
@@ -82,8 +81,6 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	if (const URXInputData* InputData = URXAssetManager::GetAssetByName<URXInputData>("InputData"))
 	{
 		// 에셋메니저로부터 인풋데이터를 가져와서 각각 액션에 바인딩
-		//UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
-
 		auto JumpAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Jump);
 		auto MoveAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Move);
 		auto LookAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Look);
@@ -152,65 +149,65 @@ void ARXPlayer::SetupHUDWidget(URXHUDWidget* InHUDWidget)
 			InHUDWidget->UpdateHpSet(GI->GetGI_Hp(), GI->GetGI_Shield());
 			InHUDWidget->UpdateShieldCoolTime(GI->IsProfileStatusAcquired("Kaira_necklace"));
 		}
-
-		// 델리게이트 연결
+		// Player 체력 변화 델리게이트 연결
 		Stat->OnPlayerHpAndShieldChanged.AddUObject(InHUDWidget->HpSet, &URXHpSetWidget::UpdateHpAndShield);
-
-		// Player의 체력이 0이 됬을 때 플레이어 죽음 함수 구독
+		// Player 체력 0이 됬을 때 플레이어 죽음 함수 델리게이트 연결
 		Stat->OnPlayerHpZero.AddUObject(this, &ARXPlayer::SetDead);
 	}
 }
-void ARXPlayer::UpdateDetectedActor()
+bool ARXPlayer::UpdateDetectedActor()
 {
 	FHitResult Hit;
-	FVector Start = GetCapsuleComponent()->GetComponentLocation();  // 캐릭터 캡슐 위치
-	FVector End = Start + (GetActorForwardVector()* 80.0f);  // 카메라 방향으로 80만큼
+	FVector Start = GetCapsuleComponent()->GetComponentLocation();
+	FVector End = Start + (GetActorForwardVector() * 80.0f);
+	float SphereRadius = 45.f;
 
-	float SphereRadius = 45.f;  // 스피어의 반지름 (기본값: 45)
 	FCollisionQueryParams Params;
-	Params.AddIgnoredActor(this);  // 자신의 캐릭터는 무시
+	Params.AddIgnoredActor(this);
 	Params.bReturnPhysicalMaterial = false;
 
-	// 디버그용으로 스피어 범위를 시각화 (DrawDebugSphere)
 	if (GetWorld())
 	{
-		// Start 위치에서 End까지의 방향으로 스피어를 그려서 디버깅 가능
 		DrawDebugSphere(GetWorld(), End, SphereRadius, 12, FColor::Green, false, 0.5f, 0, 1.0f);
 	}
 
-	// 트레이스 시 'Pawn' 채널을 사용하여 NPC를 감지
-    FCollisionObjectQueryParams ObjectQueryParams;
-    ObjectQueryParams.AddObjectTypesToQuery(ECC_Pawn); // NPC 감지용 채널 설정
-	ObjectQueryParams.AddObjectTypesToQuery(ECC_WorldDynamic); // 텔레포트 엑터 감지용 채널 설정
+	FCollisionObjectQueryParams ObjectQueryParams;
+	ObjectQueryParams.AddObjectTypesToQuery(ECC_Pawn);
+	ObjectQueryParams.AddObjectTypesToQuery(ECC_WorldDynamic);
 
-	// 스피어 트레이스를 실행하여 NPC 또는 텔레포트엑터를 감지
 	if (GetWorld()->SweepSingleByObjectType(Hit, Start, End, FQuat::Identity, ObjectQueryParams, FCollisionShape::MakeSphere(SphereRadius), Params))
 	{
+		ResetDetectedActors(); // 항상 초기화 후 새로 감지
+
 		if (ARXNonPlayer* NPC = Cast<ARXNonPlayer>(Hit.GetActor()))
 		{
-			DetectedNPC = NPC;  // 감지된 NPC로 업데이트
+			DetectedNPC = NPC;
+			return true;
 		}
-		else if(ARXLevelTeleportActor* TPActor = Cast<ARXLevelTeleportActor>(Hit.GetActor()))
+		else if (ARXLevelTeleportActor* TPActor = Cast<ARXLevelTeleportActor>(Hit.GetActor()))
 		{
-			DetectedTeleportActor = TPActor; // 감지된 텔레포트엑터 업데이트
+			DetectedTeleportActor = TPActor;
+			return true;
 		}
-		else if(ARXPuzzelBase* PuzzelActor = Cast<ARXPuzzelBase>(Hit.GetActor()))
+		else if (ARXPuzzelBase* PuzzleActor = Cast<ARXPuzzelBase>(Hit.GetActor()))
 		{
-			DetectedPuzzelActor = PuzzelActor;
+			DetectedPuzzelActor = PuzzleActor;
+
+			if (ARXCircularPuzzelBase* Circular = Cast<ARXCircularPuzzelBase>(PuzzleActor))
+			{
+				DetectedCircularPuzzelActor = Circular;
+			}
+			return true;
 		}
-		else if (ARXKnotHanger* KnotHangerActor = Cast<ARXKnotHanger>(Hit.GetActor()))
+		else if (ARXKnotHanger* Knot = Cast<ARXKnotHanger>(Hit.GetActor()))
 		{
-			DetectedKnotHangerActor = KnotHangerActor;
-		}
-		else
-		{
-			ResetDetectedActors();
+			DetectedKnotHangerActor = Knot;
+			return true;
 		}
 	}
-	else
-	{
-		ResetDetectedActors();
-	}
+
+	ResetDetectedActors();
+	return false;
 }
 void ARXPlayer::ResetDetectedActors()
 {
@@ -222,41 +219,40 @@ void ARXPlayer::ResetDetectedActors()
 }
 void ARXPlayer::Interact_IA_EKey()
 {
-	if (DetectedNPC)  // 대화중이라면 빠저나가기
-	{   //if (DetectedNPC && DetectedNPC->bIsTalking) 
+	// 대화 중이면 입력 무시
+	if (DetectedNPC && DetectedNPC->bIsTalking)
 		return;
-	}
 
-	UpdateDetectedActor();
+	// 감지 성공 여부
+	bool bDetected = UpdateDetectedActor();
 
-	if (DetectedNPC && !DetectedNPC->bIsTalking)  // 각각 유효한지 확인
+	// NPC 대화 처리
+	if (DetectedNPC)
 	{
-		DetectedNPC->StartDialogue();
+		if (!DetectedNPC->bIsTalking)
+		{
+			DetectedNPC->StartDialogue();
+		}
 	}
+	// 그 외 상호작용 처리
 	else if (DetectedTeleportActor)
 	{
 		DetectedTeleportActor->TeleportToOtherLevel();
 	}
-	else if(DetectedKnotHangerActor)
+	else if (DetectedKnotHangerActor)
 	{
 		DetectedKnotHangerActor->ChangeToCamView();
 	}
 	else if (DetectedPuzzelActor)
 	{
-		// 퍼즐이 CircularPuzzel인지 확인
-		if (DetectedCircularPuzzelActor = Cast<ARXCircularPuzzelBase>(DetectedPuzzelActor))
+		const FString PuzzleName = DetectedPuzzelActor->GetPuzzelName().ToString();
+		if (!GI->IsPuzzelStatusAcquired(PuzzleName))
 		{
-			// CircularPuzzelBase의 PuzzelEventStart 호출
-			if (!GI->IsPuzzelStatusAcquired(DetectedCircularPuzzelActor->GetPuzzelName().ToString()))
+			if (DetectedCircularPuzzelActor)
 			{
-				DetectedCircularPuzzelActor = Cast<ARXCircularPuzzelBase>(DetectedCircularPuzzelActor);
 				DetectedCircularPuzzelActor->PuzzelEventStart();
 			}
-		}
-		else
-		{
-			// 일반 PuzzelBase의 PuzzelEventStart 호출
-			if (!GI->IsPuzzelStatusAcquired(DetectedPuzzelActor->GetPuzzelName().ToString()))
+			else
 			{
 				DetectedPuzzelActor->PuzzelEventStart();
 			}
@@ -266,21 +262,30 @@ void ARXPlayer::Interact_IA_EKey()
 
 void ARXPlayer::Interact_IA_TabKey()
 {
-	
-	/*if (DetectedNPC && DetectedNPC->bIsTalking)
+	if (DetectedNPC)
 	{
-		DetectedNPC->DisplayDialogue();  // 대화 진행 메서드
-	}*/
+		if (DetectedNPC->bIsTalking)
+		{
+			DetectedNPC->DisplayDialogue();
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Tab DetectedNPC reset due to dialogue end."));
+			DetectedNPC = nullptr;
+		}
+	}
+	else
+	{
+		bool bDetected = UpdateDetectedActor();
 
-	if (!DetectedNPC)
-	{
-		return;
+		if (DetectedNPC && DetectedNPC->bIsTalking)
+		{
+			DetectedNPC->DisplayDialogue();
+		}
 	}
 
-	if (DetectedNPC->bIsTalking)
-	{
-		DetectedNPC->DisplayDialogue();
-	}
+	UE_LOG(LogTemp, Warning, TEXT("Tab Pressed. DetectedNPC: %s, bIsTalking: %d"),
+		*GetNameSafe(DetectedNPC), DetectedNPC ? DetectedNPC->bIsTalking : -1);
 }
 
 void ARXPlayer::Move(const FInputActionValue& Value)
@@ -353,7 +358,6 @@ void ARXPlayer::ToggleCrouch()
 void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 {	// 퍼즐 포지션 이동함수 => 퍼즐이벤트 컴포넌트에서 사용됨.
 
-	// 태그로 지정된 액터 검색
 	TArray<AActor*> TaggedActors;
 	UGameplayStatics::GetAllActorsWithTag(GetWorld(), TagName, TaggedActors);
 

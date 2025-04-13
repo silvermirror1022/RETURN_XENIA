@@ -18,7 +18,7 @@ public:
 protected:
 
 	virtual void BeginPlay() override;
-
+	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
 public:	
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Projectile")
@@ -27,7 +27,9 @@ public:
 	TSubclassOf<AActor> TargetingFireballClass;
 
 	// 풀링된 프로젝트타일 리스트
+	UPROPERTY()
 	TArray<AActor*> RayPool;
+	UPROPERTY()
 	TArray<AActor*> TargetingFireballPool;
 
 	// 프로젝타일 풀 초기화
