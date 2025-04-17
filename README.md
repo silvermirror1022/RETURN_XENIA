@@ -34,7 +34,7 @@
 
 ## 개발 기간 📅
 #### 2024.10.12 ~ 2025.03.14 (BETA BUILD)
-#### 2025.03.14 ~ ING (HOT FIX)
+#### 2025.03.14 ~ 04.18 (HOT FIX)
 
 ## 역할 분담 🧑‍💻
 ### 개발 인원 : 8명 [언리얼엔진 3D 오픈월드 게임 팀프로젝트] 🕹️
@@ -49,7 +49,7 @@
 | 류지원 | Designer | UI, UX 디자인 |
 | 장동혁 | Composer | 게임사운드 |
 
-## STOVE (스토브) 🔗 빌드 파일 링크  
+## STOVE 출시 링크 🔗 
 [![STOVE Build](https://img.shields.io/badge/Download%20on-STOVE-ff7f00?style=for-the-badge&logo=windows&logoColor=white)](https://store.onstove.com/ko/games/100605)
 
 ## 유튜브 시연 영상 ▶️
