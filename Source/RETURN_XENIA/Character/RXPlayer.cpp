@@ -93,7 +93,9 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ARXPlayer::Look);
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this, &ARXPlayer::StartSprinting);
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this, &ARXPlayer::StopSprinting);
-		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Started, this, &ARXPlayer::ToggleCrouch);
+
+		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Started, this, &ARXPlayer::StartCrouching);
+		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Completed, this, &ARXPlayer::StopCrouching);
 
 		// 인터렉션 섹션 바인딩
 		auto InteractAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Interact); // E 키
@@ -335,25 +337,25 @@ void ARXPlayer::StopSprinting()
 	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
 }
 
-
-void ARXPlayer::ToggleCrouch()
+void ARXPlayer::StartCrouching()
 {
-	UCharacterMovementComponent* MovementComp = GetCharacterMovement();
-	if (!MovementComp) return;
-
-	// 땅에 있을 때만 앉을 수 있도록 체크
-	if (MovementComp->IsMovingOnGround())
+	if (UCharacterMovementComponent* MovementComp = GetCharacterMovement())
 	{
-		if (MovementComp->IsCrouching())
-		{
-			UnCrouch();
-		}
-		else
+		if (MovementComp->IsMovingOnGround())
 		{
 			Crouch();
 		}
 	}
 }
+
+void ARXPlayer::StopCrouching()
+{
+	if (UCharacterMovementComponent* MovementComp = GetCharacterMovement())
+	{
+		UnCrouch();
+	}
+}
+
 
 void ARXPlayer::MoveToTagLocation(FName TagName, float ZOffSet)
 {	// 퍼즐 포지션 이동함수 => 퍼즐이벤트 컴포넌트에서 사용됨.

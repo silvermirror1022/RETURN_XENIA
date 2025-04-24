@@ -37,7 +37,10 @@ public: // 카메라섹션
 public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void Move(const FInputActionValue& Value);
 	void Look(const FInputActionValue& Value);
-	void ToggleCrouch();
+	//void ToggleCrouch();
+	void StartCrouching();
+	void StopCrouching();
+
 	void StartSprinting();
 	void StopSprinting();
 	uint8 bIsSprinting : 1; // 필요하면 변수로 스프린팅상태 추적
