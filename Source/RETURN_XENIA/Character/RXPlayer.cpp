@@ -33,7 +33,7 @@ ARXPlayer::ARXPlayer()
 {
 	// Camera Spring CDO
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
-	CameraBoom->SetupAttachment(RootComponent);
+	CameraBoom->SetupAttachment(GetMesh(), USpringArmComponent::SocketName); // 메시의 소켓에 연결
 	CameraBoom->TargetArmLength = 400.0f; 
 	CameraBoom->bUsePawnControlRotation = true; 
 
@@ -343,6 +343,7 @@ void ARXPlayer::StartCrouching()
 	{
 		if (MovementComp->IsMovingOnGround())
 		{
+
 			Crouch();
 		}
 	}
