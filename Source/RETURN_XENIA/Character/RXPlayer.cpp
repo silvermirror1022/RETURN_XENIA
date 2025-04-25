@@ -34,6 +34,7 @@ ARXPlayer::ARXPlayer()
 	// Camera Spring CDO
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(GetMesh(), USpringArmComponent::SocketName); // 메시의 소켓에 연결
+	// 기존 언리얼 캐릭터는 트랜스폼값이없는 캡슐에 연결하지만, 캡슐 트랜스폼은 따로 블루프린트에서 상충하고 앉기시 카메라이동이없게처리.
 	CameraBoom->TargetArmLength = 400.0f; 
 	CameraBoom->bUsePawnControlRotation = true; 
 
