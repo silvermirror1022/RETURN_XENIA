@@ -52,6 +52,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	inline void InActiveGamePauseMenu() { bIsPauseMenuUIActive = false; }
 
+	void HandleEscapeKeyPressed();
 public:
 	// 컨트롤러가 플레이어 포세스할 때 항상 저장한 위치로 스폰을 위한 함수
 	void SpawnPlayerToDestination() const;
@@ -64,6 +65,16 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void RespawnFallingPlayerAtCheckPoint() const;
 
+	// UI 위젯 제거함수(By ESC Key)
+	UFUNCTION(BlueprintCallable)
+	void RemoveUIWidgetFromStack();
+
+	// UI 위젯 ADDViewPort시 추가함수
+	UFUNCTION(BlueprintCallable)
+	void PushUIWidgetToStack(UUserWidget* NewWidget);
+
+	UFUNCTION(BlueprintCallable)
+	void RemoveUIWidgetOnlyStack(UUserWidget* NewWidget);
 
 	bool CheckUIActiveState(); // UI 활성화 추적 함수
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
@@ -74,6 +85,7 @@ public:
 	void SetDialogueState(uint8 bInDialogue) { bIsInDialogue = bInDialogue; }
 	uint8 bIsInDialogue : 1; // 대화중인지 체크 변수
 
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite); // 위젯스택
+	TArray<TObjectPtr<UUserWidget>> UIWidgetStack;
 
 };

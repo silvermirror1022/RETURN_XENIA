@@ -13,6 +13,8 @@
 #include "Kismet/GameplayStatics.h"
 #include "Actor/RXPlayerStart.h"
 #include "UI/RXMainMenuWidget.h"
+#include "RXDebugHelper.h"
+
 
 ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitializer)
 	:Super(ObjectInitializer)
@@ -58,7 +60,9 @@ void ARXPlayerController::SetupInputComponent()
 
 			EnhancedInputComponent->BindAction(IKey_GameMainMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMainMenu);
 			EnhancedInputComponent->BindAction(MapKey_GameMapMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGameMapMenu);
-			EnhancedInputComponent->BindAction(ESCKey_GamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::ActiveGamePauseMenu);
+			EnhancedInputComponent->BindAction(ESCKey_GamePauseMenuAction, ETriggerEvent::Started, this, &ARXPlayerController::HandleEscapeKeyPressed);
+
+
 		}
 	}
 }
@@ -71,7 +75,7 @@ void ARXPlayerController::ActiveGameMainMenu()
 	if (CheckUIActiveState()) return;
 
 	bIsMainMenuUIActive = true;
-
+	
 	// 게임메뉴 UI Item를 띄우는 함수 BY I KEY
 	if (RXGameMainMenuWidgetClass) 
 	{
@@ -117,6 +121,19 @@ void ARXPlayerController::ActiveGamePauseMenu()
 		}
 	}
 }
+
+void ARXPlayerController::HandleEscapeKeyPressed()
+{
+	if (UIWidgetStack.Num() > 0)
+	{
+		RemoveUIWidgetFromStack(); // UI 닫기
+	}
+	else
+	{
+		ActiveGamePauseMenu(); // 일시정지 메뉴 띄우기
+	}
+}
+
 void ARXPlayerController::SpawnPlayerToDestination() const
 {
 	if (URXGameInstance* GI = Cast<URXGameInstance>(GetGameInstance()))
@@ -190,4 +207,60 @@ void ARXPlayerController::RespawnFallingPlayerAtCheckPoint() const
 			PlayerCharacter->SetActorLocationAndRotation(GI->CheckpointTransform.GetLocation(), GI->CheckpointTransform.GetRotation());
 		}
 	}
+}
+
+void ARXPlayerController::RemoveUIWidgetFromStack()
+{
+	// UI 지우기 함수
+	if (UIWidgetStack.Num() == 0)
+		return;
+
+	UUserWidget* TopWidget = UIWidgetStack.Pop();
+	if (TopWidget)
+	{
+		TopWidget->RemoveFromParent();
+	}
+
+	// 스택에 더 이상 위젯이 없다면, UI 상태 초기화
+	if (UIWidgetStack.Num() == 0)
+	{
+		UGameplayStatics::SetGamePaused(this, false);
+		FInputModeGameOnly InputMode;
+		SetInputMode(InputMode);
+		bShowMouseCursor = false;
+		bIsMainMenuUIActive = false;
+		bIsPauseMenuUIActive = false;
+	}
+	else
+	{
+		// 혹시 남은 위젯이 있으면 포커스 위젯
+		UUserWidget* NewTopWidget = UIWidgetStack.Last();
+		if (NewTopWidget)
+		{
+			FInputModeGameAndUI InputMode;
+			InputMode.SetWidgetToFocus(NewTopWidget->TakeWidget());
+			InputMode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
+			InputMode.SetHideCursorDuringCapture(false);
+
+			SetInputMode(InputMode);
+			bShowMouseCursor = true;
+		}
+	}
+}
+
+void ARXPlayerController::PushUIWidgetToStack(UUserWidget* NewWidget)
+{
+	if (!NewWidget) return;
+	UIWidgetStack.Add(NewWidget);
+
+}
+
+void ARXPlayerController::RemoveUIWidgetOnlyStack(UUserWidget* NewWidget)
+{
+	UUserWidget* TopWidget = UIWidgetStack.Pop();
+	if (TopWidget)
+	{
+		TopWidget->RemoveFromParent();
+	}
+
 }
