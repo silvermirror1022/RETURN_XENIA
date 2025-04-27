@@ -14,6 +14,7 @@
 #include "Actor/RXPlayerStart.h"
 #include "UI/RXMainMenuWidget.h"
 #include "RXDebugHelper.h"
+#include "UI/RXNewItemWidget.h"
 
 
 ARXPlayerController::ARXPlayerController(const FObjectInitializer& ObjectInitializer)
@@ -216,8 +217,15 @@ void ARXPlayerController::RemoveUIWidgetFromStack()
 		return;
 
 	UUserWidget* TopWidget = UIWidgetStack.Pop();
+
 	if (TopWidget)
 	{
+		// 만약 TopWidget이 NewItemWidget 타입이면 CloseWidget 호출
+		if (URXNewItemWidget* NewItemWidget = Cast<URXNewItemWidget>(TopWidget))
+		{
+			NewItemWidget->CloseWidget();
+		}
+
 		TopWidget->RemoveFromParent();
 	}
 
