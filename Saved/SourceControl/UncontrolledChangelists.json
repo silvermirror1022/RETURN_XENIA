@@ -245,6 +245,8 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossHomingFB.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossTargetingFB.uasset",
 				"D:/RETURN_XENIA/Content/UI/PauseMenu/WBP_BlackScreen.uasset",
+				"D:/RETURN_XENIA/Content/Designer/UI/PuzzelLevel/ICN_Reset_A01.uasset",
+				"D:/RETURN_XENIA/Content/UI/Puzzel/WBP_PuzzelNotifyWidget.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Boss/AttackPattern/BP_BossFixedtest.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Teleport/BP_SubmapBarrier.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_Submap1_lock.uasset",
