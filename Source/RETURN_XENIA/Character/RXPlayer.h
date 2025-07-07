@@ -8,8 +8,6 @@
 #include "Interface/RXPlayerInteractionInterface.h"
 #include "RXPlayer.generated.h"
 
-class URXInputData;
-struct FInputActionValue;
 /**
  * 
  */
@@ -35,8 +33,8 @@ public: // 카메라섹션
 
 
 public: // 인풋(PlayerMovement) 콜백 함수 섹션
-	void Move(const FInputActionValue& Value);
-	void Look(const FInputActionValue& Value);
+	void Move(const struct FInputActionValue& Value);
+	void Look(const struct FInputActionValue& Value);
 	//void ToggleCrouch();
 	void StartCrouching();
 	void StopCrouching();
@@ -75,9 +73,12 @@ protected: // 플레이어 사망 관련 함수 및 변수
 	void PlayDeadAnimation();
 	void DeadRespawn();
 
-protected: // 스텟 섹션 (HP,Shield 관련)
+public: // 스텟 섹션 (HP,Shield 관련)
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Stat", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class URXPlayerStatComponent> Stat;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class UAnimMontage> HitMontage;
 
 	UPROPERTY() // 참조하는 게임인스턴스 변수
 	TObjectPtr<class URXGameInstance> GI;

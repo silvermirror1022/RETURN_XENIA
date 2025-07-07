@@ -6,8 +6,6 @@
 #include "Components/ActorComponent.h"
 #include "RXPlayerStatComponent.generated.h"
 
-class URXGameInstance;
-class USoundBase;
 
 // 플레이어가 Hp가 0이 될 때 호출 델리게이트 
 DECLARE_MULTICAST_DELEGATE(FOnPlayerHpZeroDelegate); 
@@ -41,7 +39,7 @@ public:
 protected:
 	// 게임인스턴스에 해당 변수를 기록하는 함수
 	UPROPERTY()
-	TObjectPtr<URXGameInstance> GI;
+	TObjectPtr<class URXGameInstance> GI;
 
 	void SetHpToGI(int32 NewHp);
 	void SetShieldToGI(int32 NewShield);

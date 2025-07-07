@@ -136,6 +136,11 @@ void URXPlayerStatComponent::ApplyDamage(int32 InDamage)
 		{
 			// 메시의 첫 번째 머터리얼 슬롯(인덱스 0)을 빨간색 머터리얼로 교체
 			Player->GetMesh()->SetMaterial(0, RedMaterial);
+			
+		}
+		if (Player->HitMontage)
+		{
+			Player->PlayAnimMontage(Player->HitMontage);
 		}
 	}
 	// 플레이어가 데미지를 입었을 때 호출
