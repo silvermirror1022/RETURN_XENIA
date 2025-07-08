@@ -88,7 +88,7 @@ void ARXPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		auto SprintAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Sprint);
 		auto CrouchAction = InputData->FindInputActionByTag(RXGameplayTags::Input_Action_Crouch);
 
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ACharacter::Jump);
+		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ARXPlayer::CustomJump);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ARXPlayer::Move);
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ARXPlayer::Look);
