@@ -338,14 +338,14 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 
 }
 
-void ARXPlayer::Jump() override
+void ARXPlayer::CustomJump()
 {
 	if (GetCharacterMovement()->MovementMode == MOVE_Swimming)
 	{
 		AddMovementInput(FVector::UpVector, 1.0f);
 		return;
 	}
-	Super::Jump();
+	Jump();
 }
 
 void ARXPlayer::StartSprinting()
