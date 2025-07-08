@@ -326,7 +326,7 @@ void ARXPlayer::StartSprinting()
 	if(GI->IsProfileStatusAcquired("RedCloak"))
 	{
 		bIsSprinting = true;
-		GetCharacterMovement()->MaxWalkSpeed = 650.0f;
+		GetCharacterMovement()->MaxWalkSpeed = 600.0f;
 	}
 	
 }
@@ -335,7 +335,7 @@ void ARXPlayer::StopSprinting()
 {
 	// 스프린트 해제(Left Shift x)
 	bIsSprinting = false;
-	GetCharacterMovement()->MaxWalkSpeed = 500.0f;
+	GetCharacterMovement()->MaxWalkSpeed = 350.0f;
 }
 
 void ARXPlayer::StartCrouching()
