@@ -30,6 +30,15 @@
 		{
 			"Name": "ChaosClothAssetEditor",
 			"Enabled": true
+		},
+		{
+			"Name": "WaterPhysics",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/2d8710643bcf4e2b94a9154d0732b4af"
+		},
+		{
+			"Name": "Water",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
