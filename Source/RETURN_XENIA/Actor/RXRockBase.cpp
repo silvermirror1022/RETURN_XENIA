@@ -52,27 +52,28 @@ void ARXRockBase::NotifyHit(
 {
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
-	// 플레이어인지 확인
 	ARXPlayer* Player = Cast<ARXPlayer>(Other);
 	if (Player)
 	{
-		if(URXPlayerStatComponent* PlayerStat = Player->FindComponentByClass<URXPlayerStatComponent>())
+		if (URXPlayerStatComponent* PlayerStat = Player->FindComponentByClass<URXPlayerStatComponent>())
 		{
 			if (bIsSmallRock) return;
-			PlayerStat->ApplyDamage(1); // 데미지 적용
+			PlayerStat->ApplyDamage(1);
 		}
 
-		FVector ThisActorLocation = GetActorLocation(); // this 엑터 로케이션
-		FVector ImpulseSourceLocation = ImpulseDirActor->GetActorLocation(); // 밀어낼려는방향의 엑터
-
-		FVector ImpulseDirection = (ImpulseSourceLocation - ThisActorLocation).GetSafeNormal(); // 충돌방향벡터
-
-		// 플레이어 밀어내기 -> 캐릭터 무브먼트 
-		UCharacterMovementComponent* PlayerMovement = Player->FindComponentByClass<UCharacterMovementComponent>();
-		if (PlayerMovement)
+		// ImpulseDirActor가 유효할 경우에만 밀어내기
+		if (ImpulseDirActor && IsValid(ImpulseDirActor))
 		{
-			FVector LaunchVelocity = ImpulseDirection * ImpulseForce;
-			PlayerMovement->Launch(LaunchVelocity);
+			FVector ThisActorLocation = GetActorLocation();
+			FVector ImpulseSourceLocation = ImpulseDirActor->GetActorLocation();
+
+			FVector ImpulseDirection = (ImpulseSourceLocation - ThisActorLocation).GetSafeNormal();
+
+			if (UCharacterMovementComponent* PlayerMovement = Player->FindComponentByClass<UCharacterMovementComponent>())
+			{
+				FVector LaunchVelocity = ImpulseDirection * ImpulseForce;
+				PlayerMovement->Launch(LaunchVelocity);
+			}
 		}
 	}
 }
