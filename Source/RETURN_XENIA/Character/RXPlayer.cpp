@@ -295,10 +295,27 @@ void ARXPlayer::Move(const FInputActionValue& Value)
 {
 	FVector2D MovementVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
+	if (!Controller) return;
+
+	UCharacterMovementComponent* MovementComp = GetCharacterMovement();
+	if (!MovementComp) return;
+
+	const FRotator ControlRotation = Controller->GetControlRotation();
+	const FRotator YawRotation(0, ControlRotation.Yaw, 0);
+
+	if (MovementComp->MovementMode == MOVE_Swimming)
 	{
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
+		// 수영 모드: 상하좌우 3D 이동 가능
+		const FVector Forward = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+		const FVector Right = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+
+		// 위 방향(공중 상승)은 Jump에서 처리
+		AddMovementInput(Forward, MovementVector.X);
+		AddMovementInput(Right, MovementVector.Y);
+	}
+	else
+	{
+		// 일반 걷기, 달리기
 		const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
@@ -320,8 +337,22 @@ void ARXPlayer::Look(const FInputActionValue& Value)
 	}
 
 }
+
+void ARXPlayer::Jump() override
+{
+	if (GetCharacterMovement()->MovementMode == MOVE_Swimming)
+	{
+		AddMovementInput(FVector::UpVector, 1.0f);
+		return;
+	}
+	Super::Jump();
+}
+
 void ARXPlayer::StartSprinting()
 {
+
+	if (GetCharacterMovement()->MovementMode == MOVE_Swimming) return;
+	
 	// 스프린트 시작(Left Shift o)
 	if(GI->IsProfileStatusAcquired("RedCloak"))
 	{
@@ -333,6 +364,8 @@ void ARXPlayer::StartSprinting()
 
 void ARXPlayer::StopSprinting()
 {
+	if (GetCharacterMovement()->MovementMode == MOVE_Swimming) return;
+
 	// 스프린트 해제(Left Shift x)
 	bIsSprinting = false;
 	GetCharacterMovement()->MaxWalkSpeed = 350.0f;
@@ -340,19 +373,22 @@ void ARXPlayer::StopSprinting()
 
 void ARXPlayer::StartCrouching()
 {
-	if (UCharacterMovementComponent* MovementComp = GetCharacterMovement())
+	if (GetCharacterMovement()->MovementMode == MOVE_Swimming)
 	{
-		if (MovementComp->IsMovingOnGround())
-		{
+		// 수영 중일 경우 하강 처리
+		AddMovementInput(FVector::DownVector, 1.0f);
+		return;
+	}
 
-			Crouch();
-		}
+	if (GetCharacterMovement()->IsMovingOnGround())
+	{
+		Crouch();
 	}
 }
 
 void ARXPlayer::StopCrouching()
 {
-	if (UCharacterMovementComponent* MovementComp = GetCharacterMovement())
+	if (GetCharacterMovement())
 	{
 		UnCrouch();
 	}

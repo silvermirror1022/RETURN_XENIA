@@ -35,7 +35,7 @@ public: // 카메라섹션
 public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void Move(const struct FInputActionValue& Value);
 	void Look(const struct FInputActionValue& Value);
-	//void ToggleCrouch();
+	virtual void Jump() override;
 	void StartCrouching();
 	void StopCrouching();
 
