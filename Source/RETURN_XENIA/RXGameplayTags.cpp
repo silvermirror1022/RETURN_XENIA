@@ -82,7 +82,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss, "Dialogue.NPCType.Boss");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss_Dead, "Dialogue.NPCType.Boss.Dead");
 
-	// Teleport Teleport System Section 
+	// Teleport System Section 
 	// First Floor
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_MainMap_Start, "Teleport.1stFloor.MainMap.Start");
 	UE_DEFINE_GAMEPLAY_TAG(Teleport_1stFloor_SolarAltar_Exit, "Teleport.1stFloor.SolarAltar.Exit");

@@ -6,7 +6,6 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"D:/RETURN_XENIA/Content/Designer/Materials/M_AirStep.uasset",
-				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Sign.uasset",
 				"D:/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F.umap",
 				"D:/RETURN_XENIA/Content/Movies/Sequence1.uasset",
 				"D:/RETURN_XENIA/Content/Movies/Sequence2.uasset",
@@ -272,6 +271,10 @@
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/Nowiniq/BP_NPC_Nowiniq_3Floor.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_RockChar1.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_1FSign.uasset",
+				"D:/RETURN_XENIA/Content/Animation/Player/BS_Swimming.uasset",
+				"D:/RETURN_XENIA/Content/Animation/Player/AS_SwimmingIdle.uasset",
+				"D:/RETURN_XENIA/Content/Animation/Player/AS_SwimmingEdge.uasset",
+				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Sign.uasset",
 				"D:/RETURN_XENIA/Content/Blueprints/Characters/BP_NPC_Sign1Floor.uasset",
 				"C:/Users/82107/Documents/game/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F.umap",
 				"C:/Users/82107/Documents/game/RETURN_XENIA/Content/Maps/MainMaps/MainMap_1F_DisasterVillage.umap",
