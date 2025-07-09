@@ -40,6 +40,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_WinikClosedDoor);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Sign);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_RockChar);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_EasterEgg);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama_InBossBattle);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Pachamama_Temple);
@@ -76,6 +77,7 @@ namespace RXGameplayTags {
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap3);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap4);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_Submap5);
+	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Nawiniq_3Floor);
 
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss);
 	UE_DECLARE_GAMEPLAY_TAG_EXTERN(DialogueData_NPC_Boss_Dead);

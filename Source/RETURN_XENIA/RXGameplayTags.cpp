@@ -39,6 +39,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_WinikClosedDoor, "Dialogue.NPCType.WinikClosedDoor");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Sign, "Dialogue.NPCType.Sign");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_RockChar, "Dialogue.NPCType.RockChar");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_EasterEgg, "Dialogue.NPCType.EasterEgg");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama, "Dialogue.NPCType.Pachamama");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Pachamama_Temple, "Dialogue.NPCType.Pachamama.Temple");
@@ -76,6 +77,7 @@ namespace RXGameplayTags
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap3, "Dialogue.NPCType.Nawiniq.Submap3");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap4, "Dialogue.NPCType.Nawiniq.Submap4");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_Submap5, "Dialogue.NPCType.Nawiniq.Submap5");
+	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Nawiniq_3Floor, "Dialogue.NPCType.Nawiniq.3Floor");
 
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss, "Dialogue.NPCType.Boss");
 	UE_DEFINE_GAMEPLAY_TAG(DialogueData_NPC_Boss_Dead, "Dialogue.NPCType.Boss.Dead");
