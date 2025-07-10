@@ -39,9 +39,12 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void StartCrouching();
 	void StopCrouching();
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsWaterThreading = false;
+
 	void StartSprinting();
 	void StopSprinting();
-	uint8 bIsSprinting : 1; // 필요하면 변수로 스프린팅상태 추적
+	bool bIsSprinting = false; // 필요하면 변수로 스프린팅상태 추적
 
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
@@ -62,6 +65,10 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
+
+	// 플레이어 사망 관련 함수 및 변수
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
+	TObjectPtr<class UAnimMontage> WaterThreadMontage;
 
 	// 보스맵에서 플레이어 사망시 플레이할 몽타주
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
