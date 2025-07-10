@@ -31,7 +31,6 @@ public: // 카메라섹션
 	UPROPERTY()
 	TObjectPtr<class ARXPlayerController> PlayerController;
 
-
 public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void Move(const struct FInputActionValue& Value);
 	void Look(const struct FInputActionValue& Value);
