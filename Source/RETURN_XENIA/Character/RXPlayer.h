@@ -39,9 +39,6 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void StartCrouching();
 	void StopCrouching();
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	bool bIsWaterThreading = false;
-
 	void StartSprinting();
 	void StopSprinting();
 	bool bIsSprinting = false; // 필요하면 변수로 스프린팅상태 추적
