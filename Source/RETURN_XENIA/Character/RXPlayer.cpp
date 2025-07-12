@@ -345,7 +345,7 @@ void ARXPlayer::CustomJump()
 		//if (bIsWaterThreading) return;
 		if (UAnimInstance* AnimInstance = GetMesh()->GetAnimInstance())
 		{
-			AnimInstance->Montage_Play(WaterThreadMontage,1.5f);
+			//AnimInstance->Montage_Play(WaterThreadMontage,1.5f);
 		}
 		AddMovementInput(FVector::UpVector, 1.0f);
 		return;
