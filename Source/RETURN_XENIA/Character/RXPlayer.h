@@ -41,7 +41,8 @@ public: // 인풋(PlayerMovement) 콜백 함수 섹션
 	void StartSprinting();
 	void StopSprinting();
 	bool bIsSprinting = false; // 필요하면 변수로 스프린팅상태 추적
-
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	bool bIsThreadingWater = false; 
 
 	// 퍼즐 이벤트 관련 함수
 	void PuzzelMove(const FInputActionValue& Value);
