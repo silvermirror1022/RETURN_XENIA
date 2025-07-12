@@ -64,10 +64,6 @@ protected: // 플레이어 사망 관련 함수 및 변수
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontage;
 
-	// 플레이어 사망 관련 함수 및 변수
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
-	TObjectPtr<class UAnimMontage> WaterThreadMontage;
-
 	// 보스맵에서 플레이어 사망시 플레이할 몽타주
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Anim", Meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UAnimMontage> DeadMontageInBossMap;
