@@ -60,13 +60,13 @@ void ARXLevelTeleportActor::TeleportToOtherLevel_Implementation()
         GameInstance->SetDestinationTag(DestinationTag);
         GameInstance->CurrentLevelName = NextLevelName;
     }
-    // **Data Asset을 사용한 맵 로드**
+    // Data Asset을 사용한 맵 로드
     LoadLevelUsingMapData();
 }
 
 void ARXLevelTeleportActor::LoadLevelUsingMapData()
 {
-    // **Map Data를 가져오기**
+    // Map Data를 가져오기
     const URXMapData* MapData = URXAssetManager::GetAssetByName<URXMapData>("MapData");
 
     if (!MapData)
@@ -75,7 +75,7 @@ void ARXLevelTeleportActor::LoadLevelUsingMapData()
         return;
     }
 
-    // **NextLevelName에 해당하는 맵 경로를 찾기**
+    // NextLevelName에 해당하는 맵 경로를 찾기
     const FRXMapDataInfo* MapDataEntry = MapData->FindMapDataByName(NextLevelName);
 
     if (!MapDataEntry)
@@ -92,7 +92,7 @@ void ARXLevelTeleportActor::LoadLevelUsingMapData()
         return;
     }
 
-    // **비동기 로드 시작**
+    // 비동기 로드 시작
     UE_LOG(LogTemp, Log, TEXT("Starting async load for level: %s"), *MapPath.ToString());
 
     URXAssetManager::GetStreamableManager().RequestAsyncLoad(
