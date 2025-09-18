@@ -10,6 +10,7 @@
 #include "Camera/CameraActor.h"
 #include "Components/MeshComponent.h"
 #include "EngineUtils.h" //	for (TActorIterator<ACameraActor> It(GetWorld()); It; ++It) 를 위해 필요
+#include "GameFramework/CharacterMovementComponent.h"
 
 URXPuzzelEventManageComponent::URXPuzzelEventManageComponent()
 {
@@ -55,6 +56,11 @@ void URXPuzzelEventManageComponent::StartPuzzelMode_Implementation()
 
 	// 카메라 전환
 	SwitchToCamera(PuzzelModeCamera, 0.0f);
+
+	if (Player && Player->GetCharacterMovement())
+	{
+		Player->GetCharacterMovement()->MaxWalkSpeed = 350.0f;
+	}
 }
 
 void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
@@ -66,6 +72,11 @@ void URXPuzzelEventManageComponent::EndPuzzelMode_Implementation()
 	{
 		// 퍼즐모드시 플레이어 그림자 활성화
 		MeshComponent->SetCastShadow(true);
+	}
+
+	if (Player && Player->GetCharacterMovement())
+	{
+		Player->GetCharacterMovement()->MaxWalkSpeed = 350.0f;
 	}
 
 	// 원래 플레이어 카메라로 복귀

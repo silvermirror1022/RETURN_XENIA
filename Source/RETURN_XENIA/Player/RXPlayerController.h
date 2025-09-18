@@ -85,7 +85,7 @@ public:
 	void SetDialogueState(uint8 bInDialogue) { bIsInDialogue = bInDialogue; }
 	uint8 bIsInDialogue : 1; // 대화중인지 체크 변수
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite); // 위젯스택
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "WidgetStack"); // 위젯스택
 	TArray<TObjectPtr<UUserWidget>> UIWidgetStack;
 
 };
